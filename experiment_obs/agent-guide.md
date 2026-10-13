@@ -107,8 +107,10 @@ As of 2026-10-14, this server project is registered at `/sfs/stage2`, notebook
 `/sfs/stage2/experiment_obs`, remote `auric007/stage2`, branch main. Read the
 shared `/sfs/research-notebook/logging-policy.md` and root research instructions.
 Notebook Git metadata is `/sfs/markdown-sync/git/stage2`, separate from code Git.
-Keep original research journals, experiment eNNNN IDs and week conventions; the
-Sunday hierarchy here is a portable summary/evidence notebook, not a relocation
-of research runs. Record actual code revision separately from notebook revision.
+Since 2026-10-14 (user decision D-20261014-01, `knowledge/decisions_ai.md`) this notebook is the ONLY stage2
+tracking location: Sunday weeks and EXP-YYYY-MM-DD-NN IDs apply to all stage2 work; the old `/sfs/stage2/journal`,
+`registry` and `experiments` were migrated here and removed (pre-migration IDs e0001-e0007 survive as cross-references).
+Code, weights and large outputs stay outside in `/sfs/stage2/artifacts/<EXP-ID>/`, `models/`, `data/`.
+Record actual code revision separately from notebook revision.
 Only experiment_obs is synchronized, with a 30-second wait after each cycle.
 Check controller status for observed success; never infer execution from a note.
