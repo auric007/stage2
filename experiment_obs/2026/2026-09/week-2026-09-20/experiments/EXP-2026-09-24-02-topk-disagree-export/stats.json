@@ -1,0 +1,157 @@
+{
+ "total": 879,
+ "by_gt_class": {
+  "radar": 61,
+  "missile": 102,
+  "vehicle": 137,
+  "smallvehicle": 95,
+  "logistic": 104,
+  "camo": 137,
+  "tank": 209,
+  "arty": 34
+ },
+ "rank2_by_class": {
+  "radar": 40,
+  "missile": 72,
+  "vehicle": 119,
+  "smallvehicle": 60,
+  "logistic": 82,
+  "camo": 59,
+  "tank": 128,
+  "arty": 18
+ },
+ "pair": [
+  [
+   "tank->vehicle",
+   150
+  ],
+  [
+   "logistic->vehicle",
+   93
+  ],
+  [
+   "smallvehicle->vehicle",
+   86
+  ],
+  [
+   "missile->vehicle",
+   82
+  ],
+  [
+   "camo->tank",
+   77
+  ],
+  [
+   "camo->vehicle",
+   51
+  ],
+  [
+   "vehicle->smallvehicle",
+   48
+  ],
+  [
+   "tank->camo",
+   43
+  ],
+  [
+   "radar->vehicle",
+   38
+  ],
+  [
+   "vehicle->logistic",
+   34
+  ],
+  [
+   "arty->tank",
+   25
+  ],
+  [
+   "vehicle->tank",
+   23
+  ],
+  [
+   "vehicle->missile",
+   17
+  ],
+  [
+   "radar->camo",
+   17
+  ],
+  [
+   "tank->arty",
+   16
+  ],
+  [
+   "missile->camo",
+   10
+  ],
+  [
+   "smallvehicle->logistic",
+   9
+  ],
+  [
+   "camo->logistic",
+   7
+  ],
+  [
+   "radar->missile",
+   6
+  ],
+  [
+   "missile->radar",
+   6
+  ],
+  [
+   "vehicle->arty",
+   6
+  ],
+  [
+   "vehicle->camo",
+   5
+  ],
+  [
+   "arty->vehicle",
+   5
+  ],
+  [
+   "vehicle->radar",
+   4
+  ],
+  [
+   "logistic->smallvehicle",
+   4
+  ],
+  [
+   "logistic->tank",
+   4
+  ],
+  [
+   "logistic->camo",
+   3
+  ],
+  [
+   "arty->missile",
+   3
+  ],
+  [
+   "missile->logistic",
+   3
+  ],
+  [
+   "camo->arty",
+   1
+  ],
+  [
+   "camo->missile",
+   1
+  ],
+  [
+   "missile->arty",
+   1
+  ],
+  [
+   "arty->camo",
+   1
+  ]
+ ]
+}

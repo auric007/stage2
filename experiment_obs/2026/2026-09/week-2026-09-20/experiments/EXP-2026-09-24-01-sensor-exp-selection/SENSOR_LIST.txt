@@ -1,0 +1,40 @@
+SENSOR COMPARISON — candidate platforms for re-collecting the 40 selected areas
+(same area, same date if possible, otherwise within ±7 days; record the actual date gap)
+
+Our current data: 94% Maxar WorldView-2 (WV02). Test set: 70/80 WV02, 7 Pléiades, 3 GeoEye-1.
+Rule: re-collect each image from a sensor OTHER than its current one (column current_sensor
+in SELECTED_40.tsv; candidate_alt_sensors lists what was in orbit on that date).
+
+ #  Sensor / platform            Operator            GSD (m)    In orbit (approx)   Note
+ 1  WorldView-3                  Maxar               0.31       2014-08 ->          closest sibling of WV02 - PRIORITY
+ 2  WorldView Legion (LG01-06)   Maxar               0.29       2024-05 ->          many revisits/day -> easy same-date
+ 3  GeoEye-1                     Maxar               0.41       2008-09 ->
+ 4  WorldView-4                  Maxar               0.31       2016-11 -> 2019-01  archive only
+ 5  WorldView-1                  Maxar               0.46       2007-09 ->          PANCHROMATIC only (tests colour dependence)
+ 6  Pléiades 1A / 1B             Airbus              0.50       2011-12 ->          PRIORITY (already in test set)
+ 7  Pléiades Neo 3 / 4           Airbus              0.30       2021-04 ->          PRIORITY
+ 8  SkySat                       Planet              0.50       2013-11 ->          frequent revisit
+ 9  Pelican                      Planet              0.30-0.50  2025 ->             new constellation
+10  KOMPSAT-3A                   KARI / SIIS         0.55       2015-03 ->
+11  KOMPSAT-3                    KARI / SIIS         0.70       2012-05 ->
+12  SuperView-1 (GaoJing-1)      Siwei               0.50       2016-12 ->
+13  SuperView Neo-1              Siwei               0.30       2022-07 ->
+14  Jilin-1 GF03 / GF04          CGSTL               0.50-0.75  2019-06 ->          large constellation, good date coverage
+15  Cartosat-3                   ISRO / NRSC         0.28       2019-11 ->
+16  EROS-C3                      ImageSat            0.30       2023 ->
+17  EROS-B                       ImageSat            0.70       2006-04 ->
+18  BlackSky Gen-2 / Gen-3       BlackSky            1.0 / 0.35 2019-08 ->          many revisits/day
+19  TripleSat (DMC-3)            21AT                0.80       2015-07 ->
+20  Satellogic NewSat            Satellogic          0.70       2020 ->
+21  Albedo Clarity-1             Albedo              0.10       2025 ->             very-high-res upper bound
+22  SPOT 6 / 7                   Airbus              1.5        2012-09 ->          lower bound: where detection breaks
+--- SAR (separate track; NOT directly comparable with an optical-trained model) ---
+23  ICEYE                        ICEYE               0.25-1.0
+24  Capella                      Capella Space       0.25-0.5
+25  Umbra                        Umbra               0.25-0.5
+
+Delivery per image: full multispectral + panchromatic (or pansharpened) product, metadata with
+sensor, GSD, acquisition time, off-nadir angle, cloud cover. Launch/end dates are approximate;
+confirm archive availability in the UP42 / vendor catalogue.
+Preferred: ONE main replacement sensor for all 40 (clean A-vs-B), e.g. Pléiades Neo or WorldView-3;
+if not available per date, fall back down the priority list and record which sensor was used.
