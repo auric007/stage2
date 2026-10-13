@@ -18,7 +18,7 @@ As of 2026-10-13, Asia/Kolkata.
 Evidence: [setup daily record](2026/2026-10/week-2026-10-11/daily/2026-10-13.md).
 See [weekly state](2026/2026-10/week-2026-10-11/state.md) and [connection handoff](mac-handoff.md).
 
-## Research position — 2026-10-14 01:45 IST (Claude; supersedes "no research results recorded" above)
+## Research position — 2026-10-14 ~01:34 IST (Claude; supersedes "no research results recorded" above)
 
 - **Best model:** m0001 = sep_w1 ensemble (YOLOv8m-OBB + YOLO11l-OBB, TTA), weights `/sfs/stage2/models/BEST`
   ([EXP-2026-09-01-01](2026/2026-08/week-2026-08-30/experiments/EXP-2026-09-01-01-final-ensemble-train/record.md)).
