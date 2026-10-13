@@ -3,13 +3,14 @@
 As of 2026-10-13, Asia/Kolkata.
 
 - Notebook hierarchy created in the existing stage2 folder.
-- Research goal, code location, baseline, datasets and active runs: not yet established.
+- Local research context is documented in `/sfs/stage2/AGENTS.md` and `STATE.md`.
+  This transport setup did not validate model claims or inspect active research runs.
 - No research experiments were run or results produced by notebook setup.
 - Local repository configured for https://github.com/auric007/stage2, branch main,
-  on 2026-10-14. Initial upload needs remote verification.
+  on 2026-10-14. Server import and a guarded notebook push/pull were verified.
 - Server notebook imported at `/sfs/stage2/experiment_obs` on 2026-10-14; separate
   notebook Git metadata protects the research tree. A 30-second sync cycle is
-  configured; live activation verification is recorded in today's setup entry.
+  configured and running; a fresh live cycle succeeded at about 01:20 IST.
 - Research source directory is `/sfs/stage2`; its root AGENTS.md and STATE.md
   describe the local research. Existing model claims were not re-evaluated here.
 - Next proposed action: define the stage2 research objective and first weekly task.
