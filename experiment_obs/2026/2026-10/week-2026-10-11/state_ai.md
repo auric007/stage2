@@ -22,3 +22,9 @@ As of 2026-10-14T01:50:54+05:30: 30 helper tests passed; recursive rules/templat
 - Stage2 tracking moved into this notebook (decision D-20261014-01): all past work is now 7 EXP records (Sept 1 – Oct 12);
   code and large outputs in `/sfs/stage2/artifacts/<EXP-ID>/`.
 - Active: [EXP-2026-10-12-01](experiments/EXP-2026-10-12-01-attr-pattern-merge/record_ai.md) — P03 missile row locked; radar decisions pending.
+
+## Update — 2026-10-14 02:13 IST (Claude)
+
+- Overnight GPU queue running (V100): baseline → missile relabel B, C, D (10-epoch fine-tunes of m0001 y8m) → control. Records:
+  EXP-2026-10-14-01 … -05 in [experiments/](experiments/README_ai.md); progress in [daily AI log](daily/2026-10-14_ai.md).
+- Pending researcher decisions: radar rule row (EWS / stowed / helicopters).

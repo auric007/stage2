@@ -38,3 +38,28 @@ External (kept outside the notebook): `/sfs/stage2/artifacts/EXP-2026-10-12-01-a
 ## Conclusions and next steps
 
 Next: user decisions on radar (EWS, stowed Closed/Nil, helicopters); then remaining classes. Open visual checks: 8 P_Camo-loaded missiles called vehicle, 31 MLRS via Is_Empty=Nil, 40 missile boxes on trucks.
+
+## TODO 3 — instance lists (2026-10-14, Claude; m0001 deploy, P03 missile rule, first label, IoU 0.3)
+
+Researcher TODOs from [daily 2026-10-13](../../daily/2026-10-13.md). Script: `/sfs/stage2/artifacts/EXP-2026-10-12-01-attr-pattern-merge/todo3_instance_lists.py`.
+
+**(a) Missile row, every instance:** [missile_outcomes_ai.tsv](missile_outcomes_ai.tsv) — 319 rows (ID, fine label, Functionality, Is_Empty, P_Camo, Position, Quality, SOC, outcome, predicted class, score, IoU).
+Outcomes: correct 214 · missed (no box) 46 · wrong → vehicle 33 · → radar 11 · → arty 6 · → logistic 6 · → camo 3.
+
+Not-correct missiles by fine label:
+
+| fine          |   missed (no box) |   wrong→arty |   wrong→camo |   wrong→logistic |   wrong→radar |   wrong→vehicle |   total |
+|:--------------|------------------:|-------------:|-------------:|-----------------:|--------------:|----------------:|--------:|
+| HQ9           |                 8 |            0 |            1 |                5 |             1 |              12 |      27 |
+| MissileSystem |                 9 |            0 |            1 |                0 |             5 |               2 |      17 |
+| HQ12          |                10 |            0 |            0 |                0 |             0 |               3 |      13 |
+| HQ16          |                 2 |            1 |            1 |                0 |             2 |               4 |      10 |
+| HQ6           |                 8 |            0 |            0 |                0 |             0 |               1 |       9 |
+| S300          |                 2 |            0 |            0 |                1 |             1 |               4 |       8 |
+| MLRS          |                 0 |            4 |            0 |                0 |             2 |               2 |       8 |
+| HQ22          |                 0 |            1 |            0 |                0 |             0 |               4 |       5 |
+| HQ2           |                 3 |            0 |            0 |                0 |             0 |               0 |       3 |
+| HQ6A          |                 3 |            0 |            0 |                0 |             0 |               0 |       3 |
+| HQ7           |                 1 |            0 |            0 |                0 |             0 |               1 |       2 |
+
+**(b) Radar boxes on camo nets (8) — for analyst verification:** [radar_on_camo_ai.tsv](radar_on_camo_ai.tsv). All 8 sit on objects whose fine label is just `Camo` (no hardware recorded): `1Ec01`, `0Rc04`, `1Oc0L`, `10c02`, `1Rc03`, `1Rc02`, `15c02`, `28c01`. Question for analysts: what is under each net (radar or not)?

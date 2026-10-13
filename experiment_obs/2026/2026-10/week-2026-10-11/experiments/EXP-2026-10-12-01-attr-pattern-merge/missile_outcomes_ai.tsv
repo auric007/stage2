@@ -1,0 +1,320 @@
+scene	id	det_class	fine	functionality	is_empty	P_Camo	position	quality	SOC	outcome	pred	score	iou	accepted
+141d9464_DS_PHR1B_202211150352306_FR1_PX_E103N26_0301_00320	18m01	missile	HQ22	Launcher	No	No	Closed	01	Pixels	correct	missile	0.979	0.92	missile
+141d9464_DS_PHR1B_202211150352306_FR1_PX_E103N26_0301_00320	18m02	missile	HQ22	Launcher	No	No	Closed	01	Pixels	wrong→arty	arty	0.865	0.75	missile
+141d9464_DS_PHR1B_202211150352306_FR1_PX_E103N26_0301_00320	18m03	missile	HQ22	Launcher	No	No	Closed	01	Pixels	correct	missile	0.998	0.93	missile
+141d9464_DS_PHR1B_202211150352306_FR1_PX_E103N26_0301_00320	18c01	camo	HQ22	Launcher	No	No	Closed	01	Site	wrong→vehicle	vehicle	0.922	0.36	camo|missile
+17MAR14024753-S3DS-200013366519_01_P001	01m01	missile	HQ12	Transporter	Yes	No	Nil	01	Site	correct	missile	1.0	0.69	missile|vehicle
+17MAR14024753-S3DS-200013366519_01_P001	01m02	missile	HQ12	Transporter	Yes	No	Nil	02	Site	correct	missile	0.975	0.51	missile|vehicle
+17MAR14024753-S3DS-200013366519_01_P001	01m03	missile	HQ12	Transporter	No	No	Nil	01	Pixels	correct	missile	1.0	0.72	missile
+17MAR14024753-S3DS-200013366519_01_P001	01m04	missile	HQ12	Transporter	No	No	Nil	01	Pixels	correct	missile	1.0	0.87	missile
+17MAR14024753-S3DS-200013366519_01_P001	01m05	missile	HQ12	Launcher	Yes	No	Closed	02	Pixels	correct	missile	1.0	0.81	missile|vehicle
+17MAR14024753-S3DS-200013366519_01_P001	01m06	missile	HQ12	Launcher	Yes	No	Closed	02	Pixels	correct	missile	1.0	0.78	missile|vehicle
+17MAR14024753-S3DS-200013366519_01_P001	01m07	missile	HQ12	Launcher	Yes	No	Closed	02	Pixels	correct	missile	1.0	0.9	missile|vehicle
+17MAR14024753-S3DS-200013366519_01_P001	01m08	missile	HQ12	Launcher	Yes	No	Closed	02	Pixels	correct	missile	1.0	0.75	missile|vehicle
+17MAR14024753-S3DS-200013366519_01_P001	01m09	missile	HQ12	Launcher	No	No	Open	02	Pixels	correct	missile	1.0	0.91	missile
+17MAR14024753-S3DS-200013366519_01_P001	01m0A	missile	HQ12	Launcher	No	No	Open	02	Pixels	correct	missile	1.0	0.77	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m01	missile	S300	Transloader	Nil	No	Nil	01	Site	correct	vehicle	0.997	0.77	missile|vehicle
+18DEC18025232-S3DS-200012319985_01_P001	02m02	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.85	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m03	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.84	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m04	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.85	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m05	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.83	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m06	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.86	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m07	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.91	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m08	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.88	missile
+18DEC18025232-S3DS-200012319985_01_P001	02m09	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.88	missile
+18FEB10031943-S3DS-200013190621_01_P001	03m01	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.45	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m02	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.68	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m03	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.999	0.82	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m04	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.997	0.79	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m05	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.86	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m06	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.86	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m07	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.82	camo|missile
+18FEB10031943-S3DS-200013190621_01_P001	03m08	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.77	camo|missile
+18JUN15032547-S3DS-200012895053_01_P001	04m01	missile	MissileSystem	Nil	Nil	No	Open	02	Pixels	wrong→radar	radar	1.0	0.7	missile|vehicle
+18JUN15032547-S3DS-200012895053_01_P001	04m02	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.75	missile
+18JUN15032547-S3DS-200012895053_01_P001	04m03	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.89	missile
+18JUN15032547-S3DS-200012895053_01_P001	04m04	missile	S300	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.83	camo|missile
+18JUN15032547-S3DS-200012895053_01_P001	04m05	missile	S300	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.84	camo|missile
+18JUN15032547-S3DS-200012895053_01_P001	04m06	missile	S300	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.71	camo|missile
+18JUN15032547-S3DS-200012895053_01_P001	04m07	missile	S300	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.72	camo|missile
+18JUN15032547-S3DS-200012895053_01_P001	04m08	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.82	missile
+18JUN15032547-S3DS-200012895053_01_P001	04m09	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.45	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m01	missile	HQ22	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.96	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m02	missile	HQ22	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.82	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m03	missile	HQ22	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.9	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m04	missile	HQ22	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.76	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m05	missile	HQ22	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.85	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m06	missile	HQ22	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.81	missile
+18MAR10025634-S3DS-200012866237_01_P001	05m07	missile	HQ22	Launcher	No	No	Closed	02	Pixels	wrong→vehicle	vehicle	0.993	0.86	missile
+19DEC21034631-S3DS-200013276864_01_P001	07m01	missile	MissileSystem	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.71	camo|missile
+19DEC21034631-S3DS-200013276864_01_P001	07m02	missile	MissileSystem	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.915	0.58	camo|missile
+19DEC21034631-S3DS-200013276864_01_P001	07m03	missile	MissileSystem	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.86	camo|missile
+19MAR13040701-S3DS-200013268578_01_P001	08m01	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	1.0	0.79	camo|missile
+19MAR13040701-S3DS-200013268578_01_P001	08m02	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	1.0	0.77	camo|missile
+19MAR13040701-S3DS-200013268578_01_P001	08m03	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	1.0	0.73	camo|missile
+19MAR13040701-S3DS-200013268578_01_P001	08m04	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	0.997	0.73	camo|missile
+19MAR13040701-S3DS-200013268578_01_P001	08m05	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	1.0	0.75	camo|missile
+19MAR13040701-S3DS-200013268578_01_P001	08m06	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	1.0	0.77	camo|missile
+19MAY10032935-S3DS-200012352046_01_P001	09m01	missile	S300	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.79	camo|missile
+19MAY10032935-S3DS-200012352046_01_P001	09m02	missile	S300	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.991	0.58	camo|missile
+19MAY10032935-S3DS-200012352046_01_P001	09m03	missile	S300	Launcher	Nil	Yes	Closed	01	Pixels	wrong→radar	radar	0.878	0.79	camo|missile|vehicle
+19MAY10032935-S3DS-200012352046_01_P001	09m04	missile	S300	Launcher	Nil	Yes	Closed	01	Pixels	missed (no box)				camo|missile|vehicle
+19SEP16023725-S3DS-200011883557_01_P001	0Am01	missile	MissileSystem	Launcher	No	No	Open	01	Pixels	correct	missile	0.987	0.75	missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am02	missile	MissileSystem	Launcher	No	No	Open	01	Pixels	correct	missile	0.999	0.67	missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am03	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.999	0.81	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am04	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.989	0.59	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am05	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.999	0.62	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am06	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.97	0.65	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am07	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.936	0.71	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am08	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.979	0.75	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am09	missile	S300	Launcher	No	No	Closed	01	Pixels	correct	missile	0.999	0.84	missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0A	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.874	0.8	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0B	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.937	0.85	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0C	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.977	0.56	camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0D	missile	S300	Launcher	No	Yes	Closed	01	Pixels	missed (no box)				camo|missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0E	missile	S300	Launcher	No	No	Closed	01	Pixels	wrong→vehicle	vehicle	0.963	0.83	missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0F	missile	S300	Dump	No	No	Nil	01	Pixels	wrong→logistic	logistic	0.932	0.78	missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0G	missile	S300	Transporter	No	No	Nil	01	Pixels	wrong→vehicle	vehicle	0.888	0.8	missile
+19SEP16023725-S3DS-200011883557_01_P001	0Am0H	missile	S300	Transporter	No	No	Nil	01	Pixels	wrong→vehicle	vehicle	0.944	0.42	missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm01	missile	HQ16	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.99	0.75	camo|missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm02	missile	HQ16	Transloader	No	Yes	Closed	02	Pixels	wrong→vehicle	vehicle	1.0	0.73	camo|missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm03	missile	HQ16	Transloader	No	Yes	Closed	02	Pixels	wrong→vehicle	vehicle	1.0	0.65	camo|missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm04	missile	HQ16	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.996	0.79	camo|missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm05	missile	HQ16	Launcher	No	Yes	Closed	01	Pixels	wrong→radar	radar	0.854	0.42	camo|missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm06	missile	HQ16	Launcher	No	Yes	Closed	01	Pixels	wrong→radar	radar	0.466	0.56	camo|missile
+20NOV12043850-S3DS-200012372799_01_P001	0Dm07	missile	HQ16	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.867	0.68	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em01	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.71	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em02	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.74	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em03	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.87	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em04	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.87	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em05	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.88	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em06	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.81	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em07	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.69	camo|missile
+20SEP06040719-S3DS-200013171123_01_P001	0Em08	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.74	camo|missile
+20SEP27061806-S3DS-200011619312_01_P001	1Bm01	missile	MissileSystem	Nil	Nil	No	Nil	02	Third_Party	missed (no box)				missile|vehicle
+20SEP27061806-S3DS-200011619312_01_P001	1Bm02	missile	MissileSystem	Nil	Nil	No	Nil	02	Third_Party	missed (no box)				missile|vehicle
+20SEP27061806-S3DS-200011619312_01_P001	1Bm03	missile	MissileSystem	Nil	Nil	No	Nil	02	Third_Party	missed (no box)				missile|vehicle
+20SEP27061806-S3DS-200011619312_01_P001	1Bm04	missile	MissileSystem	Nil	Nil	No	Nil	02	Third_Party	missed (no box)				missile|vehicle
+21APR22040621-S3DS-200013119950_01_P001	0Hm01	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	correct	camo	0.615	0.69	camo|missile
+21APR22040621-S3DS-200013119950_01_P001	0Hm02	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	correct	camo	0.842	0.63	camo|missile
+21APR22040621-S3DS-200013119950_01_P001	0Hm03	missile	HQ12	Nil	No	Yes	Open	01	Pixels	correct	camo	0.788	0.72	camo|missile
+21APR22040621-S3DS-200013119950_01_P001	0Hm04	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	correct	camo	0.613	0.61	camo|missile
+21APR22040621-S3DS-200013119950_01_P001	0Hm05	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	missed (no box)				camo|missile
+21APR22040621-S3DS-200013119950_01_P001	0Hm06	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	wrong→vehicle	vehicle	0.902	0.55	camo|missile
+21APR30054629-S3DS-200013142967_01_P001	0Im01	missile	HQ22	Launcher	No	Yes	Closed	02	Site	correct	camo	1.0	0.33	camo|missile
+21APR30054629-S3DS-200013142967_01_P001	0Im02	missile	MissileSystem	Launcher	No	No	Closed	02	Pixels	wrong→camo	camo	1.0	0.46	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im03	missile	MissileSystem	Launcher	Nil	No	Closed	02	Site	correct	vehicle	0.934	0.49	missile|vehicle
+21APR30054629-S3DS-200013142967_01_P001	0Im04	missile	MissileSystem	Launcher	No	Yes	Open	02	Pixels	wrong→radar	radar	0.41	0.46	camo|missile
+21APR30054629-S3DS-200013142967_01_P001	0Im05	missile	MissileSystem	Launcher	No	Yes	Open	02	Site	wrong→radar	radar	0.996	0.37	camo|missile
+21APR30054629-S3DS-200013142967_01_P001	0Im06	missile	MissileSystem	Launcher	No	Yes	Open	02	Pixels	wrong→radar	radar	0.742	0.44	camo|missile
+21APR30054629-S3DS-200013142967_01_P001	0Im07	missile	HQ22	Transporter	No	No	Nil	02	Pixels	wrong→vehicle	vehicle	1.0	0.76	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im08	missile	HQ22	Transporter	No	No	Nil	02	Pixels	correct	missile	0.937	0.76	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im09	missile	HQ22	Transporter	No	No	Nil	02	Pixels	correct	missile	0.974	0.88	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im0A	missile	HQ22	Transporter	No	No	Nil	02	Pixels	correct	missile	0.982	0.81	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im0B	missile	HQ22	Launcher	No	No	Closed	02	Pixels	correct	missile	0.959	0.86	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im0C	missile	HQ22	Launcher	No	No	Closed	02	Pixels	correct	missile	0.991	0.82	missile
+21APR30054629-S3DS-200013142967_01_P001	0Im0D	missile	HQ22	Launcher	No	No	Closed	02	Pixels	correct	missile	0.982	0.93	missile
+21DEC12052014-S3DS-200013142966_01_P001	0Jm01	missile	HQ9	Launcher	No	No	Open	01	Pixels	missed (no box)				missile
+21DEC12052014-S3DS-200013142966_01_P001	0Jm02	missile	HQ9	Launcher	Yes	Yes	Open	01	Pixels	missed (no box)				camo|missile|vehicle
+21DEC12052014-S3DS-200013142966_01_P001	0Jm03	missile	HQ9	Launcher	No	No	Open	01	Pixels	correct	missile	0.871	0.62	missile
+21DEC12052014-S3DS-200013142966_01_P001	0Jm04	missile	HQ9	Launcher	Yes	No	Open	01	Pixels	wrong→camo	camo	0.701	0.64	missile|vehicle
+21DEC24025812-S3DS-200013190737_01_P001	0Km01	missile	HQ22	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.991	0.79	camo|missile
+21DEC24025812-S3DS-200013190737_01_P001	0Km02	missile	HQ22	Launcher	No	Yes	Closed	01	Pixels	wrong→vehicle	vehicle	0.883	0.88	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm01	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.77	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm02	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.72	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm03	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.81	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm04	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.9	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm05	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.971	0.79	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm06	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.999	0.87	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm07	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.998	0.7	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm08	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.84	camo|missile
+21DEC27025021-S3DS-200012895048_01_P001	0Lm09	missile	HQ9	Launcher	Yes	No	Closed	01	Pixels	correct	missile	0.979	0.82	missile|vehicle
+21FEB15025428-S3DS-200011883412_01_P001	0Mm01	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.971	0.88	camo|missile
+21FEB15025428-S3DS-200011883412_01_P001	0Mm02	missile	S300	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.953	0.82	camo|missile
+21FEB15025428-S3DS-200011883412_01_P001	0Mm03	missile	S300	Launcher	No	Yes	Open	01	Pixels	correct	missile	0.898	0.76	camo|missile
+21FEB15025428-S3DS-200011883412_01_P001	0Mm04	missile	S300	Launcher	No	Yes	Closed	01	Pixels	wrong→vehicle	vehicle	0.846	0.42	camo|missile
+22APR14045506-S3DS-200013368123_01_P001	1Em01	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	0.902	0.64	camo|missile
+22APR14045506-S3DS-200013368123_01_P001	1Em02	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	0.974	0.7	camo|missile
+22APR14045506-S3DS-200013368123_01_P001	1Em03	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	0.99	0.58	camo|missile
+22APR14045506-S3DS-200013368123_01_P001	1Em04	missile	MissileSystem	Launcher	No	Yes	Closed	02	Third_Party	correct	missile	0.98	0.62	camo|missile
+22APR22032026-S3DS-200011913030_01_P001	0Pm01	missile	MissileSystem	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.987	0.66	camo|missile
+22APR22032026-S3DS-200011913030_01_P001	0Pm02	missile	MissileSystem	Launcher	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.82	camo|missile
+22FEB02032525-S3DS-200012866245_01_P001	0Rm01	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	camo	0.997	0.52	camo|missile
+22FEB02032525-S3DS-200012866245_01_P001	0Rm02	missile	HQ9	Launcher	No	Yes	Closed	01	Site	correct	camo	1.0	0.47	camo|missile
+22FEB02032525-S3DS-200012866245_01_P001	0Rm03	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.993	0.76	camo|missile
+22FEB02032525-S3DS-200012866245_01_P001	0Rm04	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	0.933	0.81	camo|missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm01	missile	HQ16	Launcher	No	No	Closed	02	Pixels	correct	missile	1.0	0.84	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm02	missile	HQ16	Launcher	No	No	Closed	02	Pixels	correct	missile	0.996	0.8	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm03	missile	HQ16	Launcher	No	No	Closed	01	Third_Party	wrong→vehicle	vehicle	0.98	0.78	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm04	missile	HQ16	Launcher	No	No	Open	02	Third_Party	wrong→arty	arty	0.987	0.78	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm05	missile	HQ16	Launcher	No	No	Closed	01	Pixels	correct	missile	0.986	0.77	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm06	missile	HQ16	Launcher	No	No	Closed	01	Third_Party	wrong→vehicle	vehicle	0.968	0.87	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm07	missile	HQ16	Launcher	No	No	Closed	01	Pixels	correct	missile	0.994	0.83	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm08	missile	HQ16	Launcher	No	No	Closed	01	Pixels	correct	missile	0.987	0.77	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm09	missile	HQ16	Launcher	No	No	Closed	02	Third_Party	correct	missile	0.996	0.76	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm0A	missile	HQ16	Launcher	No	No	Closed	02	Pixels	correct	missile	0.962	0.72	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm0B	missile	HQ16	Launcher	No	No	Closed	02	Pixels	correct	missile	1.0	0.86	missile
+22MAR02025946-S3DS-200012804518_01_P001	1Fm0C	missile	HQ16	Launcher	No	No	Closed	02	Third_Party	correct	missile	1.0	0.86	missile
+22MAR07045331-S3DS-200013349499_01_P001	1Gm01	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.86	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm02	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.71	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm03	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.89	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm04	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.81	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm05	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.8	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm06	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.69	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm07	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.89	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm08	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.83	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm09	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.81	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0A	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.83	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0B	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	correct	vehicle	0.998	0.72	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0C	missile	MLRS	Launcher	No	No	Closed	01	Pixels	wrong→vehicle	vehicle	1.0	0.92	missile
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0D	missile	MLRS	Nil	No	No	Closed	01	Pixels	wrong→vehicle	vehicle	1.0	0.76	missile
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0E	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	wrong→arty	arty	1.0	0.73	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0F	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	wrong→arty	arty	1.0	0.88	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0G	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	wrong→arty	arty	0.999	0.8	missile|vehicle
+22MAR07045331-S3DS-200013349499_01_P001	1Gm0H	missile	MLRS	Nil	Nil	No	Nil	01	Pixels	wrong→arty	arty	0.967	0.79	missile|vehicle
+22MAR10030257-S3DS-200013366513_01_P001	0Tm01	missile	HQ12	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.91	camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm02	missile	HQ12	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.82	camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm03	missile	HQ12	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.87	camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm04	missile	HQ12	Launcher	No	Yes	Closed	01	Third_Party	missed (no box)				camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm05	missile	HQ12	Launcher	No	Yes	Closed	01	Third_Party	missed (no box)				camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm06	missile	HQ12	Launcher	No	Yes	Closed	01	Third_Party	missed (no box)				camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm07	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	missed (no box)				camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm08	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	missed (no box)				camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm09	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.83	camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm0A	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.87	camo|missile
+22MAR10030257-S3DS-200013366513_01_P001	0Tm0B	missile	HQ12	Nil	No	Yes	Closed	01	Pixels	correct	missile	1.0	0.72	camo|missile
+22MAY03031134-S3DS-200012804521_01_P001	0Vm01	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.89	camo|missile
+22MAY03031134-S3DS-200012804521_01_P001	0Vm02	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.86	camo|missile
+22MAY03031134-S3DS-200012804521_01_P001	0Vm03	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.84	camo|missile
+22MAY03031134-S3DS-200012804521_01_P001	0Vm04	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.82	camo|missile
+22MAY03031134-S3DS-200012804521_01_P001	0Vm05	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.88	camo|missile
+22MAY03031134-S3DS-200012804521_01_P001	0Vm06	missile	HQ9	Launcher	No	Yes	Closed	01	Third_Party	correct	missile	1.0	0.92	camo|missile
+22MAY17025959-S3DS-200012307431_01_P001	0Wm01	missile	MLRS	Launcher	Nil	No	Open	01	Pixels	wrong→radar	radar	0.998	0.67	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm02	missile	MLRS	Launcher	Nil	No	Open	02	Pixels	wrong→radar	radar	0.995	0.91	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm03	missile	MLRS	Launcher	Nil	No	Closed	01	Pixels	correct	vehicle	1.0	0.78	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm04	missile	MLRS	Launcher	Nil	No	Open	01	Pixels	correct	vehicle	1.0	0.43	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm05	missile	MLRS	Launcher	Nil	No	Open	01	Pixels	correct	vehicle	1.0	0.46	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm06	missile	MLRS	Launcher	Nil	No	Closed	01	Pixels	correct	missile	0.991	0.88	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm07	missile	MLRS	Launcher	Nil	No	Closed	01	Pixels	correct	vehicle	1.0	0.81	missile|vehicle
+22MAY17025959-S3DS-200012307431_01_P001	0Wm08	missile	MLRS	Launcher	Nil	No	Closed	01	Pixels	correct	vehicle	1.0	0.84	missile|vehicle
+234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	1Im01	missile	HQ9	Launcher	No	Yes	Open	02	Pixels	correct	camo	0.724	0.58	camo|missile
+234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	1Im02	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.78	camo|missile
+234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	1Im03	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.72	camo|missile
+234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	1Im04	missile	HQ9	Launcher	No	Yes	Closed	02	Site	correct	missile	1.0	0.71	camo|missile
+234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	1Im05	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.68	camo|missile
+234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	1Im06	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	1.0	0.79	camo|missile
+23JAN10050425-S3DS-200012483667_01_P001	1Kc02	camo	HQ9	Launcher	No	No	Nil	01	Site	wrong→vehicle	vehicle	0.883	0.67	camo|missile
+23JAN10050425-S3DS-200012483667_01_P001	1Kc08	camo	HQ9	Launcher	No	No	Nil	01	Site	correct	camo	0.463	0.57	camo|missile
+23JAN10050425-S3DS-200012483667_01_P001	1Kc09	camo	HQ9	Launcher	No	No	Nil	01	Site	missed (no box)				camo|missile
+23JAN10050425-S3DS-200012483667_01_P001	1Kc0A	camo	HQ9	Launcher	No	No	Nil	01	Site	correct	camo	0.986	0.3	camo|missile
+23JAN10050425-S3DS-200012483667_01_P001	1Kc0B	camo	HQ9	Support	Nil	No	Nil	01	Pixels	missed (no box)				camo|missile
+23JAN10050425-S3DS-200012483667_01_P001	1Kc0C	camo	HQ9	Support	Nil	No	Nil	01	Pixels	wrong→vehicle	vehicle	0.939	0.66	camo|missile
+23JAN27044234-P3DS-200012483678_01_P001	1Mc02	camo	MissileSystem	Nil	No	No	Closed	01	Pixels	missed (no box)				camo|missile
+23JAN27044234-P3DS-200012483678_01_P001	1Mc03	camo	MissileSystem	Nil	No	No	Closed	01	Pixels	missed (no box)				camo|missile
+23JAN27044234-P3DS-200012483678_01_P001	1Mc04	camo	MissileSystem	Nil	No	No	Closed	01	Pixels	missed (no box)				camo|missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om01	missile	HQ9	Transporter	Yes	No	Nil	01	Pixels	correct	vehicle	0.985	0.76	missile|vehicle
+23JUN21043007-S3DS-200013457515_01_P001	1Om02	missile	HQ9	Transloader	Nil	No	Nil	01	Pixels	correct	vehicle	0.999	0.77	missile|vehicle
+23JUN21043007-S3DS-200013457515_01_P001	1Om03	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	0.961	0.9	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om04	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	0.983	0.84	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om05	missile	HQ9	Launcher	No	No	Closed	01	Pixels	wrong→vehicle	vehicle	1.0	0.83	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om06	missile	HQ9	Transporter	No	No	Nil	01	Pixels	wrong→vehicle	vehicle	1.0	0.81	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om07	missile	HQ9	Transloader	Yes	No	Closed	01	Pixels	correct	vehicle	0.964	0.84	missile|vehicle
+23JUN21043007-S3DS-200013457515_01_P001	1Om08	missile	HQ9	Transloader	Yes	No	Closed	01	Pixels	correct	vehicle	0.993	0.83	missile|vehicle
+23JUN21043007-S3DS-200013457515_01_P001	1Om09	missile	HQ9	Launcher	No	No	Closed	01	Pixels	wrong→vehicle	vehicle	0.952	0.78	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om0A	missile	HQ9	Launcher	No	No	Closed	01	Pixels	wrong→vehicle	vehicle	1.0	0.74	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om0B	missile	HQ9	Launcher	Yes	No	Closed	01	Pixels	correct	vehicle	0.998	0.8	missile|vehicle
+23JUN21043007-S3DS-200013457515_01_P001	1Om0C	missile	HQ9	Transporter	No	No	Nil	02	Pixels	wrong→vehicle	vehicle	0.994	0.7	missile
+23JUN21043007-S3DS-200013457515_01_P001	1Om0D	missile	HQ9	Transloader	Nil	No	Nil	01	Pixels	correct	vehicle	0.998	0.75	missile|vehicle
+23MAY19062258-S3DS-200011619589_01_P001	1Pm01	missile	MissileSystem	Launcher	No	No	Open	02	Third_Party	wrong→radar	radar	0.971	0.73	missile
+23MAY19062258-S3DS-200011619589_01_P001	1Pm02	missile	MissileSystem	Launcher	No	No	Open	02	Third_Party	missed (no box)				missile
+23MAY19062258-S3DS-200011619589_01_P001	1Pm03	missile	MissileSystem	Launcher	No	No	Open	02	Third_Party	missed (no box)				missile
+23MAY19062258-S3DS-200011619589_01_P001	1Pm04	missile	MissileSystem	Launcher	No	No	Open	02	Third_Party	wrong→vehicle	vehicle	0.994	0.8	missile
+23MAY19062258-S3DS-200011619589_01_P001	1Pm05	missile	MissileSystem	Launcher	No	No	Open	02	Third_Party	wrong→vehicle	vehicle	0.899	0.64	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym01	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	0.998	0.8	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym02	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	0.974	0.79	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym03	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.8	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym04	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.79	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym05	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.9	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym06	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	1.0	0.82	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym07	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	0.997	0.62	missile
+23OCT24030928-S3DS-200012400977_01_P001	0Ym08	missile	HQ9	Launcher	No	No	Closed	01	Pixels	correct	missile	0.999	0.65	missile
+24APR01051503-S3DS-200012320748_01_P001	0Zm01	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.78	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm02	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.76	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm03	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.83	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm04	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.82	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm05	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.81	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm06	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.82	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm07	missile	MLRS	Transloader	Nil	No	Nil	01	Pixels	correct	missile	0.944	0.86	missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm08	missile	MLRS	Transloader	Nil	No	Nil	01	Pixels	correct	vehicle	1.0	0.77	missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm09	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	0.999	0.77	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0A	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	0.998	0.89	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0B	missile	MLRS	Transloader	Nil	No	Nil	01	Pixels	correct	missile	0.999	0.77	missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0C	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	0.998	0.79	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0D	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	missile	0.883	0.78	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0E	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	missile	0.945	0.83	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0F	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	0.995	0.86	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0G	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	missile	0.983	0.93	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0H	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	missile	0.983	0.82	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0I	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	missile	0.947	0.84	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0J	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	missile	0.977	0.77	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0K	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	0.971	0.79	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0L	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.69	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0M	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.72	camo|missile|vehicle
+24APR01051503-S3DS-200012320748_01_P001	0Zm0N	missile	MLRS	Launcher	Nil	Yes	Closed	01	Pixels	correct	vehicle	1.0	0.87	camo|missile|vehicle
+24DEC21030136-S3DS-200011913026_01_P001	10m01	missile	HQ9	Launcher	No	Yes	Closed	01	Pixels	correct	missile	0.997	0.91	camo|missile
+24DEC21030136-S3DS-200011913026_01_P001	10m02	missile	HQ9	Launcher	No	No	Open	02	Pixels	correct	missile	0.931	0.82	missile
+24DEC21030136-S3DS-200011913026_01_P001	10m03	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.99	0.72	camo|missile
+24DEC21030136-S3DS-200011913026_01_P001	10m04	missile	HQ9	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+24DEC21030136-S3DS-200011913026_01_P001	10m05	missile	HQ6	Nil	No	Yes	Open	02	Site	correct	missile	0.944	0.64	camo|missile
+24DEC21030136-S3DS-200011913026_01_P001	10m06	missile	HQ9	Launcher	No	No	Open	02	Site	wrong→radar	radar	0.88	0.66	missile
+24JAN04022720-S3DS-200013055297_01_P001	11m01	missile	HQ9	Launcher	No	Yes	Closed	02	Site	missed (no box)				camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m02	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	wrong→logistic	logistic	0.908	0.52	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m03	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	missed (no box)				camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m04	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	wrong→logistic	logistic	0.923	0.53	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m05	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	wrong→logistic	logistic	0.952	0.58	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m06	missile	HQ9	Launcher	No	Yes	Closed	02	Site	wrong→vehicle	vehicle	0.976	0.82	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m07	missile	HQ9	Launcher	No	Yes	Closed	02	Site	wrong→vehicle	vehicle	0.93	0.8	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m08	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	wrong→logistic	logistic	0.936	0.57	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m09	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	wrong→logistic	logistic	0.933	0.55	camo|missile
+24JAN04022720-S3DS-200013055297_01_P001	11m0A	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	wrong→vehicle	vehicle	0.997	0.65	camo|missile
+24MAR27045953-S3DS-200013168941_01_P001	13m01	missile	MissileSystem	Launcher	Yes	No	Open	01	Pixels	correct	vehicle	0.999	0.66	missile|vehicle
+24MAR27045953-S3DS-200013168941_01_P001	13m02	missile	MissileSystem	Launcher	Nil	No	Closed	01	Third_Party	correct	vehicle	0.999	0.74	missile|vehicle
+24MAR27045953-S3DS-200013168941_01_P001	13m03	missile	MissileSystem	Nil	Nil	No	Closed	01	Pixels	correct	vehicle	0.986	0.58	missile|vehicle
+25JAN17031613-S3DS-200013126944_01_P001	1Xm01	missile	HQ2	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm02	missile	HQ7	Launcher	No	No	Open	02	Pixels	wrong→vehicle	vehicle	0.972	0.79	missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm03	missile	HQ12	Launcher	No	No	Open	02	Pixels	wrong→vehicle	vehicle	0.979	0.71	missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm04	missile	HQ9	Launcher	No	No	Open	01	Pixels	wrong→vehicle	vehicle	1.0	0.37	missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm05	missile	HQ12	Launcher	No	No	Open	02	Pixels	wrong→vehicle	vehicle	0.995	0.49	missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm06	missile	HQ7	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm07	missile	HQ2	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm08	missile	HQ2	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+25JAN17031613-S3DS-200013126944_01_P001	1Xm09	missile	HQ9	Launcher	No	No	Open	01	Pixels	wrong→vehicle	vehicle	0.965	0.34	missile
+25JAN29042609-S3DS-200013367959_01_P001	1Yc01	camo	MissileSystem	Launcher	No	No	Closed	01	Pixels	correct	camo	1.0	0.76	camo|missile
+25JAN29042609-S3DS-200013367959_01_P001	1Yc03	camo	MissileSystem	Launcher	No	No	Closed	01	Pixels	correct	camo	1.0	0.82	camo|missile
+26APR20052910-S3DS-200013171094_01_P001	16m01	missile	HQ16	Launcher	No	No	Open	01	Pixels	missed (no box)				missile
+26APR20052910-S3DS-200013171094_01_P001	16m02	missile	HQ16	Launcher	No	No	Open	01	Pixels	wrong→camo	camo	0.77	0.41	missile
+26APR20052910-S3DS-200013171094_01_P001	16m03	missile	HQ16	Launcher	No	No	Open	01	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m01	missile	HQ6	Launcher	No	No	Open	02	Site	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m02	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m03	missile	HQ6A	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m04	missile	HQ6A	Launcher	No	No	Open	02	Site	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m05	missile	HQ6A	Launcher	No	No	Open	02	Site	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m06	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m07	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m08	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m09	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m0A	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m0B	missile	HQ6	Launcher	No	No	Open	02	Pixels	wrong→vehicle	vehicle	0.906	0.86	missile
+26d44cd2_DS_PHR1A_202012190354245_FR1_PX_E104N31_0306_00349	24m0C	missile	HQ6	Launcher	No	No	Open	02	Pixels	missed (no box)				missile
+7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	25m01	missile	HQ9	Launcher	No	No	Closed	02	Site	correct	missile	0.931	0.67	missile
+7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	25m02	missile	HQ9	Launcher	No	No	Closed	02	Pixels	correct	missile	0.963	0.76	missile
+7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	25m03	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.943	0.9	camo|missile
+7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	25m04	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.903	0.58	camo|missile
+7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	25m05	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.988	0.87	camo|missile
+7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	25m06	missile	HQ9	Launcher	No	Yes	Closed	02	Pixels	correct	missile	0.997	0.73	camo|missile
+a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	27m01	missile	HQ12	Launcher	Yes	No	Closed	02	Third_Party	missed (no box)				missile|vehicle
+a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	27m02	missile	HQ12	Nil	Yes	No	Closed	02	Third_Party	missed (no box)				missile|vehicle
+a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	27m03	missile	HQ12	Launcher	Yes	No	Closed	02	Third_Party	missed (no box)				missile|vehicle
+a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	27m04	missile	HQ12	Nil	Yes	No	Closed	02	Pixels	missed (no box)				missile|vehicle
+d8bba13b_DS_PHR1B_202109100317223_FR1_PX_E113N31_0818_00355	28m01	missile	HQ9	Launcher	No	No	Closed	02	Site	missed (no box)				missile
+d8bba13b_DS_PHR1B_202109100317223_FR1_PX_E113N31_0818_00355	28m02	missile	HQ9	Launcher	No	No	Closed	02	Site	correct	missile	0.922	0.79	missile

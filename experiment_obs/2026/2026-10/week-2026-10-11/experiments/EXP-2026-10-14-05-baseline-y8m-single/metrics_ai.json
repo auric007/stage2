@@ -1,0 +1,167 @@
+{
+ "exp": "EXP-2026-10-14-05-baseline-y8m-single",
+ "time": "2026-10-14T02:22:34+05:30",
+ "deploy_P01": {
+  "arty": {
+   "gt": 179,
+   "tp": 47,
+   "fp": 44,
+   "P": 0.516,
+   "R": 0.263
+  },
+  "camo": {
+   "gt": 750,
+   "tp": 276,
+   "fp": 305,
+   "P": 0.475,
+   "R": 0.368
+  },
+  "logistic": {
+   "gt": 241,
+   "tp": 26,
+   "fp": 48,
+   "P": 0.35100000000000003,
+   "R": 0.10800000000000001
+  },
+  "missile": {
+   "gt": 162,
+   "tp": 57,
+   "fp": 99,
+   "P": 0.365,
+   "R": 0.35200000000000004
+  },
+  "radar": {
+   "gt": 176,
+   "tp": 73,
+   "fp": 77,
+   "P": 0.48700000000000004,
+   "R": 0.415
+  },
+  "smallvehicle": {
+   "gt": 822,
+   "tp": 463,
+   "fp": 542,
+   "P": 0.461,
+   "R": 0.563
+  },
+  "tank": {
+   "gt": 729,
+   "tp": 468,
+   "fp": 189,
+   "P": 0.7120000000000001,
+   "R": 0.642
+  },
+  "vehicle": {
+   "gt": 2041,
+   "tp": 1348,
+   "fp": 499,
+   "P": 0.73,
+   "R": 0.66
+  },
+  "MICRO": {
+   "gt": 5100,
+   "tp": 2758,
+   "fp": 1803,
+   "P": 0.605,
+   "R": 0.541
+  }
+ },
+ "recall_first_P01_iou03": {
+  "arty": {
+   "gt": 179,
+   "bestF1": 0.349,
+   "R_at_P30": 0.358
+  },
+  "camo": {
+   "gt": 750,
+   "bestF1": 0.446,
+   "R_at_P30": 0.561
+  },
+  "logistic": {
+   "gt": 241,
+   "bestF1": 0.233,
+   "R_at_P30": 0.124
+  },
+  "missile": {
+   "gt": 162,
+   "bestF1": 0.355,
+   "R_at_P30": 0.383
+  },
+  "radar": {
+   "gt": 176,
+   "bestF1": 0.456,
+   "R_at_P30": 0.489
+  },
+  "smallvehicle": {
+   "gt": 822,
+   "bestF1": 0.538,
+   "R_at_P30": 0.633
+  },
+  "tank": {
+   "gt": 729,
+   "bestF1": 0.671,
+   "R_at_P30": 0.859
+  },
+  "vehicle": {
+   "gt": 2041,
+   "bestF1": 0.692,
+   "R_at_P30": 0.903
+  }
+ },
+ "recall_first_micro": 0.7161541176470589,
+ "recall_first_macro": 0.5387500000000001,
+ "rules": {
+  "missile_P03": {
+   "gt": 319,
+   "correct": 173,
+   "recall": 0.542319749216301,
+   "via": {
+    "missile": 122,
+    "vehicle": 37,
+    "camo": 14
+   },
+   "boxes": 156,
+   "box_correct": 122,
+   "precision": 0.782051282051282,
+   "f1": 0.6404879677115893
+  },
+  "missile_VAR": {
+   "gt": 319,
+   "correct": 136,
+   "recall": 0.4263322884012539,
+   "via": {
+    "missile": 122,
+    "camo": 14
+   },
+   "boxes": 156,
+   "box_correct": 122,
+   "precision": 0.782051282051282,
+   "f1": 0.5518342368709882
+  },
+  "radar_base": {
+   "gt": 208,
+   "correct": 96,
+   "recall": 0.46153846153846156,
+   "via": {
+    "radar": 84,
+    "camo": 12
+   },
+   "boxes": 150,
+   "box_correct": 84,
+   "precision": 0.56,
+   "f1": 0.5060240963855422
+  },
+  "relabelled": {
+   "gt": 0,
+   "correct": 0,
+   "recall": 0.0,
+   "via": {},
+   "boxes": null,
+   "box_correct": null,
+   "precision": null,
+   "f1": null
+  },
+  "variant": "A",
+  "deploy": "/sfs/stage2/artifacts/EXP-2026-10-14-05-baseline-y8m-single/preds/deploy/labels"
+ }
+}
