@@ -43,8 +43,11 @@ Saving a plan does not authorize experiment execution.
 - GitHub repository: https://github.com/auric007/stage2
 - Branch: main. Company identity: Ashutosh Bharti <ashutosh.bharti@auricai.in>.
 - Local Git repository configured on 2026-10-14 for this notebook only.
-- Initial publication is being prepared; verify remote main before claiming a push succeeded.
-- Server path, automatic sync job and persistent agent instruction loader remain unconfigured.
+- Initial notebook publication was fetched successfully to the server on 2026-10-14.
+- Server notebook: `/sfs/stage2/experiment_obs`. Pinned company sync is configured
+  for a 30-second wait after each cycle; inspect status before claiming it is running.
+- Notebook Git metadata: `/sfs/markdown-sync/git/stage2`, separate from research
+  code. Root instructions point to this guide; original research conventions remain.
 
 The notebook boundary is experiment_obs/ recursively, including ordinary nested
 files and dotfiles. Research code stays outside the Obsidian checkout. See the

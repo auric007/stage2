@@ -55,5 +55,12 @@ An agent must explicitly load this guide through its supported instruction entry
 point or a startup request. This file alone does not activate logging or a watcher.
 Do not launch experiments merely because plans or notes exist. Execute only work
 already authorized by the user. Never invent results or silently overwrite conflicts.
-Stage2 synchronization and server routing remain unconfigured; do not reuse another
-project's credentials, remote or server path without confirmation of the mapping.
+As of 2026-10-14, this server project is registered at `/sfs/stage2`, notebook
+`/sfs/stage2/experiment_obs`, remote `auric007/stage2`, branch main. Read the
+shared `/sfs/research-notebook/logging-policy.md` and root research instructions.
+Notebook Git metadata is `/sfs/markdown-sync/git/stage2`, separate from code Git.
+Keep original research journals, experiment eNNNN IDs and week conventions; the
+Sunday hierarchy here is a portable summary/evidence notebook, not a relocation
+of research runs. Record actual code revision separately from notebook revision.
+Only experiment_obs is synchronized, with a 30-second wait after each cycle.
+Check controller status for observed success; never infer execution from a note.

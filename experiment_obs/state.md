@@ -7,7 +7,11 @@ As of 2026-10-13, Asia/Kolkata.
 - No research experiments were run or results produced by notebook setup.
 - Local repository configured for https://github.com/auric007/stage2, branch main,
   on 2026-10-14. Initial upload needs remote verification.
-- Server notebook path, sync schedule and automatic agent loader remain unconfigured.
+- Server notebook imported at `/sfs/stage2/experiment_obs` on 2026-10-14; separate
+  notebook Git metadata protects the research tree. A 30-second sync cycle is
+  configured; live activation verification is recorded in today's setup entry.
+- Research source directory is `/sfs/stage2`; its root AGENTS.md and STATE.md
+  describe the local research. Existing model claims were not re-evaluated here.
 - Next proposed action: define the stage2 research objective and first weekly task.
 
 Evidence: [setup daily record](2026/2026-10/week-2026-10-11/daily/2026-10-13.md).

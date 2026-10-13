@@ -10,9 +10,12 @@
 - Company identity: Ashutosh Bharti <ashutosh.bharti@auricai.in>
 - Authentication: repository/account-scoped macOS Keychain; no token stored in files.
 
-Initial publication is being prepared. A local commit is not proof of a successful
-push; verify origin/main before pulling on the server. No automatic schedule was
-installed, and no server path has been supplied.
+Server import confirmed on 2026-10-14. The original notebook files were fetched
+from remote main into `/sfs/stage2/experiment_obs`, preserving local research.
+The server's separate notebook Git metadata is `/sfs/markdown-sync/git/stage2`.
+The company sync controller is configured for a 30-second wait after each cycle;
+inspect `bash /sfs/stage2/scripts/experiment_sync_service.sh status` for live results.
+This task does not install/change the Mac's own schedule or power on the GPU instance.
 
 ## Server use
 
