@@ -9,3 +9,9 @@ Attach relevant ordinary evidence files and subfolders beside record.md.
 
 Maintain an index here with ID, question, status and record link. Planning-only
 work belongs in plans or daily records, not a fictitious experiment directory.
+
+## Index
+
+| ID | stage2 ref | question | status |
+|---|---|---|---|
+| [EXP-2026-10-12-01-attr-pattern-merge](EXP-2026-10-12-01-attr-pattern-merge/record.md) | e0007 | Attribute patterns → user rule set P03 | running |
