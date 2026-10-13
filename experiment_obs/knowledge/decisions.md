@@ -17,7 +17,7 @@ research baseline, automatic synchronization or experiment execution was made.
 For future decisions, record alternatives, supporting evidence, tradeoffs and
 conditions for revisiting the choice. Retain superseded decisions.
 
-## D-20261002-01 - Deployment operating point for m0001
+## D-20260902-01 - Deployment operating point for m0001
 
 Date: 2026-09-02 (recorded 2026-10-14). Decision: per-class deploy thresholds radar 0.39, missile 0.85, arty 0.86, logistic 0.77,
 camo 0.42, smallvehicle 0.24, tank 0.54, vehicle 0.84; cross-class dedup IoU 0.4 with priority radar, missile, arty, logistic.
