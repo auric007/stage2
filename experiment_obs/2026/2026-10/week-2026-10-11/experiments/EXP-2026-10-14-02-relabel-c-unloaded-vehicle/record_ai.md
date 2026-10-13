@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-02-relabel-c-unloaded-vehicle`
 
-Status: queued (overnight GPU queue `code/queue/queue.txt`; results section is appended automatically when it finishes).
+Status: completed (2026-10-14 03:36–04:48 IST).
 
 ## Request summary and authorization
 
@@ -33,11 +33,13 @@ Logs: `/sfs/stage2/artifacts/EXP-2026-10-14-02-relabel-c-unloaded-vehicle/logs/`
 
 ## Results and failures
 
-Pending (appended automatically below).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Interim (control pending): vs the single baseline, missile P03 R **54.2 → 64.9**, P **78.2 → 72.5** (F1 64.0 → 68.5, +4.5); overall deploy
+F1 57.1 → 55.0 (−2.1); 22 of 43 relabelled launchers predicted `vehicle`. B and C move almost identically although they relabel different
+objects — supported inference: much of the missile gain may come from the extra fine-tuning itself; EXP-2026-10-14-04 (control) will decide.
 
 ## Results — published 2026-10-14 04:48 IST (automatic, `code/queue/publish_result.py`)
 
