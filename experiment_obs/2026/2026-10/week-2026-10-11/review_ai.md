@@ -54,3 +54,53 @@ Reading: the rule adds ~7 points of radar recall to every model (13–17 of 74 s
 TODO: I want to where this table saved and also write down brieflty what this all rows exactly mean and where are their detailed results. like, i don't know whats mean of control, ensemle, mapping. so write down the briefly about each point down here
 
 ## Brief about all experiment
+
+*Written by Claude, 2026-10-14 16:30 IST, in answer to the TODO above.*
+
+### Where the tables are saved
+- **Both tables live in this file** (`experiment_obs/2026/2026-10/week-2026-10-11/review_ai.md`): the overnight results table
+  ("Overnight GPU queue" section) and the radar stowed-rule table (section just above this one).
+- **Every row's full numbers** are inside that experiment's folder `experiments/EXP-…/`: `record_ai.md` (what was done, the results table at
+  the bottom, conclusion), `metrics_ai.json` (all numbers), `P01_detailed_ai.md` (per-class precision/recall at every confidence),
+  `deploy_STATS_ai.md` (per-class TP/FP at the deployment thresholds).
+- **Weights, predictions and logs** (not synced, too big): `/sfs/stage2/artifacts/EXP-…/` → `runs/ft/weights/best.pt`, `preds/c05/` (every box ≥ 0.05),
+  `preds/deploy/` (final deployed boxes), `logs/`, `reports/`.
+
+### What the words mean
+| term | meaning |
+|---|---|
+| **m0001** | Our current best model (Sept 2026): two detectors — **YOLOv8m** ("y8m", medium) and **YOLO11l** ("y11l", large) — whose predictions are combined. Weights in `/sfs/stage2/models/BEST/`. |
+| **single model** | Only one detector (the y8m) is used. Faster, a bit weaker. |
+| **ensemble** | Two detectors run on the same image and their scores are fused (if either is confident, the fused score is high). m0001 is an ensemble. "ensemble: D y8m + y11l" = the y8m trained on variant D + the original y11l. |
+| **TTA** | Test-time augmentation: each image is also looked at at a larger size (1536 px) and mirrored; the four views are fused. Used in every row. |
+| **fine-tune (+10 ep)** | Start from m0001's trained y8m and train it **10 more epochs** (passes over the training data) with a small learning rate. All overnight trainings are fine-tunes, because the V100 is too slow to train from zero overnight. |
+| **baseline** | m0001's y8m **without any new training**, evaluated exactly like the others. The starting point. |
+| **control** | Same 10-epoch fine-tune as B/C/D but with the **original, unchanged labels**. It tells us how much changes just because we trained 10 more epochs. A variant only "wins" if it beats the control. |
+| **B / C / D (variants)** | Your missile relabel TODOs. **B**: missiles whose Functionality is not Launcher (Transporter, Transloader, Dump, empty) are trained as `vehicle`. **C**: Launchers with Is_Empty = Yes or Nil (canisters not loaded) are trained as `vehicle`. **D**: both B and C. Loaded launchers stay `missile`. |
+| **R (variant)** | Radar relabel (queued): radars with Position Closed or Nil (stowed / not recorded) are trained as `vehicle`. |
+| **mapping** | Which "true" class we compare against. **Simple mapping** (`labels_simple`): anything marked P_Camo = Yes counts as `camo`. **Detailed** (`labels_detailed`): the real hardware class (a camouflaged HQ9 is a missile). Your rule set uses the detailed labels. |
+| **P01 / P02 / P03** | Scoring rule books in `/sfs/stage2/eval/protocols/`. **P01** = official: simple mapping, one exact class must match. **P02** = camo credit. **P03** = your rule set (missile row locked: camo OK for P_Camo/camo-parent missiles, `vehicle` OK when canisters not loaded). |
+| **deploy F1** | All 8 classes together, P01, using the fixed deployment confidence thresholds of m0001 (radar 0.39, missile 0.85, …). F1 = balance of precision and recall. |
+| **recall-first micro / macro** | For each class: the highest recall reachable while precision stays ≥ 30 %. **Micro** = averaged over all objects (big classes dominate); **macro** = average of the 8 class values (each class counts equally). |
+| **missile (your rules) R / P (F1)** | The missile row under P03: R = share of the 319 test missiles found with an acceptable label; P = share of `missile` boxes that sit on a real missile. |
+| **radar F1 / stowed rule OFF / ON** | Radar row (208 test radars). OFF = only `radar` (or `camo` if camouflaged) is correct. ON = for stowed radars (Position Closed/Nil, 74 of them) `vehicle` is also accepted. |
+| **relabelled → vehicle** | Of the test objects a variant relabels, how many the model now calls `vehicle` (shows whether training on the new labels took effect). |
+
+### Every row: what it is and where its details are
+| row | what it is | details |
+|---|---|---|
+| single YOLOv8m baseline | m0001's y8m, no new training | [EXP-2026-10-14-05](experiments/EXP-2026-10-14-05-baseline-y8m-single/record_ai.md) |
+| control (+10 ep, unchanged labels) | y8m fine-tuned 10 epochs on the original labels | [EXP-2026-10-14-04](experiments/EXP-2026-10-14-04-control-finetune-a-unchanged/record_ai.md) |
+| B | y8m fine-tuned, non-launcher missiles → vehicle | [EXP-2026-10-14-01](experiments/EXP-2026-10-14-01-relabel-b-nonlauncher-vehicle/record_ai.md) |
+| C | y8m fine-tuned, unloaded launchers → vehicle | [EXP-2026-10-14-02](experiments/EXP-2026-10-14-02-relabel-c-unloaded-vehicle/record_ai.md) |
+| D | y8m fine-tuned, B + C | [EXP-2026-10-14-03](experiments/EXP-2026-10-14-03-relabel-d-both-vehicle/record_ai.md) |
+| ensemble: control y8m + y11l | control y8m + original y11l | [EXP-2026-10-14-09](experiments/EXP-2026-10-14-09-ens-control-y8mft-y11l/record_ai.md) |
+| ensemble: B / C / D | that variant's y8m + original y11l | [06 B](experiments/EXP-2026-10-14-06-ens-b-y8mft-y11l/record_ai.md) · [07 C](experiments/EXP-2026-10-14-07-ens-c-y8mft-y11l/record_ai.md) · [08 D](experiments/EXP-2026-10-14-08-ens-d-y8mft-y11l/record_ai.md) |
+| m0001 (September pipeline) | the deployed model, numbers from September's evaluation run | [EXP-2026-09-01-01](../../2026-08/week-2026-08-30/experiments/EXP-2026-09-01-01-final-ensemble-train/record_ai.md); same-pipeline re-check running: [EXP-2026-10-14-10](experiments/EXP-2026-10-14-10-m0001-ens-same-pipeline/record_ai.md) |
+
+**Queued now (results will be added here):** [11 D frozen backbone](experiments/EXP-2026-10-14-11-d-frozen-backbone/record_ai.md) ·
+[12 radar R](experiments/EXP-2026-10-14-12-radar-r-stowed-vehicle/record_ai.md) · [13 y11l fine-tuned on D](experiments/EXP-2026-10-14-13-y11l-finetune-d/record_ai.md) ·
+ensembles [14](experiments/EXP-2026-10-14-14-ens-dfrozen-y11l/record_ai.md), [15](experiments/EXP-2026-10-14-15-ens-r-y8mft-y11l/record_ai.md), [16 full D](experiments/EXP-2026-10-14-16-ens-d-full-y8md-y11ld/record_ai.md).
+
+**In one line:** the variants are compared with the **control** to see the effect of the relabel; the **ensemble** rows show the deployable form;
+**m0001** is the bar to beat.
