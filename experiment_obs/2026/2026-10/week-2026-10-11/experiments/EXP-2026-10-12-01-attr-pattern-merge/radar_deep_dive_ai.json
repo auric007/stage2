@@ -1,0 +1,16 @@
+{
+ "radar_gt": 208,
+ "outcomes_off": {
+  "missed (no box)": 53,
+  "correct": 118,
+  "wrong\u2192missile": 9,
+  "wrong\u2192vehicle": 28
+ },
+ "outcomes_on": {
+  "missed (no box)": 53,
+  "correct": 133,
+  "wrong\u2192missile": 9,
+  "wrong\u2192vehicle": 13
+ },
+ "n_wrong_radar_boxes": 112
+}
