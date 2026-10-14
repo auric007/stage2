@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-07-ens-c-y8mft-y11l`
 
-Status: queued (after the control; inference only).
+Status: completed (2026-10-14, see runner log for times).
 
 ## Request summary and authorization
 
@@ -28,11 +28,11 @@ Note: the automatic results table labels the row "single model + TTA"; for this 
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+deploy F1 55.8; recall-first 73.4/52.6; missile P03 F1 66.7 (R 68.0 / P 65.5); radar F1 51.2. vs control ensemble: missile +1.6.
 
 ## Results — published 2026-10-14 07:48 IST (automatic, `code/queue/publish_result.py`)
 

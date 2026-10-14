@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-04-control-finetune-a-unchanged`
 
-Status: queued (overnight GPU queue `code/queue/queue.txt`; results section is appended automatically when it finishes).
+Status: completed (2026-10-14 05:59–07:11 IST).
 
 ## Request summary and authorization
 
@@ -33,11 +33,11 @@ Logs: `/sfs/stage2/artifacts/EXP-2026-10-14-04-control-finetune-a-unchanged/logs
 
 ## Results and failures
 
-Pending (appended automatically below).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+The extra fine-tuning alone (no relabel) moves missile P03 from R 54.2 / P 78.2 (baseline) to **R 66.1 / P 65.1** (F1 64.0 → 65.6) and costs 2.1 points of overall deploy F1 (57.1 → 55.0). So most of B/C's missile *recall* gain is the fine-tune; the relabels add **precision** on top: missile F1 vs control B +1.9, C +2.9, D +2.3 (D: P +12.1).
 
 ## Results — published 2026-10-14 07:11 IST (automatic, `code/queue/publish_result.py`)
 

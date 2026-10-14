@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-08-ens-d-y8mft-y11l`
 
-Status: queued (after the control; inference only).
+Status: completed (2026-10-14, see runner log for times).
 
 ## Request summary and authorization
 
@@ -28,11 +28,11 @@ Note: the automatic results table labels the row "single model + TTA"; for this 
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+**Best overnight deployable form.** deploy P/R 53.7 / 59.2 (F1 56.3); recall-first micro/macro **75.0 / 58.5**; missile P03 F1 **68.9** (R 68.7 / P 69.1); radar F1 52.8. vs control ensemble: missile +3.8, macro recall-first +5.7. vs m0001 (Sept pipeline numbers): recall-first +0.6/+0.5, missile F1 −0.6, deploy F1 −0.3 — pending the like-for-like check EXP-2026-10-14-10.
 
 ## Results — published 2026-10-14 08:07 IST (automatic, `code/queue/publish_result.py`)
 

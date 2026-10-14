@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-03-relabel-d-both-vehicle`
 
-Status: queued (overnight GPU queue `code/queue/queue.txt`; results section is appended automatically when it finishes).
+Status: completed (2026-10-14 04:48–05:59 IST).
 
 ## Request summary and authorization
 
@@ -33,11 +33,11 @@ Logs: `/sfs/stage2/artifacts/EXP-2026-10-14-03-relabel-d-both-vehicle/logs/` (pi
 
 ## Results and failures
 
-Pending (appended automatically below).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+vs the **control** (same fine-tune, unchanged labels): missile P03 F1 **65.6 → 67.9** (R 66.1 → 60.5, P 65.1 → **77.2**); overall deploy F1 55.0 → 55.7; radar F1 53.0 → 53.9. 57 of 103 relabelled objects predicted `vehicle`. Highest missile precision of all single-model runs. Ensemble form: EXP-2026-10-14-08 (best overnight).
 
 ## Results — published 2026-10-14 05:59 IST (automatic, `code/queue/publish_result.py`)
 

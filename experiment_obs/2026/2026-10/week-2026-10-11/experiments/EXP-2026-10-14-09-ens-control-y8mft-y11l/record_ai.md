@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-09-ens-control-y8mft-y11l`
 
-Status: queued (after the control; inference only).
+Status: completed (2026-10-14, see runner log for times).
 
 ## Request summary and authorization
 
@@ -28,11 +28,11 @@ Note: the automatic results table labels the row "single model + TTA"; for this 
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Control ensemble: deploy F1 56.0; recall-first 73.4/52.8; missile P03 F1 65.1 (R 69.0 / P 61.6); radar 52.1. Fine-tuning the y8m on unchanged labels lowers missile precision in ensemble form too.
 
 ## Results — published 2026-10-14 08:25 IST (automatic, `code/queue/publish_result.py`)
 
