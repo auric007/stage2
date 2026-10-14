@@ -77,12 +77,12 @@ Rule on: correct 133 (15 stowed radars called vehicle become correct; R 63.9 / P
 **Why the 90 misses (rule off):** detection gap (no radar evidence at any score) **52** · below threshold (raw radar 0.05–0.39) **21** ·
 radar ranked 2nd/3rd but not emitted **13** · radar ≥ 0.39 but lost the region in dedup **4**. Lowering the threshold can recover at most ~21.
 
-| family | correct / total | main failure |
-|---|--:|---|
-| named modern (HT233, Type780, H200, JY27A, FlapLid, YLC2V/4, 64N6, 96L6E, …) | 69 / 79 | — |
-| generic `RadarSystem` | 44 / 90 | 21 detection gap, 12 below threshold, 11 ranked 2nd/3rd; 15 called vehicle |
-| `EWS` (truck-mounted jammer) | 5 / 19 | 10 called vehicle (detection gap as radar) |
-| rare / older (BarLock, SpoonRest, 1L13, PRV16, YLC8B, FanSong, SquatEye, …) | 0 / 20 | all detection gap — **only 25 training examples across 13 types** (several 0) |
+| family                                                                       | correct / total | main failure                                                                  |
+| ---------------------------------------------------------------------------- | --------------: | ----------------------------------------------------------------------------- |
+| named modern (HT233, Type780, H200, JY27A, FlapLid, YLC2V/4, 64N6, 96L6E, …) |         69 / 79 | —                                                                             |
+| generic `RadarSystem`                                                        |         44 / 90 | 21 detection gap, 12 below threshold, 11 ranked 2nd/3rd; 15 called vehicle    |
+| `EWS` (truck-mounted jammer)                                                 |          5 / 19 | 10 called vehicle (detection gap as radar)                                    |
+| rare / older (BarLock, SpoonRest, 1L13, PRV16, YLC8B, FanSong, SquatEye, …)  |          0 / 20 | all detection gap — **only 25 training examples across 13 types** (several 0) |
 
 Attributes (correct / total): Position Open 87/133 · Nil 23/58 · Closed 8/17 — Quality 01 65/103 · 02 53/105 — SOC Pixels 91/156 · Site 15/24 ·
 Third_Party 12/28 — size < 12 m 25/74 vs ≥ 12 m 93/134 (small radars are the hard ones).
