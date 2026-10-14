@@ -40,3 +40,9 @@ Moved here on 2026-10-14 from `README.md` under the human/AI authorship rule (co
 - [EXP-2026-10-14-15-ens-r-y8mft-y11l](EXP-2026-10-14-15-ens-r-y8mft-y11l/record_ai.md) — started 2026-10-14, status running
 
 - [EXP-2026-10-14-16-ens-d-full-y8md-y11ld](EXP-2026-10-14-16-ens-d-full-y8md-y11ld/record_ai.md) — started 2026-10-14, status running
+
+- [EXP-2026-10-14-17-y11l-single-baseline](EXP-2026-10-14-17-y11l-single-baseline/record_ai.md) — started 2026-10-14, status running
+
+- [EXP-2026-10-14-18-y11l-control-finetune-a](EXP-2026-10-14-18-y11l-control-finetune-a/record_ai.md) — started 2026-10-14, status running
+
+- [EXP-2026-10-14-19-y11l-finetune-dr](EXP-2026-10-14-19-y11l-finetune-dr/record_ai.md) — started 2026-10-14, status running
