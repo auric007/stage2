@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-10-m0001-ens-same-pipeline`
 
-Status: queued (inference only, ~20 min).
+Status: completed (2026-10-14 15:56–16:33 IST; inference ran twice because of a mid-run script edit — see daily log).
 
 ## Request summary and authorization
 
@@ -27,11 +27,12 @@ Weights `/sfs/stage2/models/BEST/prod_y8m_best.pt,/sfs/stage2/models/BEST/prod_y
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. Failure (harmless): inference ran twice (bash re-read the edited pipeline script); results unaffected.
 
 ## Conclusions and next steps
 
-Pending.
+The current pipeline reproduces m0001's September numbers **exactly** (deploy P01 53.6 / 60.0, recall-first 74.4 / 58.0, missile P03
+67.1 / 72.1, radar 56.7 / 50.0). All overnight variant-vs-m0001 comparisons are therefore like-for-like.
 
 ## Results — published 2026-10-14 16:33 IST (automatic, `code/queue/publish_result.py`)
 
