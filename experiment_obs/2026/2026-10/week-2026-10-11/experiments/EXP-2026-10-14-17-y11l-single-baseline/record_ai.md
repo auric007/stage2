@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-17-y11l-single-baseline`
 
-Status: queued.
+Status: completed (2026-10-14 21:22–21:33 IST).
 
 ## Request summary and authorization
 
@@ -26,11 +26,11 @@ Queue line: `EXP-2026-10-14-17-y11l-single-baseline|A|/sfs/stage2/models/BEST/pr
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Original YOLO11l alone: deploy P01 61.5 / 54.5 (F1 **57.8**, best of all runs), recall-first 73.3 / 55.5, missile P03 F1 70.1 (R 60.8 / P 82.6), radar F1 55.9 off / **59.8** on — better than the m0001 ensemble on deploy F1 and radar at m0001's thresholds. Supersedes the 2026-10-14 21:20 reading that y11l-on-D is best overall (it is best only on missiles).
 
 ## Results — published 2026-10-14 21:33 IST (automatic, `code/queue/publish_result.py`)
 

@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-18-y11l-control-finetune-a`
 
-Status: queued.
+Status: completed (2026-10-14 21:33–23:18 IST; train 94 min).
 
 ## Request summary and authorization
 
@@ -26,11 +26,11 @@ Queue line: `EXP-2026-10-14-18-y11l-control-finetune-a|A|/sfs/stage2/models/BEST
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Control fine-tune of the y11l on unchanged labels: deploy F1 57.2 (−0.6 vs original), missile P03 F1 69.5, radar 50.9 / 54.4 (−5.0 / −5.4). The fine-tune itself costs radar quality. vs this control, D (EXP-13) gives missile +2.0 F1 (P +10.5) at deploy −0.5.
 
 ## Results — published 2026-10-14 23:18 IST (automatic, `code/queue/publish_result.py`)
 

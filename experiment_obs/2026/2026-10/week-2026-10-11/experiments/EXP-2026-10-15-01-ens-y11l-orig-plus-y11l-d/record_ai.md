@@ -5,39 +5,29 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d`
 
-Status: running.
+Status: queued.
 
 ## Request summary and authorization
 
-Brief intent, source, date/time in Asia/Kolkata and actual execution scope.
-A saved plan is not approval to execute it.
+Agent follow-up under the researcher's standing request to keep the GPU busy with analysis-driven experiments (2026-10-14). Chosen 2026-10-15 01:05 after EXP-2026-10-14-19.
 
 ## Question and design
 
-Hypothesis, motivation/evidence links, baseline, controls and success criterion.
+Ensemble of the **original YOLO11l** (EXP-17: best deploy F1 57.8 and radar 59.8) and **YOLO11l on D** (EXP-13: best missile F1 71.5), inference only. Can the ensemble keep the original's overall/radar strength and add D's missile precision?
+Compare with EXP-2026-10-14-17 (original y11l), -13 (y11l on D), -18 (y11l control), -10 (m0001).
 
 ## Actual setup and changes
 
-Actual code repository/commit and dirty state; notebook revision separately.
-Environment, data/model versions, configuration, seeds and changed paths.
+Pipeline `code/run_experiment.sh` (TTA, noisy-or, m0001 deploy thresholds, `score_rules.py`). Weights/init `/sfs/stage2/models/BEST/prod_y11l_best.pt,/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/runs/ft/weights/best.pt`; extra env `none`. GPU V100.
 
 ## Execution
 
-Commands actually run, working directory, run IDs and observed start/end times.
-Clearly label proposed commands as not executed.
+Queue line: `EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d|D|/sfs/stage2/models/BEST/prod_y11l_best.pt,/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/runs/ft/weights/best.pt|0||`
 
 ## Results and failures
 
-Measured results with units/denominators and comparable baseline conditions.
-Evidence links, what worked, errors, unsuccessful attempts and missing results.
-Distinguish observed causes from inferred explanations and unknown causes.
-
-## Supporting evidence
-
-Use relative links to notebook attachments. Record external artifact paths,
-sizes/hashes when available; keep large artifacts outside the notebook.
+Pending (appended automatically).
 
 ## Conclusions and next steps
 
-Evidence-backed interpretation, limitations, open questions and proposed next action.
-Link any resulting finding or decision. No invented metrics or historical results.
+Pending.

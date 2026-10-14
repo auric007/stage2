@@ -124,3 +124,17 @@ Readings: (1) the single y11l fine-tuned on D is the best model so far on deploy
 ensemble comparison; (3) radar R helps only where the radar-predicting model was trained on R.
 Queued next (21:20): [17 y11l alone](experiments/EXP-2026-10-14-17-y11l-single-baseline/record_ai.md), [18 y11l control fine-tune](experiments/EXP-2026-10-14-18-y11l-control-finetune-a/record_ai.md),
 [19 y11l on D+R](experiments/EXP-2026-10-14-19-y11l-finetune-dr/record_ai.md).
+
+## YOLO11l series — 2026-10-14 21:22 – 2026-10-15 01:04 IST (Claude)
+
+| run (single YOLO11l) | deploy F1 | missile P03 F1 (R / P) | radar off R / P (F1) | radar on F1 |
+|---|--:|--:|--:|--:|
+| [17 original](experiments/EXP-2026-10-14-17-y11l-single-baseline/record_ai.md) | **57.8** | 70.1 (60.8 / 82.6) | 53.4 / 58.7 (55.9) | **59.8** |
+| [18 control fine-tune](experiments/EXP-2026-10-14-18-y11l-control-finetune-a/record_ai.md) | 57.2 | 69.5 (62.1 / 78.8) | 50.0 / 51.9 (50.9) | 54.4 |
+| [13 D](experiments/EXP-2026-10-14-13-y11l-finetune-d/record_ai.md) | 56.7 | **71.5** (59.6 / 89.3) | 51.0 / 53.6 (52.2) | 56.3 |
+| [19 D+R](experiments/EXP-2026-10-14-19-y11l-finetune-dr/record_ai.md) | 55.7 | 66.8 (51.7 / 94.2) | 50.0 / **60.0** (54.5) | 58.8 |
+
+**Correction (supersedes the "Follow-up queue" reading 1 above):** the best all-round model so far is the **original YOLO11l alone** (EXP-17),
+not y11l-on-D; y11l-on-D is best only on the missile row. Fine-tuning (even on unchanged labels) costs overall F1 and radar; relabels add
+missile/radar precision relative to their control. Queued next: [2026-10-15-01 ensemble y11l original + y11l-D](../week-2026-10-11/experiments/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d/record_ai.md),
+[2026-10-15-02 y11l on D, 4× lower LR](../week-2026-10-11/experiments/EXP-2026-10-15-02-y11l-finetune-d-lowlr/record_ai.md).

@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-19-y11l-finetune-dr`
 
-Status: queued.
+Status: completed (2026-10-14 23:18 – 2026-10-15 01:04 IST).
 
 ## Request summary and authorization
 
@@ -26,11 +26,11 @@ Queue line: `EXP-2026-10-14-19-y11l-finetune-dr|DR|/sfs/stage2/models/BEST/prod_
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+YOLO11l on D+R: deploy F1 55.7; missile P03 R 51.7 / P **94.2** (F1 66.8 — recall fell); radar R 50.0 / **P 60.0** (F1 54.5 off / 58.8 on). vs control: radar P +8.1, F1 +3.6 off / +4.4 on; missile F1 −2.7. Adding R helps radar precision but this combination loses missile recall; 19 of 74 stowed radars predicted vehicle, 54 of 103 relabelled missiles.
 
 ## Results — published 2026-10-15 01:04 IST (automatic, `code/queue/publish_result.py`)
 
