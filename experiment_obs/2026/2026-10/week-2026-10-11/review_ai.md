@@ -104,3 +104,23 @@ ensembles [14](experiments/EXP-2026-10-14-14-ens-dfrozen-y11l/record_ai.md), [15
 
 **In one line:** the variants are compared with the **control** to see the effect of the relabel; the **ensemble** rows show the deployable form;
 **m0001** is the bar to beat.
+
+## Follow-up queue — 2026-10-14 15:56–21:19 IST (Claude)
+
+All 7 jobs completed, no failures. m0001 deploy thresholds, IoU 0.3, F1 in %; radar "off/on" = stowed rule.
+
+| run | form | deploy F1 | missile P03 F1 (R / P) | radar F1 off / on |
+|---|---|--:|--:|--:|
+| [10 m0001](experiments/EXP-2026-10-14-10-m0001-ens-same-pipeline/record_ai.md) | ensemble, same pipeline (reproduces Sept exactly) | **56.6** | 69.5 (67.1 / 72.1) | 53.2 / 56.1 |
+| [11 D frozen backbone](experiments/EXP-2026-10-14-11-d-frozen-backbone/record_ai.md) | single y8m | 56.3 | 65.2 (52.4 / 86.3) | 48.3 / 52.2 |
+| [12 radar R](experiments/EXP-2026-10-14-12-radar-r-stowed-vehicle/record_ai.md) | single y8m | 55.7 | 66.3 (66.1 / 66.5) | 53.6 / **58.7** |
+| [13 y11l on D](experiments/EXP-2026-10-14-13-y11l-finetune-d/record_ai.md) | **single y11l** | **56.7** | **71.5 (59.6 / 89.3)** | 52.2 / 56.3 |
+| [14 ens frozen-D](experiments/EXP-2026-10-14-14-ens-dfrozen-y11l/record_ai.md) | y8m-Dfrozen + y11l | 55.3 | 70.1 (64.6 / 76.6) | 49.6 / 51.9 |
+| [15 ens R](experiments/EXP-2026-10-14-15-ens-r-y8mft-y11l/record_ai.md) | y8m-R + y11l | 55.7 | 65.9 (69.3 / 62.8) | 51.5 / 54.5 |
+| [16 ens full D](experiments/EXP-2026-10-14-16-ens-d-full-y8md-y11ld/record_ai.md) | y8m-D + y11l-D | 55.7 | 70.0 (68.0 / 72.1) | 50.9 / 53.6 |
+
+Readings: (1) the single y11l fine-tuned on D is the best model so far on deploy F1 and missile F1 (beats the m0001 ensemble);
+(2) ensembles lose radar precision at m0001's thresholds (noisy-or inflates radar scores) — thresholds must be re-tuned per model for a fair
+ensemble comparison; (3) radar R helps only where the radar-predicting model was trained on R.
+Queued next (21:20): [17 y11l alone](experiments/EXP-2026-10-14-17-y11l-single-baseline/record_ai.md), [18 y11l control fine-tune](experiments/EXP-2026-10-14-18-y11l-control-finetune-a/record_ai.md),
+[19 y11l on D+R](experiments/EXP-2026-10-14-19-y11l-finetune-dr/record_ai.md).

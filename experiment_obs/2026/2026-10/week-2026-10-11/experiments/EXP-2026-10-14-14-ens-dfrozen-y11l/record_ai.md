@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l`
 
-Status: queued.
+Status: completed (2026-10-14, see runner log).
 
 ## Request summary and authorization
 
@@ -27,11 +27,11 @@ Queue line: `EXP-2026-10-14-14-ens-dfrozen-y11l|D|/sfs/stage2/artifacts/EXP-2026
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Ensemble frozen-D y8m + original y11l: deploy F1 55.3; missile P03 F1 70.1 (R 64.6 / P 76.6) — above m0001's 69.5; radar F1 49.6 off / 51.9 on (precision 43.2 — noisy-or inflates radar scores past the 0.39 threshold).
 
 ## Results — published 2026-10-14 20:42 IST (automatic, `code/queue/publish_result.py`)
 

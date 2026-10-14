@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-15-ens-r-y8mft-y11l`
 
-Status: queued.
+Status: completed (2026-10-14, see runner log).
 
 ## Request summary and authorization
 
@@ -27,11 +27,11 @@ Queue line: `EXP-2026-10-14-15-ens-r-y8mft-y11l|R|/sfs/stage2/artifacts/EXP-2026
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Ensemble R y8m + original y11l: deploy F1 55.7; missile P03 F1 65.9; radar F1 51.5 off / 54.5 on (P 49.3). The radar-precision gain of single R (63.8) does not survive the ensemble because the y11l was not trained on R.
 
 ## Results — published 2026-10-14 21:00 IST (automatic, `code/queue/publish_result.py`)
 

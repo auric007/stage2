@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-16-ens-d-full-y8md-y11ld`
 
-Status: queued.
+Status: completed (2026-10-14, see runner log).
 
 ## Request summary and authorization
 
@@ -27,11 +27,11 @@ Queue line: `EXP-2026-10-14-16-ens-d-full-y8md-y11ld|D|/sfs/stage2/artifacts/EXP
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Full-D ensemble (y8m-D + y11l-D): deploy F1 55.7; recall-first 73.6 / 56.7; missile P03 F1 70.0 (R 68.0 / P 72.1, +0.5 vs m0001); radar F1 50.9 / 53.6 (P 45.9). Weaker overall than the single y11l-D (EXP-13: deploy 56.7, missile 71.5) at m0001's thresholds — ensemble thresholds need re-tuning before ensembles can be compared fairly.
 
 ## Results — published 2026-10-14 21:19 IST (automatic, `code/queue/publish_result.py`)
 
