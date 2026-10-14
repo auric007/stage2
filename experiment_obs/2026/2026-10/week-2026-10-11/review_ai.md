@@ -31,3 +31,22 @@ Readings: (1) extra fine-tuning alone raises missile recall but costs precision 
 control on missile F1 (single +1.9…+2.9, ensemble +1.6…+3.8) — D strongest, mostly via precision; (3) in deployable form, ensemble D is
 level with m0001 overall (recall-first slightly higher, missile F1 −0.6) — a like-for-like m0001 run through the same pipeline is running
 (EXP-2026-10-14-10). Failure: the GPU sat idle 08:25–15:55 because the agent's wake-up watcher was not re-armed after D.
+
+## Radar stowed rule — evaluation only, all overnight models (Claude, 16:16 IST)
+
+Researcher request 2026-10-14 ~16:10: score the same predictions with the stowed rule (Position Closed/Nil radar → `vehicle` accepted) OFF and ON. EWS→vehicle and helicopter-neutral were rejected (D-20261014-02), so neither is applied. 74 test radars have Position Closed/Nil. Script `code/engine_v1/score_rules.py` (rows `radar_base` / `radar_stowed`).
+
+| run | radar, stowed rule OFF: R / P (F1) | radar, stowed rule ON: R / P (F1) | stowed radars predicted vehicle |
+|---|--:|--:|--:|
+| single baseline | 46.2 / 56.0 (50.6) | 53.8 / 56.0 (54.9) | 16 / 74 |
+| control | 48.1 / 59.1 (53.0) | 55.3 / 59.1 (57.1) | 15 / 74 |
+| B | 49.0 / 57.8 (53.1) | 56.7 / 57.8 (57.3) | 16 / 74 |
+| C | 49.5 / 55.4 (52.3) | 57.2 / 55.4 (56.3) | 16 / 74 |
+| D | 50.0 / 58.5 (53.9) | 58.2 / 58.5 (58.3) | 17 / 74 |
+| ens control | 56.7 / 48.2 (52.1) | 63.0 / 48.2 (54.6) | 13 / 74 |
+| ens B | 57.2 / 48.5 (52.5) | 63.5 / 48.5 (55.0) | 13 / 74 |
+| ens C | 57.2 / 46.3 (51.2) | 63.5 / 45.9 (53.2) | 14 / 74 |
+| ens D | 57.7 / 48.7 (52.8) | 64.9 / 48.3 (55.4) | 16 / 74 |
+| m0001 (Sept pipeline) | 56.7 / 50.0 (53.2) | 63.9 / 50.0 (56.1) | 15 / 74 |
+
+Reading: the rule adds ~7 points of radar recall to every model (13–17 of 74 stowed radars are predicted `vehicle`) and never changes radar precision (it only accepts a non-radar label). Best with rule ON: single D 58.3 F1; ensembles: m0001 56.1, ens D 55.4.
