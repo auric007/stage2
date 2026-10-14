@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d`
 
-Status: queued.
+Status: completed (2026-10-14 18:38–20:23 IST).
 
 ## Request summary and authorization
 
@@ -27,11 +27,14 @@ Queue line: `EXP-2026-10-14-13-y11l-finetune-d|D|/sfs/stage2/models/BEST/prod_y1
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Single YOLO11l fine-tuned on D: deploy P01 58.9 / 54.7 (F1 56.7); missile P03 R 59.6 / **P 89.3 (F1 71.5)** — the best missile row of any
+model so far, above the m0001 ensemble (69.5); radar F1 52.2 (rule off) / 56.3 (on); 57 of 103 relabelled objects predicted `vehicle`.
+Limitation: the original YOLO11l was never evaluated alone in this pipeline, so its baseline share is not isolated (proposed check).
+Full-D ensemble: EXP-2026-10-14-16.
 
 ## Results — published 2026-10-14 20:23 IST (automatic, `code/queue/publish_result.py`)
 
