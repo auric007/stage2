@@ -31,3 +31,17 @@ Pending (appended automatically).
 ## Conclusions and next steps
 
 Pending.
+
+## Results — published 2026-10-15 03:12 IST (automatic, `code/queue/publish_result.py`)
+
+test_80, IoU 0.3, single model + TTA, deploy thresholds of m0001. P/R in %. Recall-first = mean R@P≥0.30 (micro / macro).
+
+| model | deploy P01 P / R | recall-first micro / macro | missile P03 R / P | missile (variant def) R / P | relabelled → vehicle | radar R / P |
+|---|--:|--:|--:|--:|--:|--:|
+| **EXP-2026-10-15-02-y11l-finetune-d-lowlr** (variant D) | 59.6 / 55.0 | 72.6 / 54.0 | 56.1 / 91.9 | 53.7 / 83.9 | 58/103 | 52.9 / 57.3 |
+| single y8m baseline (no fine-tune, same pipeline) | 60.5 / 54.1 | 71.6 / 53.9 | 54.2 / 78.2 | 42.6 / 78.2 | 0/0 | 46.2 / 56.0 |
+| m0001 ensemble (reference) | 53.6 / 60.0 | 74.4 / 58.0 | 67.1 / 72.1 | – | – | 56.7 / 50.0 |
+
+Per class, deploy P01 (P / R %): arty 40/17 · camo 48/34 · logistic 46/17 · missile 36/27 · radar 48/48 · smallvehicle 48/54 · tank 62/68 · vehicle 71/69
+
+Evidence: [metrics_ai.json](metrics_ai.json), [P01_detailed_ai.md](P01_detailed_ai.md), [deploy_STATS_ai.md](deploy_STATS_ai.md); artifacts `/sfs/stage2/artifacts/EXP-2026-10-15-02-y11l-finetune-d-lowlr` (weights `runs/ft/weights/best.pt`, predictions `preds/`, logs `logs/`).
