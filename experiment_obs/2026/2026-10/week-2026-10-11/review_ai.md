@@ -55,7 +55,7 @@ Reading: the rule adds ~7 points of radar recall to every model (13–17 of 74 s
 
 ## Brief about all experiment
 
-*Written by Claude, 2026-10-14 16:30 IST, in answer to the TODO above.*
+*Written by Claude, 2026-10-14 ~16:25 IST, in answer to the TODO above.*
 
 ### Where the tables are saved
 - **Both tables live in this file** (`experiment_obs/2026/2026-10/week-2026-10-11/review_ai.md`): the overnight results table
