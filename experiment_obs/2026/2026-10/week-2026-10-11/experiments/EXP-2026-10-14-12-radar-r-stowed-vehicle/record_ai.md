@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-14-12-radar-r-stowed-vehicle`
 
-Status: queued.
+Status: completed (2026-10-14 17:25–18:38 IST).
 
 ## Request summary and authorization
 
@@ -27,11 +27,15 @@ Queue line: `EXP-2026-10-14-12-radar-r-stowed-vehicle|R|/sfs/stage2/models/BEST/
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+vs the **control** (EXP-2026-10-14-04, same fine-tune, unchanged labels):
+radar rule OFF R 48.1 → 46.2, P 59.1 → **63.8** (F1 53.0 → 53.6); rule ON R 55.3 → 54.3, P 59.1 → 63.8 (F1 57.1 → **58.7**);
+overall deploy F1 55.0 → 55.7; missile unaffected (P03 R 66.1 / P 66.5). Stowed radars predicted `vehicle`: 17 / 74 (control 15) —
+the relabel barely changed what stowed radars are called, but removing them from the radar class made radar boxes **more precise** (+4.7 P).
+Ensemble form queued (EXP-2026-10-14-15).
 
 ## Results — published 2026-10-14 18:38 IST (automatic, `code/queue/publish_result.py`)
 
