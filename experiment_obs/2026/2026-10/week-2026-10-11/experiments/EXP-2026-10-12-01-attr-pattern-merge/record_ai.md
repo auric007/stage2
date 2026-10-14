@@ -103,3 +103,11 @@ nearest radar median 106 m (26 within 100 m = clutter inside radar sites); media
 Readings: (1) radar's misses are mostly **detection gaps** (generic RadarSystem, EWS, rare types) — a training-data problem, not a rule problem;
 (2) its precision problem is mostly **boxes on nothing** at mid scores, so a higher radar threshold (≈0.65 off / 0.90 on) trades a little recall
 for a lot of precision; (3) named modern radars are already ~87 % correct.
+
+### Stowed radars (Position Closed/Nil, 74) — 19:53 IST (Claude, researcher question)
+
+[radar_stowed74_ai.tsv](radar_stowed74_ai.tsv) lists all 74 by instance ID. Outcomes: **31 correct as radar** (Closed 8, Nil 23) · **15 correct only
+via the stowed rule** (called vehicle) · **23 no box** · **5 called missile**. Of the 28 failures: 19 detection gap (no radar evidence at any score),
+6 below the 0.39 threshold (raw 0.06–0.29), 3 radar ranked 2nd/3rd in the box's scores, 1 radar 0.57 lost its region to a missile box.
+By type: RadarSystem 18 of 28 failures; EWS 3; rare types (1L13, YLC8B, JY8) 5; H200 1; HT233 1. Most no-box cases have `vehicle` or
+`logistic` as the box's top class — the model sees a truck-shaped object but not a radar.
