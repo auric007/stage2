@@ -33,3 +33,17 @@ Pending (appended automatically).
 ## Conclusions and next steps
 
 Pending.
+
+## Results — published 2026-10-14 08:25 IST (automatic, `code/queue/publish_result.py`)
+
+test_80, IoU 0.3, single model + TTA, deploy thresholds of m0001. P/R in %. Recall-first = mean R@P≥0.30 (micro / macro).
+
+| model | deploy P01 P / R | recall-first micro / macro | missile P03 R / P | missile (variant def) R / P | relabelled → vehicle | radar R / P |
+|---|--:|--:|--:|--:|--:|--:|
+| **EXP-2026-10-14-09-ens-control-y8mft-y11l** (variant A) | 53.5 / 58.8 | 73.4 / 52.8 | 69.0 / 61.6 | 58.0 / 61.6 | 0/0 | 56.7 / 48.2 |
+| single y8m baseline (no fine-tune, same pipeline) | 60.5 / 54.1 | 71.6 / 53.9 | 54.2 / 78.2 | 42.6 / 78.2 | 0/0 | 46.2 / 56.0 |
+| m0001 ensemble (reference) | 53.6 / 60.0 | 74.4 / 58.0 | 67.1 / 72.1 | – | – | 56.7 / 50.0 |
+
+Per class, deploy P01 (P / R %): arty 32/35 · camo 47/36 · logistic 30/24 · missile 26/44 · radar 40/51 · smallvehicle 42/58 · tank 69/63 · vehicle 64/74
+
+Evidence: [metrics_ai.json](metrics_ai.json), [P01_detailed_ai.md](P01_detailed_ai.md), [deploy_STATS_ai.md](deploy_STATS_ai.md); artifacts `/sfs/stage2/artifacts/EXP-2026-10-14-09-ens-control-y8mft-y11l` (weights `runs/ft/weights/best.pt`, predictions `preds/`, logs `logs/`).
