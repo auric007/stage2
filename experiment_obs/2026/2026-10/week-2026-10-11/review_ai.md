@@ -50,3 +50,7 @@ Researcher request 2026-10-14 ~16:10: score the same predictions with the stowed
 | m0001 (Sept pipeline) | 56.7 / 50.0 (53.2) | 63.9 / 50.0 (56.1) | 15 / 74 |
 
 Reading: the rule adds ~7 points of radar recall to every model (13–17 of 74 stowed radars are predicted `vehicle`) and never changes radar precision (it only accepts a non-radar label). Best with rule ON: single D 58.3 F1; ensembles: m0001 56.1, ens D 55.4.
+
+TODO: I want to where this table saved and also write down brieflty what this all rows exactly mean and where are their detailed results. like, i don't know whats mean of control, ensemle, mapping. so write down the briefly about each point down here
+
+## Brief about all experiment
