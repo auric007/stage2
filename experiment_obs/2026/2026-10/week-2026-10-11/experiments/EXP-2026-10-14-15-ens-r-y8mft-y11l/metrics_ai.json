@@ -1,0 +1,206 @@
+{
+ "exp": "EXP-2026-10-14-15-ens-r-y8mft-y11l",
+ "time": "2026-10-14T21:00:47+05:30",
+ "deploy_P01": {
+  "arty": {
+   "gt": 179,
+   "tp": 66,
+   "fp": 138,
+   "P": 0.324,
+   "R": 0.369
+  },
+  "camo": {
+   "gt": 750,
+   "tp": 266,
+   "fp": 316,
+   "P": 0.457,
+   "R": 0.355
+  },
+  "logistic": {
+   "gt": 241,
+   "tp": 56,
+   "fp": 139,
+   "P": 0.287,
+   "R": 0.23199999999999998
+  },
+  "missile": {
+   "gt": 162,
+   "tp": 73,
+   "fp": 201,
+   "P": 0.266,
+   "R": 0.451
+  },
+  "radar": {
+   "gt": 176,
+   "tp": 84,
+   "fp": 127,
+   "P": 0.39799999999999996,
+   "R": 0.47700000000000004
+  },
+  "smallvehicle": {
+   "gt": 822,
+   "tp": 475,
+   "fp": 670,
+   "P": 0.415,
+   "R": 0.578
+  },
+  "tank": {
+   "gt": 729,
+   "tp": 451,
+   "fp": 203,
+   "P": 0.69,
+   "R": 0.619
+  },
+  "vehicle": {
+   "gt": 2041,
+   "tp": 1522,
+   "fp": 860,
+   "P": 0.639,
+   "R": 0.746
+  },
+  "MICRO": {
+   "gt": 5100,
+   "tp": 2993,
+   "fp": 2654,
+   "P": 0.53,
+   "R": 0.5870000000000001
+  }
+ },
+ "recall_first_P01_iou03": {
+  "arty": {
+   "gt": 179,
+   "bestF1": 0.358,
+   "R_at_P30": 0.358
+  },
+  "camo": {
+   "gt": 750,
+   "bestF1": 0.471,
+   "R_at_P30": 0.548
+  },
+  "logistic": {
+   "gt": 241,
+   "bestF1": 0.274,
+   "R_at_P30": 0.224
+  },
+  "missile": {
+   "gt": 162,
+   "bestF1": 0.334,
+   "R_at_P30": 0.0
+  },
+  "radar": {
+   "gt": 176,
+   "bestF1": 0.498,
+   "R_at_P30": 0.574
+  },
+  "smallvehicle": {
+   "gt": 822,
+   "bestF1": 0.551,
+   "R_at_P30": 0.682
+  },
+  "tank": {
+   "gt": 729,
+   "bestF1": 0.674,
+   "R_at_P30": 0.897
+  },
+  "vehicle": {
+   "gt": 2041,
+   "bestF1": 0.698,
+   "R_at_P30": 0.929
+  }
+ },
+ "recall_first_micro": 0.7334698039215686,
+ "recall_first_macro": 0.5265000000000001,
+ "rules": {
+  "missile_P03": {
+   "gt": 319,
+   "correct": 221,
+   "recall": 0.6927899686520376,
+   "via": {
+    "missile": 172,
+    "vehicle": 34,
+    "camo": 15
+   },
+   "boxes": 274,
+   "box_correct": 172,
+   "precision": 0.6277372262773723,
+   "f1": 0.6586612604182912
+  },
+  "missile_VAR": {
+   "gt": 319,
+   "correct": 187,
+   "recall": 0.5862068965517241,
+   "via": {
+    "missile": 172,
+    "camo": 15
+   },
+   "boxes": 274,
+   "box_correct": 172,
+   "precision": 0.6277372262773723,
+   "f1": 0.6062616628654365
+  },
+  "radar_base": {
+   "gt": 208,
+   "correct": 112,
+   "recall": 0.5384615384615384,
+   "via": {
+    "radar": 104,
+    "camo": 8
+   },
+   "boxes": 211,
+   "box_correct": 104,
+   "precision": 0.4928909952606635,
+   "f1": 0.5146694945210321
+  },
+  "relabelled": {
+   "gt": 0,
+   "correct": 0,
+   "recall": 0.0,
+   "via": {},
+   "boxes": null,
+   "box_correct": null,
+   "precision": null,
+   "f1": null
+  },
+  "radar_stowed": {
+   "gt": 208,
+   "correct": 127,
+   "recall": 0.6105769230769231,
+   "via": {
+    "radar": 104,
+    "vehicle": 15,
+    "camo": 8
+   },
+   "boxes": 211,
+   "box_correct": 104,
+   "precision": 0.4928909952606635,
+   "f1": 0.545458299779058
+  },
+  "radar_VAR": {
+   "gt": 134,
+   "correct": 87,
+   "recall": 0.6492537313432836,
+   "via": {
+    "radar": 79,
+    "camo": 8
+   },
+   "boxes": 211,
+   "box_correct": 79,
+   "precision": 0.3744075829383886,
+   "f1": 0.47493348996303075
+  },
+  "relabelled_radar": {
+   "gt": 74,
+   "correct": 15,
+   "recall": 0.20270270270270271,
+   "via": {
+    "vehicle": 15
+   },
+   "boxes": null,
+   "box_correct": null,
+   "precision": null,
+   "f1": null
+  },
+  "variant": "R",
+  "deploy": "/sfs/stage2/artifacts/EXP-2026-10-14-15-ens-r-y8mft-y11l/preds/deploy/labels"
+ }
+}
