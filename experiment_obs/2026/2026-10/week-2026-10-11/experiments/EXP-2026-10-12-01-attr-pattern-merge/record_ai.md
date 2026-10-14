@@ -63,3 +63,43 @@ Not-correct missiles by fine label:
 | HQ7           |                 1 |            0 |            0 |                0 |             0 |               1 |       2 |
 
 **(b) Radar boxes on camo nets (8) — for analyst verification:** [radar_on_camo_ai.tsv](radar_on_camo_ai.tsv). All 8 sit on objects whose fine label is just `Camo` (no hardware recorded): `1Ec01`, `0Rc04`, `1Oc0L`, `10c02`, `1Rc03`, `1Rc02`, `15c02`, `28c01`. Question for analysts: what is under each net (radar or not)?
+
+## Radar deep dive — 2026-10-14 16:53 IST (Claude)
+
+m0001 deploy predictions, test_80, IoU 0.3, first label only. Radar row per D-20261014-02 (EWS→vehicle no; helicopter boxes not neutral;
+stowed rule shown off/on). Script `/sfs/stage2/artifacts/EXP-2026-10-12-01-attr-pattern-merge/radar_deep_dive.py` (env `/sfs/envs/tide`).
+Evidence: [radar_outcomes_ai.tsv](radar_outcomes_ai.tsv) (208 radars by instance ID: outcome off/on, best raw radar score, vector rank, reason),
+[radar_fp_ai.tsv](radar_fp_ai.tsv) (112 wrong radar boxes), [radar_threshold_sweep_ai.tsv](radar_threshold_sweep_ai.tsv), [radar_deep_dive_ai.json](radar_deep_dive_ai.json).
+
+**Row:** 208 radar GT (176 plain, 30 P_Camo, 2 camo-parent). Rule off: correct 118 · no box 53 · → vehicle 28 · → missile 9 (R 56.7 / P 50.0).
+Rule on: correct 133 (15 stowed radars called vehicle become correct; R 63.9 / P 50.0).
+
+**Why the 90 misses (rule off):** detection gap (no radar evidence at any score) **52** · below threshold (raw radar 0.05–0.39) **21** ·
+radar ranked 2nd/3rd but not emitted **13** · radar ≥ 0.39 but lost the region in dedup **4**. Lowering the threshold can recover at most ~21.
+
+| family | correct / total | main failure |
+|---|--:|---|
+| named modern (HT233, Type780, H200, JY27A, FlapLid, YLC2V/4, 64N6, 96L6E, …) | 69 / 79 | — |
+| generic `RadarSystem` | 44 / 90 | 21 detection gap, 12 below threshold, 11 ranked 2nd/3rd; 15 called vehicle |
+| `EWS` (truck-mounted jammer) | 5 / 19 | 10 called vehicle (detection gap as radar) |
+| rare / older (BarLock, SpoonRest, 1L13, PRV16, YLC8B, FanSong, SquatEye, …) | 0 / 20 | all detection gap — **only 25 training examples across 13 types** (several 0) |
+
+Attributes (correct / total): Position Open 87/133 · Nil 23/58 · Closed 8/17 — Quality 01 65/103 · 02 53/105 — SOC Pixels 91/156 · Site 15/24 ·
+Third_Party 12/28 — size < 12 m 25/74 vs ≥ 12 m 93/134 (small radars are the hard ones).
+
+**112 wrong radar boxes:** 66 on no object · 16 on trucks (TransportVehicle 12, EngineeringVehicle 4) · 11 on missiles · 8 on camo nets ·
+5 on helicopters · 6 other. The 66 no-object boxes: score quartiles 0.47 / 0.59 / 0.80 (17 ≥ 0.8); 14 in scenes with no radar at all;
+nearest radar median 106 m (26 within 100 m = clutter inside radar sites); median box length 13 m.
+
+**Radar threshold sweep** (rule off → on; current 0.39 ≈ the 0.40 row):
+
+| thr | R off | P | F1 off | R on | F1 on |
+|--:|--:|--:|--:|--:|--:|
+| 0.40 | 56.7 | 50.7 | 53.5 | 63.9 | 56.6 |
+| 0.50 | 53.8 | 55.8 | 54.8 | 62.5 | 59.0 |
+| 0.65 | 51.4 | 63.5 | **56.8** | 60.6 | 62.0 |
+| 0.90 | 43.3 | 79.8 | 56.1 | 52.9 | **63.6** |
+
+Readings: (1) radar's misses are mostly **detection gaps** (generic RadarSystem, EWS, rare types) — a training-data problem, not a rule problem;
+(2) its precision problem is mostly **boxes on nothing** at mid scores, so a higher radar threshold (≈0.65 off / 0.90 on) trades a little recall
+for a lot of precision; (3) named modern radars are already ~87 % correct.
