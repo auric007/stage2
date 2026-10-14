@@ -31,3 +31,17 @@ Pending (appended automatically).
 ## Conclusions and next steps
 
 Pending.
+
+## Results — published 2026-10-14 21:33 IST (automatic, `code/queue/publish_result.py`)
+
+test_80, IoU 0.3, single model + TTA, deploy thresholds of m0001. P/R in %. Recall-first = mean R@P≥0.30 (micro / macro).
+
+| model | deploy P01 P / R | recall-first micro / macro | missile P03 R / P | missile (variant def) R / P | relabelled → vehicle | radar R / P |
+|---|--:|--:|--:|--:|--:|--:|
+| **EXP-2026-10-14-17-y11l-single-baseline** (variant A) | 61.5 / 54.5 | 73.3 / 55.5 | 60.8 / 82.6 | 46.4 / 82.6 | 0/0 | 53.4 / 58.7 |
+| single y8m baseline (no fine-tune, same pipeline) | 60.5 / 54.1 | 71.6 / 53.9 | 54.2 / 78.2 | 42.6 / 78.2 | 0/0 | 46.2 / 56.0 |
+| m0001 ensemble (reference) | 53.6 / 60.0 | 74.4 / 58.0 | 67.1 / 72.1 | – | – | 56.7 / 50.0 |
+
+Per class, deploy P01 (P / R %): arty 38/16 · camo 55/32 · logistic 37/16 · missile 33/33 · radar 48/48 · smallvehicle 52/55 · tank 66/65 · vehicle 71/69
+
+Evidence: [metrics_ai.json](metrics_ai.json), [P01_detailed_ai.md](P01_detailed_ai.md), [deploy_STATS_ai.md](deploy_STATS_ai.md); artifacts `/sfs/stage2/artifacts/EXP-2026-10-14-17-y11l-single-baseline` (weights `runs/ft/weights/best.pt`, predictions `preds/`, logs `logs/`).
