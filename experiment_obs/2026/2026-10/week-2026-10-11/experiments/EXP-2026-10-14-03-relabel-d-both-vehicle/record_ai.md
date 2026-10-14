@@ -38,3 +38,17 @@ Pending (appended automatically below).
 ## Conclusions and next steps
 
 Pending.
+
+## Results — published 2026-10-14 05:59 IST (automatic, `code/queue/publish_result.py`)
+
+test_80, IoU 0.3, single model + TTA, deploy thresholds of m0001. P/R in %. Recall-first = mean R@P≥0.30 (micro / macro).
+
+| model | deploy P01 P / R | recall-first micro / macro | missile P03 R / P | missile (variant def) R / P | relabelled → vehicle | radar R / P |
+|---|--:|--:|--:|--:|--:|--:|
+| **EXP-2026-10-14-03-relabel-d-both-vehicle** (variant D) | 59.6 / 52.2 | 70.5 / 53.3 | 60.5 / 77.2 | 61.6 / 70.7 | 57/103 | 50.0 / 58.5 |
+| single y8m baseline (no fine-tune, same pipeline) | 60.5 / 54.1 | 71.6 / 53.9 | 54.2 / 78.2 | 42.6 / 78.2 | 0/0 | 46.2 / 56.0 |
+| m0001 ensemble (reference) | 53.6 / 60.0 | 74.4 / 58.0 | 67.1 / 72.1 | – | – | 56.7 / 50.0 |
+
+Per class, deploy P01 (P / R %): arty 43/27 · camo 51/37 · logistic 33/7 · missile 32/33 · radar 48/44 · smallvehicle 46/51 · tank 70/60 · vehicle 70/65
+
+Evidence: [metrics_ai.json](metrics_ai.json), [P01_detailed_ai.md](P01_detailed_ai.md), [deploy_STATS_ai.md](deploy_STATS_ai.md); artifacts `/sfs/stage2/artifacts/EXP-2026-10-14-03-relabel-d-both-vehicle` (weights `runs/ft/weights/best.pt`, predictions `preds/`, logs `logs/`).
