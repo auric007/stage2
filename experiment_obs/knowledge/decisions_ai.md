@@ -31,3 +31,12 @@ Date: 2026-10-14. All writing, tracking and result analysis goes into experiment
 large outputs stay outside in `/sfs/stage2/artifacts/<EXP-ID>/`, `models/`, `data/`; the user moves any script into the notebook if it should be
 published. The earlier `/sfs/stage2/experiments`, `journal/` and `registry/` were migrated here and removed; earlier IDs e0001–e0007 are kept as
 cross-references in each record. Evidence: [daily 2026-10-14](../2026/2026-10/week-2026-10-11/daily/2026-10-14_ai.md).
+
+## D-20261014-02 - Protocol P03 radar row (partial, researcher decisions 2026-10-14 16:10 IST)
+
+- **EWS → vehicle: rejected.** EWS stays radar-only (10 of 19 EWS currently predicted vehicle remain errors).
+- **Radar boxes on helicopters (aerial GT): not neutral** — they stay false positives.
+- **Stowed radar (Position Closed/Nil) → vehicle:** undecided — researcher asked for one experiment with the rule on and one with it off.
+- Base row (unchanged): radar GT = labels_detailed radar + camo-parent radar hardware (208); accept radar, + camo if P_Camo / camo parent; first label only.
+- Reference (m0001 deploy, Sept pipeline): rule off R 56.7 / P 50.0 (F1 53.2); stowed→vehicle on R 63.9 / P 50.0 (F1 56.1).
+Evidence: EXP-2026-10-12-01 radar_rule_v1.py; [daily 2026-10-14 AI log](../2026/2026-10/week-2026-10-11/daily/2026-10-14_ai.md).
