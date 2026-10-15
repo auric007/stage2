@@ -138,3 +138,16 @@ Queued next (21:20): [17 y11l alone](experiments/EXP-2026-10-14-17-y11l-single-b
 not y11l-on-D; y11l-on-D is best only on the missile row. Fine-tuning (even on unchanged labels) costs overall F1 and radar; relabels add
 missile/radar precision relative to their control. Queued next: [2026-10-15-01 ensemble y11l original + y11l-D](../week-2026-10-11/experiments/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d/record_ai.md),
 [2026-10-15-02 y11l on D, 4× lower LR](../week-2026-10-11/experiments/EXP-2026-10-15-02-y11l-finetune-d-lowlr/record_ai.md).
+
+## Last two runs — 2026-10-15 01:06–03:12 IST (Claude)
+
+| run | deploy F1 (P / R) | missile P03 F1 (R / P) | radar F1 off / on |
+|---|--:|--:|--:|
+| [2026-10-15-01 ens y11l original + y11l-D](experiments/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d/record_ai.md) | 55.8 (52.7 / 59.4) | 69.8 (65.5 / 74.6) | 52.6 / 55.8 |
+| [2026-10-15-02 y11l on D, lr0 5e-5](experiments/EXP-2026-10-15-02-y11l-finetune-d-lowlr/record_ai.md) | 57.2 (59.6 / 55.0) | 69.7 (56.1 / 91.9) | 55.0 / 59.3 |
+| reference: original y11l alone (EXP-2026-10-14-17) | **57.8** (61.5 / 54.5) | 70.1 (60.8 / 82.6) | **55.9 / 59.8** |
+| reference: y11l on D (EXP-2026-10-14-13) | 56.7 | **71.5** (59.6 / 89.3) | 52.2 / 56.3 |
+
+All queued work is complete (no failures). The original YOLO11l alone remains the best all-round model at m0001's thresholds; every
+ensemble lost precision. Caveat for all comparisons: the deploy thresholds were tuned for the m0001 ensemble on test_80 — single models
+and new ensembles have different score scales, so a fair final choice needs per-model thresholds tuned on a separate validation split.

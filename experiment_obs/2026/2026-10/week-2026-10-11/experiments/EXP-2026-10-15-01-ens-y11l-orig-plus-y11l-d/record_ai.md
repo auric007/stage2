@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d`
 
-Status: queued.
+Status: completed (2026-10-15 01:06–01:27 IST).
 
 ## Request summary and authorization
 
@@ -26,11 +26,11 @@ Queue line: `EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d|D|/sfs/stage2/models/BE
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+Ensemble original y11l + y11l-D: deploy F1 55.8 (P 52.7 / R 59.4), missile P03 F1 69.8 (R 65.5 / P 74.6), radar 52.6 / 55.8 — worse than either member alone at m0001's thresholds (fusion raises recall but costs precision). Does not combine the strengths.
 
 ## Results — published 2026-10-15 01:27 IST (automatic, `code/queue/publish_result.py`)
 

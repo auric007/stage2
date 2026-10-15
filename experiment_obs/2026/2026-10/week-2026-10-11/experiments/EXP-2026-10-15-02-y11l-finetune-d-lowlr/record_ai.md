@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-15-02-y11l-finetune-d-lowlr`
 
-Status: queued.
+Status: completed (2026-10-15 01:27–03:12 IST).
 
 ## Request summary and authorization
 
@@ -26,11 +26,11 @@ Queue line: `EXP-2026-10-15-02-y11l-finetune-d-lowlr|D|/sfs/stage2/models/BEST/p
 
 ## Results and failures
 
-Pending (appended automatically).
+See the automatic results section at the end. No failures.
 
 ## Conclusions and next steps
 
-Pending.
+y11l on D with lr0 5e-5: deploy F1 57.2 (vs 56.7 at lr0 2e-4, 57.8 original) — less drift, as intended; radar 55.0 / 59.3 (≈ original 55.9 / 59.8); missile P03 R 56.1 / P 91.9 (F1 69.7 — below the normal-LR D's 71.5 and the original's 70.1). Middle ground: keeps overall/radar, gains missile precision, loses missile recall.
 
 ## Results — published 2026-10-15 03:12 IST (automatic, `code/queue/publish_result.py`)
 
