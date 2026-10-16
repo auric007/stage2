@@ -28,3 +28,8 @@ As of 2026-10-14T01:50:54+05:30: 30 helper tests passed; recursive rules/templat
 - Overnight GPU queue running (V100): baseline → missile relabel B, C, D (10-epoch fine-tunes of m0001 y8m) → control. Records:
   EXP-2026-10-14-01 … -05 in [experiments/](experiments/README_ai.md); progress in [daily AI log](daily/2026-10-14_ai.md).
 - Pending researcher decisions: radar rule row (EWS / stowed / helicopters).
+
+## Update — 2026-10-16 15:48 IST (Claude)
+
+- Week closed for research by the researcher (no further analysis this week). Final summary: [review_ai.md](review_ai.md) "Week summary — final".
+- Best all-round: original YOLO11l alone (deploy F1 57.8); best missiles: YOLO11l on D (missile F1 71.5). GPU queue empty since 2026-10-15 03:12.

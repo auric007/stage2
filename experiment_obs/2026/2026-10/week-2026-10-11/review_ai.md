@@ -151,3 +151,76 @@ missile/radar precision relative to their control. Queued next: [2026-10-15-01 e
 All queued work is complete (no failures). The original YOLO11l alone remains the best all-round model at m0001's thresholds; every
 ensemble lost precision. Caveat for all comparisons: the deploy thresholds were tuned for the m0001 ensemble on test_80 — single models
 and new ensembles have different score scales, so a fair final choice needs per-model thresholds tuned on a separate validation split.
+
+---
+
+# Week summary — final (Claude, 2026-10-16; week of Sun 2026-10-11 → Sat 2026-10-17)
+
+Status: **complete** for research work (researcher closed analysis for the week on 2026-10-16). Work dates: Oct 12, 13, 14, 15 (Oct 11, 16, 17: no experiments).
+All numbers: test_80 (80 images), IoU 0.3, m0001 deployment thresholds, P/R/F1 in %. "Missile" = your rule set P03; "radar off/on" = stowed rule.
+
+## 1. What happened this week
+- **Oct 12–13 — analysis (no training):** attribute × prediction patterns → logical merge rules; you then set your own **missile rule set (P03)**;
+  missile instance lists (TODO 3); radar breakdown. → [EXP-2026-10-12-01](experiments/EXP-2026-10-12-01-attr-pattern-merge/record_ai.md)
+- **Oct 13–14 — infrastructure:** `/sfs/stage2` created as the single stage-2 home; all earlier work imported; tracking moved into this notebook;
+  human/AI (`_ai`) authorship split applied.
+- **Oct 14–15 — GPU experiments (V100, 22 runs incl. evaluations):** missile relabels B/C/D, radar relabel R, controls, ensembles, YOLO11l series.
+- **Oct 14 — radar deep dive** and your radar decisions.
+
+## 2. Decisions taken (see `knowledge/decisions_ai.md`)
+- **P03 missile row (locked):** first label only; P_Camo missile → missile|camo; camo-parent missile hardware → missile|camo;
+  Is_Empty **Yes/Nil** (canisters not loaded) → missile|vehicle; loaded → missile only. Rejected: P_Camo-loaded → vehicle, transporter → vehicle, radar ↔ missile.
+- **P03 radar row (partial):** EWS → vehicle **no**; helicopter radar boxes **not neutral**; stowed (Closed/Nil) → vehicle **open** (tested both ways, still your call).
+
+## 3. Every experiment in one line
+| # | experiment | form | result in one line |
+|---|---|---|---|
+| 1 | [12-01 attribute patterns / P03](experiments/EXP-2026-10-12-01-attr-pattern-merge/record_ai.md) | analysis | m0001 under P03: missile R 67.1 / P 72.1 (official 41.4 / 30.2); radar misses are mostly detection gaps; 66 of 112 wrong radar boxes on nothing |
+| 2 | [14-05 baseline](experiments/EXP-2026-10-14-05-baseline-y8m-single/record_ai.md) | single y8m | reference: deploy F1 57.1, missile F1 64.0, radar 50.6 |
+| 3 | [14-04 control](experiments/EXP-2026-10-14-04-control-finetune-a-unchanged/record_ai.md) | y8m +10 ep, same labels | fine-tuning alone: missile recall ↑, precision ↓, deploy F1 −2.1 |
+| 4 | [14-01 B](experiments/EXP-2026-10-14-01-relabel-b-nonlauncher-vehicle/record_ai.md) | y8m, non-launcher → vehicle | missile F1 +1.9 vs control |
+| 5 | [14-02 C](experiments/EXP-2026-10-14-02-relabel-c-unloaded-vehicle/record_ai.md) | y8m, unloaded launcher → vehicle | missile F1 +2.9 vs control |
+| 6 | [14-03 D](experiments/EXP-2026-10-14-03-relabel-d-both-vehicle/record_ai.md) | y8m, B + C | missile F1 +2.3, precision +12 vs control (best y8m relabel) |
+| 7–10 | [14-06](experiments/EXP-2026-10-14-06-ens-b-y8mft-y11l/record_ai.md) · [07](experiments/EXP-2026-10-14-07-ens-c-y8mft-y11l/record_ai.md) · [08](experiments/EXP-2026-10-14-08-ens-d-y8mft-y11l/record_ai.md) · [09](experiments/EXP-2026-10-14-09-ens-control-y8mft-y11l/record_ai.md) | y8m variant + original y11l | ensemble D best of these (missile 68.9, recall-first 75.0 / 58.5) but level with m0001 |
+| 11 | [14-10 m0001 same pipeline](experiments/EXP-2026-10-14-10-m0001-ens-same-pipeline/record_ai.md) | ensemble | reproduces Sept exactly → all comparisons like-for-like |
+| 12 | [14-11 D frozen backbone](experiments/EXP-2026-10-14-11-d-frozen-backbone/record_ai.md) | y8m | less drift (deploy 56.3) but missile recall ↓ (F1 65.2) |
+| 13 | [14-12 radar R](experiments/EXP-2026-10-14-12-radar-r-stowed-vehicle/record_ai.md) | y8m, stowed radar → vehicle | radar precision +4.7 vs control; radar F1 58.7 (rule on) |
+| 14 | [14-13 y11l on D](experiments/EXP-2026-10-14-13-y11l-finetune-d/record_ai.md) | single y11l | **best missile row: F1 71.5 (P 89.3)** |
+| 15–17 | [14-14](experiments/EXP-2026-10-14-14-ens-dfrozen-y11l/record_ai.md) · [15](experiments/EXP-2026-10-14-15-ens-r-y8mft-y11l/record_ai.md) · [16](experiments/EXP-2026-10-14-16-ens-d-full-y8md-y11ld/record_ai.md) | ensembles | none beats the best single models; radar precision drops in every ensemble |
+| 18 | [14-17 original y11l alone](experiments/EXP-2026-10-14-17-y11l-single-baseline/record_ai.md) | single y11l | **best all-round: deploy F1 57.8, radar 55.9 / 59.8, missile 70.1** |
+| 19 | [14-18 y11l control](experiments/EXP-2026-10-14-18-y11l-control-finetune-a/record_ai.md) | y11l +10 ep, same labels | fine-tune costs radar (−5) and deploy F1 (−0.6) |
+| 20 | [14-19 y11l D + R](experiments/EXP-2026-10-14-19-y11l-finetune-dr/record_ai.md) | single y11l | radar P 60.0 (+8 vs control) but missile recall falls (F1 66.8) |
+| 21 | [15-01 y11l original + y11l-D](experiments/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d/record_ai.md) | ensemble | worse than either member (55.8 / 69.8) |
+| 22 | [15-02 y11l on D, low LR](experiments/EXP-2026-10-15-02-y11l-finetune-d-lowlr/record_ai.md) | single y11l | least drift (deploy 57.2, radar 55.0 / 59.3), missile P 91.9 but recall ↓ (F1 69.7) |
+
+## 4. Best results this week
+| use | model | deploy F1 | missile F1 (R / P) | radar F1 off / on |
+|---|---|--:|--:|--:|
+| **best all-round** | original YOLO11l alone ([14-17](experiments/EXP-2026-10-14-17-y11l-single-baseline/record_ai.md)) | **57.8** | 70.1 (60.8 / 82.6) | **55.9 / 59.8** |
+| **best missiles** | YOLO11l fine-tuned on D ([14-13](experiments/EXP-2026-10-14-13-y11l-finetune-d/record_ai.md)) | 56.7 | **71.5** (59.6 / 89.3) | 52.2 / 56.3 |
+| balanced compromise | YOLO11l on D, low LR ([15-02](experiments/EXP-2026-10-15-02-y11l-finetune-d-lowlr/record_ai.md)) | 57.2 | 69.7 (56.1 / 91.9) | 55.0 / 59.3 |
+| deployed today | m0001 ensemble ([14-10](experiments/EXP-2026-10-14-10-m0001-ens-same-pipeline/record_ai.md)) | 56.6 | 69.5 (67.1 / 72.1) | 53.2 / 56.1 |
+
+## 5. What works — take forward to next week
+1. **Your P03 rule set** for scoring missiles (and the radar row once the stowed decision is made) — it measures what operators need;
+   keep reporting it next to the official P01 number.
+2. **The D relabel** (non-launcher missile kit + unloaded launchers → vehicle): every model trained on it gains missile **precision**
+   vs its control (y8m +12, y11l +10.5 points).
+3. **The R relabel** (stowed radar → vehicle): raises radar precision (+4.7 y8m, +8.1 y11l vs controls).
+4. **YOLO11l as the single base model**: alone it already beats the m0001 ensemble on overall F1 and radar.
+5. **The pipeline itself** (`code/run_experiment.sh` + queue + automatic notebook publishing) — reproduces m0001 exactly and ran 22 jobs unattended.
+
+## 6. What did not work
+- **Ensembles at m0001's thresholds** — every new ensemble lost radar/overall precision; fusion inflates scores.
+- **Plain fine-tuning** — even on unchanged labels it lowers overall F1 and radar; relabels gain only relative to that drift.
+- **Frozen backbone / combining D + R in one model** — gained precision but lost too much missile recall.
+
+## 7. Open items for next week
+1. **Thresholds:** all comparisons use m0001's thresholds tuned on the test set; build a **separate validation split** from Train
+   (site-disjoint) and tune per-model thresholds there before choosing a new deploy model.
+2. **Training from scratch** (not fine-tuning) on D (+R) labels with YOLO11l — removes the fine-tune drift; needs ~15–20 h on the V100 or a faster GPU.
+3. **Data:** more examples of rare/older radar types (0/20 found; 25 training examples across 13 types) and EWS; analysts to replace generic `RadarSystem` labels.
+4. **Your decision:** stowed radar rule on or off in P03.
+5. **Visual checks pending:** 8 P_Camo-loaded missiles called vehicle; 31 MLRS via Is_Empty=Nil; 40 missile boxes on large trucks in missile sites;
+   8 radar boxes on camo nets (IDs in EXP-2026-10-12-01).
+6. **New data:** `/sfs/data/up42_platform_data_15_10` (26 new scenes, no split yet) — awaiting your train/test assignment.
