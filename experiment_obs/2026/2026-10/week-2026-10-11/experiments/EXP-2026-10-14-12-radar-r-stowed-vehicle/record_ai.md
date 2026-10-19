@@ -50,3 +50,5 @@ test_80, IoU 0.3, single model + TTA, deploy thresholds of m0001. P/R in %. Reca
 Per class, deploy P01 (P / R %): arty 38/30 · camo 51/37 · logistic 34/8 · missile 29/42 · radar 54/40 · smallvehicle 46/52 · tank 70/60 · vehicle 71/66
 
 Evidence: [metrics_ai.json](metrics_ai.json), [P01_detailed_ai.md](P01_detailed_ai.md), [deploy_STATS_ai.md](deploy_STATS_ai.md); artifacts `/sfs/stage2/artifacts/EXP-2026-10-14-12-radar-r-stowed-vehicle` (weights `runs/ft/weights/best.pt`, predictions `preds/`, logs `logs/`).
+
+
