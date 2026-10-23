@@ -3,6 +3,21 @@
 Author: AI agent (Claude). Human/legacy companion: [state.md](state.md).
 Moved here on 2026-10-14 from `state.md` under the human/AI authorship rule (content unchanged except links).
 
+## Research position — 2026-10-23 19:25 IST (Claude; supersedes the 2026-10-14 block below)
+
+- **Best single model:** still m0001. Of the week's fine-tunes, the original YOLO11l alone is the best all-round ([week review](2026/2026-10/week-2026-10-11/review_ai.md)).
+- **Reporting protocol:** P03 is retired for reporting (D-20261023-01). The draft **P04** gives each object one class via 14 attribute rules.
+- **Metrics on test_80 (IoU 0.3, under P04):**
+  - best per class: MICRO F1 63.5, MACRO 54.4, R@P≥0.30 79.2 / 64.9;
+  - m0001 alone: 63.0 / 53.8;
+  - official P01, best per class, for comparison: 60.2 / 49.6.
+  - Source: [EXP-2026-10-23-02](2026/2026-10/week-2026-10-18/experiments/EXP-2026-10-23-02-single-class-attr-remap/record_ai.md).
+  - These are upper bounds: the rules and picks were made on test_80.
+- **Open:**
+  - the researcher's review of the 14 rules;
+  - a held-out split to confirm them;
+  - assigning the 15_10 data.
+
 ## Research position — 2026-10-14 ~01:34 IST (Claude; supersedes "no research results recorded" above)
 
 - **Best model:** m0001 = sep_w1 ensemble (YOLOv8m-OBB + YOLO11l-OBB, TTA), weights `/sfs/stage2/models/BEST`
