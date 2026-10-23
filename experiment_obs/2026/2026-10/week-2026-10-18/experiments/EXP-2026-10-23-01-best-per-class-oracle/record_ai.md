@@ -81,3 +81,47 @@ Evidence: [best_per_class_ai.json](best_per_class_ai.json), [p03_sweep_ai.json](
   missile/radar objects) with P03 missile/radar rows that contain the same objects — those ~189 objects were counted in two denominators.
   Section E's MACRO 55.0 / 55.8 is therefore not a consistent single scoring; use section A (fully one-to-one, official) or a P03 table with a
   rebuilt camo row (camo-only objects) for a consistent view.
+
+## F. Per-class table with the rule-based (P03) missile and radar rows — 19:04 IST
+
+The researcher asked for the table again, with the better missile and radar numbers. Six classes use official one-to-one scoring (P01). Missile and radar use P03 (camouflaged and empty-launcher credit, as above). Each per-class row is valid on its own. The MACRO mixes two scoring rules, so it is a summary and cannot be compared with section A.
+
+| class | GT | F1 | Recall | Precision | conf | model |
+|---|--:|--:|--:|--:|--:|---|
+| arty | 179 | 38.3 | 34.6 | 42.8 | 0.90 | EXP-2026-10-14-14 |
+| camo | 750 | 48.3 | 44.3 | 53.1 | 0.70 | EXP-2026-10-14-16 |
+| logistic | 241 | 28.6 | 30.7 | 26.7 | 0.60 | EXP-2026-10-14-13 |
+| **missile (P03)** | 319 | **72.5** | 65.2 (208 found) | 81.6 (151 of 185 boxes) | 0.97 | ens C y8m + y11l (EXP-2026-10-14-07) |
+| **radar (P03, stowed rule off)** | 208 | **57.7** | 48.1 (100 found) | 72.1 (93 of 129 boxes) | 0.60 | original y11l (EXP-2026-10-14-17) |
+| **radar (P03, stowed rule on)** | 208 | **64.6** | 54.3 (113 found) | 79.8 (79 of 99 boxes) | 0.90 | ens D y8m + y11l (EXP-2026-10-14-08) |
+| smallvehicle | 822 | 55.2 | 51.7 | 59.1 | 0.60 | m0001 |
+| tank | 729 | 68.7 | 69.5 | 68.0 | 0.90 | m0001 |
+| vehicle | 2041 | 70.5 | 78.1 | 64.2 | 0.90 | m0001 |
+
+**MACRO F1: 55.0 with the stowed rule off, 55.8 with it on.** The official one-to-one MACRO (section A) is 49.6.
+
+### Other operating points for missile and radar (P03), across all 21 models
+
+| row | goal | Recall | Precision | F1 | conf | model |
+|---|---|--:|--:|--:|--:|---|
+| missile | best F1 | 65.2 | 81.6 | 72.5 | 0.97 | EXP-2026-10-14-07 |
+| missile | highest recall with precision ≥ 50 | 72.4 | 50.7 | 59.6 | 0.50 | EXP-2026-10-14-06 |
+| missile | highest precision with recall ≥ 50 | 50.8 | 97.8 | 66.9 | 0.95 | y11l-D (EXP-2026-10-14-13) |
+| missile | highest recall with precision ≥ 30 | 75.5 | 31.4 | 44.4 | 0.20 | EXP-2026-10-14-09 |
+| missile | m0001 at deploy threshold | 67.1 | 72.1 | 69.5 | 0.85 | m0001 |
+| radar, stowed off | best F1 | 48.1 | 72.1 | 57.7 | 0.60 | EXP-2026-10-14-17 |
+| radar, stowed off | highest recall with precision ≥ 50 | 57.2 | 50.0 | 53.4 | 0.25 | EXP-2026-10-14-17 |
+| radar, stowed off | highest recall with precision ≥ 30 | 63.0 | 31.9 | 42.3 | 0.20 | EXP-2026-10-14-14 |
+| radar, stowed off | m0001 at deploy threshold | 56.7 | 50.7 | 53.5 | 0.40 | m0001 |
+| radar, stowed on | best F1 | 54.3 | 79.8 | 64.6 | 0.90 | EXP-2026-10-14-08 |
+| radar, stowed on | highest precision with recall ≥ 50 | 51.0 | 80.2 | 62.3 | 0.90 | EXP-2026-10-14-15 |
+| radar, stowed on | highest recall with precision ≥ 50 | 64.9 | 50.0 | 56.5 | 0.25 | EXP-2026-10-14-17 |
+| radar, stowed on | highest recall with precision ≥ 30 | 70.7 | 36.1 | 47.8 | 0.20 | EXP-2026-10-15-01 |
+| radar, stowed on | m0001 at deploy threshold | 63.9 | 50.7 | 56.5 | 0.40 | m0001 |
+
+**Caveats**
+- These are upper bounds. The model and threshold for each row were chosen on test_80 itself.
+- The 0.20 rows sit at the bottom of the threshold sweep, so recall at precision ≥ 30 may be slightly higher at lower thresholds.
+- Under P03, the missile and radar rows also count the camouflaged missiles and radars that sit in camo's 750. Do not add up TP/FP across the table.
+
+Evidence: [p03_sweep_ai.json](p03_sweep_ai.json).
