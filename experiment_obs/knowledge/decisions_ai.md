@@ -18,6 +18,8 @@ Partly superseded for missile by D-20261013-02.
 
 ## D-20261013-02 - Protocol P03 missile row (user rule set, first label only)
 
+Superseded for reporting by D-20261023-01 (2026-10-23).
+
 Date: 2026-10-13. Missile GT = labels_detailed missile + camo-parent missile hardware (319). Correct if: `missile`; P_Camo → also `camo`;
 camo-parent missile hardware → also `camo`; Is_Empty(ML) Yes or Nil (canisters not loaded) → also `vehicle`; loaded (No) → `vehicle` NOT accepted.
 Rejected: P_Camo-loaded → vehicle (flagged for visual check), Transporter/Transloader → vehicle (model only partly consistent), radar ↔ missile
@@ -34,9 +36,21 @@ cross-references in each record. Evidence: [daily 2026-10-14](../2026/2026-10/we
 
 ## D-20261014-02 - Protocol P03 radar row (partial, researcher decisions 2026-10-14 16:10 IST)
 
+Superseded for reporting by D-20261023-01 (2026-10-23).
+
 - **EWS → vehicle: rejected.** EWS stays radar-only (10 of 19 EWS currently predicted vehicle remain errors).
 - **Radar boxes on helicopters (aerial GT): not neutral** — they stay false positives.
 - **Stowed radar (Position Closed/Nil) → vehicle:** undecided — researcher asked for one experiment with the rule on and one with it off.
 - Base row (unchanged): radar GT = labels_detailed radar + camo-parent radar hardware (208); accept radar, + camo if P_Camo / camo parent; first label only.
 - Reference (m0001 deploy, Sept pipeline): rule off R 56.7 / P 50.0 (F1 53.2); stowed→vehicle on R 63.9 / P 50.0 (F1 56.1).
 Evidence: EXP-2026-10-12-01 radar_rule_v1.py; [daily 2026-10-14 AI log](../2026/2026-10/week-2026-10-11/daily/2026-10-14_ai.md).
+
+## D-20261023-01 - P03 dropped from reporting; P04 single-class attribute remap (draft)
+
+Date: 2026-10-23 19:05 IST. Researcher: "remove P03 and tell me best metrics; you can map any attribute to any class if it is boosting
+the recall, but only one class". P03 (several accepted classes per object, D-20261013-02 / D-20261014-02) is no longer used for reported
+numbers; those entries stay as history. New draft **P04**: official P01 scoring with each object remapped to exactly one class by 14
+attribute rules (camouflaged HQ9/S300/HQ12/MissileSystem → missile; MLRS, plain HQ9, plain MissileSystem, camouflaged HQ16, EWS, camo-parent
+LTV, ABLV → vehicle; SPATracked and camouflaged tanks → tank). Rules were chosen on test_80 m0001 evidence (optimistic) and await
+the researcher's review. Best-per-class MICRO F1 63.5 / MACRO 54.4 (P01: 60.2 / 49.6); m0001 alone 63.0 / 53.8.
+Evidence: [EXP-2026-10-23-02](../2026/2026-10/week-2026-10-18/experiments/EXP-2026-10-23-02-single-class-attr-remap/record_ai.md).
