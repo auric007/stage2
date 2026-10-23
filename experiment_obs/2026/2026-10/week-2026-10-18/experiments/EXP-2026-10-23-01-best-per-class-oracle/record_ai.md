@@ -70,3 +70,14 @@ arty 38.3 · camo 48.3 · logistic 28.6 · **missile 72.5** · **radar 57.7 (off
 - Weakest classes remain logistic (28.6) and arty (38.3).
 - Scope: test_80 only; the 6 new 15_10 test scenes are not evaluated yet.
 Evidence: [best_per_class_ai.json](best_per_class_ai.json), [p03_sweep_ai.json](p03_sweep_ai.json).
+
+## Clarification — 2026-10-23 18:59 IST (researcher question: which rule per class, and which denominator holds camouflaged missiles)
+
+- **Official one-to-one (P01, simple mapping):** P_Camo = Yes objects are counted as **camo** — the 145 camouflaged missiles and 30 camouflaged radars
+  are in **camo's denominator (750)**, not missile's (162) or radar's (176). A `missile` box on a camouflaged missile is a missile **FP** and a camo **FN**.
+- **P03 (researcher rules):** the missile row's denominator (319) = 307 `labels_detailed` missiles (incl. the 145 P_Camo) + 12 camo-parent objects with
+  missile hardware; `missile` or `camo` both count as correct for those.
+- **Correction to section E above:** it mixed P01 camo (750, which contains the 145 P_Camo missiles, 30 P_Camo radars and the 12 + 2 camo-parent
+  missile/radar objects) with P03 missile/radar rows that contain the same objects — those ~189 objects were counted in two denominators.
+  Section E's MACRO 55.0 / 55.8 is therefore not a consistent single scoring; use section A (fully one-to-one, official) or a P03 table with a
+  rebuilt camo row (camo-only objects) for a consistent view.
