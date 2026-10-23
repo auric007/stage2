@@ -1,0 +1,684 @@
+{
+ "0.3": {
+  "bestF1": {
+   "arty": {
+    "run": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+    "gt": 179,
+    "bestF1": 0.383,
+    "P": 0.428,
+    "R": 0.346,
+    "conf": "0.90",
+    "R_at_P30": 0.369,
+    "tp": 62,
+    "fp": 83,
+    "fn": 117
+   },
+   "camo": {
+    "run": "EXP-2026-10-14-16-ens-d-full-y8md-y11ld",
+    "gt": 750,
+    "bestF1": 0.483,
+    "P": 0.531,
+    "R": 0.443,
+    "conf": "0.70",
+    "R_at_P30": 0.556,
+    "tp": 332,
+    "fp": 293,
+    "fn": 418
+   },
+   "logistic": {
+    "run": "EXP-2026-10-14-13-y11l-finetune-d",
+    "gt": 241,
+    "bestF1": 0.286,
+    "P": 0.267,
+    "R": 0.307,
+    "conf": "0.60",
+    "R_at_P30": 0.191,
+    "tp": 74,
+    "fp": 203,
+    "fn": 167
+   },
+   "missile": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 162,
+    "bestF1": 0.364,
+    "P": 0.325,
+    "R": 0.414,
+    "conf": "0.90",
+    "R_at_P30": 0.414,
+    "tp": 67,
+    "fp": 139,
+    "fn": 95
+   },
+   "radar": {
+    "run": "EXP-2026-10-14-09-ens-control-y8mft-y11l",
+    "gt": 176,
+    "bestF1": 0.505,
+    "P": 0.542,
+    "R": 0.472,
+    "conf": "0.70",
+    "R_at_P30": 0.58,
+    "tp": 83,
+    "fp": 70,
+    "fn": 93
+   },
+   "smallvehicle": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 822,
+    "bestF1": 0.552,
+    "P": 0.591,
+    "R": 0.517,
+    "conf": "0.60",
+    "R_at_P30": 0.662,
+    "tp": 425,
+    "fp": 294,
+    "fn": 397
+   },
+   "tank": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 729,
+    "bestF1": 0.687,
+    "P": 0.68,
+    "R": 0.695,
+    "conf": "0.90",
+    "R_at_P30": 0.911,
+    "tp": 507,
+    "fp": 239,
+    "fn": 222
+   },
+   "vehicle": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 2041,
+    "bestF1": 0.705,
+    "P": 0.642,
+    "R": 0.781,
+    "conf": "0.90",
+    "R_at_P30": 0.916,
+    "tp": 1595,
+    "fp": 888,
+    "fn": 446
+   }
+  },
+  "R_at_P30": {
+   "arty": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 179,
+    "bestF1": 0.375,
+    "P": 0.426,
+    "R": 0.335,
+    "conf": "0.90",
+    "R_at_P30": 0.374,
+    "tp": 60,
+    "fp": 81,
+    "fn": 119
+   },
+   "camo": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 750,
+    "bestF1": 0.465,
+    "P": 0.515,
+    "R": 0.424,
+    "conf": "0.70",
+    "R_at_P30": 0.568,
+    "tp": 318,
+    "fp": 300,
+    "fn": 432
+   },
+   "logistic": {
+    "run": "EXP-2026-10-14-16-ens-d-full-y8md-y11ld",
+    "gt": 241,
+    "bestF1": 0.284,
+    "P": 0.267,
+    "R": 0.303,
+    "conf": "0.70",
+    "R_at_P30": 0.253,
+    "tp": 73,
+    "fp": 200,
+    "fn": 168
+   },
+   "missile": {
+    "run": "EXP-2026-10-14-02-relabel-c-unloaded-vehicle",
+    "gt": 162,
+    "bestF1": 0.354,
+    "P": 0.33,
+    "R": 0.383,
+    "conf": "0.90",
+    "R_at_P30": 0.42,
+    "tp": 62,
+    "fp": 126,
+    "fn": 100
+   },
+   "radar": {
+    "run": "EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d",
+    "gt": 176,
+    "bestF1": 0.485,
+    "P": 0.506,
+    "R": 0.466,
+    "conf": "0.70",
+    "R_at_P30": 0.608,
+    "tp": 82,
+    "fp": 80,
+    "fn": 94
+   },
+   "smallvehicle": {
+    "run": "EXP-2026-10-14-15-ens-r-y8mft-y11l",
+    "gt": 822,
+    "bestF1": 0.551,
+    "P": 0.595,
+    "R": 0.512,
+    "conf": "0.60",
+    "R_at_P30": 0.682,
+    "tp": 421,
+    "fp": 286,
+    "fn": 401
+   },
+   "tank": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 729,
+    "bestF1": 0.687,
+    "P": 0.68,
+    "R": 0.695,
+    "conf": "0.90",
+    "R_at_P30": 0.911,
+    "tp": 507,
+    "fp": 239,
+    "fn": 222
+   },
+   "vehicle": {
+    "run": "EXP-2026-10-14-06-ens-b-y8mft-y11l",
+    "gt": 2041,
+    "bestF1": 0.696,
+    "P": 0.63,
+    "R": 0.777,
+    "conf": "0.90",
+    "R_at_P30": 0.931,
+    "tp": 1586,
+    "fp": 930,
+    "fn": 455
+   }
+  },
+  "bestF1_MICRO": {
+   "P": 0.5874112812850205,
+   "R": 0.6166666666666667,
+   "F1": 0.6016835660991008,
+   "tp": 3145,
+   "fp": 2209,
+   "fn": 1955
+  },
+  "bestF1_MACRO": {
+   "P": 0.50075,
+   "R": 0.49687499999999996,
+   "F1": 0.495625
+  },
+  "R_at_P30_MICRO": 0.7556590196078431,
+  "R_at_P30_MACRO": 0.593375,
+  "per_run": {
+   "m0001 ensemble (y8m+y11l)": {
+    "bestF1_micro": 0.5973353781270967,
+    "bestF1_macro": 0.48987500000000006,
+    "R_at_P30_micro": 0.7436982352941176,
+    "R_at_P30_macro": 0.580375
+   },
+   "EXP-2026-10-14-01-relabel-b-nonlauncher-vehicle": {
+    "bestF1_micro": 0.5745973575079564,
+    "bestF1_macro": 0.46425000000000005,
+    "R_at_P30_micro": 0.7014001960784314,
+    "R_at_P30_macro": 0.5215
+   },
+   "EXP-2026-10-14-02-relabel-c-unloaded-vehicle": {
+    "bestF1_micro": 0.5718315534958694,
+    "bestF1_macro": 0.46225000000000005,
+    "R_at_P30_micro": 0.6990107843137254,
+    "R_at_P30_macro": 0.520625
+   },
+   "EXP-2026-10-14-03-relabel-d-both-vehicle": {
+    "bestF1_micro": 0.5715146040349292,
+    "bestF1_macro": 0.46375,
+    "R_at_P30_micro": 0.7050913725490197,
+    "R_at_P30_macro": 0.5327500000000001
+   },
+   "EXP-2026-10-14-04-control-finetune-a-unchanged": {
+    "bestF1_micro": 0.570546226597182,
+    "bestF1_macro": 0.458375,
+    "R_at_P30_micro": 0.703673137254902,
+    "R_at_P30_macro": 0.52725
+   },
+   "EXP-2026-10-14-05-baseline-y8m-single": {
+    "bestF1_micro": 0.573640293555846,
+    "bestF1_macro": 0.4675,
+    "R_at_P30_micro": 0.7161541176470589,
+    "R_at_P30_macro": 0.5387500000000001
+   },
+   "EXP-2026-10-14-06-ens-b-y8mft-y11l": {
+    "bestF1_micro": 0.5941204819277108,
+    "bestF1_macro": 0.48350000000000004,
+    "R_at_P30_micro": 0.734154705882353,
+    "R_at_P30_macro": 0.527375
+   },
+   "EXP-2026-10-14-07-ens-c-y8mft-y11l": {
+    "bestF1_micro": 0.5924940617577198,
+    "bestF1_macro": 0.48450000000000004,
+    "R_at_P30_micro": 0.7339537254901961,
+    "R_at_P30_macro": 0.5265
+   },
+   "EXP-2026-10-14-08-ens-d-y8mft-y11l": {
+    "bestF1_micro": 0.5921968902031861,
+    "bestF1_macro": 0.48649999999999993,
+    "R_at_P30_micro": 0.7496690196078432,
+    "R_at_P30_macro": 0.584625
+   },
+   "EXP-2026-10-14-09-ens-control-y8mft-y11l": {
+    "bestF1_micro": 0.5895233600755073,
+    "bestF1_macro": 0.481,
+    "R_at_P30_micro": 0.7344203921568628,
+    "R_at_P30_macro": 0.5278750000000001
+   },
+   "EXP-2026-10-14-11-d-frozen-backbone": {
+    "bestF1_micro": 0.5809676129548181,
+    "bestF1_macro": 0.46725000000000005,
+    "R_at_P30_micro": 0.7018260784313726,
+    "R_at_P30_macro": 0.511875
+   },
+   "EXP-2026-10-14-12-radar-r-stowed-vehicle": {
+    "bestF1_micro": 0.5763340161935421,
+    "bestF1_macro": 0.4615,
+    "R_at_P30_micro": 0.691608431372549,
+    "R_at_P30_macro": 0.47725
+   },
+   "EXP-2026-10-14-13-y11l-finetune-d": {
+    "bestF1_micro": 0.5844883515187259,
+    "bestF1_macro": 0.46325,
+    "R_at_P30_micro": 0.7207090196078432,
+    "R_at_P30_macro": 0.526875
+   },
+   "EXP-2026-10-14-14-ens-dfrozen-y11l": {
+    "bestF1_micro": 0.5988743680244205,
+    "bestF1_macro": 0.485125,
+    "R_at_P30_micro": 0.7440825490196078,
+    "R_at_P30_macro": 0.5771250000000001
+   },
+   "EXP-2026-10-14-15-ens-r-y8mft-y11l": {
+    "bestF1_micro": 0.5892335250306402,
+    "bestF1_macro": 0.48225,
+    "R_at_P30_micro": 0.7334698039215686,
+    "R_at_P30_macro": 0.5265000000000001
+   },
+   "EXP-2026-10-14-16-ens-d-full-y8md-y11ld": {
+    "bestF1_micro": 0.5931965139162215,
+    "bestF1_macro": 0.485375,
+    "R_at_P30_micro": 0.7359831372549019,
+    "R_at_P30_macro": 0.567375
+   },
+   "EXP-2026-10-14-17-y11l-single-baseline": {
+    "bestF1_micro": 0.5842719431760527,
+    "bestF1_macro": 0.46975,
+    "R_at_P30_micro": 0.7330076470588236,
+    "R_at_P30_macro": 0.554875
+   },
+   "EXP-2026-10-14-18-y11l-control-finetune-a": {
+    "bestF1_micro": 0.5855282483109763,
+    "bestF1_macro": 0.46475,
+    "R_at_P30_micro": 0.7300660784313726,
+    "R_at_P30_macro": 0.544875
+   },
+   "EXP-2026-10-14-19-y11l-finetune-dr": {
+    "bestF1_micro": 0.575942405759424,
+    "bestF1_macro": 0.46262500000000006,
+    "R_at_P30_micro": 0.6930960784313726,
+    "R_at_P30_macro": 0.5225
+   },
+   "EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d": {
+    "bestF1_micro": 0.5837957824639289,
+    "bestF1_macro": 0.46725,
+    "R_at_P30_micro": 0.7340756862745098,
+    "R_at_P30_macro": 0.532
+   },
+   "EXP-2026-10-15-02-y11l-finetune-d-lowlr": {
+    "bestF1_micro": 0.5759019741320626,
+    "bestF1_macro": 0.46349999999999997,
+    "R_at_P30_micro": 0.7260186274509803,
+    "R_at_P30_macro": 0.539625
+   }
+  }
+ },
+ "0.5": {
+  "bestF1": {
+   "arty": {
+    "run": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+    "gt": 179,
+    "bestF1": 0.364,
+    "P": 0.407,
+    "R": 0.33,
+    "conf": "0.90",
+    "R_at_P30": 0.346,
+    "tp": 59,
+    "fp": 86,
+    "fn": 120
+   },
+   "camo": {
+    "run": "EXP-2026-10-14-16-ens-d-full-y8md-y11ld",
+    "gt": 750,
+    "bestF1": 0.449,
+    "P": 0.494,
+    "R": 0.412,
+    "conf": "0.70",
+    "R_at_P30": 0.515,
+    "tp": 309,
+    "fp": 316,
+    "fn": 441
+   },
+   "logistic": {
+    "run": "EXP-2026-10-14-13-y11l-finetune-d",
+    "gt": 241,
+    "bestF1": 0.278,
+    "P": 0.26,
+    "R": 0.299,
+    "conf": "0.60",
+    "R_at_P30": 0.187,
+    "tp": 72,
+    "fp": 205,
+    "fn": 169
+   },
+   "missile": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 162,
+    "bestF1": 0.359,
+    "P": 0.32,
+    "R": 0.407,
+    "conf": "0.90",
+    "R_at_P30": 0.407,
+    "tp": 66,
+    "fp": 140,
+    "fn": 96
+   },
+   "radar": {
+    "run": "EXP-2026-10-14-09-ens-control-y8mft-y11l",
+    "gt": 176,
+    "bestF1": 0.477,
+    "P": 0.562,
+    "R": 0.415,
+    "conf": "0.80",
+    "R_at_P30": 0.511,
+    "tp": 73,
+    "fp": 57,
+    "fn": 103
+   },
+   "smallvehicle": {
+    "run": "EXP-2026-10-14-13-y11l-finetune-d",
+    "gt": 822,
+    "bestF1": 0.538,
+    "P": 0.666,
+    "R": 0.451,
+    "conf": "0.60",
+    "R_at_P30": 0.611,
+    "tp": 371,
+    "fp": 186,
+    "fn": 451
+   },
+   "tank": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 729,
+    "bestF1": 0.679,
+    "P": 0.672,
+    "R": 0.687,
+    "conf": "0.90",
+    "R_at_P30": 0.896,
+    "tp": 501,
+    "fp": 245,
+    "fn": 228
+   },
+   "vehicle": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 2041,
+    "bestF1": 0.701,
+    "P": 0.638,
+    "R": 0.777,
+    "conf": "0.90",
+    "R_at_P30": 0.905,
+    "tp": 1585,
+    "fp": 898,
+    "fn": 456
+   }
+  },
+  "R_at_P30": {
+   "arty": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 179,
+    "bestF1": 0.35,
+    "P": 0.397,
+    "R": 0.313,
+    "conf": "0.90",
+    "R_at_P30": 0.346,
+    "tp": 56,
+    "fp": 85,
+    "fn": 123
+   },
+   "camo": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 750,
+    "bestF1": 0.439,
+    "P": 0.534,
+    "R": 0.372,
+    "conf": "0.80",
+    "R_at_P30": 0.533,
+    "tp": 279,
+    "fp": 243,
+    "fn": 471
+   },
+   "logistic": {
+    "run": "EXP-2026-10-14-17-y11l-single-baseline",
+    "gt": 241,
+    "bestF1": 0.268,
+    "P": 0.302,
+    "R": 0.241,
+    "conf": "0.60",
+    "R_at_P30": 0.241,
+    "tp": 58,
+    "fp": 134,
+    "fn": 183
+   },
+   "missile": {
+    "run": "EXP-2026-10-14-17-y11l-single-baseline",
+    "gt": 162,
+    "bestF1": 0.351,
+    "P": 0.301,
+    "R": 0.42,
+    "conf": "0.60",
+    "R_at_P30": 0.42,
+    "tp": 68,
+    "fp": 158,
+    "fn": 94
+   },
+   "radar": {
+    "run": "EXP-2026-10-14-16-ens-d-full-y8md-y11ld",
+    "gt": 176,
+    "bestF1": 0.464,
+    "P": 0.625,
+    "R": 0.369,
+    "conf": "0.90",
+    "R_at_P30": 0.517,
+    "tp": 65,
+    "fp": 39,
+    "fn": 111
+   },
+   "smallvehicle": {
+    "run": "EXP-2026-10-14-09-ens-control-y8mft-y11l",
+    "gt": 822,
+    "bestF1": 0.53,
+    "P": 0.579,
+    "R": 0.488,
+    "conf": "0.60",
+    "R_at_P30": 0.653,
+    "tp": 401,
+    "fp": 291,
+    "fn": 421
+   },
+   "tank": {
+    "run": "m0001 ensemble (y8m+y11l)",
+    "gt": 729,
+    "bestF1": 0.679,
+    "P": 0.672,
+    "R": 0.687,
+    "conf": "0.90",
+    "R_at_P30": 0.896,
+    "tp": 501,
+    "fp": 245,
+    "fn": 228
+   },
+   "vehicle": {
+    "run": "EXP-2026-10-14-06-ens-b-y8mft-y11l",
+    "gt": 2041,
+    "bestF1": 0.692,
+    "P": 0.627,
+    "R": 0.773,
+    "conf": "0.90",
+    "R_at_P30": 0.919,
+    "tp": 1577,
+    "fp": 939,
+    "fn": 464
+   }
+  },
+  "bestF1_MICRO": {
+   "P": 0.587347649448636,
+   "R": 0.5952941176470589,
+   "F1": 0.591294186386211,
+   "tp": 3036,
+   "fp": 2133,
+   "fn": 2064
+  },
+  "bestF1_MACRO": {
+   "P": 0.502375,
+   "R": 0.47225000000000006,
+   "F1": 0.480625
+  },
+  "R_at_P30_MICRO": 0.7342011764705884,
+  "R_at_P30_MACRO": 0.565625,
+  "per_run": {
+   "m0001 ensemble (y8m+y11l)": {
+    "bestF1_micro": 0.5875979491148302,
+    "bestF1_macro": 0.4745,
+    "R_at_P30_micro": 0.7235900000000001,
+    "R_at_P30_macro": 0.55575
+   },
+   "EXP-2026-10-14-01-relabel-b-nonlauncher-vehicle": {
+    "bestF1_micro": 0.5594771241830065,
+    "bestF1_macro": 0.4505,
+    "R_at_P30_micro": 0.6789833333333334,
+    "R_at_P30_macro": 0.5
+   },
+   "EXP-2026-10-14-02-relabel-c-unloaded-vehicle": {
+    "bestF1_micro": 0.5638524839987809,
+    "bestF1_macro": 0.450875,
+    "R_at_P30_micro": 0.6714323529411764,
+    "R_at_P30_macro": 0.49475
+   },
+   "EXP-2026-10-14-03-relabel-d-both-vehicle": {
+    "bestF1_micro": 0.5602822580645161,
+    "bestF1_macro": 0.45099999999999996,
+    "R_at_P30_micro": 0.6723213725490196,
+    "R_at_P30_macro": 0.502125
+   },
+   "EXP-2026-10-14-04-control-finetune-a-unchanged": {
+    "bestF1_micro": 0.5622678396871945,
+    "bestF1_macro": 0.446875,
+    "R_at_P30_micro": 0.6722792156862746,
+    "R_at_P30_macro": 0.45987500000000003
+   },
+   "EXP-2026-10-14-05-baseline-y8m-single": {
+    "bestF1_micro": 0.5651549353580956,
+    "bestF1_macro": 0.4535,
+    "R_at_P30_micro": 0.6876666666666666,
+    "R_at_P30_macro": 0.51
+   },
+   "EXP-2026-10-14-06-ens-b-y8mft-y11l": {
+    "bestF1_micro": 0.577484961329132,
+    "bestF1_macro": 0.46499999999999997,
+    "R_at_P30_micro": 0.7042566666666666,
+    "R_at_P30_macro": 0.4925
+   },
+   "EXP-2026-10-14-07-ens-c-y8mft-y11l": {
+    "bestF1_micro": 0.5801425178147268,
+    "bestF1_macro": 0.467375,
+    "R_at_P30_micro": 0.6990819607843137,
+    "R_at_P30_macro": 0.492
+   },
+   "EXP-2026-10-14-08-ens-d-y8mft-y11l": {
+    "bestF1_micro": 0.5789423352778044,
+    "bestF1_macro": 0.46787500000000004,
+    "R_at_P30_micro": 0.7112794117647058,
+    "R_at_P30_macro": 0.542
+   },
+   "EXP-2026-10-14-09-ens-control-y8mft-y11l": {
+    "bestF1_micro": 0.5798884829840416,
+    "bestF1_macro": 0.46599999999999997,
+    "R_at_P30_micro": 0.7131603921568628,
+    "R_at_P30_macro": 0.503625
+   },
+   "EXP-2026-10-14-11-d-frozen-backbone": {
+    "bestF1_micro": 0.5686332641565373,
+    "bestF1_macro": 0.453375,
+    "R_at_P30_micro": 0.6762482352941176,
+    "R_at_P30_macro": 0.48475
+   },
+   "EXP-2026-10-14-12-radar-r-stowed-vehicle": {
+    "bestF1_micro": 0.5647058823529413,
+    "bestF1_macro": 0.44375,
+    "R_at_P30_micro": 0.6573525490196078,
+    "R_at_P30_macro": 0.44275
+   },
+   "EXP-2026-10-14-13-y11l-finetune-d": {
+    "bestF1_micro": 0.5698587127158556,
+    "bestF1_macro": 0.444,
+    "R_at_P30_micro": 0.690913137254902,
+    "R_at_P30_macro": 0.490125
+   },
+   "EXP-2026-10-14-14-ens-dfrozen-y11l": {
+    "bestF1_micro": 0.5864733377849852,
+    "bestF1_macro": 0.47000000000000003,
+    "R_at_P30_micro": 0.7232641176470588,
+    "R_at_P30_macro": 0.552375
+   },
+   "EXP-2026-10-14-15-ens-r-y8mft-y11l": {
+    "bestF1_micro": 0.5773922988943956,
+    "bestF1_macro": 0.464375,
+    "R_at_P30_micro": 0.6980301960784314,
+    "R_at_P30_macro": 0.491125
+   },
+   "EXP-2026-10-14-16-ens-d-full-y8md-y11ld": {
+    "bestF1_micro": 0.5806513045134261,
+    "bestF1_macro": 0.46737500000000004,
+    "R_at_P30_micro": 0.7002029411764705,
+    "R_at_P30_macro": 0.488875
+   },
+   "EXP-2026-10-14-17-y11l-single-baseline": {
+    "bestF1_micro": 0.5706145706145707,
+    "bestF1_macro": 0.45137499999999997,
+    "R_at_P30_micro": 0.7056454901960784,
+    "R_at_P30_macro": 0.520375
+   },
+   "EXP-2026-10-14-18-y11l-control-finetune-a": {
+    "bestF1_micro": 0.5741701752668169,
+    "bestF1_macro": 0.450875,
+    "R_at_P30_micro": 0.7071835294117648,
+    "R_at_P30_macro": 0.5185
+   },
+   "EXP-2026-10-14-19-y11l-finetune-dr": {
+    "bestF1_micro": 0.5618844552746473,
+    "bestF1_macro": 0.448875,
+    "R_at_P30_micro": 0.6691107843137255,
+    "R_at_P30_macro": 0.489125
+   },
+   "EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d": {
+    "bestF1_micro": 0.571051390853371,
+    "bestF1_macro": 0.4495,
+    "R_at_P30_micro": 0.7088141176470588,
+    "R_at_P30_macro": 0.5028750000000001
+   },
+   "EXP-2026-10-15-02-y11l-finetune-d-lowlr": {
+    "bestF1_micro": 0.5645522751632077,
+    "bestF1_macro": 0.449125,
+    "R_at_P30_micro": 0.698155294117647,
+    "R_at_P30_macro": 0.50875
+   }
+  }
+ }
+}
