@@ -1,0 +1,84 @@
+{
+ "picks": {
+  "arty": {
+   "model": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+   "conf": 0.9,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels"
+  },
+  "camo": {
+   "model": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+   "conf": 0.8,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels"
+  },
+  "logistic": {
+   "model": "EXP-2026-10-14-13-y11l-finetune-d",
+   "conf": 0.6,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/preds/c05/labels"
+  },
+  "missile": {
+   "model": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+   "conf": 0.9,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels"
+  },
+  "radar": {
+   "model": "EXP-2026-10-14-17-y11l-single-baseline",
+   "conf": 0.6,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-17-y11l-single-baseline/preds/c05/labels"
+  },
+  "smallvehicle": {
+   "model": "EXP-2026-10-14-13-y11l-finetune-d",
+   "conf": 0.5,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/preds/c05/labels"
+  },
+  "tank": {
+   "model": "m0001 ensemble (y8m+y11l)",
+   "conf": 0.9,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-09-01-01-final-ensemble-train/predictions_final_c05/labels"
+  },
+  "vehicle": {
+   "model": "m0001 ensemble (y8m+y11l)",
+   "conf": 0.9,
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-09-01-01-final-ensemble-train/predictions_final_c05/labels"
+  }
+ },
+ "totals": {
+  "best_per_class": {
+   "micro_P": 0.6325500097106235,
+   "micro_R": 0.6386274509803922,
+   "micro_F1": 0.635574202361206,
+   "macro_F1": 0.5496529152357044,
+   "per_class_F1": {
+    "arty": 0.3973941368078176,
+    "camo": 0.5,
+    "logistic": 0.2857142857142857,
+    "missile": 0.6421052631578947,
+    "radar": 0.5882352941176471,
+    "smallvehicle": 0.5516304347826086,
+    "tank": 0.7033557046979866,
+    "vehicle": 0.7287882026073947
+   },
+   "TP": 3257,
+   "FP": 1892,
+   "GT": 5100
+  },
+  "m0001_deploy": {
+   "micro_P": 0.5640666082383874,
+   "micro_R": 0.6309803921568627,
+   "micro_F1": 0.5956501619620546,
+   "macro_F1": 0.5152503269272076,
+   "per_class_F1": {
+    "arty": 0.3949843260188088,
+    "camo": 0.4290718038528897,
+    "logistic": 0.2733485193621868,
+    "missile": 0.6109785202863962,
+    "radar": 0.5362318840579711,
+    "smallvehicle": 0.492639842983317,
+    "tank": 0.6795580110497238,
+    "vehicle": 0.7051897078063672
+   },
+   "TP": 3218,
+   "FP": 2487,
+   "GT": 5100
+  }
+ }
+}
