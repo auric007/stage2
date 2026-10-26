@@ -3,6 +3,12 @@
 Author: AI agent (Claude). Human/legacy companion: [state.md](state.md).
 Moved here on 2026-10-14 from `state.md` under the human/AI authorship rule (content unchanged except links).
 
+## Update — 2026-10-26 16:36 IST (Claude)
+
+- **P04 v2 (draft):** P04 plus camouflaged radar → radar (D-20261026-01). Best per class MICRO 63.6 / MACRO 55.0; m0001 alone 63.0 / 54.0.
+- **Camouflaged missiles:** better under missile than under camo, by a wide margin.
+- Source: [EXP-2026-10-26-01](2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-26-01-pcamo-missile-radar-mapping/record_ai.md).
+
 ## Research position — 2026-10-23 19:25 IST (Claude; supersedes the 2026-10-14 block below)
 
 - **Best single model:** still m0001. Of the week's fine-tunes, the original YOLO11l alone is the best all-round ([week review](2026/2026-10/week-2026-10-11/review_ai.md)).

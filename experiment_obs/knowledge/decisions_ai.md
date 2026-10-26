@@ -54,3 +54,13 @@ attribute rules (camouflaged HQ9/S300/HQ12/MissileSystem → missile; MLRS, plai
 LTV, ABLV → vehicle; SPATracked and camouflaged tanks → tank). Rules were chosen on test_80 m0001 evidence (optimistic) and await
 the researcher's review. Best-per-class MICRO F1 63.5 / MACRO 54.4 (P01: 60.2 / 49.6); m0001 alone 63.0 / 53.8.
 Evidence: [EXP-2026-10-23-02](../2026/2026-10/week-2026-10-18/experiments/EXP-2026-10-23-02-single-class-attr-remap/record_ai.md).
+
+## D-20261026-01 - Camouflaged missiles and radars go to their hardware class; P04 v2 (draft)
+
+Date: 2026-10-26 16:35 IST. One-class-per-object comparison on 21 models (EXP-2026-10-26-01).
+- **Camouflaged missiles (157) → missile.** The official "→ camo" is the worst option for missile (F1 36.4 vs 59.4–62.1) and for camo (46.5 vs 49.5).
+  Best overall: the P04 fine-type split (HQ9/S300/HQ12/MissileSystem → missile, MLRS/HQ16 → vehicle).
+- **Camouflaged radars (30, P_Camo) → radar.** Added to P04 as rule 15 (radar F1 53.3 → 58.8 best per class, MACRO +0.6, recall +0.3).
+- **Why it works:** every model was trained with these objects as their hardware class (labels_detailed), so the official camo mapping penalized correct predictions.
+- **P04 v2 result:** best per class MICRO 63.6 / MACRO 55.0; m0001 alone 63.0 / 54.0. Chosen on test_80 (upper bound); pending the researcher's review.
+- Evidence: [EXP-2026-10-26-01](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-26-01-pcamo-missile-radar-mapping/record_ai.md).
