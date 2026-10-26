@@ -1,0 +1,190 @@
+{
+ "order": "fine type first",
+ "thr_m0001": {
+  "arty": 0.9,
+  "camo": 0.7,
+  "logistic": 0.6,
+  "missile": 0.9,
+  "radar": 0.9,
+  "smallvehicle": 0.6,
+  "tank": 0.9,
+  "vehicle": 0.9
+ },
+ "rules": [
+  {
+   "official": "camo",
+   "detailed": "missile",
+   "fine": "HQ9",
+   "to": "missile",
+   "n": 57,
+   "found_as_official": 7,
+   "found_as_new": 43,
+   "gain": 36
+  },
+  {
+   "official": "missile",
+   "detailed": "missile",
+   "fine": "MLRS",
+   "to": "vehicle",
+   "n": 28,
+   "found_as_official": 3,
+   "found_as_new": 25,
+   "gain": 22
+  },
+  {
+   "official": "camo",
+   "detailed": "missile",
+   "fine": "MLRS",
+   "to": "vehicle",
+   "n": 20,
+   "found_as_official": 0,
+   "found_as_new": 20,
+   "gain": 20
+  },
+  {
+   "official": "camo",
+   "detailed": "missile",
+   "fine": "S300",
+   "to": "missile",
+   "n": 22,
+   "found_as_official": 0,
+   "found_as_new": 16,
+   "gain": 16
+  },
+  {
+   "official": "radar",
+   "detailed": "radar",
+   "fine": "EWS",
+   "to": "vehicle",
+   "n": 16,
+   "found_as_official": 0,
+   "found_as_new": 11,
+   "gain": 11
+  },
+  {
+   "official": "arty",
+   "detailed": "arty",
+   "fine": "SPATracked",
+   "to": "tank",
+   "n": 17,
+   "found_as_official": 1,
+   "found_as_new": 11,
+   "gain": 10
+  },
+  {
+   "official": "camo",
+   "detailed": "camo",
+   "fine": "LTV",
+   "to": "vehicle",
+   "n": 23,
+   "found_as_official": 7,
+   "found_as_new": 16,
+   "gain": 9
+  },
+  {
+   "official": "missile",
+   "detailed": "missile",
+   "fine": "HQ9",
+   "to": "vehicle",
+   "n": 34,
+   "found_as_official": 15,
+   "found_as_new": 24,
+   "gain": 9
+  },
+  {
+   "official": "camo",
+   "detailed": "missile",
+   "fine": "HQ12",
+   "to": "missile",
+   "n": 17,
+   "found_as_official": 3,
+   "found_as_new": 11,
+   "gain": 8
+  },
+  {
+   "official": "camo",
+   "detailed": "missile",
+   "fine": "MissileSystem",
+   "to": "missile",
+   "n": 18,
+   "found_as_official": 8,
+   "found_as_new": 15,
+   "gain": 7
+  },
+  {
+   "official": "camo",
+   "detailed": "tank",
+   "fine": "Tank",
+   "to": "tank",
+   "n": 8,
+   "found_as_official": 1,
+   "found_as_new": 8,
+   "gain": 7
+  },
+  {
+   "official": "camo",
+   "detailed": "missile",
+   "fine": "HQ16",
+   "to": "vehicle",
+   "n": 7,
+   "found_as_official": 1,
+   "found_as_new": 4,
+   "gain": 3
+  },
+  {
+   "official": "missile",
+   "detailed": "missile",
+   "fine": "MissileSystem",
+   "to": "vehicle",
+   "n": 17,
+   "found_as_official": 2,
+   "found_as_new": 5,
+   "gain": 3
+  },
+  {
+   "official": "tank",
+   "detailed": "tank",
+   "fine": "ABLV",
+   "to": "vehicle",
+   "n": 10,
+   "found_as_official": 2,
+   "found_as_new": 5,
+   "gain": 3
+  },
+  {
+   "official": "camo",
+   "detailed": "radar",
+   "to": "radar",
+   "n": 30,
+   "note": "camouflaged radar (P_Camo=Yes) -> radar, added 2026-10-26"
+  }
+ ],
+ "marginal_not_applied": [
+  {
+   "group": [
+    "camo",
+    "camo",
+    [
+     "ICV"
+    ]
+   ],
+   "to": "tank",
+   "n": 195,
+   "found_as_official": 88,
+   "found_as_new": 94
+  },
+  {
+   "group": [
+    "radar",
+    "radar",
+    [
+     "RadarSystem"
+    ]
+   ],
+   "to": "vehicle",
+   "n": 76,
+   "found_as_official": 21,
+   "found_as_new": 26
+  }
+ ]
+}
