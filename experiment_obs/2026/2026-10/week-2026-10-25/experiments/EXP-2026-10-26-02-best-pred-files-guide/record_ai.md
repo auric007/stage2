@@ -32,3 +32,21 @@ Evidence: [per_image_ai.tsv](per_image_ai.tsv), [best_per_class_check_ai.json](b
 
 - **Caveat:** best_per_class is an upper bound that mixes 4 models. The model and confidence for each class were picked on test_80.
 - **Next:** compare images visually using best_per_class vs m0001 deploy against gt_p04v2 (same coordinates).
+
+## Follow-up 2026-10-27: camo-parent ICV → tank (one-class test)
+
+P04 v2 + camo-parent ICV → tank (195 objects), best per class:
+
+| class / summary | P04 v2 | with ICV → tank |
+|---|--:|--:|
+| tank F1 | 70.3 (GT 744) | 75.7 (GT 939) |
+| camo F1 | 50.0 (GT 548) | 44.1 (GT 353) |
+| MICRO F1 | 63.6 | 64.8 |
+| MICRO recall | 63.9 | 65.6 |
+| MACRO F1 | 55.0 | 54.9 |
+
+- **Not adopted;** the researcher decides.
+- **Train/test mismatch:** these ICVs are trained as camo, because their labels_detailed class is camo.
+- **Earlier higher tank numbers** (74.2 in P02, 88.6 in the rule stack) came from accepting several classes per object.
+- **smallvehicle:** never above 55.2 under one-class scoring.
+- Evidence (artifacts): `config/rules.json`, `reports/P04v2_plus_camo_ICV_tank.json`.
