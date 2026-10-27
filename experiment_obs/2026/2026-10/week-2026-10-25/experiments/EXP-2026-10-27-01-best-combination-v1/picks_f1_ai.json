@@ -1,0 +1,281 @@
+{
+ "rules": "/sfs/stage2/eval/protocols/P04_single_class_remap/rules_v2.json",
+ "objective": "f1",
+ "iou": 0.3,
+ "n_runs": 21,
+ "runs": {
+  "m0001 ensemble (y8m+y11l)": "/sfs/stage2/artifacts/EXP-2026-09-01-01-final-ensemble-train/predictions_final_c05/labels",
+  "EXP-2026-10-14-01-relabel-b-nonlauncher-vehicle": "/sfs/stage2/artifacts/EXP-2026-10-14-01-relabel-b-nonlauncher-vehicle/preds/c05/labels",
+  "EXP-2026-10-14-02-relabel-c-unloaded-vehicle": "/sfs/stage2/artifacts/EXP-2026-10-14-02-relabel-c-unloaded-vehicle/preds/c05/labels",
+  "EXP-2026-10-14-03-relabel-d-both-vehicle": "/sfs/stage2/artifacts/EXP-2026-10-14-03-relabel-d-both-vehicle/preds/c05/labels",
+  "EXP-2026-10-14-04-control-finetune-a-unchanged": "/sfs/stage2/artifacts/EXP-2026-10-14-04-control-finetune-a-unchanged/preds/c05/labels",
+  "EXP-2026-10-14-05-baseline-y8m-single": "/sfs/stage2/artifacts/EXP-2026-10-14-05-baseline-y8m-single/preds/c05/labels",
+  "EXP-2026-10-14-06-ens-b-y8mft-y11l": "/sfs/stage2/artifacts/EXP-2026-10-14-06-ens-b-y8mft-y11l/preds/c05/labels",
+  "EXP-2026-10-14-07-ens-c-y8mft-y11l": "/sfs/stage2/artifacts/EXP-2026-10-14-07-ens-c-y8mft-y11l/preds/c05/labels",
+  "EXP-2026-10-14-08-ens-d-y8mft-y11l": "/sfs/stage2/artifacts/EXP-2026-10-14-08-ens-d-y8mft-y11l/preds/c05/labels",
+  "EXP-2026-10-14-09-ens-control-y8mft-y11l": "/sfs/stage2/artifacts/EXP-2026-10-14-09-ens-control-y8mft-y11l/preds/c05/labels",
+  "EXP-2026-10-14-11-d-frozen-backbone": "/sfs/stage2/artifacts/EXP-2026-10-14-11-d-frozen-backbone/preds/c05/labels",
+  "EXP-2026-10-14-12-radar-r-stowed-vehicle": "/sfs/stage2/artifacts/EXP-2026-10-14-12-radar-r-stowed-vehicle/preds/c05/labels",
+  "EXP-2026-10-14-13-y11l-finetune-d": "/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/preds/c05/labels",
+  "EXP-2026-10-14-14-ens-dfrozen-y11l": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels",
+  "EXP-2026-10-14-15-ens-r-y8mft-y11l": "/sfs/stage2/artifacts/EXP-2026-10-14-15-ens-r-y8mft-y11l/preds/c05/labels",
+  "EXP-2026-10-14-16-ens-d-full-y8md-y11ld": "/sfs/stage2/artifacts/EXP-2026-10-14-16-ens-d-full-y8md-y11ld/preds/c05/labels",
+  "EXP-2026-10-14-17-y11l-single-baseline": "/sfs/stage2/artifacts/EXP-2026-10-14-17-y11l-single-baseline/preds/c05/labels",
+  "EXP-2026-10-14-18-y11l-control-finetune-a": "/sfs/stage2/artifacts/EXP-2026-10-14-18-y11l-control-finetune-a/preds/c05/labels",
+  "EXP-2026-10-14-19-y11l-finetune-dr": "/sfs/stage2/artifacts/EXP-2026-10-14-19-y11l-finetune-dr/preds/c05/labels",
+  "EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d": "/sfs/stage2/artifacts/EXP-2026-10-15-01-ens-y11l-orig-plus-y11l-d/preds/c05/labels",
+  "EXP-2026-10-15-02-y11l-finetune-d-lowlr": "/sfs/stage2/artifacts/EXP-2026-10-15-02-y11l-finetune-d-lowlr/preds/c05/labels"
+ },
+ "picks": {
+  "arty": {
+   "run": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels",
+   "conf": 0.9,
+   "F1": 0.39739413680781754,
+   "P": 0.4206896551724138,
+   "R": 0.3765432098765432,
+   "gt": 162
+  },
+  "camo": {
+   "run": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels",
+   "conf": 0.8,
+   "F1": 0.5000000000000001,
+   "P": 0.5075187969924813,
+   "R": 0.4927007299270073,
+   "gt": 548
+  },
+  "logistic": {
+   "run": "EXP-2026-10-14-13-y11l-finetune-d",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/preds/c05/labels",
+   "conf": 0.6,
+   "F1": 0.28571428571428575,
+   "P": 0.26714801444043323,
+   "R": 0.3070539419087137,
+   "gt": 241
+  },
+  "missile": {
+   "run": "EXP-2026-10-14-14-ens-dfrozen-y11l",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-14-ens-dfrozen-y11l/preds/c05/labels",
+   "conf": 0.9,
+   "F1": 0.6421052631578947,
+   "P": 0.6666666666666666,
+   "R": 0.6192893401015228,
+   "gt": 197
+  },
+  "radar": {
+   "run": "EXP-2026-10-14-17-y11l-single-baseline",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-17-y11l-single-baseline/preds/c05/labels",
+   "conf": 0.6,
+   "F1": 0.588235294117647,
+   "P": 0.7142857142857143,
+   "R": 0.5,
+   "gt": 190
+  },
+  "smallvehicle": {
+   "run": "EXP-2026-10-14-13-y11l-finetune-d",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/preds/c05/labels",
+   "conf": 0.5,
+   "F1": 0.5516304347826088,
+   "P": 0.6246153846153846,
+   "R": 0.49391727493917276,
+   "gt": 822
+  },
+  "tank": {
+   "run": "m0001 ensemble (y8m+y11l)",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-09-01-01-final-ensemble-train/predictions_final_c05/labels",
+   "conf": 0.9,
+   "F1": 0.7033557046979866,
+   "P": 0.7024128686327078,
+   "R": 0.7043010752688172,
+   "gt": 744
+  },
+  "vehicle": {
+   "run": "m0001 ensemble (y8m+y11l)",
+   "c05_dir": "/sfs/stage2/artifacts/EXP-2026-09-01-01-final-ensemble-train/predictions_final_c05/labels",
+   "conf": 0.9,
+   "F1": 0.7287882026073947,
+   "P": 0.6866693515908175,
+   "R": 0.7764116575591985,
+   "gt": 2196
+  }
+ },
+ "combined": {
+  "per_class": {
+   "arty": {
+    "gt": 162,
+    "tp": 61,
+    "fp": 84,
+    "fn": 101,
+    "P": 0.4206896551724138,
+    "R": 0.3765432098765432,
+    "F1": 0.39739413680781754
+   },
+   "camo": {
+    "gt": 548,
+    "tp": 270,
+    "fp": 262,
+    "fn": 278,
+    "P": 0.5075187969924813,
+    "R": 0.4927007299270073,
+    "F1": 0.5000000000000001
+   },
+   "logistic": {
+    "gt": 241,
+    "tp": 74,
+    "fp": 203,
+    "fn": 167,
+    "P": 0.26714801444043323,
+    "R": 0.3070539419087137,
+    "F1": 0.28571428571428575
+   },
+   "missile": {
+    "gt": 197,
+    "tp": 122,
+    "fp": 61,
+    "fn": 75,
+    "P": 0.6666666666666666,
+    "R": 0.6192893401015228,
+    "F1": 0.6421052631578947
+   },
+   "radar": {
+    "gt": 190,
+    "tp": 95,
+    "fp": 38,
+    "fn": 95,
+    "P": 0.7142857142857143,
+    "R": 0.5,
+    "F1": 0.588235294117647
+   },
+   "smallvehicle": {
+    "gt": 822,
+    "tp": 406,
+    "fp": 244,
+    "fn": 416,
+    "P": 0.6246153846153846,
+    "R": 0.49391727493917276,
+    "F1": 0.5516304347826088
+   },
+   "tank": {
+    "gt": 744,
+    "tp": 524,
+    "fp": 222,
+    "fn": 220,
+    "P": 0.7024128686327078,
+    "R": 0.7043010752688172,
+    "F1": 0.7033557046979866
+   },
+   "vehicle": {
+    "gt": 2196,
+    "tp": 1705,
+    "fp": 778,
+    "fn": 491,
+    "P": 0.6866693515908175,
+    "R": 0.7764116575591985,
+    "F1": 0.7287882026073947
+   }
+  },
+  "micro": {
+   "P": 0.6325500097106235,
+   "R": 0.6386274509803922,
+   "F1": 0.635574202361206,
+   "tp": 3257,
+   "fp": 1892,
+   "gt": 5100
+  },
+  "macro": {
+   "P": 0.5737508065495773,
+   "R": 0.533777153697622,
+   "F1": 0.5496529152357044
+  }
+ },
+ "combined_dedup": {
+  "per_class": {
+   "arty": {
+    "gt": 162,
+    "tp": 61,
+    "fp": 78,
+    "fn": 101,
+    "P": 0.43884892086330934,
+    "R": 0.3765432098765432,
+    "F1": 0.4053156146179402
+   },
+   "camo": {
+    "gt": 548,
+    "tp": 232,
+    "fp": 171,
+    "fn": 316,
+    "P": 0.575682382133995,
+    "R": 0.4233576642335766,
+    "F1": 0.48790746582544686
+   },
+   "logistic": {
+    "gt": 241,
+    "tp": 74,
+    "fp": 202,
+    "fn": 167,
+    "P": 0.26811594202898553,
+    "R": 0.3070539419087137,
+    "F1": 0.2862669245647969
+   },
+   "missile": {
+    "gt": 197,
+    "tp": 122,
+    "fp": 58,
+    "fn": 75,
+    "P": 0.6777777777777778,
+    "R": 0.6192893401015228,
+    "F1": 0.6472148541114058
+   },
+   "radar": {
+    "gt": 190,
+    "tp": 95,
+    "fp": 38,
+    "fn": 95,
+    "P": 0.7142857142857143,
+    "R": 0.5,
+    "F1": 0.588235294117647
+   },
+   "smallvehicle": {
+    "gt": 822,
+    "tp": 394,
+    "fp": 227,
+    "fn": 428,
+    "P": 0.6344605475040258,
+    "R": 0.4793187347931874,
+    "F1": 0.546084546084546
+   },
+   "tank": {
+    "gt": 744,
+    "tp": 458,
+    "fp": 136,
+    "fn": 286,
+    "P": 0.7710437710437711,
+    "R": 0.6155913978494624,
+    "F1": 0.6846038863976084
+   },
+   "vehicle": {
+    "gt": 2196,
+    "tp": 1606,
+    "fp": 647,
+    "fn": 590,
+    "P": 0.7128273413226809,
+    "R": 0.7313296903460837,
+    "F1": 0.7219599910092155
+   }
+  },
+  "micro": {
+   "P": 0.6614481409001957,
+   "R": 0.5964705882352941,
+   "F1": 0.6272811630064954,
+   "tp": 3042,
+   "fp": 1557,
+   "gt": 5100
+  },
+  "macro": {
+   "P": 0.5991302996200325,
+   "R": 0.5065604973886363,
+   "F1": 0.5459485720910758
+  }
+ }
+}
