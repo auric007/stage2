@@ -79,6 +79,33 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - Step 1's ranking is unaffected: one file, uniform scale.
   - From step 2 on, the ranking is TracIn-CP over epoch5 + epoch10 + last, once the epoch-5/10 file is written.
 
+- 03:58: **v1 step 1: both proposals FAIL** (fixed 15 epochs):
+
+| run | images removed | tiles | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| base_s0 | 0 | 12,522 | 58.3 | 46.0 | 26.8 | 52.9 | 17.5 | 44.7 | 46.6 | 55.2 | 54.5 | 69.9 |
+| base_s1 | 0 | 12,522 | 57.5 | 45.6 | 22.5 | 50.2 | 19.1 | 45.5 | 45.7 | 56.5 | 56.1 | 69.0 |
+| v1 s01_A | 143 | 7,350 | 49.6 | 39.1 | 17.0 | 45.0 | 18.4 | 39.5 | 39.0 | 48.2 | 44.3 | 61.3 |
+| v1 s01_B | 71 | 10,135 | 55.0 | 43.1 | 21.1 | 50.0 | 17.8 | 45.5 | 38.9 | 47.6 | 55.8 | 67.8 |
+
+- **Diagnosis: a design confound, not proof that the images are needed.**
+  - Training ran a fixed number of epochs, so removing 41% of the tiles also removed 41% of the optimizer steps.
+  - The proxy is still improving at epoch 15: base_s0 box loss 1.26 → 1.20 and cls loss 1.85 → 1.73 over epochs 10 → 15.
+  - A dropped roughly uniformly, 5–10 F1 in every class except logistic, which fits undertraining.
+  - B's losses sit mostly in radar (−7.2) and smallvehicle (−8.3), so part of it may be real; v2 separates the two effects.
+- ~04:00: **v1 stopped.** The brain and the v1 step 2 (A 71 / B 38, launched from the confounded step-1 KEEP marks) were killed.
+  - v1 is archived in `runs_v1_epochmatched/` and `state/v1_epochmatched/` (brain state, loop log, keep lists).
+  - The notebook snapshot is [loop_status_v1_epochmatched_ai.md](loop_status_v1_epochmatched_ai.md).
+- 04:01: **loop v2, equal optimizer steps.**
+  - Each subset trains 15 × (12,522 / its tiles) epochs; warmup, close_mosaic and save_period are scaled by the same factor.
+  - The full set's factor is 1, so the baselines are unchanged and still valid.
+  - Each run writes `runs/<run>/steps.json`.
+  - The brain restarted from a fresh state; step 1 uses the 3-checkpoint TracIn ranking:
+    - A: 143 images, 7,259 tiles, 26 epochs;
+    - B: 71 images, 9,861 tiles, 19 epochs.
+  - The researcher's "y8m for 15 epochs" is kept as the budget of the full set, i.e. 15 full-Train epochs of compute for every run.
+  - Cost: each step now takes as long as a baseline, about 105 min for two parallel runs. That is about 3 steps by 09:30.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).

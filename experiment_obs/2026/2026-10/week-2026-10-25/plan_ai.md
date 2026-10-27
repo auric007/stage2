@@ -6,6 +6,8 @@ Author: AI agent (Claude). Human companion: [plan.md](plan.md).
 
 **Status:** approved 2026-10-28 ~01:00 IST, with these answers: y8m 15 ep; minimal drop; as many rare as possible; whole images; rare = radar, missile, arty; keep looping until stopped. Running as [EXP-2026-10-28-01](experiments/EXP-2026-10-28-01-train-subset-influence-loop/record_ai.md).
 
+**Change 2026-10-28 04:01 IST (agent decision, see record):** subset runs now get **equal optimizer steps** (15 full-Train epochs of compute), not a fixed 15 epochs. A fixed epoch count confounded fewer images with less training.
+
 ### 1. What the researcher wants (2026-10-28 ~00:40 IST)
 
 - Dataset: `/sfs/data/up42_platform_data_27_10/prepared` — Train 359 images, Test1 44 + Test2 72 = Test116.
