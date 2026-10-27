@@ -199,6 +199,8 @@ Matching convention everywhere:
 
 ## 9. Related records
 
+- **How the best combination is built and re-run:** [best_combination_ai.md](best_combination_ai.md) (`code/engine_v1/combine_best.py`)
+
 - [EXP-2026-10-23-01 best per class](../2026/2026-10/week-2026-10-18/experiments/EXP-2026-10-23-01-best-per-class-oracle/record_ai.md)
 - [EXP-2026-10-23-02 single-class remap (P04)](../2026/2026-10/week-2026-10-18/experiments/EXP-2026-10-23-02-single-class-attr-remap/record_ai.md)
 - [EXP-2026-10-26-01 camouflaged missile/radar mapping](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-26-01-pcamo-missile-radar-mapping/record_ai.md)
