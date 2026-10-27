@@ -1,4 +1,4 @@
-# Train-subset loop v1 (fixed 15 epochs, STOPPED 04:10 IST: confounded fewer images with fewer steps) — AI-authored snapshot
+# Train-subset loop v1 (fixed 15 epochs, STOPPED 04:00 IST: confounded fewer images with fewer steps) — AI-authored snapshot
 
 Updated 2026-10-28 03:58 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
