@@ -60,6 +60,12 @@ Status: running.
   - Dataset scan: 13,440 train images (8,364 background tiles, 0 corrupt; 1 duplicate label removed), 4,003 val tiles.
   - Epoch 1: 431 s, about 2× m0001's 215 s, because the GPU is shared with the old-model TTA inference. It should speed up once that finishes. GPU memory 20.8 GB of 46 GB, no OOM.
 
+- 21:04: first old set scored. **old_m0001_ens** (m0001's y8m+y11l, TTA):
+  - Test116: MICRO 65.0 / MACRO 56.7. Per-class F1: arty 47.5, camo 53.0, logistic 27.8, missile 59.2, radar 59.0, smallvehicle 60.4, tank 72.5, vehicle 74.0.
+  - 77 test_80 scenes inside Test116: MICRO 63.8 / MACRO 56.5.
+  - Leak check: no Test116 scene was in the 27_08 Train that m0001 trained on (from `lists/ALL_IMAGES.tsv`: 43 + 34 were in 27_08 Test, 1 in 27_08 no_soc, 6 in 15_10 Test, 32 are new).
+  - Epochs 2–3 still ~450 s each while sharing the GPU with inference.
+
 ## Results
 
 Pending.
