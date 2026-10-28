@@ -1,6 +1,6 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-28 09:23 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-28 11:06 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
 **Loop v2 (since 04:01 IST): equal optimizer steps.** Each subset trains 15 x (12,522 / its tiles) epochs, so every run gets the same steps and lr schedule. From step 5 every accepted level is re-trained with seed 1 and kept only if the 2-seed mean passes (else reverted). From step 2 (05:55 IST) proposals are class-balanced: a cluster is skipped if it would push any class's moved share above the moved image share + 3 pts. v1 (fixed 15 epochs) confounded removal with less training: [loop_status_v1_epochmatched_ai.md](loop_status_v1_epochmatched_ai.md).
 
@@ -11,11 +11,11 @@ Updated 2026-10-28 09:23 IST. Experiment record: [record_ai.md](record_ai.md). S
 | base F1 | 24.7 | 51.5 | 18.3 | 45.1 | 46.1 | 55.9 | 55.3 | 69.5 |
 | seed noise | 4.3 | 2.7 | 1.6 | 0.7 | 0.9 | 1.3 | 1.6 | 0.9 |
 
-**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 4. Next chunk k = 142 images.
+**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 11. Next chunk k = 71 images.
 
 Moved objects (of Train total): arty 119/1177 · camo 452/2742 · logistic 356/1915 · missile 78/711 · radar 53/421 · smallvehicle 1218/5349 · tank 122/1802 · vehicle 2798/12287
 
-Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/state/best_removed_scenes.txt`, `best_keep_scenes.txt`. Influence files used: none yet.
+Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/state/best_removed_scenes.txt`, `best_keep_scenes.txt`. Influence files used: tile_influence_epoch5_epoch10.json, tile_influence_last.json.
 
 | run | removed images | MICRO | MACRO | radar | missile | arty | verdict | failing |
 |---|--:|--:|--:|--:|--:|--:|---|---|
@@ -25,6 +25,8 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 | s02_B_rm71 | 71 | 57.5 | 45.5 | 45.6 | 44.6 | 16.8 | FAIL | arty |
 | s03_A_rm71 | 71 | 58.0 | 46.4 | 47.2 | 50.0 | 26.4 | PASS |  |
 | s03_B_rm35 | 35 | 54.3 | 43.2 | 42.6 | 45.9 | 17.0 | FAIL | MICRO, MACRO, arty, radar, tank, vehicle |
+| s04_random | 71 | 55.2 | 42.9 | 40.1 | 47.6 | 16.9 | FAIL | MICRO, MACRO, arty, radar, smallvehicle, tank |
+| s04_A_rm214 | 214 | 52.4 | 42.9 | 45.5 | 49.7 | 31.9 | FAIL | MICRO, MACRO, camo, smallvehicle, tank, vehicle |
 
 ## Decision log
 
@@ -57,3 +59,9 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 - 2026-10-28 09:23 IST — (agent) single-run noise is ~±3 MICRO (s03_B, 35 removed: 54.3 vs s03_A, 71 removed: 58.0). From step 5 every accepted level is re-trained with seed 1 and kept only if the 2-seed mean passes; otherwise it is reverted
 - 2026-10-28 09:23 IST — brain resumed
 - 2026-10-28 09:23 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
+- 2026-10-28 09:23 IST — influence ranking (re)loaded from ['tile_influence_epoch5_epoch10.json', 'tile_influence_last.json']
+- 2026-10-28 11:06 IST — s04_random (random, 71 images removed): FAIL MICRO,MACRO,arty,radar,smallvehicle,tank MICRO 55.2 MACRO 42.9
+- 2026-10-28 11:06 IST — s04_A_rm214 (A, 214 images removed): FAIL MICRO,MACRO,camo,smallvehicle,tank,vehicle MICRO 52.4 MACRO 42.9
+- 2026-10-28 11:06 IST — both fail (camo,smallvehicle,tank,vehicle): mark 7 clusters KEEP ['C294', 'C189', 'C249', 'C181', 'C121', 'C193', 'C033']
+- 2026-10-28 11:06 IST — k -> 71
+- 2026-10-28 11:06 IST — step 5: proposals confirm s05_confirm_s03_A_rm71 (+0 clusters); A s05_A_rm142 (+63 clusters)
