@@ -236,6 +236,9 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - Dry run with the old influence: the first 16 images are sparse (85 vehicle, 19 smallvehicle, 13 tank, 8 arty, 8 logistic, 6 radar, 0 camo).
   - Search: paired seeds, k restarts at 16; double on pass, halve on fail, stop below 8.
   - Code: `code/brain.py` (previous: `code/brain.py.bak_v2d`); state before phase 2: `state/brain_state_v2d_resolved.json`.
+- 18:27: step 10 (phase 2, paired): 87 images = the 71 level + 16 clusters (85 vehicle, 23 smallvehicle, 18 tank, 12 logistic, 8 arty, 5 radar, 1 camo).
+- 19:11: **loop paused** (STOP file) at the researcher's request, to run the best recipe on the new split ([EXP-2026-10-28-02](../EXP-2026-10-28-02-best-recipe-2710/record_ai.md)).
+  - Step 10's runs finish on their own; the brain judges them when restarted (remove `STOP`, start `code/brain.py`).
 
 ## Results
 
