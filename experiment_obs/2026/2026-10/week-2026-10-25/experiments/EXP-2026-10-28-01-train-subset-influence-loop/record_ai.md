@@ -106,6 +106,26 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - The researcher's "y8m for 15 epochs" is kept as the budget of the full set, i.e. 15 full-Train epochs of compute for every run.
   - Cost: each step now takes as long as a baseline, about 105 min for two parallel runs. That is about 3 steps by 09:30.
 
+- 05:46: **v2 step 1 (equal steps): both FAIL, but MACRO held for the larger removal.**
+
+| run | images removed | epochs | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| baseline (2-seed mean) | 0 | 15 | 57.9 | 45.8 | 24.7 | 51.6 | 18.3 | 45.1 | 46.2 | 55.9 | 55.3 | 69.5 |
+| v2 s01_A | 143 | 26 | 54.6 | **45.6** | **31.2** | 52.9 | 18.0 | **47.1** | 43.1 | 50.1 | **58.5** | 64.1 |
+| v2 s01_B | 71 | 19 | 56.3 | 43.3 | 17.9 | 47.9 | 18.8 | 44.9 | 41.3 | 49.7 | 56.7 | 69.0 |
+
+  - Equal steps removed most of the v1 gap: A went from MICRO 49.6 / MACRO 39.1 to 54.6 / 45.6.
+  - A fails on MICRO, radar (−3.1), smallvehicle (−5.8) and vehicle (−5.4).
+  - **Selection was unbalanced.** Ranking by influence per image favours dense images: A moved 40% of the images but 50% of vehicle, 53% of smallvehicle and 42% of radar objects. B moved 20% of the images but 33% / 39% / 21%.
+  - B (smaller) scored below A on MACRO: single-run noise on small classes is larger than the 2-seed estimate suggests (arty 17.9 vs 31.2).
+- 05:49: **v2b, class-balanced proposals.**
+  - The brain's automatic step 2 (A 71 / B 37, unbalanced, nearly a repeat of s01_B) was killed; its runs are in `runs_killed/`.
+  - `brain.py` now uses `take_balanced`: it walks the same low-influence order and skips any cluster that would push a class's moved share above the moved image share + 3 pts.
+  - k was reset to 143. The KEEP marks C011 and C200 from step 1 were kept (conservative); retries test them later.
+  - Step 2 proposals:
+    - A: 143 images moved; moved share per class arty 22, camo 34, logistic 37, missile 37, radar 42, smallvehicle 39, tank 11, vehicle 43 %;
+    - B: 71 images moved; 10–23 % per class.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
