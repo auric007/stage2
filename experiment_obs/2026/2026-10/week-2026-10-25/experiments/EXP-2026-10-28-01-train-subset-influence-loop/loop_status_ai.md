@@ -1,6 +1,6 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-28 14:39 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-28 16:27 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
 **Loop v2 (since 04:01 IST): equal optimizer steps.** Each subset trains 15 x (12,522 / its tiles) epochs, so every run gets the same steps and lr schedule. From step 7 (14:45 IST) each proposal is trained with seeds 0 and 1 in parallel and judged on the 2-seed mean; the search stops below 8-image steps. From step 5 every accepted level is re-trained with seed 1 and kept only if the 2-seed mean passes (else reverted). From step 2 (05:55 IST) proposals are class-balanced: a cluster is skipped if it would push any class's moved share above the moved image share + 3 pts. v1 (fixed 15 epochs) confounded removal with less training: [loop_status_v1_epochmatched_ai.md](loop_status_v1_epochmatched_ai.md).
 
@@ -11,7 +11,7 @@ Updated 2026-10-28 14:39 IST. Experiment record: [record_ai.md](record_ai.md). S
 | base F1 | 24.7 | 51.5 | 18.3 | 45.1 | 46.1 | 55.9 | 55.3 | 69.5 |
 | seed noise | 4.3 | 2.7 | 1.6 | 0.7 | 0.9 | 1.3 | 1.6 | 0.9 |
 
-**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 19. Next chunk k = 17 images.
+**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 20. Next chunk k = 8 images.
 
 Moved objects (of Train total): arty 119/1177 · camo 452/2742 · logistic 356/1915 · missile 78/711 · radar 53/421 · smallvehicle 1218/5349 · tank 122/1802 · vehicle 2798/12287
 
@@ -31,6 +31,8 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 | s05_A_rm142 | 142 | 55.2 | 45.3 | 44.8 | 48.8 | 29.3 | FAIL | MICRO, camo, smallvehicle, vehicle |
 | s06_A_rm106 | 106 | 57.1 | 45.3 | 45.3 | 46.0 | 22.2 | FAIL | MICRO, smallvehicle |
 | s06_B_rm88 | 88 | 55.1 | 44.0 | 44.3 | 44.7 | 22.2 | FAIL | MICRO, MACRO, smallvehicle, tank, vehicle |
+| s07_A_rm88 | 88 | 54.6 | 45.3 | 45.1 | 48.4 | 22.8 | FAIL | MICRO, MACRO, vehicle |
+| s07_A2_rm88 | 88 | 56.6 | 45.6 | 44.9 | 46.7 | 25.0 | FAIL | MICRO, vehicle |
 
 ## Decision log
 
@@ -85,3 +87,9 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 - 2026-10-28 14:39 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
 - 2026-10-28 14:39 IST — influence ranking (re)loaded from ['tile_influence_epoch5_epoch10.json', 'tile_influence_last.json']
 - 2026-10-28 14:39 IST — step 7: proposals A s07_A_rm88 (+15 clusters); A2 s07_A2_rm88 (+15 clusters)
+- 2026-10-28 16:27 IST — s07_A_rm88 (A, 88 images removed): FAIL MICRO,MACRO,vehicle MICRO 54.6 MACRO 45.3
+- 2026-10-28 16:27 IST — s07_A2_rm88 (A2, 88 images removed): FAIL MICRO,vehicle MICRO 56.6 MACRO 45.6
+- 2026-10-28 16:27 IST — paired s07_A_rm88 + s07_A2_rm88 (88 images): 2-seed mean MICRO 55.6 MACRO 45.4 FAIL MICRO,vehicle
+- 2026-10-28 16:27 IST — both fail (vehicle): mark 1 clusters KEEP ['C085']
+- 2026-10-28 16:27 IST — k -> 8
+- 2026-10-28 16:27 IST — step 8: proposals A s08_A_rm79 (+6 clusters); A2 s08_A2_rm79 (+6 clusters)
