@@ -139,6 +139,29 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - Balanced 143 is worse than unbalanced 143 (v2 s01_A, MACRO 45.6) on MACRO, so a single run at this size cannot tell the two apart.
   - The brain marked the 2 clusters carrying most positive arty influence (C067, C125) KEEP, set k = 71 and launched step 3: A 71, B 35 images.
 
+- 09:20: **v2b step 3: first accepted subset.**
+
+| run | images removed | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle | verdict |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|
+| baseline | 0 | 57.9 | 45.8 | 24.7 | 51.6 | 18.3 | 45.1 | 46.2 | 55.9 | 55.3 | 69.5 | — |
+| s03_A | 71 | **58.0** | **46.4** | 26.4 | 50.0 | 18.3 | **50.0** | **47.2** | 52.9 | 57.2 | 69.2 | **PASS** |
+| s03_B | 35 | 54.3 | 43.2 | 17.0 | 51.5 | 19.2 | 45.9 | 42.6 | 53.3 | 51.0 | 64.8 | FAIL |
+
+  - **Accepted move set:** 71 images (63 clusters, 2,733 tiles), saved in `state/best_removed_scenes.txt`.
+    - Objects moved, of Train totals: arty 119/1,177 (10%) · camo 452/2,742 (16%) · logistic 356/1,915 (19%) · missile 78/711 (11%) · radar 53/421 (13%) · smallvehicle 1,218/5,349 (23%) · tank 122/1,802 (7%) · vehicle 2,798/12,287 (23%).
+  - **Single-run noise is about ±3 MICRO.**
+    - s03_B removed fewer images (35, not a strict subset of A: 6 different clusters) yet scored 3.7 MICRO below A.
+    - Both trained normally, with matched steps and final losses 1.18 / 1.61 vs 1.16 / 1.53.
+    - The 2-seed baseline spread (0.7) underestimates the true run-to-run variance, so one PASS or FAIL is weak evidence.
+  - The brain accepted A, doubled k to 142 and launched step 4:
+    - the random control (71 random images);
+    - A: 214 images.
+- 09:23: **v2c, seed-1 confirmation of accepted levels.**
+  - From step 5, the newest unconfirmed accepted level is re-trained with seed 1 in place of B.
+  - It is kept only if the 2-seed mean passes the same rules against the 2-seed baseline. Otherwise R reverts to the previous level, that step's A/B results are ignored, and k is set to half the reverted chunk.
+  - Tested on a scratch copy with fake metrics: accept, confirm-fail → revert → re-confirm of the earlier level, retries, final confirm.
+  - Deployed without interrupting the running step-4 jobs. `state/brain_state.json` was seeded with the level `s03_A_rm71`.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
