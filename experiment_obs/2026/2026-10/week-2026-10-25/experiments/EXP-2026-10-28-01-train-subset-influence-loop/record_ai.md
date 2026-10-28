@@ -240,6 +240,9 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
 - 19:11: **loop paused** (STOP file) at the researcher's request, to run the best recipe on the new split ([EXP-2026-10-28-02](../EXP-2026-10-28-02-best-recipe-2710/record_ai.md)).
   - Step 10's runs finish on their own; the brain judges them when restarted (remove `STOP`, start `code/brain.py`).
 
+- 20:11: step 10 runs finished (brain paused, not yet judged). Seeds 0/1 mean MICRO 56.0 / MACRO 44.6 (full-Train 57.9 / 45.8); arty 18.5, camo 47.6, logistic 21.6, missile 46.2, radar 43.0, smallvehicle 52.1, tank 60.8, vehicle 66.8.
+  - Preliminary: fails the MICRO rule (−1.9 vs tolerance 0.7) and arty drops 7.4 pt vs the accepted 71-image level. The 71-image result stays the best accepted level until the brain formally judges step 10.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).

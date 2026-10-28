@@ -56,6 +56,10 @@ Status: running.
 - 19:16: driver `code/run_all.sh` started. It waits for subset step 10 to finish, then runs the old-model inference in the background and trains y8m → y11l. After that: TTA inference and scoring of new_ens, new_y8m_alone, new_y11l_alone and new_ens_last.
 - Smoke test before launch: m0001 ensemble TTA on 2 Test116 scenes, scored with `score_set.py`. Predictions matched the GT (e.g. radar 5/5, missile 3/3), so the coordinate frames agree.
 
+- 20:11: GPU free; y8m training and the old-model inference (m0001 ensemble first) started together.
+  - Dataset scan: 13,440 train images (8,364 background tiles, 0 corrupt; 1 duplicate label removed), 4,003 val tiles.
+  - Epoch 1: 431 s, about 2× m0001's 215 s, because the GPU is shared with the old-model TTA inference. It should speed up once that finishes. GPU memory 20.8 GB of 46 GB, no OOM.
+
 ## Results
 
 Pending.
