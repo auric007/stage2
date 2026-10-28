@@ -1,6 +1,6 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-28 18:19 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-28 18:27 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
 **Phase 2 / v3 (from ~19:00 IST):** the v2d search resolved at 71 images; influence re-computed on the two 71-removed models and candidates re-ranked margin-aware on object counts + positive influence (images whose help goes to classes near their PASS threshold — camo, smallvehicle, MICRO — are expensive; images helping classes with slack — tank, missile, arty — are cheap); paired seeds, restart at k = 16.
 
@@ -17,7 +17,7 @@ Updated 2026-10-28 18:19 IST. Experiment record: [record_ai.md](record_ai.md). S
 
 Moved objects (of Train total): arty 119/1177 · camo 452/2742 · logistic 356/1915 · missile 78/711 · radar 53/421 · smallvehicle 1218/5349 · tank 122/1802 · vehicle 2798/12287
 
-Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/state/best_removed_scenes.txt`, `best_keep_scenes.txt`. Influence files used: none yet.
+Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/state/best_removed_scenes.txt`, `best_keep_scenes.txt`. Influence files used: s03_A_rm71/tile_influence_epoch6_epoch12_last.json, s05_confirm_s03_A_rm71/tile_influence_epoch6_epoch12_last.json.
 
 | run | removed images | MICRO | MACRO | radar | missile | arty | verdict | failing |
 |---|--:|--:|--:|--:|--:|--:|---|---|
@@ -40,8 +40,6 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 
 ## Decision log
 
-- 2026-10-28 04:01 IST — influence ranking (re)loaded from ['tile_influence_epoch5_epoch10.json', 'tile_influence_last.json']
-- 2026-10-28 05:46 IST — s01_A_rm143 (A, 143 images removed): FAIL MICRO,radar,smallvehicle,vehicle MICRO 54.6 MACRO 45.6
 - 2026-10-28 05:46 IST — s01_B_rm71 (B, 71 images removed): FAIL MICRO,MACRO,arty,camo,radar,smallvehicle MICRO 56.3 MACRO 43.3
 - 2026-10-28 05:46 IST — both fail (arty,camo,radar,smallvehicle): mark 2 clusters KEEP ['C011', 'C200']
 - 2026-10-28 05:46 IST — k -> 71
@@ -100,3 +98,5 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 - 2026-10-28 18:19 IST — PHASE 2 (v3, agent): v2d search resolved at 71. Influence re-computed with TracIn on the two 71-removed models (s03_A_rm71, s05_confirm; ckpts epoch6/epoch12/last). Candidates ranked margin-aware: per class, mean(object share, positive-influence share) / slack vs the PASS threshold at the 71 level (camo, smallvehicle, MICRO slack ~0.5 pt -> expensive; tank, missile, arty slack 5-6 pt -> cheap). Reason: steps 6-8 removed clusters with strongly negative full-model influence and still failed (all contained C169: 218 camo). Paired seeds, restart k = 16, KEEP marks retained. Previous state: state/brain_state_v2d_resolved.json, code: code/brain.py.bak_v2d.
 - 2026-10-28 18:19 IST — brain resumed
 - 2026-10-28 18:19 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
+- 2026-10-28 18:27 IST — influence ranking (re)loaded from ['s03_A_rm71/tile_influence_epoch6_epoch12_last.json', 's05_confirm_s03_A_rm71/tile_influence_epoch6_epoch12_last.json']
+- 2026-10-28 18:27 IST — step 10: proposals A s10_A_rm87 (+16 clusters); A2 s10_A2_rm87 (+16 clusters); A adds objects arty 8, camo 1, logistic 12, missile 0, radar 5, smallvehicle 23, tank 18, vehicle 85
