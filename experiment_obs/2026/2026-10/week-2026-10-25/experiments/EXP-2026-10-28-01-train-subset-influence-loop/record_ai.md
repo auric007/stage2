@@ -126,6 +126,19 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
     - A: 143 images moved; moved share per class arty 22, camo 34, logistic 37, missile 37, radar 42, smallvehicle 39, tank 11, vehicle 43 %;
     - B: 71 images moved; 10–23 % per class.
 
+- 07:34: **v2b step 2 (balanced):**
+
+| run | images removed | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle | verdict |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|
+| baseline | 0 | 57.9 | 45.8 | 24.7 | 51.6 | 18.3 | 45.1 | 46.2 | 55.9 | 55.3 | 69.5 | — |
+| s02_A | 143 | 54.5 | 43.2 | 21.4 | 49.6 | 20.0 | 42.8 | 41.2 | 48.3 | 56.6 | 65.9 | FAIL (MICRO, MACRO, missile, radar, smallvehicle, vehicle) |
+| s02_B | 71 | 57.5 | 45.5 | **16.8** | 48.8 | 19.8 | 44.6 | 45.6 | 54.0 | 65.2 | 68.9 | FAIL (arty only) |
+
+  - Moving 71 balanced images is within margin on everything except arty (−7.9).
+  - Arty is the noisiest class: baseline seeds 26.8 / 22.5 (seed-noise estimate 4.3); single subset runs so far range 16.8–31.2.
+  - Balanced 143 is worse than unbalanced 143 (v2 s01_A, MACRO 45.6) on MACRO, so a single run at this size cannot tell the two apart.
+  - The brain marked the 2 clusters carrying most positive arty influence (C067, C125) KEEP, set k = 71 and launched step 3: A 71, B 35 images.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
