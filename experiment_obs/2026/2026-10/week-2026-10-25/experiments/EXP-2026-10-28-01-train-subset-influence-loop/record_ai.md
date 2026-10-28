@@ -202,6 +202,19 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - Tested on a scratch copy with fake metrics.
   - Step 7: 88 images (the 71 level + 15 clusters), seeds 0 and 1.
 
+- 16:27: **step 7 (paired, 88 images): FAIL on the 2-seed mean.**
+
+| 2-seed mean | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| baseline | 57.9 | 45.8 | 24.7 | 51.5 | 18.3 | 45.1 | 46.1 | 55.9 | 55.3 | 69.5 |
+| 71 moved (confirmed) | 57.7 | 46.2 | 25.9 | 48.6 | 18.4 | 49.0 | 45.8 | 53.3 | 58.9 | 69.4 |
+| 88 moved | 55.6 | 45.4 | 23.9 | 50.1 | 20.7 | 47.6 | 45.0 | 55.4 | 55.2 | **65.5** |
+
+  - Seeds: 54.6 / 45.3 and 56.6 / 45.6.
+  - The 17 added images (15 clusters, 678 tiles) carry 554 vehicle, 260 camo, 245 smallvehicle, 67 tank, 44 logistic, 19 radar, 18 missile and 6 arty objects.
+  - The brain marked C085 KEEP and set k = 8.
+  - Step 8 (16:27, paired): 79 images = the 71 level + 8 images (268 vehicle, 220 camo, 119 smallvehicle). If it fails, k drops to 4 < KMIN and the search ends at 71.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
