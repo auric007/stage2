@@ -76,6 +76,10 @@ Status: running.
     - arty 47.5 (m0001), camo 53.1 (exp14), logistic 28.6 (exp14), missile 59.2 (m0001), radar 60.5 (y11l), smallvehicle 61.8 (exp13), tank 73.3 (exp14), vehicle 74.0 (m0001).
     - Macro 57.3.
 
+- 01:36 (10-29): new_y8m stopped early at epoch 69 (patience 30), 5.4 h. Best val mAP50 0.443 at epoch 39 (val = Test116 tiles, as in m0001). Clean epochs took ~252 s.
+  - new_y11l started 01:36 at ~375 s/epoch.
+- 01:52: started `infer_set.sh new_y8m_alone` (best.pt) early, alongside y11l training, for an early read. The driver skips it later because INFER_DONE exists.
+
 ## Results
 
 Pending.
