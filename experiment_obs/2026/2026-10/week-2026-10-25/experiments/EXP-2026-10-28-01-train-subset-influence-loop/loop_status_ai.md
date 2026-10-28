@@ -1,8 +1,8 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-28 14:37 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-28 14:39 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
-**Loop v2 (since 04:01 IST): equal optimizer steps.** Each subset trains 15 x (12,522 / its tiles) epochs, so every run gets the same steps and lr schedule. From step 5 every accepted level is re-trained with seed 1 and kept only if the 2-seed mean passes (else reverted). From step 2 (05:55 IST) proposals are class-balanced: a cluster is skipped if it would push any class's moved share above the moved image share + 3 pts. v1 (fixed 15 epochs) confounded removal with less training: [loop_status_v1_epochmatched_ai.md](loop_status_v1_epochmatched_ai.md).
+**Loop v2 (since 04:01 IST): equal optimizer steps.** Each subset trains 15 x (12,522 / its tiles) epochs, so every run gets the same steps and lr schedule. From step 7 (14:45 IST) each proposal is trained with seeds 0 and 1 in parallel and judged on the 2-seed mean; the search stops below 8-image steps. From step 5 every accepted level is re-trained with seed 1 and kept only if the 2-seed mean passes (else reverted). From step 2 (05:55 IST) proposals are class-balanced: a cluster is skipped if it would push any class's moved share above the moved image share + 3 pts. v1 (fixed 15 epochs) confounded removal with less training: [loop_status_v1_epochmatched_ai.md](loop_status_v1_epochmatched_ai.md).
 
 **Baseline (full Train359, mean of 2 seeds):** MICRO 57.9 · MACRO 45.8 · noise MICRO 0.7 / MACRO 0.5
 
@@ -80,3 +80,8 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 - 2026-10-28 14:37 IST — both fail (smallvehicle,tank,vehicle): mark 1 clusters KEEP ['C018']
 - 2026-10-28 14:37 IST — k -> 17
 - 2026-10-28 14:37 IST — step 7: proposals A s07_A_rm88 (+15 clusters); B s07_B_rm79 (+6 clusters)
+- 2026-10-28 14:39 IST — (agent) step-7 single-seed proposals (A 88 / B 79) killed: at this resolution single-run noise (~±3 MICRO; 88 removed scored below 106) exceeds the effect. From step 7 each proposal runs seeds 0+1 in parallel, judged on the 2-seed mean; search stops when k < 8 images
+- 2026-10-28 14:39 IST — brain resumed
+- 2026-10-28 14:39 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
+- 2026-10-28 14:39 IST — influence ranking (re)loaded from ['tile_influence_epoch5_epoch10.json', 'tile_influence_last.json']
+- 2026-10-28 14:39 IST — step 7: proposals A s07_A_rm88 (+15 clusters); A2 s07_A2_rm88 (+15 clusters)
