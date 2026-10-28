@@ -66,6 +66,16 @@ Status: running.
   - Leak check: no Test116 scene was in the 27_08 Train that m0001 trained on (from `lists/ALL_IMAGES.tsv`: 43 + 34 were in 27_08 Test, 1 in 27_08 no_soc, 6 in 15_10 Test, 32 are new).
   - Epochs 2–3 still ~450 s each while sharing the GPU with inference.
 
+- 21:31: all 5 old sets scored (TTA, labels_simple, IoU 0.3). Test116 MICRO / MACRO, then MICRO / MACRO on the 77 test_80 scenes:
+  - old_m0001_ens 65.0 / 56.7 · 63.8 / 56.5
+  - old_y11l_alone 64.4 / 54.6 · 62.7 / 54.6
+  - old_y8m_alone 62.3 / 54.1 · 61.3 / 53.7
+  - old_exp13_y11l_ftD 63.8 / 53.1 · 62.5 / 53.4
+  - old_exp14_ens_y8mDfrozen_y11l 65.3 / 56.7 · 64.2 / 56.4
+  - Old per-class best on Test116 (max F1 per class over the 5 sets; picked on test, so optimistic, same as the new side will be):
+    - arty 47.5 (m0001), camo 53.1 (exp14), logistic 28.6 (exp14), missile 59.2 (m0001), radar 60.5 (y11l), smallvehicle 61.8 (exp13), tank 73.3 (exp14), vehicle 74.0 (m0001).
+    - Macro 57.3.
+
 ## Results
 
 Pending.
