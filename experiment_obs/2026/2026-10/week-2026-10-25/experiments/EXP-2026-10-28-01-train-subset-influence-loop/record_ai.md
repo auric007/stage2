@@ -162,6 +162,20 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - Tested on a scratch copy with fake metrics: accept, confirm-fail → revert → re-confirm of the earlier level, retries, final confirm.
   - Deployed without interrupting the running step-4 jobs. `state/brain_state.json` was seeded with the level `s03_A_rm71`.
 
+- 11:06: **step 4: random control and 214 images.**
+
+| run | images removed | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle | verdict |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|---|
+| baseline | 0 | 57.9 | 45.8 | 24.7 | 51.6 | 18.3 | 45.1 | 46.2 | 55.9 | 55.3 | 69.5 | — |
+| s03_A (influence, balanced) | 71 | 58.0 | 46.4 | 26.4 | 50.0 | 18.3 | 50.0 | 47.2 | 52.9 | 57.2 | 69.2 | PASS |
+| s04_random (seed-0 random clusters) | 71 | 55.2 | 42.9 | 16.9 | 49.0 | 17.7 | 47.6 | 40.1 | 51.9 | 51.5 | 68.2 | FAIL |
+| s04_A | 214 | 52.4 | 42.9 | 31.9 | 47.0 | 17.6 | 49.7 | 45.5 | 47.5 | **39.9** | 64.1 | FAIL |
+
+  - **The influence ranking beats random at 71 images**, by +2.8 MICRO and +3.5 MACRO. This is one run each, and single-run noise is about ±3, so it is indicative, not conclusive.
+  - At 214 images, tank collapses (−15.4) and vehicle, smallvehicle and camo fail; arty and missile hold.
+  - The brain marked 7 clusters KEEP (C294, C189, C249, C181, C121, C193, C033) for the failing classes and set k = 71.
+  - **Step 5** (11:06): seed-1 confirmation of the 71-image level (`s05_confirm_s03_A_rm71`) and A = 142 images.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
