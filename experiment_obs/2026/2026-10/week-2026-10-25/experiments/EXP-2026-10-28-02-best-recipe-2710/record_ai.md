@@ -80,6 +80,12 @@ Status: running.
   - new_y11l started 01:36 at ~375 s/epoch.
 - 01:52: started `infer_set.sh new_y8m_alone` (best.pt) early, alongside y11l training, for an early read. The driver skips it later because INFER_DONE exists.
 
+- 02:02: **new_y8m_alone** (best.pt, TTA) vs old_y8m_alone. Test116 MICRO / MACRO 63.5 / 55.8 vs 62.3 / 54.1 (+1.2 / +1.7). 77 test_80 scenes 63.4 / 56.1 vs 61.3 / 53.7 (+2.1 / +2.4).
+  - Per class on Test116, new vs old:
+    - Up: arty 49.9 vs 46.7, camo 53.7 vs 50.3, radar 57.6 vs 53.1, smallvehicle 58.6 vs 56.8, tank 74.2 vs 71.2, vehicle 72.0 vs 71.7.
+    - Down or flat: missile 55.3 vs 57.1, logistic 25.5 vs 25.6.
+  - Caveat: one seed each. The new best.pt was selected on Test116 tiles, the old one on test_80 tiles, so the new model gets slightly more test-selection optimism on Test116.
+
 ## Results
 
 Pending.
