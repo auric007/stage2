@@ -176,6 +176,21 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - The brain marked 7 clusters KEEP (C294, C189, C249, C181, C121, C193, C033) for the failing classes and set k = 71.
   - **Step 5** (11:06): seed-1 confirmation of the 71-image level (`s05_confirm_s03_A_rm71`) and A = 142 images.
 
+- 12:50: **step 5: the 71-image level is CONFIRMED on 2 seeds.**
+
+| | MICRO | MACRO | arty | camo | logistic | missile | radar | smallveh. | tank | vehicle |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| baseline, 2-seed mean (Train359) | 57.9 | 45.8 | 24.7 | 51.5 | 18.3 | 45.1 | 46.1 | 55.9 | 55.3 | 69.5 |
+| 71 moved, seed 0 (s03_A) | 58.0 | 46.4 | 26.4 | 50.0 | 18.3 | 50.0 | 47.2 | 52.9 | 57.2 | 69.2 |
+| 71 moved, seed 1 (s05_confirm) | 57.4 | 45.9 | 25.4 | 47.2 | 18.6 | 48.0 | 44.4 | 53.8 | 60.6 | 69.5 |
+| **71 moved, 2-seed mean** | **57.7** | **46.2** | 25.9 | 48.6 | 18.4 | 49.0 | 45.8 | 53.3 | 58.9 | 69.4 |
+| difference | −0.2 | +0.4 | +1.2 | −2.9 | +0.1 | +3.9 | −0.3 | −2.5 | +3.5 | −0.1 |
+
+  - Camo is the only class near its margin (−2.9 against the −3.0 limit); the seed-1 run alone failed camo at 47.2.
+  - s05_A (142 images): MICRO 55.2 / MACRO 45.3, FAIL on MICRO, camo, smallvehicle and vehicle; tank held at 55.3.
+  - The brain marked 7 more clusters KEEP (18 in total) and set k = 35.
+  - Step 6: A 106 images, B 88 images.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
