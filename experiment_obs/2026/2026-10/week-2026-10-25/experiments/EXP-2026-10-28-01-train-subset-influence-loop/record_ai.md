@@ -224,11 +224,11 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
 | 79 moved | 56.1 | 44.9 | **19.5** | **47.6** | 22.4 | 46.2 | 45.7 | **52.3** | 58.0 | 67.5 |
 
   - Seeds: 55.3 / 44.2 and 57.0 / 45.7. The brain marked 6 more clusters KEEP (26 in total) and set k = 4 < KMIN, so the search resolved.
-- 18:20: **diagnosis before phase 2.**
+- 18:15: **diagnosis before phase 2.**
   - Every cluster added in the failed steps 6–8 had strongly negative full-model TracIn on almost every class, so first-order influence called them harmful, yet removing them failed.
   - All four failing proposals contained C169 (1 image: 218 camo, 188 vehicle; KEEP since step 8). Camo was already 2.9 of its 3.0-pt allowance down at the 71 level.
   - So late in the search, negative head-only TracIn does not predict that a removal is safe; what fails is the classes with no slack left.
-- 18:45: **phase 2 (v3) started** (agent decision under the "keep going in the optimal direction" mandate; pass rule, Test116 and KEEP marks unchanged).
+- 18:22: **phase 2 (v3) started** (agent decision under the "keep going in the optimal direction" mandate; pass rule, Test116 and KEEP marks unchanged).
   - **Re-ranking:** TracIn re-computed on the two accepted 71-removed models (s03_A_rm71 seed 0 and s05_confirm seed 1; checkpoints epoch6/epoch12/last), averaged. Redundancy changes once 71 images are gone.
   - **Margin-aware risk** per cluster: for v in {all objects} + 8 classes, sum of mean(share of v's objects, share of v's positive influence) / slack of v. Slack is the distance of the 71 level's 2-seed mean above the PASS threshold, floored at 0.5 pt.
   - Slack at 71 (pt): MICRO 0.5, camo 0.5, smallvehicle 0.5, radar 1.7, vehicle 2.9, logistic 3.1, arty 5.5, missile 5.9, tank 6.5. Clusters that help camo, smallvehicle or MICRO are expensive; clusters helping tank, missile or arty are cheap.
