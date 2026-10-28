@@ -191,6 +191,17 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - The brain marked 7 more clusters KEEP (18 in total) and set k = 35.
   - Step 6: A 106 images, B 88 images.
 
+- 14:37: **step 6: both FAIL.**
+  - s06_A (106 images): MICRO 57.1 / MACRO 45.3; arty 22.2, camo 49.0, missile 46.0, radar 45.3, smallvehicle **49.4**, tank 62.6, vehicle 69.4.
+  - s06_B (88 images): MICRO 55.1 / MACRO 44.0; smallvehicle 52.2, tank 49.6, vehicle 65.7.
+  - Again the smaller removal scored lower. The brain marked C018 KEEP (19 in total) and set k = 17.
+- 14:39: **v2d, paired seeds.**
+  - The single-seed step 7 (A 88 / B 79) was killed (`runs_killed/`).
+  - Each proposal now trains with seeds 0 and 1 in parallel and is judged on the 2-seed mean against the 2-seed baseline. A passing level counts as confirmed.
+  - The search stops once k < 8 images (`KMIN`): a few images cannot be resolved against about ±2 MICRO of noise in the 2-seed mean.
+  - Tested on a scratch copy with fake metrics.
+  - Step 7: 88 images (the 71 level + 15 clusters), seeds 0 and 1.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).
