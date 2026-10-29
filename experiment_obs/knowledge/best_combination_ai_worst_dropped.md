@@ -17,13 +17,13 @@ Companion to [best_combination_ai.md §2](best_combination_ai.md). Built in [EXP
 
 ## Summary
 
-| images | MICRO | MACRO | MICRO + merge | MACRO + merge |
-|---|--:|--:|--:|--:|
-| all 116 | 66.5 | 58.3 | 65.8 | 57.7 |
-| drop 5 lowest-F1 | 66.8 | 58.7 | 66.0 | 58.0 |
-| drop 10 lowest-F1 | 67.8 | 59.3 | 67.0 | 58.7 |
-| drop 5 with most errors | 66.6 | 59.7 | 66.4 | 60.2 |
-| drop 10 with most errors | 66.6 | 58.8 | 66.2 | 58.9 |
+| images                   | MICRO | MACRO | MICRO + merge | MACRO + merge |
+| ------------------------ | ----: | ----: | ------------: | ------------: |
+| all 116                  |  66.5 |  58.3 |          65.8 |          57.7 |
+| drop 5 lowest-F1         |  66.8 |  58.7 |          66.0 |          58.0 |
+| drop 10 lowest-F1        |  67.8 |  59.3 |          67.0 |          58.7 |
+| drop 5 with most errors  |  66.6 |  59.7 |          66.4 |          60.2 |
+| drop 10 with most errors |  66.6 |  58.8 |          66.2 |          58.9 |
 
 **Reading**
 
@@ -69,16 +69,16 @@ Dropped: `23JAN27044234-P3DS-200012483678_01_P001` (Test2), `1eb7aa03_DS_PHR1A_2
 
 **combined** — MICRO P 66.7 / R 66.9 / F1 66.8 · MACRO F1 58.7
 
-| class | GT | prediction set | conf ≥ | P | R | F1 | TP / FP / FN |
-|---|--:|---|--:|--:|--:|--:|---|
-| arty | 241 | new_ens_last | 0.80 | 48.7 | 54.8 | 51.6 | 132 / 139 / 109 |
-| camo | 554 | new_ens | 0.90 | 56.4 | 56.1 | 56.3 | 311 / 240 / 243 |
-| logistic | 298 | new_y11l_alone | 0.50 | 35.1 | 27.2 | 30.6 | 81 / 150 / 217 |
-| missile | 413 | old_m0001_ens | 0.90 | 71.7 | 50.4 | 59.2 | 208 / 82 / 205 |
-| radar | 268 | old_y11l_alone | 0.60 | 75.1 | 51.9 | 61.4 | 139 / 46 / 129 |
-| smallvehicle | 1239 | old_exp13_y11l_ftD | 0.50 | 64.7 | 59.9 | 62.2 | 742 / 404 / 497 |
-| tank | 645 | new_y8m_alone | 0.60 | 74.7 | 73.6 | 74.2 | 475 / 161 / 170 |
-| vehicle | 3094 | new_ens_last | 0.90 | 70.2 | 78.4 | 74.1 | 2426 / 1029 / 668 |
+| class        |   GT | prediction set     | conf ≥ |    P |    R |   F1 | TP / FP / FN      |
+| ------------ | ---: | ------------------ | -----: | ---: | ---: | ---: | ----------------- |
+| arty         |  241 | new_ens_last       |   0.80 | 48.7 | 54.8 | 51.6 | 132 / 139 / 109   |
+| camo         |  554 | new_ens            |   0.90 | 56.4 | 56.1 | 56.3 | 311 / 240 / 243   |
+| logistic     |  298 | new_y11l_alone     |   0.50 | 35.1 | 27.2 | 30.6 | 81 / 150 / 217    |
+| missile      |  413 | old_m0001_ens      |   0.90 | 71.7 | 50.4 | 59.2 | 208 / 82 / 205    |
+| radar        |  268 | old_y11l_alone     |   0.60 | 75.1 | 51.9 | 61.4 | 139 / 46 / 129    |
+| smallvehicle | 1239 | old_exp13_y11l_ftD |   0.50 | 64.7 | 59.9 | 62.2 | 742 / 404 / 497   |
+| tank         |  645 | new_y8m_alone      |   0.60 | 74.7 | 73.6 | 74.2 | 475 / 161 / 170   |
+| vehicle      | 3094 | new_ens_last       |   0.90 | 70.2 | 78.4 | 74.1 | 2426 / 1029 / 668 |
 
 **combined + merge (cross-class dedup, product output)** — MICRO P 69.1 / R 63.3 / F1 66.0 · MACRO F1 58.0
 
