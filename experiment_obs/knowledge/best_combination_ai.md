@@ -9,7 +9,56 @@ Built in [EXP-2026-10-27-01](../2026/2026-10/week-2026-10-25/experiments/EXP-202
 - We are not limited to one model. Different models, from any experiment, may be used for different classes and combined. The models are small YOLOs, so running several is affordable.
 - **Every new experiment is a new candidate.** When a run has saved predictions, re-run the combination. If it is better for some class, it replaces the current pick for that class.
 
-## 2. Current best (test_80, P04 v2 class mapping, IoU 0.3)
+## 2. Current best — DEPLOYMENT PICKS (27_10 Test116, labels_simple, IoU 0.3) — 2026-10-29
+
+Built in [EXP-2026-10-28-02](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-28-02-best-recipe-2710/record_ai.md).
+Candidates: 5 old sets plus 4 sets from m0001's recipe retrained on 27_10 Train359.
+Machine-readable spec (set, conf, weight paths per class): `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/combo_test116.json`.
+
+| class | GT | prediction set | conf ≥ | P | R | F1 | TP / FP / FN |
+|---|--:|---|--:|--:|--:|--:|---|
+| arty | 249 | new ensemble, last.pt (new y8m + new y11l) | 0.80 | 48.7 | 53.0 | 50.8 | 132 / 139 / 117 |
+| camo | 558 | new ensemble, best.pt (new y8m + new y11l) | 0.90 | 56.1 | 55.7 | 55.9 | 311 / 243 / 247 |
+| logistic | 298 | new y11l alone, best.pt | 0.50 | 34.2 | 27.2 | 30.3 | 81 / 156 / 217 |
+| missile | 413 | old m0001 ensemble (y8m + y11l) | 0.90 | 71.7 | 50.4 | 59.2 | 208 / 82 / 205 |
+| radar | 275 | old m0001 y11l alone | 0.60 | 74.5 | 50.9 | 60.5 | 140 / 48 / 135 |
+| smallvehicle | 1242 | old EXP-2026-10-14-13 (y11l fine-tuned on D) | 0.50 | 64.0 | 59.7 | 61.8 | 742 / 417 / 500 |
+| tank | 645 | new y8m alone, best.pt | 0.60 | 74.7 | 73.6 | 74.2 | 475 / 161 / 170 |
+| vehicle | 3098 | new ensemble, last.pt | 0.90 | 70.2 | 78.3 | 74.0 | 2427 / 1032 / 671 |
+
+| output | MICRO P / R / F1 | MACRO F1 |
+|---|---|---|
+| **combined (best per class)** | 66.5 / 66.6 / **66.5** | **58.3** |
+| **combined + cross-class dedup** (one box per place; the product output) | 68.8 / 63.1 / **65.8** | **57.7** |
+| combined, old sets only | F1 65.7 | 57.2 |
+| new ensemble alone (best.pt) | F1 65.0 | 57.4 |
+| m0001 alone | F1 65.0 | 56.7 |
+
+- With dedup, tank drops 74.2 → 67.7: tank boxes lose to overlapping vehicle boxes, which come from a different set at a higher score. Arty rises 50.8 → 52.1.
+- Per-image spread of the combined output is wide (median image F1 66.7, p10 36.4, p90 80.0).
+  - Dropping the 5 or 10 worst images moves MICRO by only +0.1 to +1.3 and MACRO by +0.4 to +1.4. The error is spread over the dense scenes, not concentrated in a few bad images.
+  - Details: `reports/PER_IMAGE.md`, `reports/per_image_combo.tsv`.
+- Optimistic: picks and confidences were chosen on Test116 itself, and every model's best.pt was also selected on test tiles. Single seed per new model.
+- Scored with labels_simple (2026-10-27 rule), not P04 v2, so not directly comparable with the test_80 table below.
+- Tools: `artifacts/EXP-2026-10-28-02-best-recipe-2710/code/compare.py` (picks) and `code/per_image.py` (spec, dedup, per-image breakdown). `combine_best.py` is still wired to test_80 + P04 v2.
+
+**Weights needed for these picks (7 files, 10 model passes per image with TTA sets):**
+
+| weights | path | used for |
+|---|---|---|
+| new y8m best | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y8m/weights/best.pt` | camo (ens), tank |
+| new y11l best | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y11l/weights/best.pt` | camo (ens), logistic |
+| new y8m last | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y8m/weights/last.pt` | arty, vehicle (ens) |
+| new y11l last | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y11l/weights/last.pt` | arty, vehicle (ens) |
+| m0001 y8m | `/sfs/stage2/models/BEST/prod_y8m_best.pt` | missile (ens) |
+| m0001 y11l | `/sfs/stage2/models/BEST/prod_y11l_best.pt` | missile (ens), radar |
+| y11l fine-tuned on D | `/sfs/stage2/artifacts/EXP-2026-10-14-13-y11l-finetune-d/runs/ft/weights/best.pt` | smallvehicle |
+
+Inference per set: `code/engine_v1/infer_test.py --runs <w1>[,<w2>] --scales 1024,1536 --flips none,h --nms 0.4 --conf 0.05 --fuse noisyor --thr 0.05` at 0.30 m GSD.
+Then take each class from its set at its confidence, then dedup (radar > missile > arty > logistic, then score; IoU 0.4).
+`models/BEST` is unchanged; promoting these picks needs the researcher's decision.
+
+### Previous best (test_80, P04 v2 class mapping, IoU 0.3) — superseded for 27_10 on 2026-10-29
 
 | class        |   GT | model used (prediction set)                | conf ≥ |    P |    R |   F1 | TP / FP / FN     |     |
 | ------------ | ---: | ------------------------------------------ | -----: | ---: | ---: | ---: | ---------------- | --- |
@@ -78,7 +127,7 @@ Format of both prediction folders: `x1 y1 … x4 y4 class score` on the 0.30 m g
 
 ## 4. Running the combination on a new image (product recipe)
 
-The current picks need **4 weight files**:
+**For the 27_10 deployment picks, use the weights table in section 2.** The table below is for the earlier test_80 picks, which needed **4 weight files**:
 
 | weights | path | used in |
 |---|---|---|
@@ -124,3 +173,4 @@ Cost is 6 model passes per image (2 + 2 + 1 + 1) instead of 2 for m0001.
 | 2026-10-23 | 60.2 / 49.6 | first best-per-class (P01 official), EXP-2026-10-23-01 |
 | 2026-10-26 | 63.6 / 55.0 | P04 v2 mapping, EXP-2026-10-26-01/-02 |
 | 2026-10-27 | 63.6 / 55.0 (dedup 62.7 / 54.6) | reusable tool `combine_best.py`, EXP-2026-10-27-01 |
+| 2026-10-29 | 66.5 / 58.3 (dedup 65.8 / 57.7) | 27_10 Test116 + labels_simple; recipe retrained on Train359 (EXP-2026-10-28-02); deployment picks in section 2 |

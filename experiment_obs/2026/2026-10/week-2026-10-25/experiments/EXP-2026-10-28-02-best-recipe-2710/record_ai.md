@@ -122,3 +122,25 @@ Full tables: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/COMPARISON.md
 - Missile and smallvehicle regress slightly; radar is mixed.
 - Single seed per model, with no noise estimate. With 0.5–0.7 pt seed noise seen in the proxy, the ensemble's MICRO tie and +0.7 MACRO are within noise; the single-model MACRO gains (+1.5–1.7) are borderline.
 - Selection bias: new best.pt is selected on Test116 tiles, old best.pt on test_80 tiles.
+
+## Deployment note (2026-10-29, researcher request)
+
+- The per-class best combination over all 9 sets is the **deployment pick list**:
+  - MICRO 66.5 / MACRO 58.3.
+  - After cross-class dedup (the product output): **65.8 / 57.7**.
+- Full table, weights and inference command: [knowledge/best_combination_ai.md §2](../../../../../knowledge/best_combination_ai.md).
+- Machine-readable spec: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/combo_test116.json`.
+- Per-image robustness (`code/per_image.py` → `reports/PER_IMAGE.md`), conf held fixed, combined / combined + dedup:
+
+| images | MICRO | MACRO | MICRO + dedup | MACRO + dedup |
+|---|--:|--:|--:|--:|
+| all 116 | 66.5 | 58.3 | 65.8 | 57.7 |
+| drop 5 lowest-F1 | 66.8 | 58.7 | 66.0 | 58.0 |
+| drop 10 lowest-F1 | 67.8 | 59.3 | 67.0 | 58.7 |
+| drop 5 most-errors | 66.6 | 59.7 | 66.4 | 60.2 |
+| drop 10 most-errors | 66.6 | 58.8 | 66.2 | 58.9 |
+
+- Median image F1 is 66.7 (p10 36.4, p90 80.0). Dropping the worst 5–10 images adds at most about 1.3 MICRO / 1.4 MACRO.
+- Lowest-F1 images are small scenes (1–10 GT) with mostly FPs, plus 23MAY19062258 (121 smallvehicle FN of 190 GT).
+- Most-error images are dense scenes (150–460 GT) that also hold many TPs. Dropping them lowers arty to 35.4, because they contain most arty TPs.
+
