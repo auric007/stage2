@@ -106,7 +106,7 @@ VLM numbers are on the older benchmark (67 clean scenes of the old test set, IoU
 | engineering vehicle | 73 / 168 (43%) |
 
 - Common sub-types of the same classes are fine: PCL161/181 arty 93–96%, YLC2V / HT233 / JY27A / Cheese Board radars 84–100%, Tank 86%.
-- Arty's low recall on large objects (≥ 60 m²: 6 / 59) is this effect: the large ones are mostly SPAs (spa is merged into arty).
+- Arty's low recall on large objects (≥ 60 m²: 6 / 59) is probably the same effect: SPAs are large and are merged into arty (not yet cross-checked per object).
 - The class-level F1 hides this: a class can look acceptable while whole sub-types are invisible.
 
 ### 3.4 Cause 3 — small and faint objects: misses and boxes on unlabeled ground
@@ -135,7 +135,7 @@ VLM numbers are on the older benchmark (67 clean scenes of the old test set, IoU
 | tank | 87 / 87 | 78 / 61 |
 | arty | 53 / 15 | 52 / 62 |
 
-- Missile and tank are much weaker on Test2 (newer / different sites). Arty is the opposite: Test1 holds the hard SPA/K9 cases.
+- Missile and tank are much weaker on Test2 (newer / different sites). Arty is the opposite (Test1 recall 15% on 54 objects); which sub-types sit in Test1 is not yet checked.
 
 ### 3.8 VLM-side causes
 
@@ -187,7 +187,7 @@ Ordered by expected gain per effort. Effort uses the measured speed on the L40S:
 | # | step | targets cause | effort | expected outcome |
 |---|---|---|---|---|
 | V1 | **Move the VLM to Test116** with the same IDs, classes and IoU as stage 2 | benchmark | CPU + 1 inference pass | Direct comparison and end-to-end numbers |
-| V2 | **Feed the VLM stage 2's boxes** (or stage 1 at a lower gate, e.g. 0.2) instead of stage 1 ≥ 0.50 | hand-off | 1 inference pass per option | Recovers the 57 radars / 40 missiles stage 1 drops; stage 2 boxes are also far fewer non-targets |
+| V2 | **Feed the VLM stage 2's boxes** (or stage 1 at a lower gate, e.g. 0.2) instead of stage 1 ≥ 0.50 | hand-off | 1 inference pass per option | Recovers the 57 radars / 40 missiles stage 1 drops; stage 2 boxes likely carry fewer non-targets (to measure) |
 | V3 | **Hard-negative training data**: the stage 2 errors in §3 (vehicles called missile, background radar boxes) taken from **Train** scenes only, plus your supplied examples; leakage check on pixels and prompt | proposal mix | data prep ~1 day + training ~1 day | Precision; target ≥ 50% at ≥ 50% recall |
 | V4 | Read the two pending papers (CoT faithfulness; data selection for VLM fine-tuning) and turn one idea into a test | — | ~1 day | — |
 

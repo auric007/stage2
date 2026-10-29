@@ -175,3 +175,8 @@ Full tables: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/COMPARISON.md
 - **Compared with the max-F1 picks (merged 65.8 / 58.2):** about 0.8 to 0.9 F1 lower, but radar R goes from 50.9 to 63.6.
 - **Outputs:** `reports/USER_PICK_2026-10-29.md`, `reports/deploy_2026-10-29.json`, `reports/user_pick_2026-10-29.json`.
 - **Where it is recorded:** [knowledge/best_combination_ai.md §2](../../../../../knowledge/best_combination_ai.md), with the weights table and recipe. `models/BEST` is unchanged.
+
+## Error causes of the DEFAULT deploy preset (2026-10-29 21:12 IST)
+
+- `code/error_causes.py` (CPU) → `reports/ERROR_CAUSES.md`, `reports/error_causes.json`: per-class FN causes (no box / called X), FP causes (background / on an X object / duplicate), recall by size, Test1 vs Test2, and recall by labels_detailed attribute and fine class. Merged totals match the approved table.
+- Summary and reading in [weekly_detailed_report_ai.md §3](../../weekly_detailed_report_ai.md).
