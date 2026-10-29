@@ -247,6 +247,10 @@ TASK-20261028-train-subset. The plan is in [plan_ai.md](../../plan_ai.md).
   - Step 10 formally FAILED (paired mean MICRO 56.0 / MACRO 44.6; fails MICRO, MACRO, arty, camo, radar, smallvehicle). C116 marked KEEP.
   - k → 8. Step 11 proposes 79 images (s11_A_rm79 / s11_A2_rm79).
 
+- 13:22 (10-29): step 11 (79 images) failed on smallvehicle (paired mean MICRO 57.6 / MACRO 46.1). C235 marked KEEP and k → 4, below the 8-image measurable floor.
+  - **Search resolved; final = 71 images moved** (phase 2 could not extend it). The brain is idle.
+  - STOP file set 16:40 while the GPU is used for the Test116 re-inference in EXP-2026-10-28-02.
+
 ## Results
 
 Pending; see [loop_status_ai.md](loop_status_ai.md).

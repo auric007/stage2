@@ -144,3 +144,9 @@ Full tables: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/COMPARISON.md
 - Lowest-F1 images are small scenes (1–10 GT) with mostly FPs, plus 23MAY19062258 (121 smallvehicle FN of 190 GT).
 - Most-error images are dense scenes (150–460 GT) that also hold many TPs. Dropping them lowers arty to 35.4, because they contain most arty TPs.
 
+## Best-by-conf request (2026-10-29 16:40)
+
+- Researcher asked for every class × conf 0.1..0.9 the set with the best P, the best R and the best F1 (IoU 0.3, all 116 images), over all experiments so far.
+- The 16 EXP-2026-10-14/15 sets that had only test_80 predictions are re-inferred on Test116 with the same TTA pipeline: 9 single models + 7 ensembles, 23 passes.
+  - Driver: `code/run_old14.sh`. Table: `code/best_by_conf.py`.
+- Loop paused by researcher choice, but it had already resolved at 71 images.
