@@ -93,17 +93,17 @@ VLM numbers are on the older benchmark (67 clean scenes of the old test set, IoU
 
 ### 3.3 Cause 2 — rare sub-types are almost never found
 
-| sub-type | found / objects |
-|---|---|
-| K9 (arty) | 0 / 16 |
-| HQ6 (missile) | 0 / 10 |
-| camo-covered transport vehicle | 2 / 30 |
-| MLRS under camo | 0 / 7 |
-| self-propelled artillery (SPA tracked / wheeled) | 12 / 55 (22%) |
-| AA gun | 1 / 10 |
-| EWS (radar) | 6 / 28 (21%) |
-| ABLV (tank) | 2 / 10 |
-| engineering vehicle | 73 / 168 (43%) |
+| sub-type                                         | found / objects |
+| ------------------------------------------------ | --------------- |
+| K9 (arty)                                        | 0 / 16          |
+| HQ6 (missile)                                    | 0 / 10          |
+| camo-covered transport vehicle                   | 2 / 30          |
+| MLRS under camo                                  | 0 / 7           |
+| self-propelled artillery (SPA tracked / wheeled) | 12 / 55 (22%)   |
+| AA gun                                           | 1 / 10          |
+| EWS (radar)                                      | 6 / 28 (21%)    |
+| ABLV (tank)                                      | 2 / 10          |
+| engineering vehicle                              | 73 / 168 (43%)  |
 
 - Common sub-types of the same classes are fine: PCL161/181 arty 93–96%, YLC2V / HT233 / JY27A / Cheese Board radars 84–100%, Tank 86%.
 - Arty's low recall on large objects (≥ 60 m²: 6 / 59) is probably the same effect: SPAs are large and are merged into arty (not yet cross-checked per object).
