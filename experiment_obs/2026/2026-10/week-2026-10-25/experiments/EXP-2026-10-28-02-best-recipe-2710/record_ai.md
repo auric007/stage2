@@ -86,6 +86,39 @@ Status: running.
     - Down or flat: missile 55.3 vs 57.1, logistic 25.5 vs 25.6.
   - Caveat: one seed each. The new best.pt was selected on Test116 tiles, the old one on test_80 tiles, so the new model gets slightly more test-selection optimism on Test116.
 
+- 08:33 (10-29): new_y11l early-stopped at epoch 67 after 6.95 h.
+  - Best fitness (0.1·mAP50 + 0.9·mAP50-95) at epoch 37.
+  - Note: the y8m 'best epoch 39' quoted above was by mAP50 alone; ultralytics selects best.pt by fitness.
+- 09:07: new_ens, new_y11l_alone and new_ens_last inferred and scored; driver finished.
+- 11:40: `code/compare.py` → `reports/COMPARISON.md` (full per-class tables with conf/P/R/TP/FP/FN). The subset loop was resumed.
+
 ## Results
 
-Pending.
+Full tables: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/COMPARISON.md`.
+
+**Test116 (116 scenes), MICRO / MACRO F1:**
+
+| set | Test116 | 77 test_80 scenes |
+|---|--:|--:|
+| old m0001 ens | 65.0 / 56.7 | 63.8 / 56.5 |
+| old exp14 ens | 65.3 / 56.7 | 64.2 / 56.4 |
+| **new ens (best.pt)** | 65.0 / **57.4** | **64.7 / 57.5** |
+| new ens (last.pt) | 65.1 / 57.0 | 63.7 / 56.5 |
+| new y8m alone | 63.5 / 55.8 (old 62.3 / 54.1) | 63.4 / 56.1 (old 61.3 / 53.7) |
+| new y11l alone | 63.7 / 56.1 (old 64.4 / 54.6) | 62.6 / 55.9 (old 62.7 / 54.6) |
+
+**Per-class best combination on Test116** (set + conf picked on Test116 itself, so optimistic for both sides):
+
+- Old sets only: MICRO 65.7 / MACRO 57.2.
+- New sets only: MICRO 65.9 / MACRO 57.8.
+- All sets: MICRO 66.5 / MACRO 58.3.
+  - New sets win arty 50.8, camo 55.9, logistic 30.3, tank 74.2 and vehicle 74.0.
+  - Old sets win missile 59.2 (m0001), radar 60.5 (old y11l) and smallvehicle 61.8 (exp13).
+
+**Reading:**
+
+- Same recipe, new Train359: MACRO goes up about 0.7–1.7 on every pairing (ensemble +0.7, y8m +1.7, y11l +1.5). MICRO is flat for the ensemble.
+- Gains are in arty, camo and tank; logistic gains for y11l.
+- Missile and smallvehicle regress slightly; radar is mixed.
+- Single seed per model, with no noise estimate. With 0.5–0.7 pt seed noise seen in the proxy, the ensemble's MICRO tie and +0.7 MACRO are within noise; the single-model MACRO gains (+1.5–1.7) are borderline.
+- Selection bias: new best.pt is selected on Test116 tiles, old best.pt on test_80 tiles.
