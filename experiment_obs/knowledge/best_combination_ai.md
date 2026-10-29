@@ -9,7 +9,90 @@ Built in [EXP-2026-10-27-01](../2026/2026-10/week-2026-10-25/experiments/EXP-202
 - We are not limited to one model. Different models, from any experiment, may be used for different classes and combined. The models are small YOLOs, so running several is affordable.
 - **Every new experiment is a new candidate.** When a run has saved predictions, re-run the combination. If it is better for some class, it replaces the current pick for that class.
 
-## 2. Current best — DEPLOYMENT PICKS (27_10 Test116, labels_simple, IoU 0.3) — 2026-10-29
+## 2. DEPLOYMENT SELECTION — researcher-approved best result (27_10 Test116, labels_simple, IoU 0.3) — 2026-10-29
+
+**The researcher approved these rows as the best result to date. Deploy with these models and confidence thresholds.**
+- **Where they came from:** picked from [best_combination_ai_by_conf.md](best_combination_ai_by_conf.md), which covers all 25 stage-2 sets on all 116 Test116 images.
+- **Why they differ from the F1 picks:** for radar, missile, smallvehicle, tank and vehicle the researcher kept a higher-recall row next to (or instead of) the max-F1 row.
+- **Options:** where more than one row was kept, all are listed. Every mix of them was scored (48 mixes).
+- **Built in:** [EXP-2026-10-28-02](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-28-02-best-recipe-2710/record_ai.md).
+- **Spec:** `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/deploy_2026-10-29.json` holds the options, the presets and the weights of every set.
+- **Full report:** `reports/USER_PICK_2026-10-29.md` has per-class tables for each preset and all 48 mixes.
+- **Code:** `code/user_pick.py` (scoring) and `code/user_pick_report.py` (report and spec).
+
+**Selected rows** (per class, before the cross-class merge; values are exactly those in the by-conf table):
+
+| class | GT | option | prediction set | conf ≥ | P | R | F1 | TP / FP / FN |
+|---|--:|---|---|--:|--:|--:|--:|---|
+| radar | 275 | **default** | new ensemble, last.pt (new y8m + new y11l) | 0.5 | 51.9 | 63.6 | 57.2 | 175 / 162 / 100 |
+| radar | | alt | same set | 0.4 | 47.4 | 65.8 | 55.1 | 181 / 201 / 94 |
+| radar | | alt (max recall) | same set | 0.3 | 42.0 | 69.1 | 52.3 | 190 / 262 / 85 |
+| missile | 413 | **default** | EXP-15 ens: y8m fine-tuned on R (EXP-2026-10-14-12) + m0001 y11l | 0.7 | 50.8 | 59.8 | 54.9 | 247 / 239 / 166 |
+| missile | | alt (recall) | EXP-09 ens: y8m control fine-tune (EXP-2026-10-14-04) + m0001 y11l | 0.6 | 46.3 | 61.5 | 52.8 | 254 / 295 / 159 |
+| logistic | 298 | **default** | new y11l alone, best.pt | 0.5 | 34.2 | 27.2 | 30.3 | 81 / 156 / 217 |
+| arty | 249 | **default** | new ensemble, last.pt | 0.8 | 48.7 | 53.0 | 50.8 | 132 / 139 / 117 |
+| camo | 558 | **default** | new ensemble, best.pt | 0.9 | 56.1 | 55.7 | 55.9 | 311 / 243 / 247 |
+| smallvehicle | 1242 | **default** | EXP-18: y11l control fine-tune (EXP-2026-10-14-18) | 0.4 | 61.5 | 63.0 | 62.2 | 782 / 490 / 460 |
+| smallvehicle | | alt (recall) | new ensemble, last.pt | 0.4 | 49.1 | 71.9 | 58.3 | 893 / 927 / 349 |
+| tank | 645 | **default** | new ensemble, best.pt | 0.8 | 65.2 | 82.3 | 72.8 | 531 / 283 / 114 |
+| tank | | alt (F1) | new y8m alone, best.pt | 0.6 | 74.7 | 73.6 | 74.2 | 475 / 161 / 170 |
+| vehicle | 3098 | **default** | EXP-07 ens: y8m fine-tuned on relabel C (EXP-2026-10-14-02) + m0001 y11l | 0.9 | 71.9 | 76.4 | 74.1 | 2368 / 926 / 730 |
+| vehicle | | alt (recall) | EXP-14 ens: y8m D-frozen (EXP-2026-10-14-11) + m0001 y11l | 0.8 | 63.7 | 82.4 | 71.9 | 2553 / 1455 / 545 |
+
+**Default** = the mix of the selected rows with the best merged MACRO. **After the cross-class merge** (the product output):
+
+| class | P | R | F1 | TP / FP / FN |
+|---|--:|--:|--:|---|
+| arty | 52.5 | 51.4 | 51.9 | 128 / 116 / 121 |
+| camo | 60.4 | 51.6 | 55.7 | 288 / 189 / 270 |
+| logistic | 34.3 | 27.2 | 30.3 | 81 / 155 / 217 |
+| missile | 52.8 | 56.2 | 54.5 | 232 / 207 / 181 |
+| radar | 51.9 | 63.6 | 57.2 | 175 / 162 / 100 |
+| smallvehicle | 62.3 | 59.7 | 61.0 | 741 / 448 / 501 |
+| tank | 81.5 | 70.4 | 75.5 | 454 / 103 / 191 |
+| vehicle | 75.4 | 70.0 | 72.6 | 2170 / 707 / 928 |
+
+| preset (all 116 images) | combined MICRO P / R / F1 | combined MACRO | **merged MICRO P / R / F1** | **merged MACRO** |
+|---|---|--:|---|--:|
+| **DEFAULT** (rows marked default) | 63.7 / 68.3 / 65.9 | 57.3 | 67.2 / 63.0 / **65.0** | **57.3** |
+| BALANCED (radar 0.5, missile EXP-15, smallvehicle EXP-18, tank y8m, vehicle EXP-07) | 64.5 / 67.4 / 65.9 | 57.4 | 67.0 / 62.4 / 64.6 | 57.0 |
+| HIGHEST merged recall (radar 0.5, missile EXP-15, smallvehicle new ens last, tank new ens, vehicle EXP-14) | 57.7 / 72.6 / 64.3 | 56.5 | 62.0 / 66.1 / 64.0 | 56.8 |
+| RECALL-MAX (every best-R row, radar 0.3, missile EXP-09) | 56.8 / 73.0 / 63.9 | 55.6 | 60.8 / 65.8 / 63.2 | 55.7 |
+| *for reference:* pure max-F1 picks over 25 sets (not selected) | 66.5 / — / 66.5 | 58.4 | — / — / 65.8 | 58.2 |
+
+- **Trade-off:** compared with the pure max-F1 picks, the default trades about 0.8 MICRO and 0.9 MACRO F1 for much higher recall on the classes that matter most.
+  - radar R 50.9 → 63.6 (+12.7);
+  - missile R after the merge 56.2 vs 50.4 before the merge in the F1 picks;
+  - tank R 82.3 before the merge.
+- **Changing the radar confidence (0.3 / 0.4 / 0.5) needs no extra model.** It is a threshold change on the same set.
+- **Optimistic, as before:** sets and confidences were chosen on Test116 itself, best.pt files were selected on test tiles, and there is one seed per model.
+
+**Weights for the DEFAULT preset (8 files; 6 TTA prediction sets = 10 model passes per image):**
+
+| weights | path | prediction set → classes |
+|---|---|---|
+| new y8m last | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y8m/weights/last.pt` | new ens last → radar, arty |
+| new y11l last | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y11l/weights/last.pt` | new ens last → radar, arty |
+| new y8m best | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y8m/weights/best.pt` | new ens → camo, tank |
+| new y11l best | `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710/runs/new_y11l/weights/best.pt` | new ens → camo, tank; new y11l alone → logistic |
+| y8m fine-tuned on R | `/sfs/stage2/artifacts/EXP-2026-10-14-12-radar-r-stowed-vehicle/runs/ft/weights/best.pt` | EXP-15 ens → missile |
+| m0001 y11l | `/sfs/stage2/models/BEST/prod_y11l_best.pt` | EXP-15 ens → missile; EXP-07 ens → vehicle |
+| y11l control fine-tune | `/sfs/stage2/artifacts/EXP-2026-10-14-18-y11l-control-finetune-a/runs/ft/weights/best.pt` | EXP-18 → smallvehicle |
+| y8m fine-tuned on relabel C | `/sfs/stage2/artifacts/EXP-2026-10-14-02-relabel-c-unloaded-vehicle/runs/ft/weights/best.pt` | EXP-07 ens → vehicle |
+
+The alternative rows need 2 more files:
+- `/sfs/stage2/artifacts/EXP-2026-10-14-04-control-finetune-a-unchanged/runs/ft/weights/best.pt` (EXP-09 ens → missile alt);
+- `/sfs/stage2/artifacts/EXP-2026-10-14-11-d-frozen-backbone/runs/ft/weights/best.pt` (EXP-14 ens → vehicle alt).
+
+**Recipe:**
+1. Resize the image to 0.30 m GSD.
+2. Run each prediction set with `code/engine_v1/infer_test.py --runs <w1>[,<w2>] --scales 1024,1536 --flips none,h --nms 0.4 --conf 0.05 --fuse noisyor --thr 0.05`. Ensembles are fused with noisy-or.
+3. Take each class from its set at its confidence.
+4. Apply the cross-class merge: IoU ≥ 0.4 keeps one box; priority radar > missile > arty > logistic, then score.
+
+`models/BEST` is unchanged; it holds only m0001's two files.
+
+### Previous picks: pure max-F1 per class over 9 sets (2026-10-29 morning) — superseded by the selection above
 
 Built in [EXP-2026-10-28-02](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-28-02-best-recipe-2710/record_ai.md).
 Candidates: 5 old sets plus 4 sets from m0001's recipe retrained on 27_10 Train359.
@@ -38,12 +121,12 @@ Machine-readable spec (set, conf, weight paths per class): `artifacts/EXP-2026-1
 - Per-image spread of the combined output is wide (median image F1 66.7, p10 36.4, p90 80.0).
   - Dropping the 5 or 10 worst images moves MICRO by only +0.1 to +1.3 and MACRO by +0.4 to +1.4. The error is spread over the dense scenes, not concentrated in a few bad images.
   - Details: `reports/PER_IMAGE.md`, `reports/per_image_combo.tsv`; per-class tables for each drop scenario in [best_combination_ai_worst_dropped.md](best_combination_ai_worst_dropped.md); radar/missile-specific in [best_combination_ai_worst_dropped_radar_missile.md](best_combination_ai_worst_dropped_radar_missile.md).
-- **Best model per class × conf (best P / R / F1 at 0.1–0.9, 25 sets)** and a candidate pick update (smallvehicle → EXP-18, vehicle → EXP-07; merged MACRO 57.7 → 58.2, not applied yet): [best_combination_ai_by_conf.md](best_combination_ai_by_conf.md).
+- **Best model per class × conf (best P / R / F1 at 0.1–0.9, 25 sets)** and a candidate pick update (smallvehicle → EXP-18, vehicle → EXP-07; merged MACRO 57.7 → 58.2; superseded the same evening by the researcher-approved DEPLOYMENT SELECTION at the top of this section): [best_combination_ai_by_conf.md](best_combination_ai_by_conf.md).
 - Optimistic: picks and confidences were chosen on Test116 itself, and every model's best.pt was also selected on test tiles. Single seed per new model.
 - Scored with labels_simple (2026-10-27 rule), not P04 v2, so not directly comparable with the test_80 table below.
 - Tools: `artifacts/EXP-2026-10-28-02-best-recipe-2710/code/compare.py` (picks) and `code/per_image.py` (spec, dedup, per-image breakdown). `combine_best.py` is still wired to test_80 + P04 v2.
 
-**Weights needed for these picks (7 files, 10 model passes per image with TTA sets):**
+**Weights needed for these (superseded) picks (7 files):**
 
 | weights | path | used for |
 |---|---|---|
@@ -128,7 +211,7 @@ Format of both prediction folders: `x1 y1 … x4 y4 class score` on the 0.30 m g
 
 ## 4. Running the combination on a new image (product recipe)
 
-**For the 27_10 deployment picks, use the weights table in section 2.** The table below is for the earlier test_80 picks, which needed **4 weight files**:
+**For deployment, use the DEPLOYMENT SELECTION weights and recipe in section 2 (8 files, default preset).** The table below is for the earlier test_80 picks, which needed **4 weight files**:
 
 | weights | path | used in |
 |---|---|---|
@@ -174,4 +257,5 @@ Cost is 6 model passes per image (2 + 2 + 1 + 1) instead of 2 for m0001.
 | 2026-10-23 | 60.2 / 49.6 | first best-per-class (P01 official), EXP-2026-10-23-01 |
 | 2026-10-26 | 63.6 / 55.0 | P04 v2 mapping, EXP-2026-10-26-01/-02 |
 | 2026-10-27 | 63.6 / 55.0 (dedup 62.7 / 54.6) | reusable tool `combine_best.py`, EXP-2026-10-27-01 |
-| 2026-10-29 | 66.5 / 58.3 (dedup 65.8 / 57.7) | 27_10 Test116 + labels_simple; recipe retrained on Train359 (EXP-2026-10-28-02); deployment picks in section 2 |
+| 2026-10-29 | 66.5 / 58.3 (dedup 65.8 / 57.7) | 27_10 Test116 + labels_simple; recipe retrained on Train359 (EXP-2026-10-28-02); max-F1 picks over 9 sets |
+| 2026-10-29 (evening) | 65.9 / 57.3 (merged 65.0 / 57.3) | **researcher-approved DEPLOYMENT SELECTION** from the 25-set by-conf table: recall-leaning rows for radar/missile/smallvehicle/tank/vehicle (radar R 50.9 → 63.6); section 2 |

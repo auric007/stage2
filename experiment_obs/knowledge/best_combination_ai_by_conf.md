@@ -28,7 +28,7 @@ Built in [EXP-2026-10-28-02](../2026/2026-10/week-2026-10-25/experiments/EXP-202
 - Best P at a high conf can be won by a conservative model with low recall; check its TP count.
 - All picks are made on Test116 itself, so they are optimistic.
 
-## Candidate update to the deployment picks (not yet applied)
+## Candidate update to the deployment picks (superseded 2026-10-29 evening: the researcher chose the DEPLOYMENT SELECTION in [best_combination_ai.md §2](best_combination_ai.md))
 
 With the 16 extra sets, two classes get a new best-F1 winner. Both gains are tiny and within seed noise:
 

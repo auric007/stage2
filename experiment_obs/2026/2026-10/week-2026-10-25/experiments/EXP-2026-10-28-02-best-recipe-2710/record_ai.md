@@ -157,3 +157,21 @@ Full tables: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/COMPARISON.md
     - vehicle → old_exp07_ens_y8mft_c_y11l @ 0.9 (74.1 vs 74.0).
   - Candidate combination: 66.5 / 58.4; after merge 65.8 / 58.2 (vs 65.8 / 57.7).
   - Not applied to §2 pending the researcher's decision.
+
+## DEPLOYMENT SELECTION — researcher-approved (2026-10-29, 21:04 IST)
+
+- **The researcher approved these rows as the best result to date and the configuration to deploy.** The rows were taken from the by-conf table, with recall-leaning options kept for radar, missile, smallvehicle, tank and vehicle.
+- **Rows checked:** all 14 selected rows match the scored sweeps exactly.
+- **Scoring:** every mix of the options (48) was scored, combined and merged (`code/user_pick.py`). The combined numbers reproduce the per-set sweeps (asserted). The report and spec come from `code/user_pick_report.py`.
+- **DEFAULT preset** (the best merged MACRO among the selected rows):
+  - per class: radar new_ens_last@0.5, missile EXP-15 ens@0.7, logistic new_y11l@0.5, arty new_ens_last@0.8, camo new_ens@0.9, smallvehicle EXP-18@0.4, tank new_ens@0.8, vehicle EXP-07 ens@0.9;
+  - combined: 65.9 / 57.3;
+  - **merged: MICRO 65.0 (P 67.2 / R 63.0), MACRO 57.3**;
+  - 8 weight files.
+- **Other presets, merged:**
+  - BALANCED: 64.6 / 57.0;
+  - HIGHEST recall: R 66.1, 64.0 / 56.8;
+  - RECALL-MAX (radar@0.3): 63.2 / 55.7.
+- **Compared with the max-F1 picks (merged 65.8 / 58.2):** about 0.8 to 0.9 F1 lower, but radar R goes from 50.9 to 63.6.
+- **Outputs:** `reports/USER_PICK_2026-10-29.md`, `reports/deploy_2026-10-29.json`, `reports/user_pick_2026-10-29.json`.
+- **Where it is recorded:** [knowledge/best_combination_ai.md §2](../../../../../knowledge/best_combination_ai.md), with the weights table and recipe. `models/BEST` is unchanged.
