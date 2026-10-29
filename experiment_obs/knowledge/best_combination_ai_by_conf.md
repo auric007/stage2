@@ -299,35 +299,35 @@ bash code/infer_set.sh <name> <w1.pt[,w2.pt]>                                  #
 
 ## vehicle (GT 3098)
 
-| conf | criterion | set | P | R | F1 | TP / FP / FN |
-|--:|---|---|--:|--:|--:|---|
-| 0.1 | best P | new_y11l_alone | 45.2 | 86.9 | 59.5 | 2693 / 3259 / 405 |
-| 0.1 | best R | old_exp14_ens_y8mDfrozen_y11l | 31.1 | 92.5 | 46.6 | 2865 / 6334 / 233 |
-| 0.1 | best F1 | new_y11l_alone | 45.2 | 86.9 | 59.5 | 2693 / 3259 / 405 |
-| 0.2 | best P | new_y11l_alone | 52.4 | 83.7 | 64.4 | 2594 / 2358 / 504 |
-| 0.2 | best R | old_exp16_ens_y8md_y11ld | 40.0 | 91.1 | 55.6 | 2821 / 4225 / 277 |
-| 0.2 | best F1 | new_y11l_alone | 52.4 | 83.7 | 64.4 | 2594 / 2358 / 504 |
-| 0.3 | best P | new_y11l_alone | 57.8 | 81.3 | 67.6 | 2519 / 1839 / 579 |
-| 0.3 | best R | old_exp14_ens_y8mDfrozen_y11l | 43.3 | 90.0 | 58.4 | 2788 / 3654 / 310 |
-| 0.3 | best F1 | new_y11l_alone | 57.8 | 81.3 | 67.6 | 2519 / 1839 / 579 |
-| 0.4 | best P | new_y11l_alone | 61.9 | 79.1 | 69.4 | 2450 / 1510 / 648 |
-| 0.4 | best R | old_exp14_ens_y8mDfrozen_y11l | 47.6 | 88.9 | 62.0 | 2755 / 3028 / 343 |
-| 0.4 | best F1 | new_y11l_alone | 61.9 | 79.1 | 69.4 | 2450 / 1510 / 648 |
-| 0.5 | best P | new_y11l_alone | 65.2 | 75.8 | 70.1 | 2348 / 1252 / 750 |
-| 0.5 | best R | old_exp14_ens_y8mDfrozen_y11l | 51.5 | 87.6 | 64.9 | 2715 / 2554 / 383 |
-| 0.5 | best F1 | old_exp04_y8mft_control | 64.2 | 78.7 | 70.7 | 2437 / 1356 / 661 |
-| 0.6 | best P | new_y11l_alone | 69.1 | 72.8 | 70.9 | 2255 / 1008 / 843 |
-| 0.6 | best R | old_exp14_ens_y8mDfrozen_y11l | 55.5 | 86.2 | 67.5 | 2672 / 2143 / 426 |
-| 0.6 | best F1 | old_exp12_y8mft_r | 67.9 | 76.9 | 72.1 | 2383 / 1129 / 715 |
-| 0.7 | best P | new_y11l_alone | 73.7 | 69.2 | 71.4 | 2144 / 765 / 954 |
-| 0.7 | best R | old_exp14_ens_y8mDfrozen_y11l | 59.6 | 84.8 | 70.0 | 2626 / 1783 / 472 |
-| 0.7 | best F1 | old_y11l_alone | 70.6 | 76.2 | 73.3 | 2360 / 982 / 738 |
-| 0.8 | best P | new_y11l_alone | 77.8 | 63.1 | 69.7 | 1954 / 557 / 1144 |
-| 0.8 | best R | old_exp14_ens_y8mDfrozen_y11l | 63.7 | 82.4 | 71.9 | 2553 / 1455 / 545 |
-| 0.8 | best F1 | old_y11l_alone | 74.7 | 72.4 | 73.5 | 2243 / 759 / 855 |
-| 0.9 | best P | new_y11l_alone | 83.4 | 54.8 | 66.1 | 1698 / 339 / 1400 |
-| 0.9 | best R | old_exp14_ens_y8mDfrozen_y11l | 69.4 | 78.4 | 73.6 | 2430 / 1072 / 668 |
-| 0.9 | best F1 | old_exp07_ens_y8mft_c_y11l | 71.9 | 76.4 | 74.1 | 2368 / 926 / 730 |
+| conf | criterion | set                           |    P |    R |   F1 | TP / FP / FN      |
+| ---: | --------- | ----------------------------- | ---: | ---: | ---: | ----------------- |
+|  0.1 | best P    | new_y11l_alone                | 45.2 | 86.9 | 59.5 | 2693 / 3259 / 405 |
+|  0.1 | best R    | old_exp14_ens_y8mDfrozen_y11l | 31.1 | 92.5 | 46.6 | 2865 / 6334 / 233 |
+|  0.1 | best F1   | new_y11l_alone                | 45.2 | 86.9 | 59.5 | 2693 / 3259 / 405 |
+|  0.2 | best P    | new_y11l_alone                | 52.4 | 83.7 | 64.4 | 2594 / 2358 / 504 |
+|  0.2 | best R    | old_exp16_ens_y8md_y11ld      | 40.0 | 91.1 | 55.6 | 2821 / 4225 / 277 |
+|  0.2 | best F1   | new_y11l_alone                | 52.4 | 83.7 | 64.4 | 2594 / 2358 / 504 |
+|  0.3 | best P    | new_y11l_alone                | 57.8 | 81.3 | 67.6 | 2519 / 1839 / 579 |
+|  0.3 | best R    | old_exp14_ens_y8mDfrozen_y11l | 43.3 | 90.0 | 58.4 | 2788 / 3654 / 310 |
+|  0.3 | best F1   | new_y11l_alone                | 57.8 | 81.3 | 67.6 | 2519 / 1839 / 579 |
+|  0.4 | best P    | new_y11l_alone                | 61.9 | 79.1 | 69.4 | 2450 / 1510 / 648 |
+|  0.4 | best R    | old_exp14_ens_y8mDfrozen_y11l | 47.6 | 88.9 | 62.0 | 2755 / 3028 / 343 |
+|  0.4 | best F1   | new_y11l_alone                | 61.9 | 79.1 | 69.4 | 2450 / 1510 / 648 |
+|  0.5 | best P    | new_y11l_alone                | 65.2 | 75.8 | 70.1 | 2348 / 1252 / 750 |
+|  0.5 | best R    | old_exp14_ens_y8mDfrozen_y11l | 51.5 | 87.6 | 64.9 | 2715 / 2554 / 383 |
+|  0.5 | best F1   | old_exp04_y8mft_control       | 64.2 | 78.7 | 70.7 | 2437 / 1356 / 661 |
+|  0.6 | best P    | new_y11l_alone                | 69.1 | 72.8 | 70.9 | 2255 / 1008 / 843 |
+|  0.6 | best R    | old_exp14_ens_y8mDfrozen_y11l | 55.5 | 86.2 | 67.5 | 2672 / 2143 / 426 |
+|  0.6 | best F1   | old_exp12_y8mft_r             | 67.9 | 76.9 | 72.1 | 2383 / 1129 / 715 |
+|  0.7 | best P    | new_y11l_alone                | 73.7 | 69.2 | 71.4 | 2144 / 765 / 954  |
+|  0.7 | best R    | old_exp14_ens_y8mDfrozen_y11l | 59.6 | 84.8 | 70.0 | 2626 / 1783 / 472 |
+|  0.7 | best F1   | old_y11l_alone                | 70.6 | 76.2 | 73.3 | 2360 / 982 / 738  |
+|  0.8 | best P    | new_y11l_alone                | 77.8 | 63.1 | 69.7 | 1954 / 557 / 1144 |
+|  0.8 | best R    | old_exp14_ens_y8mDfrozen_y11l | 63.7 | 82.4 | 71.9 | 2553 / 1455 / 545 |
+|  0.8 | best F1   | old_y11l_alone                | 74.7 | 72.4 | 73.5 | 2243 / 759 / 855  |
+|  0.9 | best P    | new_y11l_alone                | 83.4 | 54.8 | 66.1 | 1698 / 339 / 1400 |
+|  0.9 | best R    | old_exp14_ens_y8mDfrozen_y11l | 69.4 | 78.4 | 73.6 | 2430 / 1072 / 668 |
+|  0.9 | best F1   | old_exp07_ens_y8mft_c_y11l    | 71.9 | 76.4 | 74.1 | 2368 / 926 / 730  |
 
 ## Prediction sets (name → weights; ensembles fused with noisy-or)
 
