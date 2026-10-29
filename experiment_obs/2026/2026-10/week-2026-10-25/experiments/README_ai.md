@@ -12,4 +12,4 @@ Author: AI agent. Human companion: [README.md](README.md).
 
 - [EXP-2026-10-28-02-best-recipe-2710](EXP-2026-10-28-02-best-recipe-2710/record_ai.md) — started 2026-10-28, status done 2026-10-29 (new ens MACRO 57.4 vs old 56.7 on Test116; per-class mix 58.3; researcher-approved DEPLOYMENT SELECTION merged 65.0 / 57.3, knowledge/best_combination_ai.md §2)
 
-- [EXP-2026-10-29-01-boost-deploy-selection](EXP-2026-10-29-01-boost-deploy-selection/record_ai.md) — started 2026-10-29, status running (seed ensembles + fine-tune stage on the new recipe; Phase 0: picking on test overfits ~5 MACRO, 4-model fusion honestly best)
+- [EXP-2026-10-29-01-boost-deploy-selection](EXP-2026-10-29-01-boost-deploy-selection/record_ai.md) — started 2026-10-29, status running (seed ensembles + fine-tune stage on the new recipe; Phase 0: picking on test overfits ~5 MACRO, 4-model fusion honestly best; Stage A: 10-epoch fine-tune gives no boost)

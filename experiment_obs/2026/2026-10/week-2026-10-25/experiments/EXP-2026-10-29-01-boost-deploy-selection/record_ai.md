@@ -106,3 +106,44 @@ Report: `reports/MERGE_default.md`. Tested on the DEFAULT preset.
 2. **Fusing more models is the lever.** Averaging the boxes of new ens best.pt and new ens last.pt (4 weight files) is honestly better (MACRO 55.6) than the 8-file per-class selection (≈ 53.6).
    - This is a candidate light/deploy option. It is the researcher's decision.
 3. Phase 2 (seed ensembles, fine-tune stage) is the right direction. **Every Phase 2 result will be reported both honest (cross-fit) and in-sample.**
+
+## Results — Stage A (GPU: 10-epoch fine-tune of the new y8m/y11l, from last.pt and from best.pt)
+
+Ran 21:36 → 02:37 IST (4 fine-tunes, then inference and scoring of 9 sets). Scored on Test116, IoU 0.3, labels_simple.
+- Sets:
+  - `s0ft_{last,best}_{y8m,y11l}` are singles; `s0ft_{last,best}_ens` are pairs.
+  - `s0mix_y8mft_y11l` = fine-tuned y8m + original y11l; `s0mix_y8m_y11lft` = original y8m + fine-tuned y11l.
+  - `s0_ens_avgall` = original y8m+y11l, best and last (4 files), fused by plain averaging.
+- Reports in the artifact `reports/`:
+  - `FLOOR_stageA.md` (per class vs DEFAULT, no merge);
+  - `crossfit_single/CROSSFIT_single_s0*.md`;
+  - `CROSSFIT_stageA_pool.md`.
+
+**Honest MACRO F1 per set** (choose conf on half the sites, score on the other half; in-sample in brackets):
+
+| set | honest MACRO | honest MICRO |
+|---|--:|--:|
+| new_ens (reference) | 54.6 (56.7) | 64.2 |
+| new_ens_last (reference) | 54.6 (56.2) | 64.5 |
+| fz_newens_newlast (Phase 0 box fusion, reference) | **55.6** (57.6) | 65.0 |
+| s0ft_last_ens | 53.8 (55.2) | 63.7 |
+| s0ft_best_ens | 53.5 (55.3) | 63.8 |
+| s0mix_y8mft_y11l | 53.6 (55.5) | 63.9 |
+| s0mix_y8m_y11lft | 54.9 (56.4) | 64.3 |
+| s0_ens_avgall | 54.6 (56.8) | 63.8 |
+| s0ft_last_y11l / s0ft_best_y11l | 53.3 / 52.1 | 62.6 / 61.5 |
+| s0ft_last_y8m / s0ft_best_y8m | 50.5 / 51.3 | 61.3 / 62.3 |
+
+**Per class, researcher objective, full Test116, vs the DEFAULT pick** (`FLOOR_stageA.md`). The only gains within the floor are:
+- radar: s0mix_y8m_y11lft 64.0 vs 63.6 (+1 instance);
+- camo: 59.5 vs 55.7 at P exactly 50;
+- arty: 53.8 vs 53.0;
+- vehicle/tank: higher recall only by going down to P≈60–62, while the DEFAULT sits at P 72 / 65 (researcher's precision-leaning choice).
+
+Missile and smallvehicle: no new set reaches the DEFAULT recall. Logistic: none beats 30.3 F1.
+
+### Conclusion (Stage A)
+1. **Fine-tuning the new models for 10 more epochs does not help.** Fine-tuned pairs are 0.8–1.1 MACRO worse honestly than new_ens. Fine-tuned singles are no better than the originals.
+2. Plain averaging of 4 files (avgall) ties new_ens. It does not beat box fusion (fz_newens_newlast 55.6).
+3. original y8m + fine-tuned y11l (54.9) differs from new_ens by +0.3 MACRO. That is within noise and not worth a swap.
+4. The DEFAULT deployment selection is unchanged. Next: seed 1 (training started 02:37 IST 30 Oct), then seed 2, then the multi-seed ensembles (D).
