@@ -171,35 +171,35 @@ bash code/infer_set.sh <name> <w1.pt[,w2.pt]>                                  #
 
 ## missile (GT 413)
 
-| conf | criterion | set | P | R | F1 | TP / FP / FN |
-|--:|---|---|--:|--:|--:|---|
-| 0.1 | best P | old_exp19_y11lft_dr | 45.5 | 55.9 | 50.2 | 231 / 277 / 182 |
-| 0.1 | best R | old_exp15_ens_y8mft_r_y11l | 23.0 | 70.7 | 34.8 | 292 / 975 / 121 |
-| 0.1 | best F1 | old_exp1502_y11lft_d_lowlr | 44.3 | 58.1 | 50.3 | 240 / 302 / 173 |
-| 0.2 | best P | old_exp19_y11lft_dr | 53.2 | 55.0 | 54.0 | 227 / 200 / 186 |
-| 0.2 | best R | old_exp15_ens_y8mft_r_y11l | 28.3 | 69.2 | 40.2 | 286 / 723 / 127 |
-| 0.2 | best F1 | old_exp1502_y11lft_d_lowlr | 52.4 | 55.9 | 54.1 | 231 / 210 / 182 |
-| 0.3 | best P | old_exp19_y11lft_dr | 60.7 | 52.1 | 56.1 | 215 / 139 / 198 |
-| 0.3 | best R | old_exp15_ens_y8mft_r_y11l | 32.8 | 66.1 | 43.8 | 273 / 560 / 140 |
-| 0.3 | best F1 | old_exp19_y11lft_dr | 60.7 | 52.1 | 56.1 | 215 / 139 / 198 |
-| 0.4 | best P | old_exp19_y11lft_dr | 65.2 | 47.2 | 54.8 | 195 / 104 / 218 |
-| 0.4 | best R | old_exp09_ens_y8mft_control_y11l | 37.4 | 64.4 | 47.3 | 266 / 446 / 147 |
-| 0.4 | best F1 | old_exp1502_y11lft_d_lowlr | 63.8 | 50.8 | 56.6 | 210 / 119 / 203 |
-| 0.5 | best P | old_exp19_y11lft_dr | 69.6 | 44.3 | 54.1 | 183 / 80 / 230 |
-| 0.5 | best R | old_exp09_ens_y8mft_control_y11l | 41.5 | 62.5 | 49.9 | 258 / 363 / 155 |
-| 0.5 | best F1 | old_y8m_alone | 58.9 | 55.4 | 57.1 | 229 / 160 / 184 |
-| 0.6 | best P | old_exp19_y11lft_dr | 74.2 | 41.2 | 53.0 | 170 / 59 / 243 |
-| 0.6 | best R | old_exp09_ens_y8mft_control_y11l | 46.3 | 61.5 | 52.8 | 254 / 295 / 159 |
-| 0.6 | best F1 | old_exp14_ens_y8mDfrozen_y11l | 58.6 | 56.9 | 57.7 | 235 / 166 / 178 |
-| 0.7 | best P | old_exp19_y11lft_dr | 81.2 | 37.8 | 51.6 | 156 / 36 / 257 |
-| 0.7 | best R | old_exp15_ens_y8mft_r_y11l | 50.8 | 59.8 | 54.9 | 247 / 239 / 166 |
-| 0.7 | best F1 | old_exp14_ens_y8mDfrozen_y11l | 63.6 | 52.8 | 57.7 | 218 / 125 / 195 |
-| 0.8 | best P | old_exp19_y11lft_dr | 84.8 | 33.9 | 48.4 | 140 / 25 / 273 |
-| 0.8 | best R | old_exp15_ens_y8mft_r_y11l | 55.9 | 57.1 | 56.5 | 236 / 186 / 177 |
-| 0.8 | best F1 | old_exp14_ens_y8mDfrozen_y11l | 70.0 | 50.4 | 58.6 | 208 / 89 / 205 |
-| 0.9 | best P | old_exp19_y11lft_dr | 91.0 | 29.3 | 44.3 | 121 / 12 / 292 |
-| 0.9 | best R | old_exp15_ens_y8mft_r_y11l | 63.4 | 53.8 | 58.2 | 222 / 128 / 191 |
-| 0.9 | best F1 | old_m0001_ens | 71.7 | 50.4 | 59.2 | 208 / 82 / 205 |
+| conf | criterion | set                              |    P |    R |   F1 | TP / FP / FN    |
+| ---: | --------- | -------------------------------- | ---: | ---: | ---: | --------------- |
+|  0.1 | best P    | old_exp19_y11lft_dr              | 45.5 | 55.9 | 50.2 | 231 / 277 / 182 |
+|  0.1 | best R    | old_exp15_ens_y8mft_r_y11l       | 23.0 | 70.7 | 34.8 | 292 / 975 / 121 |
+|  0.1 | best F1   | old_exp1502_y11lft_d_lowlr       | 44.3 | 58.1 | 50.3 | 240 / 302 / 173 |
+|  0.2 | best P    | old_exp19_y11lft_dr              | 53.2 | 55.0 | 54.0 | 227 / 200 / 186 |
+|  0.2 | best R    | old_exp15_ens_y8mft_r_y11l       | 28.3 | 69.2 | 40.2 | 286 / 723 / 127 |
+|  0.2 | best F1   | old_exp1502_y11lft_d_lowlr       | 52.4 | 55.9 | 54.1 | 231 / 210 / 182 |
+|  0.3 | best P    | old_exp19_y11lft_dr              | 60.7 | 52.1 | 56.1 | 215 / 139 / 198 |
+|  0.3 | best R    | old_exp15_ens_y8mft_r_y11l       | 32.8 | 66.1 | 43.8 | 273 / 560 / 140 |
+|  0.3 | best F1   | old_exp19_y11lft_dr              | 60.7 | 52.1 | 56.1 | 215 / 139 / 198 |
+|  0.4 | best P    | old_exp19_y11lft_dr              | 65.2 | 47.2 | 54.8 | 195 / 104 / 218 |
+|  0.4 | best R    | old_exp09_ens_y8mft_control_y11l | 37.4 | 64.4 | 47.3 | 266 / 446 / 147 |
+|  0.4 | best F1   | old_exp1502_y11lft_d_lowlr       | 63.8 | 50.8 | 56.6 | 210 / 119 / 203 |
+|  0.5 | best P    | old_exp19_y11lft_dr              | 69.6 | 44.3 | 54.1 | 183 / 80 / 230  |
+|  0.5 | best R    | old_exp09_ens_y8mft_control_y11l | 41.5 | 62.5 | 49.9 | 258 / 363 / 155 |
+|  0.5 | best F1   | old_y8m_alone                    | 58.9 | 55.4 | 57.1 | 229 / 160 / 184 |
+|  0.6 | best P    | old_exp19_y11lft_dr              | 74.2 | 41.2 | 53.0 | 170 / 59 / 243  |
+|  0.6 | best R    | old_exp09_ens_y8mft_control_y11l | 46.3 | 61.5 | 52.8 | 254 / 295 / 159 |
+|  0.6 | best F1   | old_exp14_ens_y8mDfrozen_y11l    | 58.6 | 56.9 | 57.7 | 235 / 166 / 178 |
+|  0.7 | best P    | old_exp19_y11lft_dr              | 81.2 | 37.8 | 51.6 | 156 / 36 / 257  |
+|  0.7 | best R    | old_exp15_ens_y8mft_r_y11l       | 50.8 | 59.8 | 54.9 | 247 / 239 / 166 |
+|  0.7 | best F1   | old_exp14_ens_y8mDfrozen_y11l    | 63.6 | 52.8 | 57.7 | 218 / 125 / 195 |
+|  0.8 | best P    | old_exp19_y11lft_dr              | 84.8 | 33.9 | 48.4 | 140 / 25 / 273  |
+|  0.8 | best R    | old_exp15_ens_y8mft_r_y11l       | 55.9 | 57.1 | 56.5 | 236 / 186 / 177 |
+|  0.8 | best F1   | old_exp14_ens_y8mDfrozen_y11l    | 70.0 | 50.4 | 58.6 | 208 / 89 / 205  |
+|  0.9 | best P    | old_exp19_y11lft_dr              | 91.0 | 29.3 | 44.3 | 121 / 12 / 292  |
+|  0.9 | best R    | old_exp15_ens_y8mft_r_y11l       | 63.4 | 53.8 | 58.2 | 222 / 128 / 191 |
+|  0.9 | best F1   | old_m0001_ens                    | 71.7 | 50.4 | 59.2 | 208 / 82 / 205  |
 
 ## radar (GT 275)
 
