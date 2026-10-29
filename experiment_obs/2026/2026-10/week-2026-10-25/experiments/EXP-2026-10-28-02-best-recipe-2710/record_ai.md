@@ -150,3 +150,10 @@ Full tables: `artifacts/EXP-2026-10-28-02-best-recipe-2710/reports/COMPARISON.md
 - The 16 EXP-2026-10-14/15 sets that had only test_80 predictions are re-inferred on Test116 with the same TTA pipeline: 9 single models + 7 ensembles, 23 passes.
   - Driver: `code/run_old14.sh`. Table: `code/best_by_conf.py`.
 - Loop paused by researcher choice, but it had already resolved at 71 images.
+- 19:11: all 16 sets were inferred and scored on Test116, so 25 sets are now on Test116.
+- 19:25: [knowledge/best_combination_ai_by_conf.md](../../../../../knowledge/best_combination_ai_by_conf.md) written: best P / R / F1 per class × conf.
+  - Best-F1 winners change for 2 classes:
+    - smallvehicle → old_exp18_y11lft_control @ 0.4 (62.2 vs 61.8);
+    - vehicle → old_exp07_ens_y8mft_c_y11l @ 0.9 (74.1 vs 74.0).
+  - Candidate combination: 66.5 / 58.4; after merge 65.8 / 58.2 (vs 65.8 / 57.7).
+  - Not applied to §2 pending the researcher's decision.

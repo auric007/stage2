@@ -38,6 +38,7 @@ Machine-readable spec (set, conf, weight paths per class): `artifacts/EXP-2026-1
 - Per-image spread of the combined output is wide (median image F1 66.7, p10 36.4, p90 80.0).
   - Dropping the 5 or 10 worst images moves MICRO by only +0.1 to +1.3 and MACRO by +0.4 to +1.4. The error is spread over the dense scenes, not concentrated in a few bad images.
   - Details: `reports/PER_IMAGE.md`, `reports/per_image_combo.tsv`; per-class tables for each drop scenario in [best_combination_ai_worst_dropped.md](best_combination_ai_worst_dropped.md); radar/missile-specific in [best_combination_ai_worst_dropped_radar_missile.md](best_combination_ai_worst_dropped_radar_missile.md).
+- **Best model per class × conf (best P / R / F1 at 0.1–0.9, 25 sets)** and a candidate pick update (smallvehicle → EXP-18, vehicle → EXP-07; merged MACRO 57.7 → 58.2, not applied yet): [best_combination_ai_by_conf.md](best_combination_ai_by_conf.md).
 - Optimistic: picks and confidences were chosen on Test116 itself, and every model's best.pt was also selected on test tiles. Single seed per new model.
 - Scored with labels_simple (2026-10-27 rule), not P04 v2, so not directly comparable with the test_80 table below.
 - Tools: `artifacts/EXP-2026-10-28-02-best-recipe-2710/code/compare.py` (picks) and `code/per_image.py` (spec, dedup, per-image breakdown). `combine_best.py` is still wired to test_80 + P04 v2.
