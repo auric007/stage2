@@ -1,6 +1,6 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-28 18:27 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-29 11:35 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
 **Phase 2 / v3 (from ~19:00 IST):** the v2d search resolved at 71 images; influence re-computed on the two 71-removed models and candidates re-ranked margin-aware on object counts + positive influence (images whose help goes to classes near their PASS threshold — camo, smallvehicle, MICRO — are expensive; images helping classes with slack — tank, missile, arty — are cheap); paired seeds, restart at k = 16.
 
@@ -13,7 +13,7 @@ Updated 2026-10-28 18:27 IST. Experiment record: [record_ai.md](record_ai.md). S
 | base F1 | 24.7 | 51.5 | 18.3 | 45.1 | 46.1 | 55.9 | 55.3 | 69.5 |
 | seed noise | 4.3 | 2.7 | 1.6 | 0.7 | 0.9 | 1.3 | 1.6 | 0.9 |
 
-**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 26. Next chunk k = 16 images.
+**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 27. Next chunk k = 8 images.
 
 Moved objects (of Train total): arty 119/1177 · camo 452/2742 · logistic 356/1915 · missile 78/711 · radar 53/421 · smallvehicle 1218/5349 · tank 122/1802 · vehicle 2798/12287
 
@@ -37,19 +37,11 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 | s07_A2_rm88 | 88 | 56.6 | 45.6 | 44.9 | 46.7 | 25.0 | FAIL | MICRO, vehicle |
 | s08_A_rm79 | 79 | 55.3 | 44.2 | 44.4 | 45.8 | 17.0 | FAIL | MICRO, MACRO, arty, camo, smallvehicle |
 | s08_A2_rm79 | 79 | 57.0 | 45.7 | 47.0 | 46.7 | 22.0 | FAIL | MICRO, camo |
+| s10_A_rm87 | 87 | 55.8 | 44.9 | 42.5 | 45.9 | 18.1 | FAIL | MICRO, MACRO, arty, camo, radar, smallvehicle |
+| s10_A2_rm87 | 87 | 56.2 | 44.2 | 43.4 | 46.5 | 18.8 | FAIL | MICRO, MACRO, arty, camo, radar, smallvehicle |
 
 ## Decision log
 
-- 2026-10-28 05:46 IST — s01_B_rm71 (B, 71 images removed): FAIL MICRO,MACRO,arty,camo,radar,smallvehicle MICRO 56.3 MACRO 43.3
-- 2026-10-28 05:46 IST — both fail (arty,camo,radar,smallvehicle): mark 2 clusters KEEP ['C011', 'C200']
-- 2026-10-28 05:46 IST — k -> 71
-- 2026-10-28 05:46 IST — step 2: proposals A s02_A_rm71 (+62 clusters); B s02_B_rm37 (+32 clusters)
-- 2026-10-28 05:49 IST — (agent) step-2 proposals s02_A_rm71/s02_B_rm37 killed: unbalanced picks over-moved vehicle/smallvehicle (step 1 A: 40% images, 50-53% of those classes). Selection now class-balanced (cap = image share + 3 pts); k reset to 143
-- 2026-10-28 05:49 IST — brain resumed
-- 2026-10-28 05:49 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
-- 2026-10-28 05:49 IST — influence ranking (re)loaded from ['tile_influence_epoch5_epoch10.json', 'tile_influence_last.json']
-- 2026-10-28 05:49 IST — step 2: proposals A s02_A_rm143 (+126 clusters); B s02_B_rm71 (+63 clusters)
-- 2026-10-28 07:34 IST — s02_A_rm143 (A, 143 images removed): FAIL MICRO,MACRO,missile,radar,smallvehicle,vehicle MICRO 54.5 MACRO 43.2
 - 2026-10-28 07:34 IST — s02_B_rm71 (B, 71 images removed): FAIL arty MICRO 57.5 MACRO 45.5
 - 2026-10-28 07:34 IST — both fail (arty): mark 2 clusters KEEP ['C067', 'C125']
 - 2026-10-28 07:34 IST — k -> 71
@@ -100,3 +92,13 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 - 2026-10-28 18:19 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
 - 2026-10-28 18:27 IST — influence ranking (re)loaded from ['s03_A_rm71/tile_influence_epoch6_epoch12_last.json', 's05_confirm_s03_A_rm71/tile_influence_epoch6_epoch12_last.json']
 - 2026-10-28 18:27 IST — step 10: proposals A s10_A_rm87 (+16 clusters); A2 s10_A2_rm87 (+16 clusters); A adds objects arty 8, camo 1, logistic 12, missile 0, radar 5, smallvehicle 23, tank 18, vehicle 85
+- 2026-10-28 19:11 IST — STOP file found — brain exits (running jobs continue to completion)
+- 2026-10-29 11:35 IST — brain resumed
+- 2026-10-29 11:35 IST — baseline ready: MICRO 57.9 MACRO 45.8 noise 0.7/0.5
+- 2026-10-29 11:35 IST — influence ranking (re)loaded from ['s03_A_rm71/tile_influence_epoch6_epoch12_last.json', 's05_confirm_s03_A_rm71/tile_influence_epoch6_epoch12_last.json']
+- 2026-10-29 11:35 IST — s10_A_rm87 (A, 87 images removed): FAIL MICRO,MACRO,arty,camo,radar,smallvehicle MICRO 55.8 MACRO 44.9
+- 2026-10-29 11:35 IST — s10_A2_rm87 (A2, 87 images removed): FAIL MICRO,MACRO,arty,camo,radar,smallvehicle MICRO 56.2 MACRO 44.2
+- 2026-10-29 11:35 IST — paired s10_A_rm87 + s10_A2_rm87 (87 images): 2-seed mean MICRO 56.0 MACRO 44.6 FAIL MICRO,MACRO,arty,camo,radar,smallvehicle
+- 2026-10-29 11:35 IST — both fail (arty,camo,radar,smallvehicle): mark 1 clusters KEEP ['C116']
+- 2026-10-29 11:35 IST — k -> 8
+- 2026-10-29 11:35 IST — step 11: proposals A s11_A_rm79 (+8 clusters); A2 s11_A2_rm79 (+8 clusters); A adds objects arty 0, camo 0, logistic 1, missile 0, radar 3, smallvehicle 3, tank 13, vehicle 34
