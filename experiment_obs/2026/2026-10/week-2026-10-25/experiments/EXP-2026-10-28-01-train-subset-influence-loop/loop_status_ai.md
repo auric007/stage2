@@ -1,6 +1,6 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-29 11:35 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-29 13:22 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
 **Phase 2 / v3 (from ~19:00 IST):** the v2d search resolved at 71 images; influence re-computed on the two 71-removed models and candidates re-ranked margin-aware on object counts + positive influence (images whose help goes to classes near their PASS threshold — camo, smallvehicle, MICRO — are expensive; images helping classes with slack — tank, missile, arty — are cheap); paired seeds, restart at k = 16.
 
@@ -13,7 +13,7 @@ Updated 2026-10-29 11:35 IST. Experiment record: [record_ai.md](record_ai.md). S
 | base F1 | 24.7 | 51.5 | 18.3 | 45.1 | 46.1 | 55.9 | 55.3 | 69.5 |
 | seed noise | 4.3 | 2.7 | 1.6 | 0.7 | 0.9 | 1.3 | 1.6 | 0.9 |
 
-**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: search. KEEP-marked clusters: 27. Next chunk k = 8 images.
+**Current best (largest passing removal):** 71 of 359 Train images moved (63 clusters), Train keeps 288 images. Phase: idle. KEEP-marked clusters: 28. Next chunk k = 4 images.
 
 Moved objects (of Train total): arty 119/1177 · camo 452/2742 · logistic 356/1915 · missile 78/711 · radar 53/421 · smallvehicle 1218/5349 · tank 122/1802 · vehicle 2798/12287
 
@@ -39,15 +39,11 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 | s08_A2_rm79 | 79 | 57.0 | 45.7 | 47.0 | 46.7 | 22.0 | FAIL | MICRO, camo |
 | s10_A_rm87 | 87 | 55.8 | 44.9 | 42.5 | 45.9 | 18.1 | FAIL | MICRO, MACRO, arty, camo, radar, smallvehicle |
 | s10_A2_rm87 | 87 | 56.2 | 44.2 | 43.4 | 46.5 | 18.8 | FAIL | MICRO, MACRO, arty, camo, radar, smallvehicle |
+| s11_A_rm79 | 79 | 57.2 | 45.9 | 44.3 | 46.2 | 20.7 | FAIL | smallvehicle |
+| s11_A2_rm79 | 79 | 58.0 | 46.2 | 44.9 | 46.6 | 26.3 | FAIL | smallvehicle |
 
 ## Decision log
 
-- 2026-10-28 07:34 IST — s02_B_rm71 (B, 71 images removed): FAIL arty MICRO 57.5 MACRO 45.5
-- 2026-10-28 07:34 IST — both fail (arty): mark 2 clusters KEEP ['C067', 'C125']
-- 2026-10-28 07:34 IST — k -> 71
-- 2026-10-28 07:34 IST — step 3: proposals A s03_A_rm71 (+63 clusters); B s03_B_rm35 (+35 clusters)
-- 2026-10-28 09:20 IST — s03_A_rm71 (A, 71 images removed): PASS MICRO 58.0 MACRO 46.4
-- 2026-10-28 09:20 IST — s03_B_rm35 (B, 35 images removed): FAIL MICRO,MACRO,arty,radar,tank,vehicle MICRO 54.3 MACRO 43.2
 - 2026-10-28 09:20 IST — accept A: +63 clusters -> 71 images moved; k -> 142
 - 2026-10-28 09:20 IST — step 4: proposals random s04_random (+60 clusters); A s04_A_rm214 (+120 clusters)
 - 2026-10-28 09:23 IST — (agent) single-run noise is ~±3 MICRO (s03_B, 35 removed: 54.3 vs s03_A, 71 removed: 58.0). From step 5 every accepted level is re-trained with seed 1 and kept only if the 2-seed mean passes; otherwise it is reverted
@@ -102,3 +98,9 @@ Lists: `/sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/stat
 - 2026-10-29 11:35 IST — both fail (arty,camo,radar,smallvehicle): mark 1 clusters KEEP ['C116']
 - 2026-10-29 11:35 IST — k -> 8
 - 2026-10-29 11:35 IST — step 11: proposals A s11_A_rm79 (+8 clusters); A2 s11_A2_rm79 (+8 clusters); A adds objects arty 0, camo 0, logistic 1, missile 0, radar 3, smallvehicle 3, tank 13, vehicle 34
+- 2026-10-29 13:22 IST — s11_A_rm79 (A, 79 images removed): FAIL smallvehicle MICRO 57.2 MACRO 45.9
+- 2026-10-29 13:22 IST — s11_A2_rm79 (A2, 79 images removed): FAIL smallvehicle MICRO 58.0 MACRO 46.2
+- 2026-10-29 13:22 IST — paired s11_A_rm79 + s11_A2_rm79 (79 images): 2-seed mean MICRO 57.6 MACRO 46.1 FAIL smallvehicle
+- 2026-10-29 13:22 IST — both fail (smallvehicle): mark 1 clusters KEEP ['C235']
+- 2026-10-29 13:22 IST — k -> 4
+- 2026-10-29 13:22 IST — search resolved: k = 4 < 8 images is below what one step can measure; best = 71 images moved
