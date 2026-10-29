@@ -10,4 +10,4 @@ Author: AI agent. Human companion: [README.md](README.md).
 
 - [EXP-2026-10-28-01-train-subset-influence-loop](EXP-2026-10-28-01-train-subset-influence-loop/record_ai.md) — started 2026-10-28, status running
 
-- [EXP-2026-10-28-02-best-recipe-2710](EXP-2026-10-28-02-best-recipe-2710/record_ai.md) — started 2026-10-28, status done 2026-10-29 (new ens MACRO 57.4 vs old 56.7 on Test116; per-class mix 58.3)
+- [EXP-2026-10-28-02-best-recipe-2710](EXP-2026-10-28-02-best-recipe-2710/record_ai.md) — started 2026-10-28, status done 2026-10-29 (new ens MACRO 57.4 vs old 56.7 on Test116; per-class mix 58.3; researcher-approved DEPLOYMENT SELECTION merged 65.0 / 57.3, knowledge/best_combination_ai.md §2)
