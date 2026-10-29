@@ -1,6 +1,6 @@
 # Boosting the deployment selection — what worked per class, the requirement, and the experiment plan (AI-authored, 2026-10-29)
 
-Author: AI agent (Claude), 2026-10-29 ~21:50 IST. Human companion: [boost_plan.md](boost_plan.md).
+Author: AI agent (Claude), 2026-10-29 ~21:25 IST. Human companion: [boost_plan.md](boost_plan.md).
 Correlation: EXP-2026-10-28-02 · deployment selection in [knowledge/best_combination_ai.md §2](../../../knowledge/best_combination_ai.md).
 **Planning only.** Nothing here is approved or started.
 
