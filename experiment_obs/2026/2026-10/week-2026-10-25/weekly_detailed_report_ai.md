@@ -57,16 +57,16 @@ VLM numbers are on the older benchmark (67 clean scenes of the old test set, IoU
 
 ### 3.1 Per class: where the misses and wrong boxes come from
 
-| class | F1 | found / objects | misses: no box | misses: wrong class (top) | wrong boxes: on background | wrong boxes: on other objects (top) |
-|---|--:|---|--:|---|--:|---|
-| vehicle | 72.6 | 2170 / 3098 | 573 | missile 128, smallvehicle 66, logistic 63 | 342 | smallvehicle 97, missile 91, tank 61, logistic 61 |
-| tank | 75.5 | 454 / 645 | 50 | vehicle 60, camo 39, arty 39 | 36 | camo 22, vehicle 21, arty 18 |
-| smallvehicle | 61.0 | 741 / 1242 | 388 | vehicle 96 | 374 | vehicle 69 |
-| radar | 57.2 | 175 / 275 | 54 | vehicle 24, missile 12 | 72 | vehicle 28, missile 27, camo 14 |
-| camo | 55.7 | 288 / 558 | 216 | tank 22, radar 15 | 117 | tank 39, vehicle 18 |
-| missile | 54.5 | 232 / 413 | 53 | **vehicle 88**, radar 27 | 44 | **vehicle 129**, radar 13 |
-| arty | 51.9 | 128 / 249 | 78 | tank 18, radar 10 | 26 | tank 39, vehicle 32 |
-| logistic | 30.3 | 81 / 298 | 142 | vehicle 63 | 72 | vehicle 63, smallvehicle 14 |
+| class        |   F1 | found / objects | misses: no box | misses: wrong class (top)                 | wrong boxes: on background | wrong boxes: on other objects (top)               |
+| ------------ | ---: | --------------- | -------------: | ----------------------------------------- | -------------------------: | ------------------------------------------------- |
+| vehicle      | 72.6 | 2170 / 3098     |            573 | missile 128, smallvehicle 66, logistic 63 |                        342 | smallvehicle 97, missile 91, tank 61, logistic 61 |
+| tank         | 75.5 | 454 / 645       |             50 | vehicle 60, camo 39, arty 39              |                         36 | camo 22, vehicle 21, arty 18                      |
+| smallvehicle | 61.0 | 741 / 1242      |            388 | vehicle 96                                |                        374 | vehicle 69                                        |
+| radar        | 57.2 | 175 / 275       |             54 | vehicle 24, missile 12                    |                         72 | vehicle 28, missile 27, camo 14                   |
+| camo         | 55.7 | 288 / 558       |            216 | tank 22, radar 15                         |                        117 | tank 39, vehicle 18                               |
+| missile      | 54.5 | 232 / 413       |             53 | **vehicle 88**, radar 27                  |                         44 | **vehicle 129**, radar 13                         |
+| arty         | 51.9 | 128 / 249       |             78 | tank 18, radar 10                         |                         26 | tank 39, vehicle 32                               |
+| logistic     | 30.3 | 81 / 298        |            142 | vehicle 63                                |                         72 | vehicle 63, smallvehicle 14                       |
 
 "No box" = no box of any class on the object. "Background" = the box touches no labeled object (empty ground, or an object nobody labeled).
 
