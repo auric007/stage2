@@ -1,6 +1,6 @@
 # Train-subset loop — live status (AI-authored, written by code/brain.py after every decision)
 
-Updated 2026-10-29 14:42 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
+Updated 2026-10-29 14:52 IST. Experiment record: [record_ai.md](record_ai.md). Stop the loop: `touch /sfs/stage2/artifacts/EXP-2026-10-28-01-train-subset-influence-loop/STOP`.
 
 **Phase 2 / v3 (from ~19:00 IST):** the v2d search resolved at 71 images; influence re-computed on the two 71-removed models and candidates re-ranked margin-aware on object counts + positive influence (images whose help goes to classes near their PASS threshold — camo, smallvehicle, MICRO — are expensive; images helping classes with slack — tank, missile, arty — are cheap); paired seeds, restart at k = 16.
 
