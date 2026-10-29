@@ -71,3 +71,23 @@ vlm notebook EXP-2026-10-26-01 (VLM vs YOLO overlap); stage1 `/sfs/stage1/STATE.
 2. Validation: site-disjoint hold-out from Train (proposed) or k-fold.
 3. VLM proposals: lower the stage1 gate, or use stage2 boxes?
 4. HAT SR for the 29 bicubic scenes?
+
+## Correction (2026-10-29 21:30 IST, after the researcher asked "is this true")
+
+**1. Noise.** The "0.5–0.7 on full runs" figure was wrong.
+- It is |seed 0 − seed 1| of the **y8m proxy**: DOTA init, 15 epochs, one pair of seeds, from the subset loop. No full 100-epoch run has ever been repeated with a second seed, so full-run noise is **unmeasured**.
+- Per-class proxy noise is much larger: arty 4.3, camo 2.7, tank 1.6, logistic 1.6, smallvehicle 1.3, radar 0.9, vehicle 0.9, missile 0.7.
+- The "±3 MICRO" figure compared two **different** removals (35 vs 71 images), so it was not seed noise.
+
+**2. Relabels D and R on Test116 (labels_simple, Parent-Class rule).** The test_80 gains do not carry over. Both relabels move along the same P/R curve as the control (EXP-04 y8m control fine-tune).
+- **D, missile:**
+  - best F1 56.7 vs control 57.2;
+  - at conf 0.5, P 56 / R 57 vs P 47 / R 61, which is the control's own point at conf 0.7 (P 56 / R 56).
+- **R, radar:**
+  - best F1 55.2 vs 55.5;
+  - at conf 0.5, P +5 (71 vs 66) but R −4 (44 vs 48), which is the control's curve.
+- The test labels still count unloaded launchers as missile and stowed radars as radar. A model trained to call those objects vehicle therefore loses recall on them.
+
+**3. GPU estimate.** One seed of the full recipe takes 5.4 h for y8m and 6.95 h for y11l, so 12.35 h per seed.
+- 3 seeds ≈ 37 h, which is the 1.5 days.
+- Adding D and R (y8m + y11l, one seed each) adds about 25 h more.
