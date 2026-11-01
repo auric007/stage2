@@ -147,3 +147,59 @@ Missile and smallvehicle: no new set reaches the DEFAULT recall. Logistic: none 
 2. Plain averaging of 4 files (avgall) ties new_ens. It does not beat box fusion (fz_newens_newlast 55.6).
 3. original y8m + fine-tuned y11l (54.9) differs from new_ens by +0.3 MACRO. That is within noise and not worth a swap.
 4. The DEFAULT deployment selection is unchanged. Next: seed 1 (training started 02:37 IST 30 Oct), then seed 2, then the multi-seed ensembles (D).
+
+## Results — Seeds 1, 2 and multi-seed ensembles (GPU finished 2026-10-31 21:50 IST; analysed 2026-11-01)
+
+GPU timeline:
+- seed 1: 02:37 → 23:26 on 30 Oct;
+- seed 2: 23:26 on 30 Oct → 19:26 on 31 Oct;
+- D (multi-seed ensembles): 19:26 → 21:50.
+
+No failures in the log. The multi-seed ensembles fuse with `avgall` = sum of scores / (models × 4 TTA). Their scores are compressed, so every analysis below uses a **finer conf grid** (0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.25, 0.3–0.9; `--fine` in `crossfit.py` / `compare_floor.py`). On the old 0.1–0.9 grid their recall is cut off at 0.1. The fine grid leaves results for the noisy-or sets unchanged (verified: CROSSFIT_new_ens reproduced on the coarse grid).
+
+**Per-set, best-F1 per class, honest (cross-fit, fine grid) vs in-sample** (`reports/crossfit_single_fine/`, `crossfit_single/`):
+
+| set | files | honest MICRO | honest MACRO | in-sample MACRO |
+|---|--:|--:|--:|--:|
+| new_ens (seed 0, reference) | 2 | 64.2 | 54.6 | 56.7 |
+| s1_ens_last / s2_ens (one seed each) | 2 | 65.0 / 64.8 | 56.0 / 55.3 | 56.9 / 56.6 |
+| s1 ensemble at epoch 50 / 70 / 90 (coarse grid) | 2 | 65.0 / 65.2 / 65.1 | 55.4 / 56.0 / 56.0 | 56.8 / 56.9 / 57.0 |
+| big3_y11l_best | 3 | 64.1 | 55.1 | 57.5 |
+| big6_best | 6 | 64.9 | 55.8 | 58.4 |
+| big6_last | 6 | 65.2 | 55.8 | 58.7 |
+| big6_ft | 6 | 65.5 | 55.7 | 58.4 |
+| fz_big6_best_last (box fusion of big6_best ⊕ big6_last) | 12 | 65.4 | **56.5** | 59.0 |
+
+- The seeds agree: a single 2-model pair scores honest MACRO 54.6–56.0. Training plateaus by epoch ~70.
+- Multi-seed ensembling gives honest MACRO **+1.2 to +1.9** over new_ens, measured without the merge.
+
+**Per class, no merge, vs DEFAULT pick** (`reports/FLOOR_final_fine.md`):
+- Multi-seed sets reach more recall at the floor on:
+  - radar: 65–67 vs 63.6;
+  - camo: 60–64 vs 55.7;
+  - arty: 58–61 vs 53.0;
+  - vehicle: 84 vs 76.4, at P 60–63 instead of 72.
+- They do not reach the DEFAULT on:
+  - missile: 58–59 vs 59.8;
+  - smallvehicle: 55–62 vs 63.0.
+
+**After the cross-class merge (the product output)** (`code/merged_eval.py` → `reports/FINAL_MERGED.md/.json`; DEFAULT reproduced at 65.0 / 57.3):
+
+| selection | MICRO | MACRO | P | R |
+|---|--:|--:|--:|--:|
+| **DEFAULT (deployed)** | **65.0** | **57.3** | 67.2 | 63.0 |
+| big6_last only, per-class conf | 63.8 | 56.1 | 62.5 | 65.2 |
+| per class from 4 multi-seed sets | 63.4 | 55.9 | 61.6 | 65.4 |
+| HYBRID (DEFAULT pick unless a multi-seed set scores higher before the merge) | 63.9 | 56.7 | 61.8 | **66.1** |
+
+Why the gain disappears after the merge:
+- The multi-seed picks sit at low conf (0.075–0.125). That includes the priority classes radar/missile/arty.
+- Their extra low-score boxes win the merge and suppress correct boxes of other classes. For example, big6_last tank R is 79.7 before the merge and 67.9 after; arty in HYBRID drops to P 44, below its floor.
+- The per-class picks were made without the merge, and they do not survive it.
+
+### Conclusion (final)
+1. **The DEFAULT deployment selection remains the best product output on Test116** (merged 65.0 / 57.3). Nothing from this experiment beats it after the merge.
+2. **Multi-seed ensembles are better models before the merge** (honest +1.2–1.9 MACRO). A higher-recall option exists: HYBRID, R 66.1 vs 63.0, at P 61.8 vs 67.2 and MACRO −0.6.
+3. 10-epoch fine-tuning and 100 vs 70 epochs make no difference.
+4. Not done (possible next step, not authorized): choosing thresholds with the merge included (merge-aware selection), or a merge rule that favours the higher-score box across classes for the low-conf averaged sets. This is the only way the multi-seed gain could reach the product. It would be a further layer of picking on Test116.
+5. Status: **completed**. §2 of `knowledge/best_combination_ai.md` is unchanged; any change of deployment is the researcher's decision.
