@@ -1,0 +1,89 @@
+# Visual-check instance IDs (Claude, 2026-11-02). Basis: m0001 deploy predictions, P03 missile rule, Test80-era analysis of 2026-10-13/14 (same IDs in the 27_10 registry).
+group	instance_id	scene	fine_label	note
+1_radar_box_on_camo_net	1Ec01	22APR14045506-S3DS-200013368123_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	0Rc04	22FEB02032525-S3DS-200012866245_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	1Oc0L	23JUN21043007-S3DS-200013457515_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	10c02	24DEC21030136-S3DS-200011913026_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	1Rc03	24DEC24042920-S3DS-200013378864_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	1Rc02	24DEC24042920-S3DS-200013378864_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	15c02	25NOV29025727-S3DS-200012895045_01_P001	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+1_radar_box_on_camo_net	28c01	d8bba13b_DS_PHR1B_202109100317223_FR1_PX_E113N31_0818_00355	Camo	radar box on a camo net (fine label Camo only) — what is under the net?
+2_pcamo_loaded_missile_called_vehicle	0Dm02	20NOV12043850-S3DS-200012372799_01_P001	HQ16	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 1.0
+2_pcamo_loaded_missile_called_vehicle	0Dm03	20NOV12043850-S3DS-200012372799_01_P001	HQ16	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 1.0
+2_pcamo_loaded_missile_called_vehicle	0Hm06	21APR22040621-S3DS-200013119950_01_P001	HQ12	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 0.902
+2_pcamo_loaded_missile_called_vehicle	0Km02	21DEC24025812-S3DS-200013190737_01_P001	HQ22	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 0.883
+2_pcamo_loaded_missile_called_vehicle	0Mm04	21FEB15025428-S3DS-200011883412_01_P001	S300	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 0.846
+2_pcamo_loaded_missile_called_vehicle	11m06	24JAN04022720-S3DS-200013055297_01_P001	HQ9	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 0.976
+2_pcamo_loaded_missile_called_vehicle	11m07	24JAN04022720-S3DS-200013055297_01_P001	HQ9	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 0.93
+2_pcamo_loaded_missile_called_vehicle	11m0A	24JAN04022720-S3DS-200013055297_01_P001	HQ9	loaded (Is_Empty=No), P_Camo=Yes, predicted vehicle 0.997
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm01	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm02	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm03	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm04	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm05	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm06	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm07	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm08	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm09	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm0A	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	1Gm0B	22MAR07045331-S3DS-200013349499_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 0.998, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Wm03	22MAY17025959-S3DS-200012307431_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Wm04	22MAY17025959-S3DS-200012307431_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Wm05	22MAY17025959-S3DS-200012307431_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Wm07	22MAY17025959-S3DS-200012307431_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Wm08	22MAY17025959-S3DS-200012307431_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm01	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm02	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm03	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm04	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm05	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm06	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm08	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm09	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 0.999, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0A	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 0.998, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0C	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 0.998, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0F	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 0.995, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0K	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 0.971, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0L	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0M	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+3_mlrs_isempty_nil_counted_via_vehicle	0Zm0N	24APR01051503-S3DS-200012320748_01_P001	MLRS	Is_Empty=Nil, predicted vehicle 1.0, accepted by P03 rule
+4_missile_box_on_truck	02v01	18DEC18025232-S3DS-200012319985_01_P001	96L6ECheeseBoard	missile box 0.985 on a 96L6ECheeseBoard, nearest missile 99.0 m
+4_missile_box_on_truck	03v01	18FEB10031943-S3DS-200013190621_01_P001	TransportVehicle	missile box 0.99 on a TransportVehicle, nearest missile 9.0 m
+4_missile_box_on_truck	03v03	18FEB10031943-S3DS-200013190621_01_P001	TransportVehicle	missile box 0.984 on a TransportVehicle, nearest missile 9.0 m
+4_missile_box_on_truck	04v03	18JUN15032547-S3DS-200012895053_01_P001	TransportVehicle	missile box 0.979 on a TransportVehicle, nearest missile 36.0 m
+4_missile_box_on_truck	09v01	19MAY10032935-S3DS-200012352046_01_P001	TransportVehicle	missile box 0.996 on a TransportVehicle, nearest missile 81.0 m
+4_missile_box_on_truck	09v0Z	19MAY10032935-S3DS-200012352046_01_P001	TransportVehicle	missile box 0.905 on a TransportVehicle, nearest missile 553.0 m
+4_missile_box_on_truck	09v0J	19MAY10032935-S3DS-200012352046_01_P001	TransportVehicle	missile box 0.897 on a TransportVehicle, nearest missile 207.0 m
+4_missile_box_on_truck	0Ev09	20SEP06040719-S3DS-200013171123_01_P001	TransportVehicle	missile box 0.986 on a TransportVehicle, nearest missile 47.0 m
+4_missile_box_on_truck	0Ev0A	20SEP06040719-S3DS-200013171123_01_P001	TransportVehicle	missile box 0.974 on a TransportVehicle, nearest missile 48.0 m
+4_missile_box_on_truck	0Ev02	20SEP06040719-S3DS-200013171123_01_P001	TransportVehicle	missile box 0.954 on a TransportVehicle, nearest missile 9.0 m
+4_missile_box_on_truck	0Ev05	20SEP06040719-S3DS-200013171123_01_P001	TransportVehicle	missile box 0.952 on a TransportVehicle, nearest missile 42.0 m
+4_missile_box_on_truck	0Ev03	20SEP06040719-S3DS-200013171123_01_P001	TransportVehicle	missile box 0.899 on a TransportVehicle, nearest missile 9.0 m
+4_missile_box_on_truck	0Ev0D	20SEP06040719-S3DS-200013171123_01_P001	TransportVehicle	missile box 0.886 on a TransportVehicle, nearest missile 56.0 m
+4_missile_box_on_truck	0Iv06	21APR30054629-S3DS-200013142967_01_P001	TransportVehicle	missile box 0.884 on a TransportVehicle, nearest missile 4.0 m
+4_missile_box_on_truck	0Kv06	21DEC24025812-S3DS-200013190737_01_P001	TransportVehicle	missile box 0.96 on a TransportVehicle, nearest missile 66.0 m
+4_missile_box_on_truck	0Kv03	21DEC24025812-S3DS-200013190737_01_P001	TransportVehicle	missile box 0.934 on a TransportVehicle, nearest missile 139.0 m
+4_missile_box_on_truck	0Kv09	21DEC24025812-S3DS-200013190737_01_P001	TransportVehicle	missile box 0.93 on a TransportVehicle, nearest missile 129.0 m
+4_missile_box_on_truck	0Lv03	21DEC27025021-S3DS-200012895048_01_P001	TransportVehicle	missile box 0.961 on a TransportVehicle, nearest missile 7.0 m
+4_missile_box_on_truck	0Rv01	22FEB02032525-S3DS-200012866245_01_P001	EngineeringVehicle	missile box 0.999 on a EngineeringVehicle, nearest missile 275.0 m
+4_missile_box_on_truck	1Fv06	22MAR02025946-S3DS-200012804518_01_P001	EngineeringVehicle	missile box 1.0 on a EngineeringVehicle, nearest missile 12.0 m
+4_missile_box_on_truck	1Fv05	22MAR02025946-S3DS-200012804518_01_P001	EngineeringVehicle	missile box 0.998 on a EngineeringVehicle, nearest missile 21.0 m
+4_missile_box_on_truck	1Fv04	22MAR02025946-S3DS-200012804518_01_P001	EngineeringVehicle	missile box 0.998 on a EngineeringVehicle, nearest missile 19.0 m
+4_missile_box_on_truck	1Fv02	22MAR02025946-S3DS-200012804518_01_P001	EngineeringVehicle	missile box 0.998 on a EngineeringVehicle, nearest missile 9.0 m
+4_missile_box_on_truck	1Fv03	22MAR02025946-S3DS-200012804518_01_P001	EngineeringVehicle	missile box 0.997 on a EngineeringVehicle, nearest missile 5.0 m
+4_missile_box_on_truck	1Fv01	22MAR02025946-S3DS-200012804518_01_P001	EngineeringVehicle	missile box 0.991 on a EngineeringVehicle, nearest missile 6.0 m
+4_missile_box_on_truck	0Wv01	22MAY17025959-S3DS-200012307431_01_P001	EngineeringVehicle	missile box 0.982 on a EngineeringVehicle, nearest missile 17.0 m
+4_missile_box_on_truck	0Wv02	22MAY17025959-S3DS-200012307431_01_P001	EngineeringVehicle	missile box 0.94 on a EngineeringVehicle, nearest missile 14.0 m
+4_missile_box_on_truck	0Wv04	22MAY17025959-S3DS-200012307431_01_P001	EngineeringVehicle	missile box 0.914 on a EngineeringVehicle, nearest missile 8.0 m
+4_missile_box_on_truck	0Wv03	22MAY17025959-S3DS-200012307431_01_P001	EngineeringVehicle	missile box 0.863 on a EngineeringVehicle, nearest missile 13.0 m
+4_missile_box_on_truck	0Xv10	22OCT24030421-S3DS-200011896352_01_P001	TransportVehicle	missile box 0.868 on a TransportVehicle, nearest missile inf m
+4_missile_box_on_truck	0Xv02	22OCT24030421-S3DS-200011896352_01_P001	TransportVehicle	missile box 0.853 on a TransportVehicle, nearest missile inf m
+4_missile_box_on_truck	1Iv0H	234045af_DS_PHR1B_201808290337504_FR1_PX_E108N34_0924_00286	TransportVehicle	missile box 0.891 on a TransportVehicle, nearest missile 102.0 m
+4_missile_box_on_truck	0Yv09	23OCT24030928-S3DS-200012400977_01_P001	TransportVehicle	missile box 0.987 on a TransportVehicle, nearest missile 77.0 m
+4_missile_box_on_truck	0Yv08	23OCT24030928-S3DS-200012400977_01_P001	TransportVehicle	missile box 0.975 on a TransportVehicle, nearest missile 72.0 m
+4_missile_box_on_truck	10v05	24DEC21030136-S3DS-200011913026_01_P001	TransportVehicle	missile box 0.944 on a TransportVehicle, nearest missile 177.0 m
+4_missile_box_on_truck	25v01	7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	EngineeringVehicle	missile box 0.987 on a EngineeringVehicle, nearest missile 119.0 m
+4_missile_box_on_truck	25v03	7ae8f862_DS_PHR1A_201703270248204_FR1_PX_E119N32_0309_00286	EngineeringVehicle	missile box 0.896 on a EngineeringVehicle, nearest missile 100.0 m
+4_missile_box_on_truck	27v0M	a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	TransportVehicle	missile box 0.896 on a TransportVehicle, nearest missile 101.0 m
+4_missile_box_on_truck	27v0C	a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	TransportVehicle	missile box 0.879 on a TransportVehicle, nearest missile 18.0 m
+4_missile_box_on_truck	27v0A	a5094dad_DS_PHR1B_201911250307191_FR1_PX_E113N23_0107_00341	TransportVehicle	missile box 0.872 on a TransportVehicle, nearest missile 25.0 m
