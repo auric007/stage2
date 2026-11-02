@@ -111,3 +111,11 @@ via the stowed rule** (called vehicle) · **23 no box** · **5 called missile**.
 6 below the 0.39 threshold (raw 0.06–0.29), 3 radar ranked 2nd/3rd in the box's scores, 1 radar 0.57 lost its region to a missile box.
 By type: RadarSystem 18 of 28 failures; EWS 3; rare types (1L13, YLC8B, JY8) 5; H200 1; HT233 1. Most no-box cases have `vehicle` or
 `logistic` as the box's top class — the model sees a truck-shaped object but not a radar.
+
+## Visual-check ID lists — 2026-11-02 (Claude, researcher request)
+
+[visual_checks_ids_ai.tsv](visual_checks_ids_ai.tsv): one row per instance with group, ID, scene, fine label, note. Same basis as above (m0001 deploy, P03 missile rule, first label, IoU 0.3, Test80-era scenes); IDs checked against the 27_10 registry.
+- (1) radar boxes on camo nets: 8 — `1Ec01 0Rc04 1Oc0L 10c02 1Rc03 1Rc02 15c02 28c01`.
+- (2) loaded (Is_Empty = No), P_Camo missiles predicted vehicle: 8 — `0Dm02 0Dm03 0Hm06 0Km02 0Mm04 11m06 11m07 11m0A`.
+- (3) MLRS with Is_Empty = Nil counted correct via vehicle: 31 (27 active, 4 retired in the 27_10 registry: `0Zm08 0Zm09 0Zm0A 0Zm0C`).
+- (4) missile boxes on trucks: 40 vehicle IDs (TransportVehicle 28, EngineeringVehicle 11, 96L6E CheeseBoard 1), recovered by matching `missile_fp_on_vehicles.tsv` rows to `label_detail_id` geometry (script: artifacts `missile_fp_trucks.py` + coordinate join).
