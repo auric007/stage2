@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-29-01-boost-deploy-selection`
 
-Status: running. Phase 0 (CPU) is done; the Phase 2 GPU queue is running.
+Status: completed 2026-11-01 (GPU queue finished 2026-10-31 21:50 IST; final results at the end of this record).
 
 ## Request summary and authorization
 

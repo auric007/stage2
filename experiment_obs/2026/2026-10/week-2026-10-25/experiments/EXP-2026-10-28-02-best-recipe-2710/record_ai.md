@@ -5,7 +5,7 @@ Human companion: [record.md](record.md) (researcher's notes; empty until they wr
 
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-10-28-02-best-recipe-2710`
 
-Status: running.
+Status: done 2026-10-29 (researcher-approved DEPLOYMENT SELECTION recorded below).
 
 ## Request and authorization
 
