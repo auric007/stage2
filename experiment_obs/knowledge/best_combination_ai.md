@@ -9,7 +9,29 @@ Built in [EXP-2026-10-27-01](../2026/2026-10/week-2026-10-25/experiments/EXP-202
 - We are not limited to one model. Different models, from any experiment, may be used for different classes and combined. The models are small YOLOs, so running several is affordable.
 - **Every new experiment is a new candidate.** When a run has saved predictions, re-run the combination. If it is better for some class, it replaces the current pick for that class.
 
-## 2. DEPLOYMENT SELECTION — researcher-approved best result (27_10 Test116, labels_simple, IoU 0.3) — 2026-10-29
+## 2. DEPLOYMENT SELECTION — HYBRID recall-leaning, researcher-approved 2026-11-02 (27_10 Test116, labels_simple, IoU 0.3)
+
+Researcher, 2026-11-02: "update the deployment tool — yes, recall leaning hybrid selection". Built in
+[EXP-2026-10-29-01](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-29-01-boost-deploy-selection/record_ai.md)
+(`reports/FINAL_MERGED.md`, HYBRID row). Deployed in `/sfs/end_to_end/oct_w1/stage_2` (config.yaml, model v2).
+Rule used to build it: per class, the 2026-10-29 pick unless a multi-seed set reaches more recall at the floor
+(radar/missile/camo P ≥ 50, arty ≥ 45, smallvehicle/tank/vehicle ≥ 60; logistic best F1), measured before the merge.
+
+| class | set (weights) | conf | after merge P / R / F1 | vs 2026-10-29 selection, R |
+|---|---|--:|--:|--:|
+| radar | big6_ft (6 fine-tuned multi-seed, avgall) | 0.075 | 50.3 / 67.3 / 57.5 | +3.7 |
+| missile | old_exp15_ens_y8mft_r_y11l (noisy-or) | 0.7 | 51.9 / 53.5 / 52.7 | −2.7 (same pick; merge interaction) |
+| arty | big6_ft | 0.125 | 44.5 / 55.0 / 49.2 | +3.6 (P below the 45 floor after the merge) |
+| logistic | big6_ft | 0.15 | 29.6 / 33.2 / 31.3 | +6.0 |
+| camo | big6_best (6 multi-seed best.pt, avgall) | 0.15 | 56.8 / 56.5 / 56.6 | +4.9 |
+| smallvehicle | old_exp18_y11lft_control (noisy-or) | 0.4 | 61.8 / 62.4 / 62.1 | +2.7 (same pick) |
+| tank | big6_best | 0.1 | 78.0 / 69.3 / 73.4 | −1.1 |
+| vehicle | big6_ft | 0.125 | 67.1 / 74.3 / 70.5 | +4.3 |
+| **all** | 15 weight files | | **P 61.8 / R 66.1**, MICRO 63.9 / MACRO 56.7 | R +3.1 (P −5.4; MICRO −1.1, MACRO −0.6) |
+
+Weight files and group fusion: `/sfs/end_to_end/oct_w1/stage_2/MODEL_HANDOFF.md §0` and `config.yaml`.
+
+## 2b. Previous DEPLOYMENT SELECTION — researcher-approved 2026-10-29 — superseded by §2 on 2026-11-02
 
 **The researcher approved these rows as the best result to date. Deploy with these models and confidence thresholds.**
 - **Where they came from:** picked from [best_combination_ai_by_conf.md](best_combination_ai_by_conf.md), which covers all 25 stage-2 sets on all 116 Test116 images.
@@ -230,9 +252,8 @@ Steps:
 
 Cost is 6 model passes per image (2 + 2 + 1 + 1) instead of 2 for m0001.
 
-**Not built yet:**
-- a single inference wrapper for new images;
-- the stage-2 agent tool (`/sfs/end_to_end/oct_w1/stage_2/tool.py`), which still runs m0001 only.
+**Built 2026-11-02:** the stage-2 agent tool `/sfs/end_to_end/oct_w1/stage_2/tool.py` (model v2) runs the §2 HYBRID selection
+end-to-end (4 groups, 15 weight files, per-class group + threshold, merge). The previous m0001 package is in its `legacy_v1_sep_w1/`.
 
 ## 5. Repeating it after future experiments (checklist)
 
@@ -259,3 +280,4 @@ Cost is 6 model passes per image (2 + 2 + 1 + 1) instead of 2 for m0001.
 | 2026-10-27 | 63.6 / 55.0 (dedup 62.7 / 54.6) | reusable tool `combine_best.py`, EXP-2026-10-27-01 |
 | 2026-10-29 | 66.5 / 58.3 (dedup 65.8 / 57.7) | 27_10 Test116 + labels_simple; recipe retrained on Train359 (EXP-2026-10-28-02); max-F1 picks over 9 sets |
 | 2026-10-29 (evening) | 65.9 / 57.3 (merged 65.0 / 57.3) | **researcher-approved DEPLOYMENT SELECTION** from the 25-set by-conf table: recall-leaning rows for radar/missile/smallvehicle/tank/vehicle (radar R 50.9 → 63.6); section 2 |
+| 2026-11-02 | merged 63.9 / 56.7 (P 61.8 / R 66.1) | **researcher-approved HYBRID recall-leaning selection** (EXP-2026-10-29-01): multi-seed big6_ft/big6_best for radar, arty, logistic, camo, tank, vehicle; recall +3.1 for precision −5.4; deployed as stage-2 tool model v2; section 2 (previous selection → 2b) |

@@ -64,3 +64,14 @@ Date: 2026-10-26 16:35 IST. One-class-per-object comparison on 21 models (EXP-20
 - **Why it works:** every model was trained with these objects as their hardware class (labels_detailed), so the official camo mapping penalized correct predictions.
 - **P04 v2 result:** best per class MICRO 63.6 / MACRO 55.0; m0001 alone 63.0 / 54.0. Chosen on test_80 (upper bound); pending the researcher's review.
 - Evidence: [EXP-2026-10-26-01](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-26-01-pcamo-missile-radar-mapping/record_ai.md).
+
+## D-20261102-01 - Deploy the HYBRID recall-leaning selection (stage-2 tool model v2)
+
+Date: 2026-11-02. Researcher: "update the deployment tool — yes, recall leaning hybrid selection".
+- Deployment selection changes from the 2026-10-29 selection (merged MICRO 65.0 / MACRO 57.3, P 67.2 / R 63.0) to HYBRID
+  (merged 63.9 / 56.7, **P 61.8 / R 66.1**): recall-leaning, accepted trade of ~5 precision points for ~3 recall points.
+- Per class: radar, arty, logistic, vehicle from big6_ft; camo, tank from big6_best; missile old_exp15 @0.7 and smallvehicle old_exp18 @0.4 unchanged.
+- Known trade-offs: arty P 44.5 after the merge (floor 45); tank R −1.1, missile R −2.7 vs the previous selection.
+- Deployed: `/sfs/end_to_end/oct_w1/stage_2` model v2 (config.yaml groups/classes, 15 weight files); previous package kept in `legacy_v1_sep_w1/`.
+- Evidence: [EXP-2026-10-29-01](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-29-01-boost-deploy-selection/record_ai.md), `reports/FINAL_MERGED.md`; [best_combination_ai.md §2](best_combination_ai.md).
+- Revisit: if merge-aware selection or a later experiment beats HYBRID's recall at the same precision.
