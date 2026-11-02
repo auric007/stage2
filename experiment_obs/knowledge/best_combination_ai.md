@@ -30,6 +30,7 @@ Rule used to build it: per class, the 2026-10-29 pick unless a multi-seed set re
 | **all** | 15 weight files | | **P 61.8 / R 66.1**, MICRO 63.9 / MACRO 56.7 | R +3.1 (P −5.4; MICRO −1.1, MACRO −0.6) |
 
 Weight files and group fusion: `/sfs/end_to_end/oct_w1/stage_2/MODEL_HANDOFF.md §0` and `config.yaml`.
+Shareable Test116 prediction files (raw + deployed, 0.30 m and native px): `/sfs/stage2/artifacts/EXP-2026-10-29-01-boost-deploy-selection/share/hybrid_2026-11-02/` (+ `.zip`).
 
 ## 2b. Previous DEPLOYMENT SELECTION — researcher-approved 2026-10-29 — superseded by §2 on 2026-11-02
 

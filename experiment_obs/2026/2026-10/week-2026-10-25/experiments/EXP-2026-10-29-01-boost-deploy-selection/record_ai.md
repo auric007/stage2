@@ -203,3 +203,12 @@ Why the gain disappears after the merge:
 3. 10-epoch fine-tuning and 100 vs 70 epochs make no difference.
 4. Not done (possible next step, not authorized): choosing thresholds with the merge included (merge-aware selection), or a merge rule that favours the higher-score box across classes for the low-conf averaged sets. This is the only way the multi-seed gain could reach the product. It would be a further layer of picking on Test116.
 5. Status: **completed**. §2 of `knowledge/best_combination_ai.md` is unchanged; any change of deployment is the researcher's decision.
+
+## Shareable prediction files of the deployed HYBRID selection (2026-11-02, researcher request)
+
+- `share/hybrid_2026-11-02/` (+ `.zip`, 1.6 MB) in the artifact folder; built by `code/build_share.py`.
+  - `raw/` = per-class group boxes ≥ 0.05; 18,594 boxes.
+  - `deployed/` = thresholds + merge; 9,418 boxes.
+  - Each folder has `norm_030m/` and `native_px/`.
+  - Also: `SCORES.md`, `per_image_deployed.tsv`, `README.md`.
+- Re-scored check of the deployed files (assert): MICRO 63.9 / MACRO 56.7, P 61.8 / R 66.1, matching FINAL_MERGED HYBRID.
