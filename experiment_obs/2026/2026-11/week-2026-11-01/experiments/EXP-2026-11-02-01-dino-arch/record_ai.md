@@ -146,6 +146,25 @@ Only epoch 1 (val best) and epoch 13 (last) were kept; epochs 2-12 cannot be sco
 - **Ensemble gain did not grow:** ENS best-F1 ≈ 66.0 for every DINO checkpoint; recall-leaning ep13 adds only +0.5-1.1 MACRO over shipped at the same recall. Hypothesis (not yet measured): the better DINO now finds more of the same objects as the HYBRID, so it adds less that is new; complement.py on ep13 would test this.
 - **Radar/missile:** ep13 with rule B gives missile R 62.7 (259/255/154) and radar R 69.1 (190/188/85); with C0.25, missile 61.7, radar 65.8, MACRO 57.4.
 
+### Coverage check, ep13 vs shipped (2026-11-03 ~21:50 IST): [shipped116](COMPLEMENT_shipped116_ai.md) · [ep13](COMPLEMENT_m1_relabel_last_ai.md)
+Hypothesis confirmed. "Only D" = objects DINO finds with the right class that the HYBRID misses, which is all an ensemble can add.
+
+| class | only D: shipped → ep13 | both: shipped → ep13 | Jaccard: shipped → ep13 | union recall: shipped → ep13 |
+|---|---|---|---|---|
+| arty | 11 → 18 | 43 → 43 | 0.27 → 0.25 | 65.1 → 67.9 |
+| camo | 51 → 34 | 250 → 266 | 0.61 → 0.68 | 73.1 → 70.1 |
+| logistic | 28 → 19 | 53 → 35 | 0.42 → 0.30 | 42.6 → 39.6 |
+| missile | 18 → 24 | 140 → 174 | 0.53 → 0.64 | 64.2 → 65.6 |
+| radar | 19 → 8 | 122 → 125 | 0.60 → 0.65 | 74.2 → 70.2 |
+| smallvehicle | 189 → 168 | 597 → 615 | 0.61 → 0.65 | 78.2 → 76.5 |
+| tank | 15 → 19 | 407 → 417 | 0.73 → 0.75 | 86.0 → 86.7 |
+| vehicle | 56 → 104 | 1402 → 2107 | 0.52 → 0.77 | 86.4 → 88.0 |
+| **total** | **387 → 394** | 3014 → 3782 | | |
+
+- ep13 finds 775 more objects correctly than shipped (3401 → 4176), but 768 of those (99%) the HYBRID already finds; the pool of objects only DINO finds barely moves (387 → 394), and for radar it shrinks (19 → 8).
+- Errors became correlated: shipped DINO mislabelled into camo/logistic (missile→camo 122, vehicle→logistic 821); ep13, like the HYBRID, mislabels into vehicle (missile→vehicle 176 vs HYBRID 104; radar→vehicle 73 vs 36; logistic→vehicle 147 vs 85). Same labels, same majority-class pull, same mistakes.
+- Takeaway: a better single model is not a better ensemble partner. For ensemble gain, DINO needs to be trained to differ where the HYBRID fails (e.g. class weights against vehicle, or rare-class-focused), not just to be accurate.
+
 ## Conclusions and next steps
 - **DINO's boxes are the useful part, so far.** With the HYBRID's class decision (M2) or as extra candidates (M3), the shipped DINO already lifts the HYBRID: ENS +2.5 MICRO / +2.8 MACRO, with both P and R up.
 - **DINO's own class decision is the weak point** (D: MACRO 48.9). M1 tests whether that comes from the old labels and the epoch-2 selection.
