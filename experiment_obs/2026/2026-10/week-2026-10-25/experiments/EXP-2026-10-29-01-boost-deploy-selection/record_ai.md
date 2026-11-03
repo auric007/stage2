@@ -226,3 +226,9 @@ Why the gain disappears after the merge:
   - Inside camo, generic Camo (52.7) and camo-TransportVehicle (13.3) are low.
   - Several children (PCL181/161, K9, HQ6, ABLV, AAGun) sit in ≤ 2 scenes, so they reflect scene effects.
 - Details: daily note 2026-11-03_ai.md.
+- **Follow-up (same day), the gaps against training data:** `code/train_child_stats.py` → `reports/CHILD_VS_TRAIN.md`. The gaps fall into four kinds:
+  - few examples or few scenes: EWS, MLRS, ABLV, K9;
+  - the same child label split across classes in training: ICV tank/camo, SPATracked arty/camo, TransportVehicle camo/vehicle, RadarSystem radar/vehicle;
+  - look-alike classes plus merge priority: LTV and ICV → arty, EngineeringVehicle → missile;
+  - train/test shift: SPAWheeled P_Camo and size, generic Camo share.
+- PCL181 and PCL161 reach 96% recall with 0 train examples.
