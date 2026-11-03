@@ -212,3 +212,17 @@ Why the gain disappears after the merge:
   - Each folder has `norm_030m/` and `native_px/`.
   - Also: `SCORES.md`, `per_image_deployed.tsv`, `README.md`.
 - Re-scored check of the deployed files (assert): MICRO 63.9 / MACRO 56.7, P 61.8 / R 66.1, matching FINAL_MERGED HYBRID.
+
+## Child-label recall breakdown of the deployed HYBRID (2026-11-03, researcher request)
+
+- `code/child_breakdown.py` → `reports/CHILD_CLASS_HYBRID.md` + `reports/child_class_hybrid_instances.tsv` (one row per Test116 GT: id, child, P_Camo, TP, called-as, pre-merge hit, raw hit).
+- Totals reproduce SCORES.md.
+- **Findings (Fisher test vs the rest of the class):**
+  - ICV is low inside tank: 65.4 vs Tank 85.1. Its losses are largely to the merge, to arty, vehicle and camo boxes.
+  - Inside vehicle, LTV (58.3) and EngineeringVehicle (57.7) are low.
+  - Inside radar, the generic RadarSystem (57.1) and EWS (21.4) are low.
+  - Inside missile, MLRS is low: 24.4, called vehicle, never lost to the merge.
+  - Inside arty, SPATracked and SPAWheeled are low (12.5 and 30.4).
+  - Inside camo, generic Camo (52.7) and camo-TransportVehicle (13.3) are low.
+  - Several children (PCL181/161, K9, HQ6, ABLV, AAGun) sit in ≤ 2 scenes, so they reflect scene effects.
+- Details: daily note 2026-11-03_ai.md.

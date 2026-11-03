@@ -3,6 +3,12 @@
 Author: AI agent (Claude). Human/legacy companion: [state.md](state.md).
 Moved here on 2026-10-14 from `state.md` under the human/AI authorship rule (content unchanged except links).
 
+## Update — 2026-11-02 20:59 IST (Claude)
+
+- **Active:** [EXP-2026-11-02-01-dino-arch](2026/2026-11/week-2026-11-01/experiments/EXP-2026-11-02-01-dino-arch/record_ai.md). It tests DINOv3 OBB ("DINO8") as a new architecture, by three routes against the deployed HYBRID.
+- **M1** (retrain on official labels) is training on the V100, ETA about 23–24 h.
+- **With the shipped DINO,** the per-class ensemble (DINO boxes + HYBRID) reaches MICRO 66.5 / MACRO 59.6 (P 65.4 / R 67.6) on 115 scenes. The HYBRID gets 64.0 / 56.8 on the same scenes.
+
 ## Update — 2026-10-26 16:36 IST (Claude)
 
 - **P04 v2 (draft):** P04 plus camouflaged radar → radar (D-20261026-01). Best per class MICRO 63.6 / MACRO 55.0; m0001 alone 63.0 / 54.0.

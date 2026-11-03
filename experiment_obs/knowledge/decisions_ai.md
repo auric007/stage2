@@ -75,3 +75,13 @@ Date: 2026-11-02. Researcher: "update the deployment tool — yes, recall leanin
 - Deployed: `/sfs/end_to_end/oct_w1/stage_2` model v2 (config.yaml groups/classes, 15 weight files); previous package kept in `legacy_v1_sep_w1/`.
 - Evidence: [EXP-2026-10-29-01](../2026/2026-10/week-2026-10-25/experiments/EXP-2026-10-29-01-boost-deploy-selection/record_ai.md), `reports/FINAL_MERGED.md`; [best_combination_ai.md §2](best_combination_ai.md).
 - Revisit: if merge-aware selection or a later experiment beats HYBRID's recall at the same precision.
+
+## D-20261103-01 - Adopt the recall-leaning HYBRID + DINO ensemble style
+
+Date: 2026-11-03 00:50 IST. Researcher: "cool note it, we are going to use it". This was the reply to the recall-leaning ensemble's radar P 50.3 / R 69.7 (191 / 189 / 83), which beats their 10-29 radar row (P 51.9 / R 63.6).
+- **Recall-leaning ENS:** per class, max R at P ≥ floor (logistic best F1), from HYBRID / M2 / M3, then the cross-class merge.
+- **Measured with the shipped DINO** (115 scenes): P 57.9 / R 70.1, MICRO 63.5 / MACRO 56.4. The HYBRID gets P 61.9 / R 66.2 on the same scenes.
+- **Not final.** It will be re-picked with M1 (DINO retrained on the official labels) on Test116, together with the radar-vs-missile rule (B dual-label vs threshold 0.25).
+- **Nothing deployed.** The stage-2 tool stays on model v2 (D-20261102-01) until the researcher asks.
+- Evidence: [EXP-2026-11-02-01](../2026/2026-11/week-2026-11-01/experiments/EXP-2026-11-02-01-dino-arch/record_ai.md) and its [ENS2 study](../2026/2026-11/week-2026-11-01/experiments/EXP-2026-11-02-01-dino-arch/ENS2_radar_missile_shipped115_ai.md).
+- Revisit: after M1, or if a downstream consumer can't use recall-leaning precision (about 58% overall).
