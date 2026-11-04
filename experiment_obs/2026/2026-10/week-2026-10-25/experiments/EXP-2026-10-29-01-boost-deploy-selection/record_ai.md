@@ -232,3 +232,13 @@ Why the gain disappears after the merge:
   - look-alike classes plus merge priority: LTV and ICV → arty, EngineeringVehicle → missile;
   - train/test shift: SPAWheeled P_Camo and size, generic Camo share.
 - PCL181 and PCL161 reach 96% recall with 0 train examples.
+
+## Reproduction and training package (2026-11-04, researcher request)
+
+- `share/stage2_hybrid_pipeline/` (code, scripts, docs; no metrics in the docs), zipped as:
+  - `share/stage2_hybrid_pipeline_2026-11-04.zip`;
+  - `share/stage2_hybrid_weights_2026-11-04.zip` (16 weights + 2 pretrained, sha256 in `weights/WEIGHTS.tsv`).
+- Every component was verified against the original outputs. The table is in the package's `docs/07_REPRODUCIBILITY.md`; details are in daily note 2026-11-04_ai.md.
+- **Corrections made on the way:**
+  - (a) The Sep-W1 lineage (exp15/exp18) trained on the 27_08 labels_detailed true class. The "old n" column of `reports/CHILD_VS_TRAIN.md` was recomputed; the 2026-11-03 statements about exp15 seeing only 40 MLRS and 439 missiles were wrong.
+  - (b) `share/hybrid_2026-11-02/README.md`: boxes inside delete regions are in the files and are dropped only by the scorer. Text fixed, zip rebuilt.
