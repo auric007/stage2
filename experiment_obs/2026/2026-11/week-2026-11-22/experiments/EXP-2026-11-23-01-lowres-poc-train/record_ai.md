@@ -3,7 +3,7 @@
 Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [2026-11-23_ai.md](../../daily/2026-11-23_ai.md).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-23-01-lowres-poc-train`
 
-Status: **running** (y8m training started 2026-11-23 20:04 IST).
+Status: **running** (final y8m start 2026-11-23 20:14 IST, after two restarts; see Execution).
 
 ## Request summary and authorization
 - Researcher, 2026-11-23 ~20:00 IST: "can you start training, I want to do it asap; find how we can complete the training in 12–16 hrs".
@@ -27,7 +27,8 @@ Status: **running** (y8m training started 2026-11-23 20:04 IST).
 - **Delete:** blacked out in train/val tiles; objects with centre in Delete dropped (train 60,441 → 59,957; test kept for scoring, 8,014).
 - **Tiles:** 1024 / 819; object kept if ≥ 40 % inside. Train 19,275 tiles → 9,472 with objects + 5,100 background (35 %) = 14,572 unique.
   **RFS** t = 0.15: arty ×3.12, spa ×3.51, tank ×2.01, missile ×1.33, radar ×1.17, camo/logistic ×1.16 → 16,686 tiles per epoch (+2,114 repeats).
-  Val (best.pt only): 1,422 test object tiles + 600 background = 2,022.
+  Val (best.pt only): **ALL 4,449 non-empty test tiles** (researcher 20:10: "validate all test scenes", as last time: EXP-2026-10-28-02 validated on all Test116 tiles).
+  Final train set after the fix below: 16,709 tiles per epoch (+2,137 repeats).
 - **Recipe:** EXP-2026-10-28-02 hyper-parameters unchanged (AdamW lr0 0.001×b/16, lrf 0.01, imgsz 1024, mosaic 1, mixup 0.1, degrees 180, …), except
   **epochs 60** (a 70-epoch start measured ~5.5 min/epoch for y8m and was aborted after 2 min to fit the budget), patience 30, cache RAM, workers 16.
   y8m batch 16, y11l batch 12, seed 0, sequential.
@@ -37,8 +38,11 @@ Status: **running** (y8m training started 2026-11-23 20:04 IST).
 
 ## Execution
 - 20:01 prep (33 s, 96 workers). 20:02 `nohup bash code/run.sh` (70 epochs) → 20:04 aborted and restarted with 60 epochs.
-- Expected (estimate from the first epoch, not measured end-to-end): y8m ~5.3 min/epoch → ~01:30 IST; y11l ~8 min/epoch → ~09:30; TTA inference + scoring
-  ~1–1.5 h → results ~11:00 IST 2026-11-24 (~15 h total).
+- 20:10 researcher: validate on all test scenes → 20:12 restart (val subset 2,022 → all 4,449). That restart was aborted at 20:13: the old process was still
+  on the GPU, and the train set was a union of two random selections (prep collected scenes in completion order). Fixed: prep sorts scenes (selection is
+  deterministic; two rebuilds gave the same file list md5), `data/final` rebuilt from scratch. **20:14 final start** of `code/run.sh`.
+- Expected (estimate from the first epoch, not measured end-to-end): y8m ~5.5 min/epoch → ~01:45 IST; y11l ~8.5 min/epoch → ~10:15; TTA inference + scoring
+  ~1–1.5 h → results ~11:30 IST 2026-11-24 (~15 h total).
 - Logs: `logs/pipeline.log`, `logs/train_y8m.log`, `logs/train_y11l.log`, `logs/infer.log`. Reports: `reports/{y8m,y11l,ens_y8m_y11l}.md`.
 
 ## Results and failures
