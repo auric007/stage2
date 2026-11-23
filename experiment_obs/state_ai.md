@@ -3,6 +3,12 @@
 Author: AI agent (Claude). Human/legacy companion: [state.md](state.md).
 Moved here on 2026-10-14 from `state.md` under the human/AI authorship rule (content unchanged except links).
 
+## Update — 2026-11-23 19:25 IST (Claude)
+
+- **New data split for the next stage-2 training:** `/sfs/data/lowres_poc` (train 420 LR + 416 new HR, test 136 LR at 0.58–0.80 m; not comparable with Test116).
+- Labels rebuilt and cleaned per the researcher's rules ([D-20261123-01](knowledge/decisions_ai.md)); 9 trained classes incl. spa.
+  Record: [2026-11-23_ai.md](2026/2026-11/week-2026-11-22/daily/2026-11-23_ai.md). No training started yet.
+
 ## Update — 2026-11-02 20:59 IST (Claude)
 
 - **Active:** [EXP-2026-11-02-01-dino-arch](2026/2026-11/week-2026-11-01/experiments/EXP-2026-11-02-01-dino-arch/record_ai.md). It tests DINOv3 OBB ("DINO8") as a new architecture, by three routes against the deployed HYBRID.

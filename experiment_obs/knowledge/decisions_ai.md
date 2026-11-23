@@ -85,3 +85,17 @@ Date: 2026-11-03 00:50 IST. Researcher: "cool note it, we are going to use it". 
 - **Nothing deployed.** The stage-2 tool stays on model v2 (D-20261102-01) until the researcher asks.
 - Evidence: [EXP-2026-11-02-01](../2026/2026-11/week-2026-11-01/experiments/EXP-2026-11-02-01-dino-arch/record_ai.md) and its [ENS2 study](../2026/2026-11/week-2026-11-01/experiments/EXP-2026-11-02-01-dino-arch/ENS2_radar_missile_shipped115_ai.md).
 - Revisit: after M1, or if a downstream consumer can't use recall-leaning precision (about 58% overall).
+
+## D-20261123-01 - lowres_poc (new HR + LR train/test split): label policy
+
+Date: 2026-11-23 (16:03–19:07 IST). Researcher decisions, given step by step; applied to `/sfs/data/lowres_poc/up42_complete` labels.
+- **labels_simple = labels_detailed col 8**: no P_Camo → camo merge; **spa is its own trained class** (9 trained classes).
+- **HR Parent Class 11 = structures, not SPA** → untrained `structure` (135).
+- **Dropped (HR):** Segment, Shadow (no Parent Class), CamoShed, InflatableTent. CamoDugout stays camo.
+- **Re-class rules, both domains, train and test:** engineering/recovery vehicles, ABLV, WZ551 → vehicle; SP howitzers (PLZ07, PLZ05, ZBL08, PCL181, PCL161, M109A5, K9) → spa;
+  LD2000, PZH10 → missile; FB10A → camo; CTL181AMS → vehicle. Camo (PC 05) copies stay camo.
+- **ballistic → missile in labels_simple only** (detailed keeps `ballistic`).
+- **Camo boxes grouped (CVAT group_id) with a non-camo primary are removed** (all 67, including 5 that don't overlap the primary).
+- Evidence and counts: [2026-11-23_ai.md](../2026/2026-11/week-2026-11-22/daily/2026-11-23_ai.md); `/sfs/data/lowres_poc/analysis/SPLIT_ANALYSIS.md` §7–§10.
+- Scope: lowres_poc only. Not applied to `up42_platform_data_02_11` / Test116, whose 2026-10-27 label policy is unchanged.
+- Revisit: if training shows spa/arty confusion, or the 4 grouped CamoDugouts matter.
