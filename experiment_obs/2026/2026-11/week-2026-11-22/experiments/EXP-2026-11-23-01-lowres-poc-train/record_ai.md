@@ -72,6 +72,20 @@ missile 43.3/48.2/45.6 · tank 47.5/37.9/42.1 · logistic 34.6/33.6/34.1 · spa 
 - Not comparable with any earlier stage-2 number: different test set (136 lowres_poc scenes, 9 classes).
 
 
+### External test: CartoSat, 7 scenes (2026-11-24, `/sfs/data/lowres_poc/cartosat_test`, converted in another session)
+- 0.6 m pansharpened 8-bit; band order from metadata `tif_band_order` (2 scenes B,G,R, 5 R,G,B; verified against the provider RGB PNG by band
+  correlation, all 7 agree). Same pipeline (0.30 m, TTA); 13,028 tiles; 13:58 → 14:31 IST. Code `code/infer_external.py`, `code/score_external.py`.
+- GT 665 trained-class objects (vehicle 360, smallvehicle 267, rare classes 2–9 each); 94 lie inside lowres_poc train scenes → second scope ignores them.
+- Scoring fixes during this run: per-class conf ties (F1 = 0 or no GT) now take the highest conf (were 0.05, which added up to 1,038 FP to MICRO).
+- IoU 0.3, MICRO P / R / F1 · MACRO (`reports/cartosat_*.md`):
+  - y8m: all 9.3 / 29.6 / 14.2 · 9.7; excl. train sites 12.2 / 29.2 / 17.2 · 9.6
+  - **y11l: all 21.9 / 40.0 / 28.3 · 14.3; excl. 29.7 / 36.4 / 32.7 · 10.3**
+  - ensemble: all 14.5 / 34.7 / 20.5 · 14.0; excl. 23.8 / 34.3 / 28.1 · 10.5
+  - y11l per class (all): vehicle 42.7/40.6/41.6, smallvehicle 25.9/41.6/31.9, camo 40.0/66.7/50.0 (9 GT); arty/tank/spa 0 found; missile/radar/logistic ≤ 1 found.
+- Checks: labels are aligned (median GT→nearest-prediction offset < 1 px in every scene with hits). Recall by scene (any class, y11l ≥ 0.5): 45RYM 92/123,
+  42SXB 140/257, 46RCT 67/140, 50QJL 25/93, 25493 5/30, 41906 1/17. Missed-object crops (`reports/cartosat_missed.jpg`): snow scenes (25493, 41906, strong
+  colour noise in 41906) and dense car rows in 50QJL where only some cars are labelled (observed) → precision here is a lower bound (supported inference).
+
 ## Conclusions and next steps
 - The recipe trains within budget (11.4 h incl. inference). y11l is the stronger single model; the 2-model ensemble gives the best MACRO (45.1).
 - Weakest: arty (FPs concentrated in 2 test scenes), spa, logistic, tank (camo/tank ambiguity under nets).
