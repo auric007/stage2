@@ -3,7 +3,7 @@
 Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [2026-11-23_ai.md](../../daily/2026-11-23_ai.md).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-23-01-lowres-poc-train`
 
-Status: **running** (final y8m start 2026-11-23 20:18 IST, after three restarts; see Execution).
+Status: **completed** 2026-11-24 07:41 IST (final y8m start 2026-11-23 20:18 IST, after three restarts; see Execution).
 
 ## Request summary and authorization
 - Researcher, 2026-11-23 ~20:00 IST: "can you start training, I want to do it asap; find how we can complete the training in 12–16 hrs".
@@ -48,7 +48,31 @@ Status: **running** (final y8m start 2026-11-23 20:18 IST, after three restarts;
 - Logs: `logs/pipeline.log`, `logs/train_y8m.log`, `logs/train_y11l.log`, `logs/infer.log`. Reports: `reports/{y8m,y11l,ens_y8m_y11l}.md`.
 
 ## Results and failures
-- Pending.
+**Timeline (observed, `logs/pipeline.log`):** y8m 20:18 → 00:39 (early stop at epoch 49, best epoch 19 by fitness; 4.3 h);
+y11l 00:39 → 07:29 (early stop at epoch 53, best epoch 23; 6.8 h); TTA inference + scoring 07:29 → 07:41. Total 11.4 h. No failures.
+Both models plateau early on val (= all test tiles): patience 30 stopped them ~30 epochs after the best.
+
+**Test, 136 scenes, IoU 0.3, per-class best-F1 conf** (`reports/*.md`; grid extended to 0.925–0.99 on 2026-11-24 because the ensemble's best confs
+sat at the old 0.9 ceiling):
+
+| set | MICRO P / R / F1 | MACRO F1 | IoU 0.5 MICRO F1 / MACRO |
+|---|---|--:|---|
+| y8m | 56.2 / 58.7 / 57.4 | 41.6 | 57.0 / 39.7 |
+| y11l | 61.9 / 59.0 / 60.4 | 44.2 | 58.0 / 41.6 |
+| **ensemble y8m + y11l** | 59.8 / 59.6 / 59.7 | **45.1** | 58.0 / 42.8 |
+
+Ensemble per class (P / R / F1): vehicle 70.4/67.6/69.0 · camo 69.4/61.4/65.1 · smallvehicle 67.1/60.9/63.8 · radar 67.1/42.7/52.2 ·
+missile 43.3/48.2/45.6 · tank 47.5/37.9/42.1 · logistic 34.6/33.6/34.1 · spa 27.0/25.0/26.0 · arty 4.3/36.9/7.7.
+
+**False-positive breakdown (ensemble at the best conf):**
+- arty: 516 of 541 FPs are on background, 488 of them in two scenes (`25JUN16072810…` 347, `IMG_PHR1B_PMS_…` 141). Unannotated objects or a
+  look-alike texture there: not inspected yet (unknown).
+- tank: 75 FPs on GT camo (netted tanks are labelled camo by Parent Class 05), 22 on vehicle.
+- missile: 129 FPs on GT vehicle, 24 on radar. logistic: 250 on background, 158 on vehicle. spa: split across background/camo/vehicle.
+- Not comparable with any earlier stage-2 number: different test set (136 lowres_poc scenes, 9 classes).
+
 
 ## Conclusions and next steps
-- Pending. Then: per-class thresholds/selection on these results; optional extra seeds; DINO later.
+- The recipe trains within budget (11.4 h incl. inference). y11l is the stronger single model; the 2-model ensemble gives the best MACRO (45.1).
+- Weakest: arty (FPs concentrated in 2 test scenes), spa, logistic, tank (camo/tank ambiguity under nets).
+- Proposed (not run): inspect the two arty-FP scenes; confusion analysis; per-class model/threshold selection; extra seeds.
