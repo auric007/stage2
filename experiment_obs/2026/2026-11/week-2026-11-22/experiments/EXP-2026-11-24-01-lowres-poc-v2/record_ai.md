@@ -3,7 +3,7 @@
 Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [2026-11-24_ai.md](../../daily/2026-11-24_ai.md).
 Baseline: [EXP-2026-11-23-01](../EXP-2026-11-23-01-lowres-poc-train/record_ai.md). Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-24-01-lowres-poc-v2`
 
-Status: **running** (queued 2026-11-24 ~19:10 IST; y11l-v2 → y8m-v2 → TTA test inference + scoring; ETA ~08:00–10:00 IST 25 Nov).
+Status: **running** — y11l-v2 done and scored (stopped at epoch 28 on researcher request, best.pt = epoch 18); y8m-v2 training since 2026-11-24 23:55 IST, then ensemble scoring.
 
 ## Request summary and authorization
 - Researcher, 2026-11-24 ~18:50 IST: deep-analyse the 136-scene test results (which classes fail and why; **radar and missile priority**;
@@ -83,7 +83,29 @@ v1 best.pt was picked by mAP50-95 only (ultralytics 8.4 default), which ignores 
 - 19:27 IST: **restarted from scratch** (`runs/` cleared). y11l-v2 ≈ 8.8 min/epoch training (1,675 it at batch 12) + validation.
 
 ## Results and failures
-Pending.
+- 23:50 IST: y11l-v2 stopped at epoch 28 (researcher: stop if not improving; no new best.pt since epoch 18, val mAP50 0.394 → 0.356). Runner replaced by `code/run_v2b.sh` (score y11l now → y8m-v2 → ensemble); `code/infer_models.py` reuses the v1 test-tile index.
+- **y11l-v2 (epoch 18), 136 test scenes, TTA, IoU 0.3** (`reports/y11l.md`, `reports/compare_v1_v2.md`, `analysis/deep_y11l.json`):
+
+| class | GT | v1 y11l F1 | v1 ens F1 | **v2 y11l** F1 (P / R) |
+|---|--:|--:|--:|--:|
+| radar | 239 | 49.8 | 52.2 | **57.3** (75.9 / 46.0) |
+| missile | 307 | 44.2 | 45.6 | **46.8** (45.5 / 48.2) |
+| arty | 65 | 9.5 | 7.7 | **29.6** (37.2 / 24.6) |
+| camo | 761 | 63.5 | 65.1 | **68.1** (74.9 / 62.4) |
+| vehicle | 4136 | 68.7 | 69.0 | **69.3** (73.0 / 65.9) |
+| smallvehicle | 1436 | 63.8 | 63.8 | **64.0** (68.2 / 60.2) |
+| logistic | 690 | 34.0 | 34.1 | **34.2** (34.0 / 34.5) |
+| tank | 272 | 38.1 | 42.1 | 30.7 (43.0 / 23.9) |
+| spa | 108 | 26.0 | 26.0 | 8.2 (5.8 / 13.9) |
+| MICRO | | 60.4 | 59.7 | **61.0** (64.2 / 58.1) |
+| MACRO | | 44.2 | 45.1 | **45.4** |
+
+  IoU 0.5: MICRO 59.6 (v1 y11l 58.0), MACRO 43.5 (41.6).
+- What changed (deep analysis v1 y11l → v2 y11l): radar TP 101 → 110, radar FP 66 → 35; EWS recall 3 → 17 %; radar→vehicle unchanged (40 → 39).
+  Missile TP 125 → 148, but missile FPs on vehicle GT 83 → 122 (the 2× missile positive weight outweighs the vehicle→missile penalty); missile→vehicle 50 → 52.
+  Arty background FPs 240 → 25. Tank: tank-on-camo FPs 62 → 27 but tank recall 32 → 24 % (more tank GT missed: 73 → 97) — the tank↔camo/vehicle penalties suppress tank.
+  Spa: 229 background FPs in scenes without spa (v1: 3).
+- Per-class best-of (v2 y11l for 7 classes, v1 y8m for tank, v1 y11l for spa), from the per-class reports: MICRO 62.3 (P 66.3 / R 58.7), MACRO 48.8.
 
 ## Conclusions and next steps
 Pending results. Success criterion: radar and missile F1 above v1 (ens 52.2 / 45.6; y11l 49.8 / 44.2) without MICRO dropping.
