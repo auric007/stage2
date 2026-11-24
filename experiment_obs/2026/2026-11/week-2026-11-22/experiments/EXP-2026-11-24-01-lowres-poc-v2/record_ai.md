@@ -80,7 +80,7 @@ v1 best.pt was picked by mAP50-95 only (ultralytics 8.4 default), which ignores 
 ## Execution
 - 2026-11-24 ~19:10 IST: `setsid nohup bash code/run_v2.sh` (waited for the CartoSat sweep of EXP-2026-11-23-01; GPU free 19:14).
 - 19:25 IST: **run 1 crashed** at epoch-1 validation: on an all-background batch the TAL assigner returns a float16 zeros `fg_mask`; `torch.where` needs bool. Runner had moved to y8m-v2 → stopped. Fix `fg_mask.bool()`; verified patched = stock loss on empty batches (fp32 / fp16) and a smoke run with 48 background + 6 object val tiles. Logs `logs/failed_run1/`.
-- ~19:55 IST: **restarted from scratch** (`runs/` cleared). y11l-v2 ≈ 8.8 min/epoch training (1,675 it at batch 12) + validation.
+- 19:27 IST: **restarted from scratch** (`runs/` cleared). y11l-v2 ≈ 8.8 min/epoch training (1,675 it at batch 12) + validation.
 
 ## Results and failures
 Pending.
