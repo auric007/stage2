@@ -107,5 +107,18 @@ v1 best.pt was picked by mAP50-95 only (ultralytics 8.4 default), which ignores 
   Spa: 229 background FPs in scenes without spa (v1: 3).
 - Per-class best-of (v2 y11l for 7 classes, v1 y8m for tank, v1 y11l for spa), from the per-class reports: MICRO 62.3 (P 66.3 / R 58.7), MACRO 48.8.
 
+### CartoSat external test (y11l-v2, 2026-11-25 01:03 IST)
+`code/infer_cartosat.py` (same TTA, v1 CartoSat tiles) → `reports/cartosat_y11l.md`, `reports/cartosat_y11l_agnostic.md`.
+| view | v1 y11l | v2 y11l |
+|---|--:|--:|
+| MICRO F1, thresholds from the 136-scene test (all 665 GT) | 33.4 (P 32.0 / R 35.0) | **34.4** (P 32.6 / R 36.5) |
+| same, excl. 94 GT in poc-train sites | 30.7 | **32.2** |
+| vehicle + smallvehicle F1 (627 GT), CartoSat-best conf | 36.8 | **39.2** |
+| vehicle F1, CartoSat-best conf | 41.6 (P 43) | **45.8** (P 56) |
+| class-agnostic best F1 | 39.3 | 38.8 |
+| class-agnostic recall at conf 0.05 | 72.9 % | 80.2 % |
+| MICRO F1, CartoSat-best conf per class | 28.3 | 22.3 (rare-class artefact: logistic 1 TP / 656 FP at conf 0.05) |
+Rare classes have 2–9 GT and stay ≈ 0 in both versions.
+
 ## Conclusions and next steps
 Pending results. Success criterion: radar and missile F1 above v1 (ens 52.2 / 45.6; y11l 49.8 / 44.2) without MICRO dropping.
