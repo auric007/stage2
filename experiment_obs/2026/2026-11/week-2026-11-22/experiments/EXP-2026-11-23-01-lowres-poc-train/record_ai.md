@@ -90,3 +90,6 @@ missile 43.3/48.2/45.6 · tank 47.5/37.9/42.1 · logistic 34.6/33.6/34.1 · spa 
 - The recipe trains within budget (11.4 h incl. inference). y11l is the stronger single model; the 2-model ensemble gives the best MACRO (45.1).
 - Weakest: arty (FPs concentrated in 2 test scenes), spa, logistic, tank (camo/tank ambiguity under nets).
 - Proposed (not run): inspect the two arty-FP scenes; confusion analysis; per-class model/threshold selection; extra seeds.
+
+#### CartoSat class-agnostic (y11l, 2026-11-24)
+`code/score_agnostic.py` → `reports/cartosat_y11l_agnostic.md`. All 665 GT, IoU 0.3, best single conf 0.65: P 35.4 / R 44.1 / F1 39.3 (TP 293 / FP 534 / FN 372); recall ceiling 72.9 % at conf 0.05. Excl. poc-train sites (571 GT): P 31.4 / R 42.7 / F1 36.2.
