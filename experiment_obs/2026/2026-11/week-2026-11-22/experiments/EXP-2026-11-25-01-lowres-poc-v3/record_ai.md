@@ -65,3 +65,10 @@ IoU 0.5: MICRO 60.8 (P62.6/R59.1), MACRO 48.2.
 
 ## Conclusions and next steps
 Pending.
+
+### Side analyses on y11l-v3 (2026-11-25 evening, researcher requests)
+- Recall at a precision floor instead of best F1 (`code/recall_at_p.py`, conf grid step 0.005, IoU 0.3, `reports/recall_at_p.json`):
+  radar R 47.3 (best F1, P 75) → 56.9 @P≥40 → 58.6 @P≥35; missile 47.9 (P 51) → 52.8 @P≥40 → 55.4 @P≥35. Any-precision ceiling (conf 0.05) radar 64.4, missile 64.8
+  (v2 ens 68.6 / 73.9). At P≥35 the best is v3 y11l for radar (58.6) and v2 ens for missile (58.3).
+- Multi-label radar/missile inference (`code/infer_multilabel.py`, `preds/y11l_ml`, `reports/recall_at_p_multilabel_y11l.json`): ceiling radar 64.4 → 66.1,
+  missile 64.8 → 68.7, but R@P≥35 radar 58.6 → 57.3, missile 55.4 → 55.4 — added boxes score < 0.3; the → vehicle errors are confident, not near-misses.
