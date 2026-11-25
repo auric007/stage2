@@ -4,7 +4,7 @@ Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [
 Baselines: [EXP-2026-11-23-01](../EXP-2026-11-23-01-lowres-poc-train/record_ai.md) (v1), [EXP-2026-11-24-01](../EXP-2026-11-24-01-lowres-poc-v2/record_ai.md) (v2).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-25-01-lowres-poc-v3`
 
-Status: **running** — y11l-v3 done and scored (stopped on request at epoch 38, best = epoch 26); y8m-v3 training since 19:11 IST 25 Nov → ensemble → final comparison, ETA ~00:30–01:30 IST 26 Nov.
+Status: **paused** — y11l-v3 done and scored (stopped on request at epoch 38, best = epoch 26). y8m-v3 stopped on request at epoch 8/45 (20:08 IST 25 Nov, val mAP50 0.337; `runs/y8m/weights/last.pt` resumable); y8m-v3 scoring and v3 ensemble not run. GPU given to EXP-2026-11-25-02.
 
 ## Request summary and authorization
 - Researcher, 2026-11-25 ~13:00 IST: "start v3 and train with 8 classes by merging spa and tank and v3 change (spa weight and background penalty)". Authorized.
