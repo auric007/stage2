@@ -4,7 +4,7 @@ Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [
 Baselines: [EXP-2026-11-23-01](../EXP-2026-11-23-01-lowres-poc-train/record_ai.md) (v1), [EXP-2026-11-24-01](../EXP-2026-11-24-01-lowres-poc-v2/record_ai.md) (v2).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-25-01-lowres-poc-v3`
 
-Status: **running** (run 2 started 2026-11-25 ~13:15 IST after a crash fix; y11l-v3 → score → y8m-v3 → ensemble → 8-class comparison; ETA ~00:00–02:00 IST 26 Nov).
+Status: **running** (run 2 started 2026-11-25 13:08 IST after a crash fix; y11l-v3 → score → y8m-v3 → ensemble → 8-class comparison; ETA ~00:00–02:00 IST 26 Nov).
 
 ## Request summary and authorization
 - Researcher, 2026-11-25 ~13:00 IST: "start v3 and train with 8 classes by merging spa and tank and v3 change (spa weight and background penalty)". Authorized.
@@ -31,7 +31,7 @@ Status: **running** (run 2 started 2026-11-25 ~13:15 IST after a crash fix; y11l
 ## Execution
 - 2026-11-25 12:56 IST: run 1 `setsid nohup bash code/run_v3.sh`. 13:06 y11l-v3 **crashed** at epoch-1 validation (CUDA index-out-of-bounds in the TAL assigner): ultralytics resolves the val directory path, and `images/val` was a symlink to v1's folder → it read v1's 9-class val labels (spa = index 8). The runner then started y8m-v3; stopped. Smoke test had missed it (val given as a .txt list, which is not resolved). Logs `logs/failed_run1/`.
 - Fix: `data/final/images/val` = real directory of per-file links; verified with ultralytics' own dataset loader that val (4,449) and train read v3 labels, classes 0–7 only.
-- ~13:15 IST: run 2 started from scratch (`runs/` cleared).
+- 13:08 IST: run 2 started from scratch (`runs/` cleared). 13:18 epoch 1 validated cleanly (val mAP50 0.179, 8 classes).
 
 ## Results and failures
 Pending.
