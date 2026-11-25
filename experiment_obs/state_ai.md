@@ -47,3 +47,6 @@ Moved here on 2026-10-14 from `state.md` under the human/AI authorship rule (con
 - **Where things are:** this notebook = all records/analysis; `/sfs/stage2/artifacts/<EXP-ID>/` = code and large outputs;
   `/sfs/stage2/models`, `/sfs/stage2/data/derived`, `/sfs/stage2/eval` (test_80 + protocol definitions).
 - Decisions: [knowledge/decisions.md](knowledge/decisions_ai.md); findings: [knowledge/findings.md](knowledge/findings_ai.md); open ideas/checks: [knowledge/ideas.md](knowledge/ideas_ai.md).
+
+## Update — 2026-11-25 12:35 IST (Claude): lowres_poc training line
+- New split `/sfs/data/lowres_poc` (136 LR test scenes): v1 [EXP-2026-11-23-01](2026/2026-11/week-2026-11-22/experiments/EXP-2026-11-23-01-lowres-poc-train/record_ai.md) ensemble MICRO 59.7 / MACRO 45.1 → v2 [EXP-2026-11-24-01](2026/2026-11/week-2026-11-22/experiments/EXP-2026-11-24-01-lowres-poc-v2/record_ai.md) (confusion-aware loss, radar/missile oversampling) 60.9 / 45.1; radar 58.9, missile 48.4. Not comparable with test_80; deployment (HYBRID v2) unchanged.

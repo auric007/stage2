@@ -3,7 +3,7 @@
 Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [2026-11-24_ai.md](../../daily/2026-11-24_ai.md).
 Baseline: [EXP-2026-11-23-01](../EXP-2026-11-23-01-lowres-poc-train/record_ai.md). Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-24-01-lowres-poc-v2`
 
-Status: **running** — y11l-v2 done and scored (stopped at epoch 28 on researcher request, best.pt = epoch 18); y8m-v2 training since 2026-11-24 23:55 IST, then ensemble scoring.
+Status: **completed** 2026-11-25 03:48 IST (y11l-v2 stopped at epoch 28 on researcher request, best.pt = epoch 18; y8m-v2 early-stopped at epoch 34).
 
 ## Request summary and authorization
 - Researcher, 2026-11-24 ~18:50 IST: deep-analyse the 136-scene test results (which classes fail and why; **radar and missile priority**;
@@ -107,6 +107,28 @@ v1 best.pt was picked by mAP50-95 only (ultralytics 8.4 default), which ignores 
   Spa: 229 background FPs in scenes without spa (v1: 3).
 - Per-class best-of (v2 y11l for 7 classes, v1 y8m for tank, v1 y11l for spa), from the per-class reports: MICRO 62.3 (P 66.3 / R 58.7), MACRO 48.8.
 
+### Final: all v2 sets (2026-11-25 03:48 IST; `reports/compare_v1_v2.md`, `analysis/deep_{y11l,y8m,ens_y8m_y11l}.json`)
+136 test scenes, TTA, IoU 0.3, per-class best-F1 conf:
+
+| class | GT | v1 y8m | v1 y11l | v1 ens | v2 y8m | v2 y11l | v2 ens |
+|---|--:|--:|--:|--:|--:|--:|--:|
+| radar | 239 | 48.3 | 49.8 | 52.2 | 54.2 | 57.3 | **58.9** |
+| missile | 307 | 39.3 | 44.2 | 45.6 | 46.3 | 46.8 | **48.4** |
+| arty | 65 | 5.4 | 9.5 | 7.7 | 4.7 | **29.6** | 15.7 |
+| camo | 761 | 63.3 | 63.5 | 65.1 | 62.9 | **68.1** | 67.0 |
+| logistic | 690 | 29.1 | 34.0 | 34.1 | 30.2 | 34.2 | **34.5** |
+| smallvehicle | 1436 | 61.4 | 63.8 | 63.8 | 63.1 | 64.0 | **64.6** |
+| tank | 272 | **44.3** | 38.1 | 42.1 | 41.6 | 30.7 | 38.6 |
+| vehicle | 4136 | 66.7 | 68.7 | 69.0 | 67.9 | 69.3 | **69.7** |
+| spa | 108 | 17.0 | **26.0** | **26.0** | 14.0 | 8.2 | 8.3 |
+| MICRO | | 57.4 | 60.4 | 59.7 | 58.6 | **61.0** | 60.9 |
+| MACRO | | 41.6 | 44.2 | 45.1 | 42.8 | **45.4** | 45.1 |
+
+IoU 0.5: v2 ens MICRO 60.0 / MACRO 43.4 (v1 ens: see v1 reports); v2 y8m 56.3 / 40.4.
+- Radar (ens): TP 102 → 122, radar→vehicle 41 → 38, radar→missile 11 → 4, FP 50 → 53. Missile (ens): P 43 → 51; missile FPs on vehicle GT 129 → 93; but missile→vehicle 36 → 56.
+- Spa: ensemble background FPs 20 → 197 (both v2 models fire spa in scenes without spa). Tank: tank-on-camo FPs 75 → 27, tank→camo 38 → 51, tank→vehicle 51 → 58.
+- Per-class best-of all six sets: MICRO 63.0 (P 66.0 / R 60.3) / MACRO 49.4; best-of v2 sets only: 62.7 / 47.7.
+
 ### CartoSat external test (y11l-v2, 2026-11-25 01:03 IST)
 `code/infer_cartosat.py` (same TTA, v1 CartoSat tiles) → `reports/cartosat_y11l.md`, `reports/cartosat_y11l_agnostic.md`.
 | view | v1 y11l | v2 y11l |
@@ -121,4 +143,6 @@ v1 best.pt was picked by mAP50-95 only (ultralytics 8.4 default), which ignores 
 Rare classes have 2–9 GT and stay ≈ 0 in both versions.
 
 ## Conclusions and next steps
-Pending results. Success criterion: radar and missile F1 above v1 (ens 52.2 / 45.6; y11l 49.8 / 44.2) without MICRO dropping.
+- Success criterion met: radar and missile F1 above v1 for every model (ens 52.2 → 58.9 / 45.6 → 48.4; y11l 49.8 → 57.3 / 44.2 → 46.8; y8m 48.3 → 54.2 / 39.3 → 46.3) and MICRO up (ens 59.7 → 60.9).
+- Side effects: spa collapses (background FPs; no loss term protects it and best.pt favoured radar/missile) and tank drops (tank↔camo/vehicle penalties suppress tank).
+- Proposed v3 (not run): keep v2's radar/missile terms; drop or soften tank↔camo and tank→vehicle to 1.0–1.25; add spa positive weight and a background penalty for spa; include spa/tank AP in the best.pt fitness. Cheaper alternative: per-class model selection (MICRO 63.0 / MACRO 49.4 from existing sets).
