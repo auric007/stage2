@@ -38,7 +38,30 @@ Status: **running** (started 2026-11-25 20:11 IST; phase 0 + phase 1 in parallel
 - 20:15 IST phase 1 started (`code/run_phase1.sh`; order FULL96, CONTEXT96, OBJECT48, SHAPE48, SITE96, FULL48, FULL192, CONTEXT48, CONTEXT192).
 
 ## Results and failures
-Pending.
+### Phase 0 (done 20:25 IST) — `reports/phase0.md`, `reports/phase0.json`, `reports/phase0_object_precision.json`
+y11l-v3 (ep26), context removed beyond r m of every labelled object. Visible tile area: 2 m 1 %, 10 m 3 %, 30 m 11 %, 100 m 35 % (of tiles near objects).
+Per class on labelled objects, 78 clean scenes: same-class recall / precision among GT objects given that class / F1:
+
+| class | 2 m | 10 m | 30 m | 100 m | full |
+|---|--:|--:|--:|--:|--:|
+| arty (65) | 43/39/41 | 20/100/33 | 15/100/27 | 25/100/40 | 35/100/52 |
+| camo (661) | 75/65/69 | 64/85/73 | 66/85/75 | 69/86/76 | 69/88/77 |
+| logistic (483) | 6/68/11 | 27/70/39 | 28/75/40 | 31/77/44 | 33/75/46 |
+| missile (155) | 34/40/37 | 28/56/37 | 30/55/39 | 35/67/46 | 34/73/46 |
+| radar (146) | 66/24/35 | 38/85/53 | 42/93/58 | 42/87/57 | 42/87/57 |
+| smallvehicle (798) | 9/99/16 | 51/96/66 | 53/96/68 | 57/96/71 | 60/94/73 |
+| tank_spa (317) | 50/41/45 | 44/48/46 | 41/51/46 | 41/52/46 | 43/55/48 |
+| vehicle (2,823) | 59/81/68 | 67/83/74 | 67/82/74 | 68/83/75 | 69/84/76 |
+| macro F1 | 41 | 53 | 53 | 57 | 60 |
+
+- 2 m is out of distribution (objects as islands on gray): the model fires radar on 305 vehicles, camo on 217 → not an "object-only" measure.
+- From 10 m the class decisions are close to full: macro F1 53 → 60; +4 from 30 → 100 m, +3 from 100 m → full tile.
+- Radar: gains only up to 30 m (precision 85 → 93 %), nothing beyond. **Missile: the most context-dependent** — F1 37–39 at 10–30 m → 46 at 100 m
+  (precision 55 → 67–73 %). Logistic gradual (39 → 46). tank_spa flat (46 → 48).
+- Clean vs overlap (site seen in training): missile class accuracy given detected 53 % clean vs 82 % overlap (already 84 % at 10 m → near-object
+  memorisation, not far context); radar 62 vs 87 %; same-class recall missile 34 vs 60 %, radar 42 vs 56 %. The all-136 numbers of v1–v3 are lifted
+  by the 58 overlap scenes for these two classes.
+- Reading: the current detector decides mostly from the object + ~10–30 m; far context matters for missile (to ~100 m) and somewhat for logistic.
 
 ## Conclusions and next steps
 Pending.
