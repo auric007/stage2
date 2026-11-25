@@ -4,7 +4,7 @@ Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [
 Baselines: [EXP-2026-11-23-01](../EXP-2026-11-23-01-lowres-poc-train/record_ai.md) (v1), [EXP-2026-11-24-01](../EXP-2026-11-24-01-lowres-poc-v2/record_ai.md) (v2).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-25-01-lowres-poc-v3`
 
-Status: **running** (run 2 started 2026-11-25 13:08 IST after a crash fix; y11l-v3 → score → y8m-v3 → ensemble → 8-class comparison; ETA ~00:00–02:00 IST 26 Nov).
+Status: **running** — y11l-v3 done and scored (stopped on request at epoch 38, best = epoch 26); y8m-v3 training since 19:11 IST 25 Nov → ensemble → final comparison, ETA ~00:30–01:30 IST 26 Nov.
 
 ## Request summary and authorization
 - Researcher, 2026-11-25 ~13:00 IST: "start v3 and train with 8 classes by merging spa and tank and v3 change (spa weight and background penalty)". Authorized.
@@ -32,9 +32,36 @@ Status: **running** (run 2 started 2026-11-25 13:08 IST after a crash fix; y11l-
 - 2026-11-25 12:56 IST: run 1 `setsid nohup bash code/run_v3.sh`. 13:06 y11l-v3 **crashed** at epoch-1 validation (CUDA index-out-of-bounds in the TAL assigner): ultralytics resolves the val directory path, and `images/val` was a symlink to v1's folder → it read v1's 9-class val labels (spa = index 8). The runner then started y8m-v3; stopped. Smoke test had missed it (val given as a .txt list, which is not resolved). Logs `logs/failed_run1/`.
 - Fix: `data/final/images/val` = real directory of per-file links; verified with ultralytics' own dataset loader that val (4,449) and train read v3 labels, classes 0–7 only.
 - 13:08 IST: run 2 started from scratch (`runs/` cleared). 13:18 epoch 1 validated cleanly (val mAP50 0.179, 8 classes).
+- y11l-v3 val mAP50 (8 cl.): ep9 0.417, plateau 0.38–0.417 to ep26 (0.417, best.pt by fitness), then ep27–38 0.38–0.41 (close_mosaic from ep36, no gain).
+- 19:03 IST: researcher asked to stop training and evaluate the best epoch → y11l-v3 killed at epoch 38/45 (pipeline log shows "y11l FAILED" = the stop; annotated).
+  The runner scored best.pt (epoch 26) on the 136 test scenes (19:03–19:11: `preds/y11l`, `reports/v3_y11l__merge_tank_spa.*`, `analysis/deep_v3_y11l.json`,
+  `reports/compare_v123.md`), then started y8m-v3 (19:11 IST).
 
 ## Results and failures
-Pending.
+y11l-v3 (epoch 26), 136 test scenes, 8-class space (v1/v2 tank+spa merged at eval), IoU 0.3, per-class best-F1 conf — `reports/compare_v123.md`:
+
+| class | GT | v1 ens | v2 y11l | v2 ens | **v3 y11l** |
+|---|--:|--:|--:|--:|--:|
+| arty | 65 | 7.7 | 29.6 | 15.7 | 18.3 (P12/R35) |
+| camo | 761 | 65.1 | 68.1 | 67.0 | 68.1 (P72/R65) |
+| logistic | 690 | 34.1 | 34.2 | 34.5 | 33.7 (P36/R32) |
+| missile | 307 | 45.6 | 46.8 | 48.4 | **48.9** (P51/R47) |
+| radar | 239 | 52.2 | 57.3 | 58.9 | 57.7 (P73/R48) |
+| smallvehicle | 1436 | 63.8 | 64.0 | 64.6 | **65.3** (P67/R64) |
+| vehicle | 4136 | 69.0 | 69.3 | 69.7 | **70.5** (P73/R68) |
+| tank_spa | 380 | 38.1 | 25.0 | 29.2 | 36.0 (P34/R38) |
+| MICRO F1 | | 59.7 | 60.4 | 61.0 | **62.5** (P64.6/R60.6) |
+| MACRO F1 (8) | | 47.0 | 49.3 | 48.5 | **49.8** |
+
+IoU 0.5: MICRO 60.8 (P62.6/R59.1), MACRO 48.2.
+- Single y11l-v3 beats every earlier single model and ensemble on MICRO (+1.5 vs v2 ens) and MACRO (+0.5 vs v2 y11l).
+- tank_spa: 25.0 (v2 y11l) → 36.0; still below v1 ens 38.1 (success criterion not met yet; ensemble pending). Background tank_spa FPs at op conf
+  194 (v2 ens) → 66: the background penalty worked; FPs now mostly on other objects: on vehicle 60 → 107, on camo 58 → 89 (277 FPs total vs 321).
+  tank_spa GT (v2 ens → v3 y11l): found 120 → 144, → camo 48 → 33, → vehicle 65 → 68, low-conf 62 → 32, no box 29 → 39.
+- radar 57.7 / missile 48.9 ≈ v2 (criterion "not below v2" met for missile, radar −1.2 vs v2 ens / +0.4 vs v2 y11l). Radar → vehicle 38 unchanged;
+  missile → vehicle 56 unchanged, missile FPs on vehicle GT 91.
+- arty 18.3 (v2 y11l 29.6; 65 GT): 23 found, 18 low-conf, 13 no box, 10 → vehicle; FPs 158 of 164 on background.
+- logistic flat (33.7); logistic → vehicle 209 at op conf.
 
 ## Conclusions and next steps
 Pending.
