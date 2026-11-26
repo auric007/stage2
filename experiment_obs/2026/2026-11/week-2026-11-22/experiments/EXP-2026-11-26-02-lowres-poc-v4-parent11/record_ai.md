@@ -28,6 +28,9 @@ Status: **running** — y11l-v4 training started 2026-11-26 19:29 IST (runner `c
   recall-heavy (P ≥ 30), P50 (vehicle / smallvehicle / camo) + P40 others. `code/hybrid.py` = per-class best model over v4 + v1–v3 (re-scored in both
   variants by `code/run_baselines.sh` → `reports/base_*`).
 - Bar to beat (doc rule, IoU 0.3, F1-opt): v3 y11l MICRO(7) 67.4 / MACRO(7) 51.3; best existing per class 68.5 / 54.2.
+  STRICT bar (v1–v3 re-scored 19:45 IST; doc-rule re-score reproduces EXP-2026-11-26-01 exactly): v3 y11l 67.2 / 50.9 (camo 68.1 vs 70.0, radar 61.1 vs 61.7; see
+  `reports/base_v3_y11l__strict.md`); best existing per class 68.1 / 53.8 (`reports/hybrid_strict_base.md`). STRICT moves only camo (−2 to −3 F1) and radar / missile slightly.
+  y11l-v4 epoch 1 running at 3.2 it/s (1,658 it / epoch ≈ 9 min + val).
 
 ## Results
 (pending)
