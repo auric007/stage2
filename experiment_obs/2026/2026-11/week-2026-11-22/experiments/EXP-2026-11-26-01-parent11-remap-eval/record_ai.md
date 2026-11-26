@@ -57,3 +57,7 @@ radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P �
   correct vehicle 31.4 % [42.2], → camo 20.5 % [19.5], → tank 18.4 % [17.8], no box 12.4 % (19 in 22JUL07045805). Tank-labelled P_Camo=Yes (vehicle, camo ok) 32:
   → tank 50 %, camo 37.5 %. Scene 23JUL02025233 holds 389 ICVs: 289 camo-labelled (270 found as camo) and 100 tank-labelled (→ tank 49, → camo 30, camo-ok 12)
   — the same ICVs in one scene carry two labels, which the remap turns into camo vs vehicle. 24APR06053032: 69 camo-labelled ICVs mostly → vehicle (44).
+- Tank without the SPA merge (`code/tank_nospa.py`, researcher ~16:00 IST): tank GT = 55 real Tanks (none camo-conditional). v3 y11l tank boxes:
+  recall at conf 0.97 (the P50/P40 table point) 54.5 % (30/55) vs 23 % with SPA merged; conf 0.9 65.5 · 0.7 72.7 · 0.3 80.0 · 0.05 92.7 %.
+  Precision 15.2 % (SPA = separate class, tank boxes on SPA = FP) / 15.8 % (SPA ignored) at 0.97; ≤ 16 % at every conf → P ≥ 40 unreachable
+  (remaining FPs = ICVs, transport vehicles, background).
