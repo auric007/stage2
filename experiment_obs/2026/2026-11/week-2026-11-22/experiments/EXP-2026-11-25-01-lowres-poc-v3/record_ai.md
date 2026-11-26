@@ -72,3 +72,8 @@ Pending.
   (v2 ens 68.6 / 73.9). At P≥35 the best is v3 y11l for radar (58.6) and v2 ens for missile (58.3).
 - Multi-label radar/missile inference (`code/infer_multilabel.py`, `preds/y11l_ml`, `reports/recall_at_p_multilabel_y11l.json`): ceiling radar 64.4 → 66.1,
   missile 64.8 → 68.7, but R@P≥35 radar 58.6 → 57.3, missile 55.4 → 55.4 — added boxes score < 0.3; the → vehicle errors are confident, not near-misses.
+- Child-wise confusion matrix (2026-11-26, researcher request, layout of `/sfs/e12_up42_lowres_child_confusion_with_background.png`): `code/child_confusion.py`
+  → `analysis/v3_y11l_child_confusion.png` + `.tsv` (table). y11l-v3 ep26 at per-class F1-opt conf, original labels_simple parents / detailed child, IoU 0.3,
+  columns = predicted class + 'below threshold' + 'detector missed'; background row = 1,377 detections ≥ conf on no labelled object (vehicle 393,
+  smallvehicle 359, logistic 271, arty 158). Parent correct: vehicle 67.9 · smallvehicle 63.6 · camo 65.0 · logistic 31.9 (→ vehicle 209) · missile 46.6 ·
+  tank 47.1 · radar 47.7 · arty 35.4 · spa 14.8 · aerial 0 (97 / 107 no box; not trained). Row n's equal E12's (same GT).
