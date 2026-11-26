@@ -94,3 +94,8 @@ Pending.
   Rare classes: even at conf 0.05 only radar 1/7, missile 1/7, tank 0/15, arty 0/6 — 26 / 35 rare objects get NO box of any class (17 in 50QJL, 7 in 41906);
   46RCT ICVs → msv 1.00, 268895151 Tank / arty → msv 0.94–0.97. Crops `analysis/carto2611_rare_objects.jpg`: 41906 radars / SPADA are 3–6 m dark blobs among
   bushes; 50QJL imagery is strongly blurred (SPATracked row, HQ16, AAGun barely visible); 45RYM radars on a rooftop. Threshold tuning cannot recover them.
+- CartoSat camouflaged radar (researcher ~16:30 IST): CARTOSAT_45RYM4607398702 has two rooftop RadarSystems, both Parent Class 01 in the CVAT XML;
+  one P_Camo=Yes (new labels line 192, 2x centre 8630, 30669), one P_Camo=No (line 191). Both labelled radar in the v1 conversion (24 Nov) and in the
+  package mapping (P_Camo never overrides the parent there) — never camo GT. Predictions (best boxes, IoU ≥ 0.1, conf ≥ 0.05): camouflaged one —
+  v1 y11l radar 0.15, v1 ens radar 0.29 (+ camo 0.14), v2 y11l camo 0.10 only, **v3 y11l no box**; uncamouflaged one — v1 camo 0.37, v2 y11l radar 0.32
+  (+ camo 0.11), v3 radar 0.27 + camo 0.25 (the single CartoSat radar TP at the tuned 0.265). All far below the main-test radar conf 0.85.
