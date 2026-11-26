@@ -103,3 +103,11 @@ Pending.
   CartoSat test v2 with `code/infer_carto2611_any.py` (reuses the v3 tiles; preds in each experiment's `preds/carto2611_*`, started 16:19 IST, in parallel);
   scoring `code/carto_allmodels.py` (common classes best F1, rare best F2, tuned on CartoSat ALL IoU 0.3; per-class best-model HYBRID; ALL / EXCL, IoU 0.3 / 0.5)
   → `reports/carto2611_allmodels.md`. Scorer reproduces the v3 tuned result exactly (36.5 / 40.9; class-agnostic 44.3 / 45.4).
+  Result (17:24 IST; ALL, IoU 0.3, CartoSat-tuned per-class thresholds): best single = v3 y11l MICRO P 36.5 / R 40.9 / F1 38.6 (class-agnostic 44.3 / 45.4),
+  then v1 y11l 35.1 / 40.4 / 37.6, v2 y11l 33.1 F1; ensembles have higher recall, lower precision (v1 ens R 43.0, class-agnostic R 49.4 at P 33.6).
+  **HYBRID** (msv ← v1 y11l, smallvehicle ← v2 ens, camo ← v1 y11l, logistic ← v3, tank ← v2 y8m, radar ← v1 ens, missile ← v3, arty ← v1 y11l; 5 weights):
+  MICRO 41.9 / 43.2 / 42.5, class-agnostic 49.1 / 46.6; msv 62.8 / 45.4, smallvehicle 42.5 / 45.9, camo 35.4 / 31.5, logistic 18.4 / 14.8;
+  rare classes 5 / 35 found with 385 false boxes (tank 2/15, radar 1/7, missile 1/7, arty 1/6). Common classes only: P 52.8 / R 42.9 / F1 47.3.
+  IoU 0.5: HYBRID 33.5 / 34.5 / 34.0. EXCL (outside poc-train footprints): HYBRID 25.0 / 39.1 / 30.5 (v3 22.0 / 39.1 / 28.2); camo and every rare
+  class 0 for every model there — all rare-class hits are inside sites seen in training. 268895151 duplicate labels (98 pairs, other session 17:05) not removed
+  in this scoring; removing them would add at most ~3 recall points.
