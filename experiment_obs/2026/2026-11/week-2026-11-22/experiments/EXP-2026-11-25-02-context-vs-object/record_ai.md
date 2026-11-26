@@ -36,6 +36,8 @@ Status: **completed** 2026-11-25 21:41 IST (phase 0 20:25, phase 1 21:41; report
 ## Execution
 - 20:08 IST y8m-v3 stopped (EXP-2026-11-25-01). 20:11 phase 0 started (`code/run_phase0.sh`). 20:11–20:15 crops built (CPU).
 - 20:15 IST phase 1 started (`code/run_phase1.sh`; order FULL96, CONTEXT96, OBJECT48, SHAPE48, SITE96, FULL48, FULL192, CONTEXT48, CONTEXT192).
+- Each arm 7–13 min (≤ 15 epochs, ~35–60 s/epoch); all 9 finished, no failures; PHASE1 END 21:41 IST. Val macro-F1 0.37 (SHAPE) – 0.61 (OBJECT);
+  test is lower for every arm (val = train-distribution scenes incl. HR).
 - 21:41 IST phase 1 finished (9 arms, 7–13 min each, no failures; best epochs by val macro-F1).
 
 ## Results and failures
@@ -63,6 +65,31 @@ Per class on labelled objects, 78 clean scenes: same-class recall / precision am
   memorisation, not far context); radar 62 vs 87 %; same-class recall missile 34 vs 60 %, radar 42 vs 56 %. The all-136 numbers of v1–v3 are lifted
   by the 58 overlap scenes for these two classes.
 - Reading: the current detector decides mostly from the object + ~10–30 m; far context matters for missile (to ~100 m) and somewhat for logistic.
+
+### Phase 1 (done 21:41 IST) — `reports/phase1.md`, `reports/phase1.json`
+Per-class recall %, 78 clean scenes (95 % scene-bootstrap CIs in the report; arty CIs span ~0–100 → not interpretable):
+
+| class (n) | FULL48 | FULL96 | FULL192 | CONTEXT48 | CONTEXT96 | CONTEXT192 | SITE96 | OBJECT48 | SHAPE48 |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| radar (146) | 49 | 46 | 47 | 49 | 53 | 51 | 34 | **66** | 26 |
+| missile (155) | 39 | 51 | 54 | 38 | 51 | **57** | 42 | 39 | 47 |
+| tank_spa (317) | 29 | 25 | 17 | 21 | 21 | 7 | 31 | **45** | **45** |
+| logistic (483) | 62 | **63** | 47 | 55 | 55 | 46 | 23 | 62 | 27 |
+| vehicle (2,823) | 58 | 63 | 56 | 55 | **67** | 57 | 38 | 48 | 21 |
+| smallvehicle (798) | 73 | 73 | 74 | 70 | 70 | 67 | 59 | 70 | 46 |
+| camo (661) | 70 | 79 | **82** | 66 | 64 | 81 | 47 | 65 | 16 |
+| macro-F1 | 46 | 48 | **49** | 40 | 44 | 45 | 32 | 45 | 23 |
+
+- Object alone (OBJECT48, 45) ≈ surroundings alone (CONTEXT96, 44) ≈ both (FULL 46–49): the two sources are largely redundant overall.
+  Shape alone 23; terrain/site + silhouettes (SITE96) 32; neighbours' pixels add the rest of the context signal (SITE 32 → CONTEXT 44).
+- **radar = object pixels**: OBJECT48 recall 66 (F1 48, best) vs FULL 46–49; radar → vehicle 3 % with object only vs 21 % in FULL96 —
+  surroundings pull radar towards vehicle.
+- **missile = shape + wide context**: SHAPE alone 47; best CONTEXT192 57 / FULL192 54; object pixels alone 39 (vehicle → missile 17 %).
+  Context-labelled missiles (SOC Nil/Site/Third_Party, 96, all scenes): 8 % (FULL48) → 29 % (96 m) → 41 % (192 m) → 50 % (CONTEXT192).
+- **tank_spa = size / shape**: OBJECT48 = SHAPE48 = 45; every context arm lower (7–31); context pushes tank_spa → camo (39–43 %).
+- logistic = object (62 at 48–96 m; 192 m hurts: 47); vehicle best from neighbours (CONTEXT96 67); camo gains with patch size (65 → 82).
+- Patch size (FULL 48 → 96 → 192 m): macro 46 → 48 → 49 (inside CIs); helps missile / camo, hurts logistic / tank_spa → no uniform gain.
+- Clean vs overlap: classifier gap small (macro 44–48 both); missile 51 → 61, radar 46 → 66 in FULL96 (some site memorisation).
 
 ### Phase 1 (done 21:41 IST) — `reports/phase1.md`, `reports/phase1.json`, `reports/phase1_paired_bootstrap_clean.json`
 Test macro-F1, 78 clean scenes (scene-bootstrap 95 % CI): FULL48 46 (38–51) · FULL96 48 (41–53) · FULL192 49 (40–53) · CONTEXT48 40 ·
