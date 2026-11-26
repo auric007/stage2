@@ -43,3 +43,6 @@ radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P �
 - Precision ≥ 40 % (max recall), IoU 0.3: MICRO P 39.9 / R 81.7 / F1 53.6, MACRO(7) 40.7. vehicle 40.1/87.1 · smallvehicle 40.1/79.7 · camo 40.1/81.8 ·
   missile 40.8/54.2 (conf 0.73) · radar 40.6/62.1 (conf 0.465) · tank unreachable (max P 19) · arty P ≥ 40 only at R 3. IoU 0.5: P 40.1 / R 77.6.
 - Recall ≥ 40 % (max precision), IoU 0.3: MICRO P 74.4 / R 40.9; vehicle 93.5 · smallvehicle 82.2 · camo 92.1 · missile 62.5 · radar 87.2 · tank 10.6 · arty 12.1.
+- Mixed floors (researcher, ~15:20 IST): vehicle / smallvehicle / camo P ≥ 50 %, others P ≥ 40 % (`PMIN=0.40 PMIN_CLASS=vehicle:0.5,smallvehicle:0.5,camo:0.5`,
+  `reports/v3_y11l_P50v_P40.md`). IoU 0.3 MICRO P 49.3 / R 77.9 / F1 60.3, MACRO(7) 43.6: vehicle 50.2/83.5 (conf 0.20) · smallvehicle 50.3/74.1 (0.405) ·
+  camo 50.1/76.7 (0.45) · missile 40.8/53.3 · radar 40.6/62.1 · tank / arty as before. IoU 0.5: P 49.2 / R 73.9.
