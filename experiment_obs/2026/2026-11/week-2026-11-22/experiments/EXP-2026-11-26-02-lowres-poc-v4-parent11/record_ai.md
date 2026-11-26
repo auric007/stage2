@@ -4,7 +4,8 @@ Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [
 Builds on: [EXP-2026-11-25-01](../EXP-2026-11-25-01-lowres-poc-v3/record_ai.md) v3 (recipe, tiles via v1), [EXP-2026-11-26-01](../EXP-2026-11-26-01-parent11-remap-eval/record_ai.md) (remap scorer, bar to beat).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-26-02-lowres-poc-v4-parent11`
 
-Status: **running** — y11l-v4 training started 2026-11-26 19:29 IST (runner `code/run_v4.sh`, log `logs/pipeline.log`).
+Status: **running** — y11l-v4 training (re)started 2026-11-26 19:47 IST on the 51-scene-excluded set (runner `code/run_v4.sh`, log `logs/pipeline.log`).
+First start 19:29 IST stopped at epoch 2 on researcher request (artefacts in `_aborted_136/`).
 
 ## Request summary and authorization
 - Researcher, 2026-11-26 evening: retrain with the Parent-11 remap (`/sfs/stage2/14_PARENT11_ONEOFF_INSTANCE_REMAPPING_20261126.md`) wherever
@@ -12,6 +13,10 @@ Status: **running** — y11l-v4 training started 2026-11-26 19:29 IST (runner `c
   arty background penalty. Training order not chosen → sequential y11l → y8m (the recommended default).
 - Researcher ~19:25 IST (during the smoke test): **P_Camo=Yes objects stay in their own class, not camo** → the dual-valid camo loss that had been
   built was removed before training; scoring adds a STRICT variant (P_Camo=Yes objects count only for their own class) next to the doc rule.
+
+- Researcher ~19:45 IST: remove the 51 zero-annotation UP42 scenes (`/sfs/stage2/up42_zero_annotation_images_20261126.md`; 36 in our train, 15 in
+  our test, 0 labels in our labels_simple) from train and test and start again → **v4 test = 121 scenes** (protocol change for this experiment;
+  dataset files untouched). Train loses 402 background tiles (19,885 → 19,421 tiles / epoch, no objects lost); val 4,449 → 3,995 tiles.
 
 ## Setup
 - Data `code/make_v4_set.py`: the v1 tiles (EXP-2026-11-23-01 data/tiles; same images, grid, 40 % keep rule, Delete handling) with labels regenerated per
@@ -31,6 +36,11 @@ Status: **running** — y11l-v4 training started 2026-11-26 19:29 IST (runner `c
   STRICT bar (v1–v3 re-scored 19:45 IST; doc-rule re-score reproduces EXP-2026-11-26-01 exactly): v3 y11l 67.2 / 50.9 (camo 68.1 vs 70.0, radar 61.1 vs 61.7; see
   `reports/base_v3_y11l__strict.md`); best existing per class 68.1 / 53.8 (`reports/hybrid_strict_base.md`). STRICT moves only camo (−2 to −3 F1) and radar / missile slightly.
   y11l-v4 epoch 1 running at 3.2 it/s (1,658 it / epoch ≈ 9 min + val).
+
+- **121-scene bar** (v1–v3 re-scored with EXCL_STEMS → `reports/base121_*`, IoU 0.3, F1-opt, MICRO(7) / MACRO(7), doc rule | STRICT):
+  v1 y11l 67.2 / 51.2 | 66.7 / 50.5 · v1 ens 66.3 / 49.5 | 66.1 / 49.1 · v2 y8m 66.4 / 49.4 | 65.8 / 48.8 · v2 y11l 67.1 / 53.4 | 66.7 / 53.0 ·
+  v2 ens 68.0 / 53.3 | 67.5 / 52.8 · **v3 y11l 68.7 / 56.3 | 68.4 / 56.0**; best existing per class 69.4 / 57.4 | 69.0 / 57.0
+  (`reports/hybrid_doc_base121.md`, `hybrid_strict_base121.md`; arty 51.9 from v3 now that the 185 false arty boxes of 25JUN16072810…879 are gone).
 
 ## Results
 (pending)
