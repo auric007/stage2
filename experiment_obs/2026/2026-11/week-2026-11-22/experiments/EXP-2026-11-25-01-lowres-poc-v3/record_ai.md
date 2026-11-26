@@ -77,3 +77,7 @@ Pending.
   columns = predicted class + 'below threshold' + 'detector missed'; background row = 1,377 detections ≥ conf on no labelled object (vehicle 393,
   smallvehicle 359, logistic 271, arty 158). Parent correct: vehicle 67.9 · smallvehicle 63.6 · camo 65.0 · logistic 31.9 (→ vehicle 209) · missile 46.6 ·
   tank 47.1 · radar 47.7 · arty 35.4 · spa 14.8 · aerial 0 (97 / 107 no box; not trained). Row n's equal E12's (same GT).
+- CartoSat test v2 (2026-11-26, researcher request; `/sfs/data/lowres_poc/cartosat_test` rebuilt today from `cartosat_26_11`: 8 scenes, 1,801 objects, 0.6 m,
+  package classes 2026-11-26): `code/infer_carto2611.py` (same preprocessing / TTA as infer_external.py, 8-class names, 14,761 tiles) →
+  `preds/carto2611_y11l`; `code/score_carto2611.py` (vehicle → military-support-vehicle, tank_spa → tank; MAIN = main-test best-F1 confs,
+  ORACLE = CartoSat best F1; ALL and EXCL = without the 975 objects in poc-train footprints; class-agnostic + per scene). Started 15:38 IST (pipeline.log).
