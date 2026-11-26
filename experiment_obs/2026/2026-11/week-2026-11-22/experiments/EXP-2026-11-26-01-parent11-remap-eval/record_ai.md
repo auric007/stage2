@@ -52,3 +52,8 @@ radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P �
   Tank boxes (precision 10 / 12.5 / 19 %) land on: at 0.96 — ICV now vehicle 60 + ICV labelled camo 40 (100 / 219), transport vehicle 38, background 31
   (22 in 25JUN16072810), real Tank 30, SPATracked 10; at 0.3 — transport vehicle 170, background 145, ICV 99 + 93, camo SPATracked 34, logistics 29, LTV 29.
   Cause: training tank_spa held ~1,650 ICVs (rule 3 now maps ICV → vehicle); without the ICV boxes precision at 0.96 would still be only ~34 %.
+- ICV destinations (`code/icv_diag_remap.py`, v3 y11l, F1-opt thresholds; recall-heavy P50/P40 in brackets): 585 test ICVs.
+  Camo-labelled (PC05, target camo) 368: correct camo 78.3 % [84.5], → vehicle 9.2 % [11.4], → tank 7.1 % [3.8]. Tank-labelled non-P_Camo (target vehicle) 185:
+  correct vehicle 31.4 % [42.2], → camo 20.5 % [19.5], → tank 18.4 % [17.8], no box 12.4 % (19 in 22JUL07045805). Tank-labelled P_Camo=Yes (vehicle, camo ok) 32:
+  → tank 50 %, camo 37.5 %. Scene 23JUL02025233 holds 389 ICVs: 289 camo-labelled (270 found as camo) and 100 tank-labelled (→ tank 49, → camo 30, camo-ok 12)
+  — the same ICVs in one scene carry two labels, which the remap turns into camo vs vehicle. 24APR06053032: 69 camo-labelled ICVs mostly → vehicle (44).
