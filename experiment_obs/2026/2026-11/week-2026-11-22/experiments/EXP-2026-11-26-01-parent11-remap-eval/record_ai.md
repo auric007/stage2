@@ -46,3 +46,9 @@ radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P �
 - Mixed floors (researcher, ~15:20 IST): vehicle / smallvehicle / camo P ≥ 50 %, others P ≥ 40 % (`PMIN=0.40 PMIN_CLASS=vehicle:0.5,smallvehicle:0.5,camo:0.5`,
   `reports/v3_y11l_P50v_P40.md`). IoU 0.3 MICRO P 49.3 / R 77.9 / F1 60.3, MACRO(7) 43.6: vehicle 50.2/83.5 (conf 0.20) · smallvehicle 50.3/74.1 (0.405) ·
   camo 50.1/76.7 (0.45) · missile 40.8/53.3 · radar 40.6/62.1 · tank / arty as before. IoU 0.5: P 49.2 / R 73.9.
+- Tank diagnosis (`code/tank_diag_remap.py`, v3 y11l): remapped tank GT 163 = SPATracked 57 + Tank 55 + SPAWheeled 35 + K9 16.
+  Found at tank conf 0.3 / 0.7 / 0.96: Tank 80 / 73 / 55 % · SPATracked 25 / 19 / 18 % (21 low-conf other class, 12–13 → vehicle) · SPAWheeled 40 / 14 / 3 %
+  (→ vehicle 6–10, → missile 3, tank box at low conf) · K9 0 % (14 / 16 no box; one scene). Recall failure = SPA, not tanks.
+  Tank boxes (precision 10 / 12.5 / 19 %) land on: at 0.96 — ICV now vehicle 60 + ICV labelled camo 40 (100 / 219), transport vehicle 38, background 31
+  (22 in 25JUN16072810), real Tank 30, SPATracked 10; at 0.3 — transport vehicle 170, background 145, ICV 99 + 93, camo SPATracked 34, logistics 29, LTV 29.
+  Cause: training tank_spa held ~1,650 ICVs (rule 3 now maps ICV → vehicle); without the ICV boxes precision at 0.96 would still be only ~34 %.
