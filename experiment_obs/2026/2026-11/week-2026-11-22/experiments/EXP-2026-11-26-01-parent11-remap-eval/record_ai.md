@@ -36,3 +36,10 @@ radar 81.8/49.5/61.7 · arty 12.1/41.5/18.7 · aerial 0. Recall-heavy: vehicle 3
 radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P ≥ 30 only at R 3 %. IoU 0.5: F1-opt MICRO 65.5 / MACRO(7) 49.4; recall-heavy 32.5 / 79.8.
 - Tank precision is capped by the mapping: of 178 tank FPs at conf 0.96, 60 are tank-labelled ICVs now vehicle (R3), 40 camo-labelled ICVs, 38 transport vehicles,
   31 background — the models were trained with ICV as tank. Missile FPs: mostly transport / engineering vehicles; empty launchers (R5) only 7. Radar: EWS → vehicle 3.
+
+### Follow-up (2026-11-26 ~15:10 IST): 40 % operating points, v3 y11l — `reports/v3_y11l_P40.md|json`
+- `code/score_remap.py` was found **deleted** from `code/` (code dir modified 14:28 IST; no copy elsewhere under /sfs/stage2). Recreated from the
+  AI-authored version with the same logic + `PMIN` / `RMIN` env options; re-scoring v3 y11l reproduces the original `reports/v3_y11l.json` exactly (TP/FP/n/conf, all classes, both IoUs).
+- Precision ≥ 40 % (max recall), IoU 0.3: MICRO P 39.9 / R 81.7 / F1 53.6, MACRO(7) 40.7. vehicle 40.1/87.1 · smallvehicle 40.1/79.7 · camo 40.1/81.8 ·
+  missile 40.8/54.2 (conf 0.73) · radar 40.6/62.1 (conf 0.465) · tank unreachable (max P 19) · arty P ≥ 40 only at R 3. IoU 0.5: P 40.1 / R 77.6.
+- Recall ≥ 40 % (max precision), IoU 0.3: MICRO P 74.4 / R 40.9; vehicle 93.5 · smallvehicle 82.2 · camo 92.1 · missile 62.5 · radar 87.2 · tank 10.6 · arty 12.1.
