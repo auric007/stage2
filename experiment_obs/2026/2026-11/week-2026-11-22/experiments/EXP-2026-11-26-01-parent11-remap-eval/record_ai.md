@@ -65,3 +65,8 @@ radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P �
   (94 = 47 % of all boxes; 84 of them in 23JUL02025233), transport vehicles 31 (16 in 25SEP14032108, 14 in 23JUL02025233), background 28
   (20 in 25JUN16072810), camo SPATracked 3, logistics 2. 23JUL02025233 alone gives ~100 of the 160 false tank boxes. At 0.7: transport vehicles 96,
   ICV 91 + 69, background 77, camo SPATracked 21, LTV 16.
+- ICV → tank variant (researcher ~16:15 IST; `remap.py` env ICV_TO=tank = rule 3 to tank, PC05 ICVs stay camo; SPA_MERGE=0 = SPA not scored), same P50/P40
+  floors (`reports/v3_y11l_P50v_P40__ICVtank_{noSPA,withSPA}.md`). Tank (Tank + 217 ICV, no SPA, GT 268): P 42.7 / R 33.6 at conf 0.965 (floor met; F1-opt
+  P 38.7 / R 39.3). Tank + ICV + SPA (GT 378): P 40.3 / R 32.0 at 0.90 (F1-opt 37.2 / 35.9). Doc rules: P 19.2 / R 23.3. Vehicle R 83.5 → 84.9 at P 50;
+  MICRO 49.3 / 77.9 → 49.5 / 78.1. Found as tank at 0.965: Tank 55 %, ICV 28 %, SPATracked 16 %, SPAWheeled 3 %, K9 0 %; remaining false tank boxes:
+  camo-labelled ICV 39, transport vehicles 34, background 30.
