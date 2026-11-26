@@ -99,3 +99,7 @@ Pending.
   package mapping (P_Camo never overrides the parent there) — never camo GT. Predictions (best boxes, IoU ≥ 0.1, conf ≥ 0.05): camouflaged one —
   v1 y11l radar 0.15, v1 ens radar 0.29 (+ camo 0.14), v2 y11l camo 0.10 only, **v3 y11l no box**; uncamouflaged one — v1 camo 0.37, v2 y11l radar 0.32
   (+ camo 0.11), v3 radar 0.27 + camo 0.25 (the single CartoSat radar TP at the tuned 0.265). All far below the main-test radar conf 0.85.
+- CartoSat all-models comparison (researcher ~16:15 IST: per-class CartoSat thresholds, all earlier models, best metrics): v1 / v2 y8m + y11l re-run on
+  CartoSat test v2 with `code/infer_carto2611_any.py` (reuses the v3 tiles; preds in each experiment's `preds/carto2611_*`, started 16:19 IST, in parallel);
+  scoring `code/carto_allmodels.py` (common classes best F1, rare best F2, tuned on CartoSat ALL IoU 0.3; per-class best-model HYBRID; ALL / EXCL, IoU 0.3 / 0.5)
+  → `reports/carto2611_allmodels.md`. Scorer reproduces the v3 tuned result exactly (36.5 / 40.9; class-agnostic 44.3 / 45.4).
