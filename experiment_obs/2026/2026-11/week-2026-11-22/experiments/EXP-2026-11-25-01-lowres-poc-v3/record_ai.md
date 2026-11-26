@@ -87,3 +87,10 @@ Pending.
   67.9 % (EXCL) — about half of the detectable objects stay below the main-test confs. Per scene class-agnostic R at MAIN: 46RCT 52 %, 42SXB 40 %, 45RYM 37 %,
   268895151 29 % (ceiling 37 %), 25493 24 %, 268329211 18 %, 50QJL 7.5 % (ceiling 51 %), 41906 0 % (ceiling 33 %). Not comparable with the v1 / v2 CartoSat
   numbers (old 670-object labels, other classes).
+- CartoSat-tuned operating point (researcher ~16:20 IST; `code/carto_tuned.py` → `reports/carto2611_v3_y11l_TUNED.md`; OPTIMISTIC, tuned on the test):
+  common classes best F1 on CartoSat (msv 0.67, smallvehicle 0.445, camo 0.675, logistic 0.835), rare classes best F2 (tank 0.05, radar 0.265, missile 0.335,
+  arty 0.05). ALL IoU 0.3: msv P 58.0 / R 45.6 · smallvehicle 41.6 / 41.2 · camo 11.1 / 13.0 · logistic 18.4 / 14.8 · radar 1/7 (235 FP) · missile 1/7 (100 FP) ·
+  tank 0/15 · arty 0/6; MICRO 36.5 / 40.9 (4 common classes 48.4 / 41.6); class-agnostic 44.3 / 45.4 (MAIN 61.3 / 34.9).
+  Rare classes: even at conf 0.05 only radar 1/7, missile 1/7, tank 0/15, arty 0/6 — 26 / 35 rare objects get NO box of any class (17 in 50QJL, 7 in 41906);
+  46RCT ICVs → msv 1.00, 268895151 Tank / arty → msv 0.94–0.97. Crops `analysis/carto2611_rare_objects.jpg`: 41906 radars / SPADA are 3–6 m dark blobs among
+  bushes; 50QJL imagery is strongly blurred (SPATracked row, HQ16, AAGun barely visible); 45RYM radars on a rooftop. Threshold tuning cannot recover them.
