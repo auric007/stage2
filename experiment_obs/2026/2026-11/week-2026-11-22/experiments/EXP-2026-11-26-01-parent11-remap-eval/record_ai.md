@@ -61,3 +61,7 @@ radar 32.8/64.9 (conf 0.335) · tank P ≥ 30 unreachable (max 19 %) · arty P �
   recall at conf 0.97 (the P50/P40 table point) 54.5 % (30/55) vs 23 % with SPA merged; conf 0.9 65.5 · 0.7 72.7 · 0.3 80.0 · 0.05 92.7 %.
   Precision 15.2 % (SPA = separate class, tank boxes on SPA = FP) / 15.8 % (SPA ignored) at 0.97; ≤ 16 % at every conf → P ≥ 40 unreachable
   (remaining FPs = ICVs, transport vehicles, background).
+- Tank precision (researcher ~16:10 IST): at conf 0.97 (198 tank boxes, 38 correct) false tank boxes land on ICV now vehicle 59 + ICV labelled camo 35
+  (94 = 47 % of all boxes; 84 of them in 23JUL02025233), transport vehicles 31 (16 in 25SEP14032108, 14 in 23JUL02025233), background 28
+  (20 in 25JUN16072810), camo SPATracked 3, logistics 2. 23JUL02025233 alone gives ~100 of the 160 false tank boxes. At 0.7: transport vehicles 96,
+  ICV 91 + 69, background 77, camo SPATracked 21, LTV 16.
