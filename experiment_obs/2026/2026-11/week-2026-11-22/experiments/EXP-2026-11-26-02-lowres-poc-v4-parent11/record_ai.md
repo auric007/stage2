@@ -42,5 +42,10 @@ First start 19:29 IST stopped at epoch 2 on researcher request (artefacts in `_a
   v2 ens 68.0 / 53.3 | 67.5 / 52.8 · **v3 y11l 68.7 / 56.3 | 68.4 / 56.0**; best existing per class 69.4 / 57.4 | 69.0 / 57.0
   (`reports/hybrid_doc_base121.md`, `hybrid_strict_base121.md`; arty 51.9 from v3 now that the 185 false arty boxes of 25JUN16072810…879 are gone).
 
+## Side analysis — radar / missile recall by SOC (researcher ~20:15 IST, existing models)
+- `code/soc_recall.py` → `reports/soc_recall_radar_missile.md|json`. UP42: remap GT, strict, 121-scene confs; CartoSat: package classes, CartoSat-tuned confs. IoU 0.3.
+- UP42 v3 y11l recall best-F1 / P≥30 / any box: radar Pixels (150) 57 / 71 / 78, Site (30) 37 / 53 / 53, Third_Party (23) 26 / 35 / 39; missile Pixels (172) 53 / 67 / 74, Site (20) 10 / 20 / 35, Third_Party (20) 35 / 55 / 55, SOC Nil (32) 3 / 44 / 56. Best non-Pixels missile at P≥30: v2 ens 34 / 72 (47 %).
+- CartoSat (7 radar, 7 missile): no model boxes any of the 5 non-Pixels radars (Temporal 3, Third_Party 2) even at conf 0.05; Pixels radars 2 / 2 (v2 y8m). Missile all non-Pixels: Site MissileSystem 0 / 3, Temporal SPADA 0 / 1, Third_Party HQ16 up to 2 / 3 (v1 y8m, v1 ens).
+
 ## Results
 (pending)
