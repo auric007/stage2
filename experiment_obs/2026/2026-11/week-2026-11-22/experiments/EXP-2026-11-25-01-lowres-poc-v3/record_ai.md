@@ -81,3 +81,9 @@ Pending.
   package classes 2026-11-26): `code/infer_carto2611.py` (same preprocessing / TTA as infer_external.py, 8-class names, 14,761 tiles) →
   `preds/carto2611_y11l`; `code/score_carto2611.py` (vehicle → military-support-vehicle, tank_spa → tank; MAIN = main-test best-F1 confs,
   ORACLE = CartoSat best F1; ALL and EXCL = without the 975 objects in poc-train footprints; class-agnostic + per scene). Started 15:38 IST (pipeline.log).
+  Done 16:02 IST (43,188 boxes) → `reports/carto2611_v3_y11l.md|json`. IoU 0.3, MAIN confs: class-agnostic P 61.3 / R 34.9 (ALL) · P 38.9 / R 30.7 (EXCL);
+  per-class MICRO P 52.1 / R 31.4 / F1 39.2 (ALL), 33.9 / 27.6 / 30.4 (EXCL). military-support-vehicle 65.5 / 38.2 · smallvehicle 51.6 / 23.8 · camo 10.9 / 6.5 ·
+  logistic 11.4 / 16.4 · tank 0 / 15 GT · radar 0 / 7 (32 FP) · missile 0 / 7 (22 FP) · arty 0 / 6. ORACLE MICRO 36.5 / 40.9. Any box at conf 0.05: R 63.2 % (ALL),
+  67.9 % (EXCL) — about half of the detectable objects stay below the main-test confs. Per scene class-agnostic R at MAIN: 46RCT 52 %, 42SXB 40 %, 45RYM 37 %,
+  268895151 29 % (ceiling 37 %), 25493 24 %, 268329211 18 %, 50QJL 7.5 % (ceiling 51 %), 41906 0 % (ceiling 33 %). Not comparable with the v1 / v2 CartoSat
+  numbers (old 670-object labels, other classes).
