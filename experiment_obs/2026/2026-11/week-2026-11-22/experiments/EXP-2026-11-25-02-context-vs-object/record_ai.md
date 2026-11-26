@@ -4,7 +4,7 @@ Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [
 Related: [EXP-2026-11-25-01](../EXP-2026-11-25-01-lowres-poc-v3/record_ai.md) (v3, 8 classes; y11l-v3 epoch 26 = the probed detector).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-25-02-context-vs-object`
 
-Status: **running** (started 2026-11-25 20:11 IST; phase 0 + phase 1 in parallel on the L40S).
+Status: **completed** 2026-11-25 21:41 IST (phase 0 20:25, phase 1 21:41; reported 2026-11-26). Phase 1b not run.
 
 ## Request summary and authorization
 - Researcher, 2026-11-25 ~20:00 IST: wants to know whether the model classifies the 8 classes from the object's own pixels (fine features) or from
@@ -36,6 +36,7 @@ Status: **running** (started 2026-11-25 20:11 IST; phase 0 + phase 1 in parallel
 ## Execution
 - 20:08 IST y8m-v3 stopped (EXP-2026-11-25-01). 20:11 phase 0 started (`code/run_phase0.sh`). 20:11–20:15 crops built (CPU).
 - 20:15 IST phase 1 started (`code/run_phase1.sh`; order FULL96, CONTEXT96, OBJECT48, SHAPE48, SITE96, FULL48, FULL192, CONTEXT48, CONTEXT192).
+- 21:41 IST phase 1 finished (9 arms, 7–13 min each, no failures; best epochs by val macro-F1).
 
 ## Results and failures
 ### Phase 0 (done 20:25 IST) — `reports/phase0.md`, `reports/phase0.json`, `reports/phase0_object_precision.json`
@@ -63,5 +64,37 @@ Per class on labelled objects, 78 clean scenes: same-class recall / precision am
   by the 58 overlap scenes for these two classes.
 - Reading: the current detector decides mostly from the object + ~10–30 m; far context matters for missile (to ~100 m) and somewhat for logistic.
 
+### Phase 1 (done 21:41 IST) — `reports/phase1.md`, `reports/phase1.json`, `reports/phase1_paired_bootstrap_clean.json`
+Test macro-F1, 78 clean scenes (scene-bootstrap 95 % CI): FULL48 46 (38–51) · FULL96 48 (41–53) · FULL192 49 (40–53) · CONTEXT48 40 ·
+CONTEXT96 44 (38–48) · CONTEXT192 45 · SITE96 32 (26–36) · OBJECT48 45 (39–49) · SHAPE48 23 (19–28). All scenes: same ordering (49 / 45 / 46 / 34 / 26).
+Per-class F1, clean (recall / precision):
+
+| class | FULL96 | OBJECT48 | CONTEXT96 | SITE96 | SHAPE48 | FULL192 |
+|---|--:|--:|--:|--:|--:|--:|
+| radar | 39 (46/33) | **48 (66/38)** | 43 (53/35) | 22 | 19 | 45 |
+| missile | **34 (51/25)** | 16 (39/10) | 31 (51/22) | 21 | 12 | 29 |
+| tank_spa | 22 | **29 (45/22)** | 19 | 19 | 16 (45/10) | 17 |
+| logistic | 52 | 51 | 46 | 24 | 21 | 41 |
+| vehicle | 71 | 61 | **73** | 49 | 32 | 66 |
+| camo | 66 | 57 | 58 | 32 | 22 | 62 |
+| smallvehicle | 77 | 76 | 76 | 69 | 56 | 76 |
+| arty (65, CIs 9–100) | 20 | 24 | 6 | 20 | 6 | 58 |
+
+Paired scene bootstrap (clean, F1 difference, 95 % CI): missile FULL96 − OBJECT48 **+17.4 [+10.2, +24.7]**, CONTEXT96 − OBJECT48 +14.4 [+6.3, +22.0];
+vehicle CONTEXT96 − OBJECT48 +12.3 [+7.3, +16.5]; macro CONTEXT96 − SITE96 (neighbouring objects) **+12.0 [+7.4, +16.2]**; SITE96 − SHAPE48 (terrain)
++8.4 [+1.5, +14.8]; macro FULL96 − OBJECT48 +2.6 [−1.3, +6.7], FULL96 − CONTEXT96 +3.8 [+0.2, +7.8]; **FULL192 − FULL96 +0.3 [−7.1, +6.6]**,
+FULL96 − FULL48 +2.1 [−0.6, +4.8]; radar OBJECT48 − FULL96 +9.2 [−2.7, +19.9] (P > 0 = 0.94); logistic OBJECT48 − CONTEXT96 +5.0 [−3.7, +13.3].
+Confusions (clean): radar → vehicle 27 % with FULL96 vs < 8 % with OBJECT48; tank_spa → camo 35–45 % in every arm; missile SOC context-labelled
+(96 test GT) 27–32 % recall in every arm vs Pixels 57–70 %.
+Caveats: classifier on GT crops (oracle localisation, 15 epochs, ResNet-50 at 384 px) — only differences between arms are read, not absolute levels;
+192 m patches are resized to 0.5 m/px, so FULL192 / CONTEXT192 also lose object detail.
+
 ## Conclusions and next steps
-Pending.
+1. Object and surroundings each carry about the same overall information (OBJECT48 45 ≈ CONTEXT96 44 macro-F1) and are largely redundant: together +3.
+2. The context signal is mainly the neighbouring objects (+12), then terrain / site (+8 over the shape-only floor); size / aspect alone gives 23.
+3. Per class: **missile and vehicle are context classes** (firm: +17 / +12 F1); **radar is an object class** (object-only best, context pulls radar → vehicle;
+   suggestive, P 0.94); logistic and tank_spa lean on the object / shape (not significant); tank_spa → camo persists in every arm (label boundary, not information).
+4. **Larger patches do not help overall** (96 → 192 m +0.3) and cost object detail (logistic 52 → 41, tank_spa 22 → 17); consistent with phase 0
+   (detector gains +3 beyond 100 m). Larger detector tiles are not supported by this evidence.
+5. Possible next steps (not started; researcher's decision): class-specific second stage on detector boxes — tight object crop for radar,
+   96 m context crop for missile / vehicle; phase 1b (literal grayed-GT detector) adds nothing to these conclusions.
