@@ -51,8 +51,8 @@ superseded 8-scene v2 set (offset `268895151` labels, duplicates) and package cl
 
 ## Results and failures
 
-Doc rule, IoU 0.3, honest operating point (main-test thresholds). MICRO / MACRO over the 7 main-bar classes; strict is within 0.6 of doc except
-HYB_MAIN MACRO (20.1 strict, camo pick differs). Full tables (IoU 0.5, strict, all models, per scene): `reports/cartosat_v41_*.md`.
+Doc rule, IoU 0.3, honest operating point (main-test thresholds). MICRO / MACRO over the 7 main-bar classes; strict changes MICRO by ≤ 1.0 (v4 sets
+identical); HYB_MAIN strict 49.4 / MACRO 20.1 (its camo pick differs). Full tables (IoU 0.5, strict, all models, per scene): `reports/cartosat_v41_*.md`.
 
 | set | ALL (1,886) MICRO P / R / F1 | MACRO(7) | aerial F1 | class-agnostic F1 | EXCL (876) MICRO F1 | EXCL agnostic F1 |
 |---|---|--:|--:|--:|--:|--:|
