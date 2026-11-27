@@ -25,3 +25,5 @@ Updated: 2026-11-23 19:25 IST. Task: `TASK-20261123-lowres-poc-split`.
 - 2026-11-27 16:12 IST: researcher picks the **v2 ensemble** as reference for radar / missile at P ≥ 30 / 35 / 40 (D-20261127-01); no training for a few days.
   [EXP-2026-11-27-01](experiments/EXP-2026-11-27-01-v2ens-failure-analysis/record_ai.md) failure analysis: vehicle ↔ missile / radar confusions at high confidence dominate;
   box rescoring does not help; v2 + v3 y11l radar / missile fusion = radar 66.5 / 65.0 / 63.1, missile 64.8 / 61.1 / 59.4 (not adopted).
+- 2026-11-27 17:36 IST: analysis reference for radar / missile = **v2 ens + v3 y11l** noisy-OR (D-20261127-02): radar 66.5 / 65.0 / 63.1, missile 64.8 / 61.1 / 59.4
+  at P ≥ 30 / 35 / 40; EXP-2026-11-27-01 figures / galleries / tables regenerated on it.

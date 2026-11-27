@@ -44,3 +44,18 @@ Status: **completed (first pass)** 2026-11-27 15:52 → 16:12 IST. Eval-only: no
 - Figures `figs/` (confusion_objects / confusion_boxes / child_confusion / top_confusions at P30, P35, P40; rm_failure_modes, rm_scores, rm_recall_by_soc_child),
   galleries `gallery/*_P35_pNN.jpg` (16 sheets), tables `tables/*.tsv`, JSON `reports/postproc_radar_missile.json`, `multi_model_radar_missile.json`, `site_and_remap.json`.
 - Environment `/sfs/envs/yolo_models` (sklearn 1.7.2, matplotlib 3.10.8). Code not under git (artifacts dir).
+
+## Follow-up 17:36 IST — analysis reference switched to v2 ens + v3 y11l (radar / missile), D-20261127-02
+- Researcher (after the first pass): "yes use this for analysis" for the v2 + v3 YOLO11l radar / missile fusion; also asked which remap rules are applied (answered from
+  `14_PARENT11_ONEOFF_INSTANCE_REMAPPING_20261126.md` + v4 `code/remap.py`; table in `reports/FAILURE_ANALYSIS.md` §0).
+- Built `preds/v2ens_v3rm/labels_2x` (`code/build_ref.py`: v2 ensemble lines verbatim for other classes + 12-view noisy-OR radar / missile) and scored it with the
+  unchanged v4 `score_remap.py` via `code/score_official.py` (reports here; the wrapper reproduces the v4 v2-ensemble report exactly apart from aerial, which no model predicts).
+- Official: radar 66.5 (P 30.5) / 65.0 (37.0) / 63.1 (40.8), missile 64.8 (30.1) / 61.1 (35.2) / 59.4 (40.4) at P ≥ 30 / 35 / 40; F1-opt radar 53.2 (77.1), missile 48.0 (57.9);
+  any box 76.4 / 79.9. Other classes unchanged. `fa_core.py` reproduces the counts at all op points for both sets.
+- `fa_core.py` now takes env `FA_REF` (default `v2v3rm`); v2-only figures / galleries / tables moved to `v2ens_only/`; top-level `figs/`, `gallery/` (P35, 15 sheets),
+  `tables/`, `reports/site_and_remap.json` regenerated for the new reference.
+- P35 errors (new reference): missed missiles 95 = 60 lost to vehicle (median 0.97), 11 other class, 11 below conf, 13 no box; missed radars 71 = 32 to vehicle (0.92),
+  5 other, 13 below conf, 2 loose, 19 no box. False missile boxes 274 = 198 on vehicles (126 TransportVehicle, 32 EngineeringVehicle), 36 other class, 11 near, 27 bg;
+  false radar boxes 225 = 89 bg, 56 on vehicles (9 EWS), 42 other class, 22 dup / loose, 16 near.
+- v3 adds at P35: radar +6 / −3 (RadarSystem), missile +8 / −4 (5 HQ9); at P40 missile +11 / −2 (7 HQ9). R5 boxes not counted → missile 65.2 / 62.7 / 60.2; radar no change.
+- Not re-run on the new set: rules / learned rescorer (they read `state/fused_v2ens.pkl`; no gain on v2).

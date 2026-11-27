@@ -107,3 +107,10 @@ Date: 2026-11-27 (~15:50 IST). Researcher: "this is method, i go with" after the
 - Locked numbers: missile recall 64.3 / 59.4 / 55.7 (P 30.4 / 35.5 / 40.0), radar 63.5 / 63.5 / 62.1 (P 37.6 / 37.6 / 40.5) at P ≥ 30 / 35 / 40.
 - No training for the next few days; work = failure analysis + post-processing ([EXP-2026-11-27-01](../2026/2026-11/week-2026-11-22/experiments/EXP-2026-11-27-01-v2ens-failure-analysis/record_ai.md)).
 - Scope: lowres_poc stage-2 research only; the stage-2 tool's deployed model is unchanged.
+
+## D-20261127-02 - lowres_poc radar / missile analysis reference = v2 ensemble + v3 YOLO11l
+
+Date: 2026-11-27 (~17:30 IST). Researcher: "yes use this for analysis" for the v2 + v3 YOLO11l fusion found in EXP-2026-11-27-01.
+- Set: EXP-2026-11-27-01 `preds/v2ens_v3rm` — v2 ensemble boxes for every class; radar / missile = noisy-OR fusion of v2 y8m + v2 y11l + v3 y11l (12 TTA views, same cluster rule).
+- Numbers (official strict, 121 scenes, IoU 0.3): radar 66.5 / 65.0 / 63.1 (P 30.5 / 37.0 / 40.8), missile 64.8 / 61.1 / 59.4 (P 30.1 / 35.2 / 40.4) at P ≥ 30 / 35 / 40.
+- D-20261127-01 numbers stay as the v2-ensemble baseline. Analysis only; the stage-2 tool's deployed model is unchanged.
