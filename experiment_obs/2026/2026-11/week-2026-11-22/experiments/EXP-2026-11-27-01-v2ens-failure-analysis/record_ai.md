@@ -66,3 +66,11 @@ Status: **completed (first pass)** 2026-11-27 15:52 → 16:12 IST. Eval-only: no
   `Nil` launcher-family (14) → 7 vehicle only, 3 both, 3 missile only, 1 neither (6); functionality + Is_Empty `Nil` (15, 11 LD2000) → 8 vehicle only, 7 both (7); other 4 → 2.
   `Nil` objects carry 13 of 22 false missile boxes at P35 / P40, 19 of 29 at P30. Correction: the earlier chat reply said all 22–29 were on `Nil` objects — that figure is all R5 objects.
 - Metric unchanged (current rule): radar 66.5 / 65.0 / 63.1, missile 64.8 / 61.1 / 59.4 at P ≥ 30 / 35 / 40. Per object: `tables/r5_missile_parent_moved_to_vehicle.tsv`.
+
+## Follow-up 17:54 IST — found / missed by Quality and SOC (v2v3rm, P30 / P35 / P40)
+- Researcher confirmed v2 ens + v3 y11l as the radar / missile method going forward, asked for the missed / found distribution by Quality (detailed col 13: 01 clear,
+  02 uncertain) and SOC. Output: `reports/recall_by_quality_soc.md`, `tables/recall_by_quality_soc.tsv`.
+- Missile recall P30 / P35 / P40: clear 77 / 75 / 74 % (108) vs uncertain 55 / 50 / 48 % (136, ~72 % of misses); SOC Pixels 73 / 69 / 67 % (172), Nil 53 / 44 / 44 % (32),
+  Third_Party 55 / 55 / 50 % (20), Site 25 % (20, all uncertain). Clear + Pixels 82 / 79 / 78 %; clear + Nil 0 / 7 = 7 MLRS launchers in one scene (23OCT25023506), all → vehicle at 1.0.
+- Radar: clear 71 / 70 / 66 % (92) vs uncertain 63 / 61 / 60 % (111); SOC Pixels 74 / 73 / 71 % (150), Site 53 / 50 / 50 % (30), Third_Party 35 / 35 / 30 % (23).
+  Within Pixels quality barely matters (clear 72 %, uncertain 74 % at P35); clear + Site 0 / 3 (one Pleiades scene).
