@@ -59,3 +59,10 @@ Status: **completed (first pass)** 2026-11-27 15:52 → 16:12 IST. Eval-only: no
   false radar boxes 225 = 89 bg, 56 on vehicles (9 EWS), 42 other class, 22 dup / loose, 16 near.
 - v3 adds at P35: radar +6 / −3 (RadarSystem), missile +8 / −4 (5 HQ9); at P40 missile +11 / −2 (7 HQ9). R5 boxes not counted → missile 65.2 / 62.7 / 60.2; radar no change.
 - Not re-run on the new set: rules / learned rescorer (they read `state/fused_v2ens.pkl`; no gain on v2).
+
+## Follow-up 17:46 IST — missile-parent objects scored as vehicle (R5); Is_Empty `Nil` stays vehicle (D-20261127-03)
+- Researcher asked whether the 23 empty launchers are predicted as vehicle or missile, and about the Is_Empty `Nil` objects; decided `Nil` stays vehicle (R5 as written).
+- P35, v2v3rm: empty launchers (23) → 15 vehicle only, 2 vehicle + missile box, 1 missile only, 5 neither (3 false missile boxes); empty transloader / transporter (7) → 4;
+  `Nil` launcher-family (14) → 7 vehicle only, 3 both, 3 missile only, 1 neither (6); functionality + Is_Empty `Nil` (15, 11 LD2000) → 8 vehicle only, 7 both (7); other 4 → 2.
+  `Nil` objects carry 13 of 22 false missile boxes at P35 / P40, 19 of 29 at P30. Correction: the earlier chat reply said all 22–29 were on `Nil` objects — that figure is all R5 objects.
+- Metric unchanged (current rule): radar 66.5 / 65.0 / 63.1, missile 64.8 / 61.1 / 59.4 at P ≥ 30 / 35 / 40. Per object: `tables/r5_missile_parent_moved_to_vehicle.tsv`.

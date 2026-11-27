@@ -114,3 +114,9 @@ Date: 2026-11-27 (~17:30 IST). Researcher: "yes use this for analysis" for the v
 - Set: EXP-2026-11-27-01 `preds/v2ens_v3rm` — v2 ensemble boxes for every class; radar / missile = noisy-OR fusion of v2 y8m + v2 y11l + v3 y11l (12 TTA views, same cluster rule).
 - Numbers (official strict, 121 scenes, IoU 0.3): radar 66.5 / 65.0 / 63.1 (P 30.5 / 37.0 / 40.8), missile 64.8 / 61.1 / 59.4 (P 30.1 / 35.2 / 40.4) at P ≥ 30 / 35 / 40.
 - D-20261127-01 numbers stay as the v2-ensemble baseline. Analysis only; the stage-2 tool's deployed model is unchanged.
+
+## D-20261127-03 - Is_Empty `Nil` missile / ballistic objects stay vehicle
+
+Date: 2026-11-27 (~17:45 IST). Researcher: "Nil we should keep in vehicle". Parent-11 rule R5 stays as written: a PC02 / PC07 object becomes missile only with
+Functionality Launcher / Transporter / Transloader **and** Is_Empty = No; Is_Empty `Nil` → vehicle (29 objects on the 121-scene test). No scoring change; the
+D-20261127-02 numbers stand. Evidence: EXP-2026-11-27-01 `tables/r5_missile_parent_moved_to_vehicle.tsv`.
