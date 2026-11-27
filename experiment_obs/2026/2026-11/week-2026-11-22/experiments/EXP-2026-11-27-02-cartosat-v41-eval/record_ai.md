@@ -101,3 +101,9 @@ All on ALL scope, IoU 0.3, doc rule, from the same prediction sets; code in the 
   small (vehicle → smallvehicle 18, smallvehicle → vehicle 9, missile → vehicle 6 / 20); misses mostly below threshold (vehicle 292,
   smallvehicle 217, camo 47) or never detected (174 / 117 / 24); FPs mostly background (vehicle 348, smallvehicle 372, arty 97).
 - **Rare-class recall vs precision** (`rare_recall.py` → `cartosat_v41_rare_recall.md`): see the daily entry of 18:55 IST.
+- **Training-scene selection** (`train_select.py` → `cartosat_v41_train_select.md`, TASK-20261127-cartosat-train-select): researcher rule = at most 6 scenes,
+  every object Parent Class 00 (vehicle / smallvehicle / logistic). Only 5 qualify: 42SXB, 268329211 (uint8), 268895141 (uint16, background
+  only), 268807111 and 268895121 (uint16, all Delete in the test, so the current Delete rule of prep.py would black them out). Reduced-test
+  baseline after moving them: v4_ens ALL MICRO 51.3 (P 52.8 / R 49.9), EXCL 27.3. Recommendation and open points: daily entry of 20:26 IST.
+- **Correction (20:26 IST):** the daily entry of 19:05 IST gave the 5 missed 41906 radars "Parent Class 02"; that was the Quality column. They are
+  Parent Class 01, Quality 02 (found radars: Quality 01).
