@@ -89,3 +89,15 @@ identical); HYB_MAIN strict 49.4 / MACRO 20.1 (its camo pick differs). Full tabl
   Rare classes (missile / tank / radar / arty, 6–20 GT each) are near zero for every model and threshold.
 - Proposed (not executed): FP review of 268895131 in the fp_viewer (needs restarting on v4.1); a sensitivity score with the analyst Delete
   shapes kept; per-class pick for CartoSat that does not use CartoSat itself (only if the researcher wants a CartoSat-specific operating point).
+
+## Follow-ups (2026-11-27, same session)
+
+All on ALL scope, IoU 0.3, doc rule, from the same prediction sets; code in the artifact `code/`, reports in `reports/`.
+- **Per-class best model (main-test confs):** vehicle 62.6 (v4_y11l), smallvehicle 33.4 (v4_y8m), camo 36.7 (v4_y11l), missile 19.4 (v4_y11l),
+  radar 22.2 (v1_ens), tank 0, arty 1.5 (v2_y8m), aerial 80.0 (v4_y11l); combined MICRO(7) 50.0, MACRO(7) 25.1, MACRO(8) 32.0.
+- **SOC split** (`soc_split.py` → `cartosat_v41_soc_ALL|EXCL.md`): scored GT Pixels 1,664 / Site 196 / Third_Party 20 / Temporal 6; recall
+  Pixels 50.7, Site 49.0, Third_Party and Temporal 0 / 26; Pixels-only F1 49.1. EXCL: Site vehicle recall 1 / 18.
+- **Confusion matrix** (`confusion.py` → `cartosat_v41_confusion.md`, one-to-one, reconciles with the per-class table): cross-class confusion
+  small (vehicle → smallvehicle 18, smallvehicle → vehicle 9, missile → vehicle 6 / 20); misses mostly below threshold (vehicle 292,
+  smallvehicle 217, camo 47) or never detected (174 / 117 / 24); FPs mostly background (vehicle 348, smallvehicle 372, arty 97).
+- **Rare-class recall vs precision** (`rare_recall.py` → `cartosat_v41_rare_recall.md`): see the daily entry of 18:55 IST.
