@@ -48,4 +48,9 @@ First start 19:29 IST stopped at epoch 2 on researcher request (artefacts in `_a
 - CartoSat (7 radar, 7 missile): no model boxes any of the 5 non-Pixels radars (Temporal 3, Third_Party 2) even at conf 0.05; Pixels radars 2 / 2 (v2 y8m). Missile all non-Pixels: Site MissileSystem 0 / 3, Temporal SPADA 0 / 1, Third_Party HQ16 up to 2 / 3 (v1 y8m, v1 ens).
 
 ## Results
-(pending)
+Pipeline ended 2026-11-27 03:50 IST (y11l-v4 best epoch of 35 run, y8m-v4 of 28; TTA inference; remap scoring on the 121-scene test, EXCL_STEMS = zero_annotation_51; report headers still say "136" — hard-coded text, scenes are 121).
+IoU 0.3, F1-opt, MICRO(7) / MACRO(7) · MICRO(8)/MACRO(8) incl. aerial, doc rule (strict in brackets):
+- v4 y11l 68.0 / 50.3 · 67.9 / 52.5 (67.8 / 50.0) · v4 y8m 65.8 / 48.2 (65.4 / 47.7) · v4 ens 68.5 / 50.9 · 68.6 / 53.4 (68.3 / 50.5).
+- Bar v3 y11l (121) 68.7 / 56.3 (aerial untrained). v4 does not beat it on MICRO(7); MACRO(7) −5.4 driven by arty: v4 y11l P 36.0 / R 13.8 / F1 20.0 (9 / 16 / 56) vs v3 69.2 / 41.5 / 51.9 (27 / 12 / 38) → arty background penalty over-suppressed recall.
+- v4 gains: aerial 71.0 (ens; v3 untrained), vehicle 73.0 (y11l, +0.8), missile 51.9 (y11l, +2.1), tank 24.6–26.8 (+1.8–4.0). Losses: camo 63.7–67.4 (v3 70.1), radar 56.7–60.7 (v3 61.9), smallvehicle 63.9 (v3 65.7).
+- Per-class HYBRID v1–v4 (doc): MICRO(7) P 72.5 / R 67.0 / F1 69.6 · MACRO(7) 57.5 · MACRO(8) 59.2 (prev best existing 69.4 / 57.4); v4 contributes vehicle, missile (y11l), tank (y8m), aerial (ens).
