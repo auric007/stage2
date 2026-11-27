@@ -22,3 +22,6 @@ Updated: 2026-11-23 19:25 IST. Task: `TASK-20261123-lowres-poc-split`.
 - 2026-11-26 19:29 IST: **v4 training running** — [EXP-2026-11-26-02](experiments/EXP-2026-11-26-02-lowres-poc-v4-parent11/record_ai.md): Parent-11 remapped labels (8 classes incl. aerial), SPA oversampling, arty background penalty, P_Camo=Yes = own class; y11l → y8m (~10 h).
 - 2026-11-26 19:47 IST: v4 **restarted** without the 51 zero-annotation scenes (test = 121 scenes; bar v3 y11l 68.7 / 56.3, best per class 69.4 / 57.4).
 - 2026-11-27 03:50 IST: **EXP-2026-11-26-02 completed** — v4 singles below v3 (MACRO(7) 50.0 vs 56.0; arty / camo / radar down), better vehicle / missile / aerial; per-class HYBRID 69.4 / 57.1 (strict, 121 scenes), MACRO(8) with aerial 58.9.
+- 2026-11-27 16:12 IST: researcher picks the **v2 ensemble** as reference for radar / missile at P ≥ 30 / 35 / 40 (D-20261127-01); no training for a few days.
+  [EXP-2026-11-27-01](experiments/EXP-2026-11-27-01-v2ens-failure-analysis/record_ai.md) failure analysis: vehicle ↔ missile / radar confusions at high confidence dominate;
+  box rescoring does not help; v2 + v3 y11l radar / missile fusion = radar 66.5 / 65.0 / 63.1, missile 64.8 / 61.1 / 59.4 (not adopted).

@@ -99,3 +99,11 @@ Date: 2026-11-23 (16:03–19:07 IST). Researcher decisions, given step by step; 
 - Evidence and counts: [2026-11-23_ai.md](../2026/2026-11/week-2026-11-22/daily/2026-11-23_ai.md); `/sfs/data/lowres_poc/analysis/SPLIT_ANALYSIS.md` §7–§10.
 - Scope: lowres_poc only. Not applied to `up42_platform_data_02_11` / Test116, whose 2026-10-27 label policy is unchanged.
 - Revisit: if training shows spa/arty confusion, or the 4 grouped CamoDugouts matter.
+
+## D-20261127-01 - lowres_poc radar / missile reference = v2 ensemble at P ≥ 30 / 35 / 40
+
+Date: 2026-11-27 (~15:50 IST). Researcher: "this is method, i go with" after the v1–v4 comparison (EXP-2026-11-26-02 `reports/radar_missile_recall_all.md`).
+- Reference: EXP-2026-11-24-01 `preds/ens_y8m_y11l` (v2 YOLOv8m + YOLO11l, TTA, noisy-OR). 121 scenes, Parent-11 STRICT, IoU 0.3.
+- Locked numbers: missile recall 64.3 / 59.4 / 55.7 (P 30.4 / 35.5 / 40.0), radar 63.5 / 63.5 / 62.1 (P 37.6 / 37.6 / 40.5) at P ≥ 30 / 35 / 40.
+- No training for the next few days; work = failure analysis + post-processing ([EXP-2026-11-27-01](../2026/2026-11/week-2026-11-22/experiments/EXP-2026-11-27-01-v2ens-failure-analysis/record_ai.md)).
+- Scope: lowres_poc stage-2 research only; the stage-2 tool's deployed model is unchanged.
