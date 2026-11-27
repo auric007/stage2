@@ -4,7 +4,7 @@ Author: AI agent (Claude). Human companion: [record.md](record.md). Daily log: [
 Builds on: [EXP-2026-11-25-01](../EXP-2026-11-25-01-lowres-poc-v3/record_ai.md) v3 (recipe, tiles via v1), [EXP-2026-11-26-01](../EXP-2026-11-26-01-parent11-remap-eval/record_ai.md) (remap scorer, bar to beat).
 Artifacts (outside the notebook, not synced): `/sfs/stage2/artifacts/EXP-2026-11-26-02-lowres-poc-v4-parent11`
 
-Status: **running** — y11l-v4 training (re)started 2026-11-26 19:47 IST on the 51-scene-excluded set (runner `code/run_v4.sh`, log `logs/pipeline.log`).
+Status: **completed** 2026-11-27 03:50 IST (y11l-v4 19:47 → 00:48, 34 epochs, best epoch 23 by mAP50; y8m-v4 00:56 → 03:42, 27 epochs, best 23; runner `code/run_v4.sh`).
 First start 19:29 IST stopped at epoch 2 on researcher request (artefacts in `_aborted_136/`).
 
 ## Request summary and authorization
