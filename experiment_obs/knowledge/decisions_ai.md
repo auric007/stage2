@@ -120,3 +120,5 @@ Date: 2026-11-27 (~17:30 IST). Researcher: "yes use this for analysis" for the v
 Date: 2026-11-27 (~17:45 IST). Researcher: "Nil we should keep in vehicle". Parent-11 rule R5 stays as written: a PC02 / PC07 object becomes missile only with
 Functionality Launcher / Transporter / Transloader **and** Is_Empty = No; Is_Empty `Nil` → vehicle (29 objects on the 121-scene test). No scoring change; the
 D-20261127-02 numbers stand. Evidence: EXP-2026-11-27-01 `tables/r5_missile_parent_moved_to_vehicle.tsv`.
+- Addendum (17:48 IST): researcher also confirmed every Is_Empty = Yes object (incl. launchers) is vehicle — already the case under R5 (32 missile-parent + 4 others on
+  the 121-scene test are vehicle GT); no scoring change.
