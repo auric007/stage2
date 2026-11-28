@@ -107,3 +107,6 @@ All on ALL scope, IoU 0.3, doc rule, from the same prediction sets; code in the 
   baseline after moving them: v4_ens ALL MICRO 51.3 (P 52.8 / R 49.9), EXCL 27.3. Recommendation and open points: daily entry of 20:26 IST.
 - **Correction (20:26 IST):** the daily entry of 19:05 IST gave the 5 missed 41906 radars "Parent Class 02"; that was the Quality column. They are
   Parent Class 01, Quality 02 (found radars: Quality 01).
+- **Training-scene selection, final proposal (11:32 IST 2026-11-28, labels v4.2;** camo allowed by the researcher): 268807111, 268895121, 42SXB, 268895161,
+  268329211. v4 on the whole all-Delete scenes (`alldelete/`): 268807111 labelled cells P 14.2 (235 FP on 59 GT, civilian traffic around one
+  military vehicle park), 268895121 R 24.5. Reduced 8-scene test (1,554 GT): v4_ens MICRO 51.7 (P 52.8 / R 50.6), EXCL 27.2. Daily entry of 11:32 IST.
